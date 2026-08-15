@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://abimael-data.vercel.app/sitemap.xml

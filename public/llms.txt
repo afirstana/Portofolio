@@ -1,0 +1,24 @@
+# Abimael — Portfolio
+
+> Data systems, analytical clarity, and useful automation.
+
+## About
+Data Analyst and System Builder focusing on translating raw operational data into repeatable, high-confidence decision workflows.
+
+## Key Projects & Case Studies
+- Amazon Product Intelligence: Static-first product intelligence dashboard from 1,465 Amazon catalog and review records.
+- ML Product Mapping System: Machine learning matching engine linking supplier descriptions to controlled SKUs.
+- Olist E-Commerce Logistics Analysis: Logistics performance and customer satisfaction analysis across ~100k orders using Power BI and statistical modeling.
+- Revenue Reconciliation Automation: Modular Python application reconciling multi-source revenue records and anomaly detection.
+- Certificate Generator Desktop App: Portable desktop application for batch PDF certificate generation from Excel inputs.
+
+## Skills
+- Automation: Python, Excel, Process Automation
+- Analytics: Power BI, DAX, SQL, Predictive Analytics
+- Machine Learning: Scikit-learn, NLP, TF-IDF
+- Systems: Data Quality, System Architecture
+
+## Contact
+- Email: abimael.firstana2000@gmail.com
+- LinkedIn: https://www.linkedin.com/in/helloabimael/
+- GitHub: https://github.com/afirstana

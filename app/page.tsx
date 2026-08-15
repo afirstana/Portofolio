@@ -1,6 +1,8 @@
 import playgroundData from "@/content/data/playground.json";
+import playgroundPart2Data from "@/content/data/playground_part2.json";
 import { ContactActions } from "@/components/ContactActions";
 import { DataPlayground } from "@/components/DataPlayground";
+import { DataPlaygroundPart2 } from "@/components/DataPlaygroundPart2";
 import { HeroCinematic } from "@/components/HeroCinematic";
 import { MobileContactCTA, ScrollProgress } from "@/components/GlobalUX";
 import { ProjectExplorer } from "@/components/ProjectExplorer";
@@ -19,6 +21,7 @@ export default function HomePage() {
     <Reveal><section id="method" className="section method-section"><div className="page-width"><p className="section-label mono">{method.eyebrow}</p><h2 className="section-title narrow-title">{method.heading}</h2><div className="method-grid">{method.steps.map((step, index) => <article key={step.title}><span className="mono">{String(index + 1).padStart(2, "0")}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}</div></div></section></Reveal>
     <Reveal><SkillMatrix content={skills} projects={projects} /></Reveal>
     <Reveal><DataPlayground data={playgroundData} /></Reveal>
+    <Reveal><DataPlaygroundPart2 data={playgroundPart2Data} /></Reveal>
     <Reveal><TimelineExplorer content={timeline} /></Reveal>
     <Reveal><section id="contact" className="contact-section"><div className="page-width"><p className="section-label mono">{contact.eyebrow}</p><h2>{contact.heading}</h2><a className="contact-cta" href={`mailto:${contact.email}`}>{contact.cta_text} <span>↗</span></a><div className="contact-meta"><div><a href={`mailto:${contact.email}`}>{contact.email}</a><ContactActions email={contact.email} copyLabel={contact.copy_label} /></div><div>{contact.social_links.map((social) => <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer">{social.label} <span>↗</span></a>)}</div></div></div></section></Reveal>
     <footer className="footer page-width"><span className="mono">Data systems. Analytical clarity. Useful automation.</span><a className="mono" href="#top">Back to top ↑</a></footer><MobileContactCTA email={contact.email} />

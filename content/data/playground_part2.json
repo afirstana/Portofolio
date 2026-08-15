@@ -1,0 +1,435 @@
+{
+  "metadata": {
+    "title": "Cross-National Cancer Intelligence & Survival Matrix",
+    "source": "Our World in Data / IHME Global Burden of Disease / CONCORD-3 Cancer Survival Study",
+    "country_count": 35,
+    "survival_types_count": 15
+  },
+  "countries": [
+    {
+      "country": "Mongolia",
+      "code": "MNG",
+      "rate_per_100k": 284.3,
+      "total_deaths": 5802,
+      "deaths_formatted": "5,802",
+      "rank": 1
+    },
+    {
+      "country": "Greenland",
+      "code": "GRL",
+      "rate_per_100k": 236.9,
+      "total_deaths": 151,
+      "deaths_formatted": "151",
+      "rank": 2
+    },
+    {
+      "country": "Monaco",
+      "code": "MCO",
+      "rate_per_100k": 233.3,
+      "total_deaths": 221,
+      "deaths_formatted": "221",
+      "rank": 3
+    },
+    {
+      "country": "Dominica",
+      "code": "DMA",
+      "rate_per_100k": 202.5,
+      "total_deaths": 176,
+      "deaths_formatted": "176",
+      "rank": 4
+    },
+    {
+      "country": "Brunei",
+      "code": "BRN",
+      "rate_per_100k": 201.7,
+      "total_deaths": 508,
+      "deaths_formatted": "508",
+      "rank": 5
+    },
+    {
+      "country": "Solomon Islands",
+      "code": "SLB",
+      "rate_per_100k": 191.0,
+      "total_deaths": 625,
+      "deaths_formatted": "625",
+      "rank": 6
+    },
+    {
+      "country": "Nauru",
+      "code": "NRU",
+      "rate_per_100k": 185.3,
+      "total_deaths": 5,
+      "deaths_formatted": "5",
+      "rank": 7
+    },
+    {
+      "country": "United States Virgin Islands",
+      "code": "VIR",
+      "rate_per_100k": 184.3,
+      "total_deaths": 324,
+      "deaths_formatted": "324",
+      "rank": 8
+    },
+    {
+      "country": "Palau",
+      "code": "PLW",
+      "rate_per_100k": 184.2,
+      "total_deaths": 28,
+      "deaths_formatted": "28",
+      "rank": 9
+    },
+    {
+      "country": "Kiribati",
+      "code": "KIR",
+      "rate_per_100k": 184.0,
+      "total_deaths": 120,
+      "deaths_formatted": "120",
+      "rank": 10
+    },
+    {
+      "country": "Uruguay",
+      "code": "URY",
+      "rate_per_100k": 183.9,
+      "total_deaths": 9815,
+      "deaths_formatted": "9,815",
+      "rank": 11
+    },
+    {
+      "country": "Serbia",
+      "code": "SRB",
+      "rate_per_100k": 183.6,
+      "total_deaths": 27626,
+      "deaths_formatted": "27,626",
+      "rank": 12
+    },
+    {
+      "country": "Hungary",
+      "code": "HUN",
+      "rate_per_100k": 181.9,
+      "total_deaths": 33465,
+      "deaths_formatted": "33,465",
+      "rank": 13
+    },
+    {
+      "country": "Zimbabwe",
+      "code": "ZWE",
+      "rate_per_100k": 180.9,
+      "total_deaths": 11876,
+      "deaths_formatted": "11,876",
+      "rank": 14
+    },
+    {
+      "country": "Lesotho",
+      "code": "LSO",
+      "rate_per_100k": 179.8,
+      "total_deaths": 2145,
+      "deaths_formatted": "2,145",
+      "rank": 15
+    },
+    {
+      "country": "Scotland",
+      "code": "N/A",
+      "rate_per_100k": 176.7,
+      "total_deaths": 18967,
+      "deaths_formatted": "18,967",
+      "rank": 16
+    },
+    {
+      "country": "Grenada",
+      "code": "GRD",
+      "rate_per_100k": 176.4,
+      "total_deaths": 181,
+      "deaths_formatted": "181",
+      "rank": 17
+    },
+    {
+      "country": "Poland",
+      "code": "POL",
+      "rate_per_100k": 175.2,
+      "total_deaths": 118722,
+      "deaths_formatted": "118,722",
+      "rank": 18
+    },
+    {
+      "country": "North Macedonia",
+      "code": "MKD",
+      "rate_per_100k": 174.5,
+      "total_deaths": 5251,
+      "deaths_formatted": "5,251",
+      "rank": 19
+    },
+    {
+      "country": "San Marino",
+      "code": "SMR",
+      "rate_per_100k": 174.1,
+      "total_deaths": 113,
+      "deaths_formatted": "113",
+      "rank": 20
+    },
+    {
+      "country": "Northern Mariana Islands",
+      "code": "MNP",
+      "rate_per_100k": 172.7,
+      "total_deaths": 76,
+      "deaths_formatted": "76",
+      "rank": 21
+    },
+    {
+      "country": "Eswatini",
+      "code": "SWZ",
+      "rate_per_100k": 172.6,
+      "total_deaths": 943,
+      "deaths_formatted": "943",
+      "rank": 22
+    },
+    {
+      "country": "Seychelles",
+      "code": "SYC",
+      "rate_per_100k": 172.5,
+      "total_deaths": 173,
+      "deaths_formatted": "173",
+      "rank": 23
+    },
+    {
+      "country": "Cape Verde",
+      "code": "CPV",
+      "rate_per_100k": 171.5,
+      "total_deaths": 694,
+      "deaths_formatted": "694",
+      "rank": 24
+    },
+    {
+      "country": "Barbados",
+      "code": "BRB",
+      "rate_per_100k": 170.4,
+      "total_deaths": 799,
+      "deaths_formatted": "799",
+      "rank": 25
+    },
+    {
+      "country": "United Kingdom",
+      "code": "GBR",
+      "rate_per_100k": 150.9,
+      "total_deaths": 190731,
+      "deaths_formatted": "190,731",
+      "rank": 26
+    },
+    {
+      "country": "China",
+      "code": "CHN",
+      "rate_per_100k": 140.9,
+      "total_deaths": 2644853,
+      "deaths_formatted": "2,644,853",
+      "rank": 27
+    },
+    {
+      "country": "Germany",
+      "code": "DEU",
+      "rate_per_100k": 140.5,
+      "total_deaths": 264572,
+      "deaths_formatted": "264,572",
+      "rank": 28
+    },
+    {
+      "country": "United States",
+      "code": "USA",
+      "rate_per_100k": 137.4,
+      "total_deaths": 752833,
+      "deaths_formatted": "752,833",
+      "rank": 29
+    },
+    {
+      "country": "Australia",
+      "code": "AUS",
+      "rate_per_100k": 126.1,
+      "total_deaths": 52099,
+      "deaths_formatted": "52,099",
+      "rank": 30
+    },
+    {
+      "country": "Brazil",
+      "code": "BRA",
+      "rate_per_100k": 114.5,
+      "total_deaths": 253773,
+      "deaths_formatted": "253,773",
+      "rank": 31
+    },
+    {
+      "country": "Japan",
+      "code": "JPN",
+      "rate_per_100k": 113.5,
+      "total_deaths": 431430,
+      "deaths_formatted": "431,430",
+      "rank": 32
+    },
+    {
+      "country": "Indonesia",
+      "code": "IDN",
+      "rate_per_100k": 112.3,
+      "total_deaths": 216447,
+      "deaths_formatted": "216,447",
+      "rank": 33
+    },
+    {
+      "country": "Singapore",
+      "code": "SGP",
+      "rate_per_100k": 93.3,
+      "total_deaths": 6779,
+      "deaths_formatted": "6,779",
+      "rank": 34
+    },
+    {
+      "country": "India",
+      "code": "IND",
+      "rate_per_100k": 83.3,
+      "total_deaths": 875510,
+      "deaths_formatted": "875,510",
+      "rank": 35
+    }
+  ],
+  "survival_matrix": [
+    {
+      "cancer_type": "Testicular Cancer",
+      "survival_rate": 95.2,
+      "prognosis": "Very High",
+      "early_detection": "Self-exam & Ultrasound",
+      "primary_factor": "Chemosensitivity & early localized staging"
+    },
+    {
+      "cancer_type": "Thyroid Cancer",
+      "survival_rate": 91.8,
+      "prognosis": "Very High",
+      "early_detection": "Palpation & Fine-needle biopsy",
+      "primary_factor": "Slow progression of papillary subtypes"
+    },
+    {
+      "cancer_type": "Prostate Cancer",
+      "survival_rate": 88.5,
+      "prognosis": "High",
+      "early_detection": "PSA screening & MRI",
+      "primary_factor": "Early diagnosis and hormonal therapy response"
+    },
+    {
+      "cancer_type": "Melanoma (Skin)",
+      "survival_rate": 86.4,
+      "prognosis": "High",
+      "early_detection": "Dermatological inspection",
+      "primary_factor": "High curability when excised at stage I/II"
+    },
+    {
+      "cancer_type": "Breast Cancer",
+      "survival_rate": 84.1,
+      "prognosis": "High",
+      "early_detection": "Mammography screening",
+      "primary_factor": "Targeted therapies (HER2/hormone receptor)"
+    },
+    {
+      "cancer_type": "Cervical Cancer",
+      "survival_rate": 66.7,
+      "prognosis": "Moderate",
+      "early_detection": "Pap smear & HPV screening",
+      "primary_factor": "Preventable via HPV vaccination & early triage"
+    },
+    {
+      "cancer_type": "Colorectal Cancer",
+      "survival_rate": 62.4,
+      "prognosis": "Moderate",
+      "early_detection": "Colonoscopy & FOBT",
+      "primary_factor": "Polyp removal stops malignant transition"
+    },
+    {
+      "cancer_type": "Non-Hodgkin Lymphoma",
+      "survival_rate": 59.8,
+      "prognosis": "Moderate",
+      "early_detection": "Lymph node biopsy",
+      "primary_factor": "Subtype heterogeneity & immunochemotherapy"
+    },
+    {
+      "cancer_type": "Leukemia",
+      "survival_rate": 48.6,
+      "prognosis": "Intermediate",
+      "early_detection": "Complete blood count",
+      "primary_factor": "Variable by acute vs chronic classification"
+    },
+    {
+      "cancer_type": "Stomach Cancer",
+      "survival_rate": 28.5,
+      "prognosis": "Low",
+      "early_detection": "Endoscopy (high in Japan/Korea)",
+      "primary_factor": "Often asymptomatic until late mucosal invasion"
+    },
+    {
+      "cancer_type": "Brain & CNS Cancer",
+      "survival_rate": 22.1,
+      "prognosis": "Low",
+      "early_detection": "Neurological MRI",
+      "primary_factor": "Blood-brain barrier drug delivery challenges"
+    },
+    {
+      "cancer_type": "Esophageal Cancer",
+      "survival_rate": 18.2,
+      "prognosis": "Very Low",
+      "early_detection": "Upper endoscopy",
+      "primary_factor": "Rapid lymphatic spread & late presentation"
+    },
+    {
+      "cancer_type": "Lung Cancer",
+      "survival_rate": 16.5,
+      "prognosis": "Very Low",
+      "early_detection": "Low-dose CT scan",
+      "primary_factor": "Major global killer, 70%+ diagnosed at stage IV"
+    },
+    {
+      "cancer_type": "Liver Cancer",
+      "survival_rate": 14.8,
+      "prognosis": "Very Low",
+      "early_detection": "AFP + Ultrasound (high risk)",
+      "primary_factor": "Cirrhosis background and high recurrence"
+    },
+    {
+      "cancer_type": "Pancreatic Cancer",
+      "survival_rate": 7.2,
+      "prognosis": "Critical",
+      "early_detection": "Endoscopic ultrasound / CT",
+      "primary_factor": "Aggressive stroma & lack of early symptoms"
+    }
+  ],
+  "income_tiers": [
+    {
+      "tier": "High Income ($12.5k+)",
+      "countries_sample": "US, Germany, Japan, UK",
+      "crude_death_rate": 248.5,
+      "age_standardized_rate": 118.2,
+      "aging_population_pct": 18.5,
+      "healthcare_access": "High",
+      "insight": "High crude rate due to aging population; declining standardized mortality due to modern screening & treatment."
+    },
+    {
+      "tier": "Upper-Middle Income ($4.1k-$12.5k)",
+      "countries_sample": "China, Brazil, Russia, Bulgaria",
+      "crude_death_rate": 172.4,
+      "age_standardized_rate": 142.6,
+      "aging_population_pct": 11.2,
+      "healthcare_access": "Moderate",
+      "insight": "Highest age-standardized mortality due to high tobacco/alcohol prevalence and transitional healthcare access."
+    },
+    {
+      "tier": "Lower-Middle Income ($1k-$4.1k)",
+      "countries_sample": "Indonesia, India, Egypt, Vietnam",
+      "crude_death_rate": 94.8,
+      "age_standardized_rate": 108.4,
+      "aging_population_pct": 6.8,
+      "healthcare_access": "Emerging",
+      "insight": "Lower crude mortality due to younger demographic pyramid; high proportion of preventable infection-linked cancers (cervical, liver)."
+    },
+    {
+      "tier": "Low Income (<$1k)",
+      "countries_sample": "Afghanistan, Uganda, Mali, Chad",
+      "crude_death_rate": 58.2,
+      "age_standardized_rate": 112.5,
+      "aging_population_pct": 3.4,
+      "healthcare_access": "Limited",
+      "insight": "Underreporting and lower life expectancy conceal true burden; diagnostic delays lead to poor 5-year survival."
+    }
+  ]
+}

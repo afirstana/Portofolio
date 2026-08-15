@@ -1,80 +1,30 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { LogoBadge } from "@/components/LogoBadge";
 
 type TabKey = "projects" | "hero" | "about" | "method" | "skills" | "timeline" | "contact";
 
-export function AdminStudio() {
+export function AdminStudio({ initialData }: { initialData: any }) {
   const [activeTab, setActiveTab] = useState<TabKey>("projects");
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
-
-  // Content state
-  const [data, setData] = useState<{
-    hero?: any;
-    about?: any;
-    skills?: any;
-    timeline?: any;
-    contact?: any;
-    method?: any;
-    projects?: any[];
-  }>({});
-
-  // Active project selection
+  const [data, setData] = useState<any>(initialData || {});
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const showToast = (message: string, type: "success" | "error" = "success") => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3500);
   };
 
-  const fetchContent = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("/api/content");
-      const json = await res.json();
-      if (json.success) {
-        setData(json.data);
-      } else {
-        showToast("Gagal memuat konten dari server", "error");
-      }
-    } catch (e: any) {
-      showToast("Gagal terhubung ke API: " + e.message, "error");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchContent();
-  }, []);
-
-  const saveContent = async (type: string, payload: any) => {
-    try {
-      setSaving(true);
-      const res = await fetch("/api/content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type, payload }),
-      });
-      const json = await res.json();
-      if (json.success) {
-        showToast(json.message || "Perubahan berhasil disimpan!");
-        await fetchContent();
-      } else {
-        showToast("Gagal menyimpan: " + json.error, "error");
-      }
-    } catch (e: any) {
-      showToast("Error saat menyimpan: " + e.message, "error");
-    } finally {
-      setSaving(false);
-    }
+  const handleUpdateProject = (index: number, updated: any) => {
+    const updatedProjects = [...(data.projects || [])];
+    updatedProjects[index] = updated;
+    setData((prev: any) => ({ ...prev, projects: updatedProjects }));
+    showToast(`Proyek "${updated.title}" berhasil diperbarui!`);
   };
 
   const handleAddNewProject = () => {
-    const newSlug = `new-project-${Date.now().toString().slice(-4)}`;
+    const newSlug = `project-${Date.now().toString().slice(-4)}`;
     const newProject = {
       _filename: `${newSlug}.md`,
       title: "Judul Proyek Baru",
@@ -115,14 +65,24 @@ export function AdminStudio() {
       body: "## Problem\n\nDetail permasalahan...\n\n## Approach\n\nDetail solusi teknis...\n\n## Impact\n\nDetail dampak...",
     };
 
-    saveContent("project", newProject);
+    const newProjects = [...(data.projects || []), newProject];
+    setData((prev: any) => ({ ...prev, projects: newProjects }));
+    setSelectedProjectIndex(newProjects.length - 1);
+    showToast("Proyek baru berhasil ditambahkan!");
   };
 
-  const handleDeleteProject = (filename: string) => {
+  const handleDeleteProject = (index: number) => {
     if (confirm("Apakah Anda yakin ingin menghapus proyek ini?")) {
-      saveContent("delete_project", { _filename: filename });
+      const updatedProjects = (data.projects || []).filter((_: any, idx: number) => idx !== index);
+      setData((prev: any) => ({ ...prev, projects: updatedProjects }));
       setSelectedProjectIndex(0);
+      showToast("Proyek berhasil dihapus!");
     }
+  };
+
+  const handleUpdateSection = (sectionKey: string, updated: any) => {
+    setData((prev: any) => ({ ...prev, [sectionKey]: updated }));
+    showToast(`Bagian ${sectionKey.toUpperCase()} berhasil diperbarui!`);
   };
 
   const activeProject = data.projects?.[selectedProjectIndex];
@@ -194,7 +154,6 @@ export function AdminStudio() {
               border: "1px solid rgba(255,255,255,0.12)",
               padding: "6px 14px",
               borderRadius: "4px",
-              transition: "all 0.2s",
             }}
           >
             <span>Lihat Web Live</span> <span>↗</span>
@@ -203,7 +162,7 @@ export function AdminStudio() {
       </header>
 
       {/* Main Studio Body */}
-      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", minHeight: "calc(100vh - 64px)" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "250px 1fr", minHeight: "calc(100vh - 64px)" }}>
         {/* Left Navigation Sidebar */}
         <aside
           style={{
@@ -273,183 +232,168 @@ export function AdminStudio() {
 
         {/* Content Workspace */}
         <main style={{ padding: "32px 48px", overflowY: "auto", maxWidth: 1100 }}>
-          {loading ? (
-            <div style={{ textAlign: "center", padding: "80px 0", color: "#a0a0a8" }}>
-              <div style={{ fontSize: 24, marginBottom: 12 }}>⚡</div>
-              <p>Memuat konten portofolio...</p>
-            </div>
-          ) : (
-            <>
-              {/* ======================================================== */}
-              {/* TAB 1: PROJECTS                                          */}
-              {/* ======================================================== */}
-              {activeTab === "projects" && (
+          {/* ======================================================== */}
+          {/* TAB 1: PROJECTS                                          */}
+          {/* ======================================================== */}
+          {activeTab === "projects" && (
+            <div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
                 <div>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
-                    <div>
-                      <h2 style={{ fontSize: 22, margin: "0 0 4px", fontWeight: 800 }}>Studi Kasus Proyek</h2>
-                      <p style={{ margin: 0, fontSize: 13, color: "#a0a0a8" }}>
-                        Kelola proyek unggulan, metrik, arsitektur, dan narasi studi kasus Anda.
-                      </p>
-                    </div>
+                  <h2 style={{ fontSize: 22, margin: "0 0 4px", fontWeight: 800 }}>Studi Kasus Proyek</h2>
+                  <p style={{ margin: 0, fontSize: 13, color: "#a0a0a8" }}>
+                    Daftar 5 studi kasus proyek Anda siap disempurnakan. Klik salah satu proyek di bawah untuk mengedit:
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleAddNewProject}
+                  style={{
+                    backgroundColor: "#ff4d1c",
+                    color: "#fff",
+                    border: "none",
+                    padding: "10px 18px",
+                    borderRadius: "6px",
+                    fontWeight: 700,
+                    fontSize: 13,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
+                  }}
+                >
+                  <span>+</span> <span>Tambah Proyek Baru</span>
+                </button>
+              </div>
+
+              {/* Project Horizontal Selector Bar */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: 12,
+                  overflowX: "auto",
+                  paddingBottom: 14,
+                  marginBottom: 24,
+                  borderBottom: "1px solid rgba(255,255,255,0.1)",
+                }}
+              >
+                {data.projects?.map((proj: any, idx: number) => {
+                  const isSelected = idx === selectedProjectIndex;
+                  return (
                     <button
+                      key={proj.slug || idx}
                       type="button"
-                      onClick={handleAddNewProject}
+                      onClick={() => setSelectedProjectIndex(idx)}
                       style={{
-                        backgroundColor: "#ff4d1c",
-                        color: "#fff",
-                        border: "none",
-                        padding: "10px 18px",
-                        borderRadius: "6px",
-                        fontWeight: 700,
-                        fontSize: 13,
+                        padding: "12px 18px",
+                        borderRadius: "8px",
+                        backgroundColor: isSelected ? "#14141a" : "#0d0d10",
+                        border: isSelected ? "1px solid #ff4d1c" : "1px solid rgba(255,255,255,0.08)",
+                        color: isSelected ? "#ffffff" : "#a0a0a8",
                         cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 6,
+                        textAlign: "left",
+                        minWidth: 210,
+                        flexShrink: 0,
+                        transition: "all 0.15s",
                       }}
                     >
-                      <span>+</span> <span>Tambah Proyek Baru</span>
+                      <div style={{ fontSize: 10, color: "#ff4d1c", fontFamily: "monospace", marginBottom: 4 }}>
+                        0{proj.order || idx + 1} / {proj.category}
+                      </div>
+                      <div style={{ fontSize: 13, fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                        {proj.title}
+                      </div>
                     </button>
-                  </div>
+                  );
+                })}
+              </div>
 
-                  {/* Project Selector List */}
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: 12,
-                      overflowX: "auto",
-                      paddingBottom: 14,
-                      marginBottom: 24,
-                      borderBottom: "1px solid rgba(255,255,255,0.1)",
-                    }}
-                  >
-                    {data.projects?.map((proj, idx) => {
-                      const isSelected = idx === selectedProjectIndex;
-                      return (
-                        <button
-                          key={proj.slug || idx}
-                          type="button"
-                          onClick={() => setSelectedProjectIndex(idx)}
-                          style={{
-                            padding: "12px 18px",
-                            borderRadius: "8px",
-                            backgroundColor: isSelected ? "#14141a" : "#0d0d10",
-                            border: isSelected ? "1px solid #ff4d1c" : "1px solid rgba(255,255,255,0.08)",
-                            color: isSelected ? "#ffffff" : "#a0a0a8",
-                            cursor: "pointer",
-                            textAlign: "left",
-                            minWidth: 200,
-                            flexShrink: 0,
-                            transition: "all 0.15s",
-                          }}
-                        >
-                          <div style={{ fontSize: 10, color: "#ff4d1c", fontFamily: "monospace", marginBottom: 4 }}>
-                            0{proj.order || idx + 1} / {proj.category}
-                          </div>
-                          <div style={{ fontSize: 13, fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                            {proj.title}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Active Project Editor */}
-                  {activeProject && (
-                    <ProjectForm
-                      project={activeProject}
-                      saving={saving}
-                      onSave={(updated) => saveContent("project", updated)}
-                      onDelete={() => handleDeleteProject(activeProject._filename)}
-                    />
-                  )}
-                </div>
-              )}
-
-              {/* ======================================================== */}
-              {/* TAB 2: HERO SECTION                                      */}
-              {/* ======================================================== */}
-              {activeTab === "hero" && (
-                <SimpleSectionForm
-                  title="Header & Hero Section"
-                  description="Atur nama besar di pembuka website, tagline, dan lokasi Anda."
-                  data={data.hero || {}}
-                  saving={saving}
-                  fields={[
-                    { name: "name", label: "Nama di Hero (Rekomendasi: 1 kata singkat)", type: "string" },
-                    { name: "tagline", label: "Tagline Utama", type: "text" },
-                    { name: "location", label: "Lokasi", type: "string" },
-                    { name: "eyebrow", label: "Teks Kecil Atas (Eyebrow)", type: "string" },
-                    { name: "cta_label", label: "Teks Tombol Scroll", type: "string" },
-                  ]}
-                  onSave={(updated) => saveContent("hero", updated)}
+              {/* Active Project Editor */}
+              {activeProject ? (
+                <ProjectForm
+                  project={activeProject}
+                  onSave={(updated) => handleUpdateProject(selectedProjectIndex, updated)}
+                  onDelete={() => handleDeleteProject(selectedProjectIndex)}
                 />
+              ) : (
+                <div style={{ padding: 40, textAlign: "center", color: "#a0a0a8" }}>Belum ada proyek yang dipilih.</div>
               )}
+            </div>
+          )}
 
-              {/* ======================================================== */}
-              {/* TAB 3: ABOUT SECTION                                     */}
-              {/* ======================================================== */}
-              {activeTab === "about" && (
-                <SimpleSectionForm
-                  title="About Section (Tentang Saya)"
-                  description="Kelola bio profesional, prinsip kerja, dan ringkasan pendekatan Anda."
-                  data={data.about || {}}
-                  saving={saving}
-                  fields={[
-                    { name: "heading", label: "Judul Besar (Heading)", type: "string" },
-                    { name: "bio_text", label: "Teks Bio / Ringkasan Diri", type: "text" },
-                    { name: "values", label: "3 Nilai Utama (Pisahkan dengan koma atau baris baru)", type: "list_string" },
-                  ]}
-                  onSave={(updated) => saveContent("about", updated)}
-                />
-              )}
+          {/* ======================================================== */}
+          {/* TAB 2: HERO SECTION                                      */}
+          {/* ======================================================== */}
+          {activeTab === "hero" && (
+            <SimpleSectionForm
+              title="01. Header & Hero Section"
+              description="Atur nama besar di pembuka website, tagline, dan lokasi Anda."
+              data={data.hero || {}}
+              fields={[
+                { name: "name", label: "Nama di Hero (Rekomendasi: 1 kata singkat, misal: Abimael.)", type: "string" },
+                { name: "tagline", label: "Tagline Utama", type: "text" },
+                { name: "location", label: "Lokasi", type: "string" },
+                { name: "eyebrow", label: "Teks Kecil Atas (Eyebrow)", type: "string" },
+                { name: "cta_label", label: "Teks Tombol Scroll", type: "string" },
+              ]}
+              onSave={(updated) => handleUpdateSection("hero", updated)}
+            />
+          )}
 
-              {/* ======================================================== */}
-              {/* TAB 4: HOW I WORK                                        */}
-              {/* ======================================================== */}
-              {activeTab === "method" && (
-                <MethodSectionForm
-                  data={data.method || {}}
-                  saving={saving}
-                  onSave={(updated) => saveContent("method", updated)}
-                />
-              )}
+          {/* ======================================================== */}
+          {/* TAB 3: ABOUT SECTION                                     */}
+          {/* ======================================================== */}
+          {activeTab === "about" && (
+            <SimpleSectionForm
+              title="02. About Section (Tentang Saya)"
+              description="Kelola bio profesional, prinsip kerja, dan ringkasan pendekatan Anda."
+              data={data.about || {}}
+              fields={[
+                { name: "heading", label: "Judul Besar (Heading)", type: "string" },
+                { name: "bio_text", label: "Teks Bio / Ringkasan Diri", type: "text" },
+                { name: "values", label: "3 Nilai Utama (Pisahkan dengan baris baru)", type: "list_string" },
+              ]}
+              onSave={(updated) => handleUpdateSection("about", updated)}
+            />
+          )}
 
-              {/* ======================================================== */}
-              {/* TAB 5: SKILLS MATRIX                                     */}
-              {/* ======================================================== */}
-              {activeTab === "skills" && (
-                <SkillsSectionForm
-                  data={data.skills || {}}
-                  projects={data.projects || []}
-                  saving={saving}
-                  onSave={(updated) => saveContent("skills", updated)}
-                />
-              )}
+          {/* ======================================================== */}
+          {/* TAB 4: HOW I WORK                                        */}
+          {/* ======================================================== */}
+          {activeTab === "method" && (
+            <MethodSectionForm
+              data={data.method || {}}
+              onSave={(updated) => handleUpdateSection("method", updated)}
+            />
+          )}
 
-              {/* ======================================================== */}
-              {/* TAB 6: TIMELINE                                          */}
-              {/* ======================================================== */}
-              {activeTab === "timeline" && (
-                <TimelineSectionForm
-                  data={data.timeline || {}}
-                  saving={saving}
-                  onSave={(updated) => saveContent("timeline", updated)}
-                />
-              )}
+          {/* ======================================================== */}
+          {/* TAB 5: SKILLS MATRIX                                     */}
+          {/* ======================================================== */}
+          {activeTab === "skills" && (
+            <SkillsSectionForm
+              data={data.skills || {}}
+              onSave={(updated) => handleUpdateSection("skills", updated)}
+            />
+          )}
 
-              {/* ======================================================== */}
-              {/* TAB 7: CONTACT                                           */}
-              {/* ======================================================== */}
-              {activeTab === "contact" && (
-                <ContactSectionForm
-                  data={data.contact || {}}
-                  saving={saving}
-                  onSave={(updated) => saveContent("contact", updated)}
-                />
-              )}
-            </>
+          {/* ======================================================== */}
+          {/* TAB 6: TIMELINE                                          */}
+          {/* ======================================================== */}
+          {activeTab === "timeline" && (
+            <TimelineSectionForm
+              data={data.timeline || {}}
+              onSave={(updated) => handleUpdateSection("timeline", updated)}
+            />
+          )}
+
+          {/* ======================================================== */}
+          {/* TAB 7: CONTACT                                           */}
+          {/* ======================================================== */}
+          {activeTab === "contact" && (
+            <ContactSectionForm
+              data={data.contact || {}}
+              onSave={(updated) => handleUpdateSection("contact", updated)}
+            />
           )}
         </main>
       </div>
@@ -462,18 +406,16 @@ export function AdminStudio() {
 // ----------------------------------------------------------------------
 function ProjectForm({
   project,
-  saving,
   onSave,
   onDelete,
 }: {
   project: any;
-  saving: boolean;
   onSave: (p: any) => void;
   onDelete: () => void;
 }) {
   const [form, setForm] = useState<any>(project);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setForm(project);
   }, [project]);
 
@@ -513,7 +455,6 @@ function ProjectForm({
           </button>
           <button
             type="button"
-            disabled={saving}
             onClick={() => onSave(form)}
             style={{
               backgroundColor: "#ff4d1c",
@@ -526,7 +467,7 @@ function ProjectForm({
               cursor: "pointer",
             }}
           >
-            {saving ? "Menyimpan..." : "Simpan Perubahan Proyek"}
+            Simpan Perubahan Proyek
           </button>
         </div>
       </div>
@@ -695,19 +636,17 @@ function SimpleSectionForm({
   description,
   data,
   fields,
-  saving,
   onSave,
 }: {
   title: string;
   description: string;
   data: any;
   fields: Array<{ name: string; label: string; type: "string" | "text" | "list_string" }>;
-  saving: boolean;
   onSave: (payload: any) => void;
 }) {
   const [form, setForm] = useState<any>(data);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setForm(data);
   }, [data]);
 
@@ -724,7 +663,6 @@ function SimpleSectionForm({
         </div>
         <button
           type="button"
-          disabled={saving}
           onClick={() => onSave(form)}
           style={{
             backgroundColor: "#ff4d1c",
@@ -737,7 +675,7 @@ function SimpleSectionForm({
             cursor: "pointer",
           }}
         >
-          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          Simpan Perubahan
         </button>
       </div>
 
@@ -786,10 +724,10 @@ function SimpleSectionForm({
 // ----------------------------------------------------------------------
 // Method Section Form
 // ----------------------------------------------------------------------
-function MethodSectionForm({ data, saving, onSave }: { data: any; saving: boolean; onSave: (p: any) => void }) {
+function MethodSectionForm({ data, onSave }: { data: any; onSave: (p: any) => void }) {
   const [form, setForm] = useState<any>(data);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setForm(data);
   }, [data]);
 
@@ -808,7 +746,6 @@ function MethodSectionForm({ data, saving, onSave }: { data: any; saving: boolea
         </div>
         <button
           type="button"
-          disabled={saving}
           onClick={() => onSave(form)}
           style={{
             backgroundColor: "#ff4d1c",
@@ -821,7 +758,7 @@ function MethodSectionForm({ data, saving, onSave }: { data: any; saving: boolea
             cursor: "pointer",
           }}
         >
-          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          Simpan Perubahan
         </button>
       </div>
 
@@ -864,10 +801,10 @@ function MethodSectionForm({ data, saving, onSave }: { data: any; saving: boolea
 // ----------------------------------------------------------------------
 // Skills Section Form
 // ----------------------------------------------------------------------
-function SkillsSectionForm({ data, projects, saving, onSave }: { data: any; projects: any[]; saving: boolean; onSave: (p: any) => void }) {
+function SkillsSectionForm({ data, onSave }: { data: any; onSave: (p: any) => void }) {
   const [form, setForm] = useState<any>(data);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setForm(data);
   }, [data]);
 
@@ -880,7 +817,6 @@ function SkillsSectionForm({ data, projects, saving, onSave }: { data: any; proj
         </div>
         <button
           type="button"
-          disabled={saving}
           onClick={() => onSave(form)}
           style={{
             backgroundColor: "#ff4d1c",
@@ -893,7 +829,7 @@ function SkillsSectionForm({ data, projects, saving, onSave }: { data: any; proj
             cursor: "pointer",
           }}
         >
-          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          Simpan Perubahan
         </button>
       </div>
 
@@ -944,10 +880,10 @@ function SkillsSectionForm({ data, projects, saving, onSave }: { data: any; proj
 // ----------------------------------------------------------------------
 // Timeline Section Form
 // ----------------------------------------------------------------------
-function TimelineSectionForm({ data, saving, onSave }: { data: any; saving: boolean; onSave: (p: any) => void }) {
+function TimelineSectionForm({ data, onSave }: { data: any; onSave: (p: any) => void }) {
   const [form, setForm] = useState<any>(data);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setForm(data);
   }, [data]);
 
@@ -966,7 +902,6 @@ function TimelineSectionForm({ data, saving, onSave }: { data: any; saving: bool
         </div>
         <button
           type="button"
-          disabled={saving}
           onClick={() => onSave(form)}
           style={{
             backgroundColor: "#ff4d1c",
@@ -979,7 +914,7 @@ function TimelineSectionForm({ data, saving, onSave }: { data: any; saving: bool
             cursor: "pointer",
           }}
         >
-          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          Simpan Perubahan
         </button>
       </div>
 
@@ -1030,10 +965,10 @@ function TimelineSectionForm({ data, saving, onSave }: { data: any; saving: bool
 // ----------------------------------------------------------------------
 // Contact Section Form
 // ----------------------------------------------------------------------
-function ContactSectionForm({ data, saving, onSave }: { data: any; saving: boolean; onSave: (p: any) => void }) {
+function ContactSectionForm({ data, onSave }: { data: any; onSave: (p: any) => void }) {
   const [form, setForm] = useState<any>(data);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setForm(data);
   }, [data]);
 
@@ -1052,7 +987,6 @@ function ContactSectionForm({ data, saving, onSave }: { data: any; saving: boole
         </div>
         <button
           type="button"
-          disabled={saving}
           onClick={() => onSave(form)}
           style={{
             backgroundColor: "#ff4d1c",
@@ -1065,7 +999,7 @@ function ContactSectionForm({ data, saving, onSave }: { data: any; saving: boole
             cursor: "pointer",
           }}
         >
-          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          Simpan Perubahan
         </button>
       </div>
 

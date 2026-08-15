@@ -1,0 +1,14 @@
+[
+  {"month":"Jan","category":"Automation","value":42,"volume":118},
+  {"month":"Feb","category":"Automation","value":48,"volume":126},
+  {"month":"Mar","category":"Automation","value":55,"volume":141},
+  {"month":"Apr","category":"Automation","value":61,"volume":154},
+  {"month":"May","category":"Analytics","value":37,"volume":96},
+  {"month":"Jun","category":"Analytics","value":44,"volume":111},
+  {"month":"Jul","category":"Analytics","value":51,"volume":127},
+  {"month":"Aug","category":"Analytics","value":58,"volume":139},
+  {"month":"Sep","category":"Data quality","value":46,"volume":104},
+  {"month":"Oct","category":"Data quality","value":54,"volume":119},
+  {"month":"Nov","category":"Data quality","value":63,"volume":145},
+  {"month":"Dec","category":"Data quality","value":67,"volume":152}
+]

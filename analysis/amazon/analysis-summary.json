@@ -1,0 +1,182 @@
+{
+  "dataset": {
+    "sourceFile": "amazon.csv",
+    "sourceRows": 1465,
+    "cleanRows": 1465,
+    "uniqueProducts": 1351,
+    "uniqueCategories": 211,
+    "topLevelCategories": 9,
+    "generatedAt": "Static build artifact generated locally from the supplied CSV."
+  },
+  "quality": {
+    "exactDuplicateRowsRemoved": 0,
+    "missingByField": {
+      "actual_price": 0,
+      "discounted_price": 0,
+      "discount_percentage": 0,
+      "rating": 1,
+      "rating_count": 2
+    },
+    "cleaningRules": [
+      "Normalized numeric price, discount, rating, and rating-count strings.",
+      "Derived missing discount percentage only when actual and discounted price were available.",
+      "Removed exact duplicate rows and retained missing values instead of inventing replacements.",
+      "Built top-level category from the first category hierarchy segment."
+    ]
+  },
+  "model": {
+    "status": "evaluated",
+    "threshold": 4.2,
+    "thresholdNote": "High Rating is defined as rating ≥ 4.2, as specified for this case study.",
+    "classDistribution": [
+      {
+        "label": "High rating",
+        "count": 685
+      },
+      {
+        "label": "Not high rating",
+        "count": 779
+      }
+    ],
+    "split": {
+      "train": 1098,
+      "test": 366,
+      "randomState": 42,
+      "stratified": true
+    },
+    "models": [
+      {
+        "name": "Majority Class Baseline",
+        "type": "baseline",
+        "accuracy": 0.5328,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "rocAuc": 0.5
+      },
+      {
+        "name": "Structured Features",
+        "type": "structured",
+        "accuracy": 0.612,
+        "precision": 0.5858,
+        "recall": 0.5789,
+        "f1": 0.5824,
+        "rocAuc": 0.6688
+      },
+      {
+        "name": "TF-IDF + Logistic Regression",
+        "type": "text-logistic",
+        "accuracy": 0.7459,
+        "precision": 0.7241,
+        "recall": 0.7368,
+        "f1": 0.7304,
+        "rocAuc": 0.8122
+      },
+      {
+        "name": "TF-IDF + Linear SVM",
+        "type": "text-svm",
+        "accuracy": 0.7541,
+        "precision": 0.7288,
+        "recall": 0.7544,
+        "f1": 0.7414,
+        "rocAuc": 0.8369
+      }
+    ],
+    "bestModel": "TF-IDF + Linear SVM",
+    "confusionMatrix": {
+      "truePositive": 129,
+      "falseNegative": 42,
+      "falsePositive": 48,
+      "trueNegative": 147,
+      "labelOrder": "rows: actual high/not-high; columns: predicted high/not-high"
+    },
+    "explainability": {
+      "model": "TF-IDF + Logistic Regression",
+      "note": "Terms and weights are extracted from the trained logistic-regression coefficient vector, not hard-coded sentiment words.",
+      "positiveTerms": [
+        {
+          "term": "mouse",
+          "weight": 1.6985
+        },
+        {
+          "term": "excellent",
+          "weight": 1.6208
+        },
+        {
+          "term": "apple",
+          "weight": 1.2503
+        },
+        {
+          "term": "like",
+          "weight": 1.1599
+        },
+        {
+          "term": "plus",
+          "weight": 1.1226
+        },
+        {
+          "term": "paper",
+          "weight": 1.0904
+        },
+        {
+          "term": "really",
+          "weight": 1.0888
+        },
+        {
+          "term": "best",
+          "weight": 1.0672
+        },
+        {
+          "term": "performance",
+          "weight": 1.0366
+        },
+        {
+          "term": "looks",
+          "weight": 1.0213
+        }
+      ],
+      "negativeTerms": [
+        {
+          "term": "phone",
+          "weight": -1.7561
+        },
+        {
+          "term": "working",
+          "weight": -1.5204
+        },
+        {
+          "term": "charging",
+          "weight": -1.3682
+        },
+        {
+          "term": "charging cable",
+          "weight": -1.2591
+        },
+        {
+          "term": "ok",
+          "weight": -1.2465
+        },
+        {
+          "term": "bad",
+          "weight": -1.1864
+        },
+        {
+          "term": "filter",
+          "weight": -1.185
+        },
+        {
+          "term": "remote",
+          "weight": -1.1777
+        },
+        {
+          "term": "boat",
+          "weight": -1.1597
+        },
+        {
+          "term": "safety",
+          "weight": -1.1062
+        }
+      ]
+    }
+  }
+}

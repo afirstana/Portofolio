@@ -1,0 +1,93 @@
+# Project TODO
+
+- [x] Definisikan skema database CMS untuk artikel, halaman, kategori, tag, relasi taksonomi, media, metadata situs, dan status draft/published/archived yang ketat.
+- [x] Terapkan helper database dan prosedur tRPC publik/admin untuk konten, taksonomi, media, metadata, dan pengguna.
+- [x] Terapkan pemeriksaan peran admin di seluruh mutasi dan endpoint backend CMS, dengan pembacaan publik hanya untuk konten published.
+- [x] Tambahkan import awal dari berkas Markdown terpisah di /content bagi empat project portfolio yang diberikan pengguna.
+- [x] Tambahkan foreign key constraints untuk relasi CMS utama dan terapkan migrasi non-destruktifnya.
+- [x] Ubah import portfolio agar benar-benar mem-parse frontmatter dari berkas Markdown di /content/projects.
+- [x] Buat komponen tata letak dan token visual premium: near-black, aksen merah-oranye terbatas, tipografi editorial tegas, whitespace luas, dan animasi lembut yang menghormati reduced motion.
+- [x] Bangun halaman publik beranda portfolio dengan Hero, About, Selected Projects, Skills & Tools, timeline Where I've Been, dan Contact yang bersumber dari data CMS.
+- [x] Bangun daftar konten publik serta halaman detail post, project, dan page dengan slug, metadata SEO, tag, kategori, dan status publikasi.
+- [x] Buat shell admin responsif dengan sidebar untuk Overview, Posts, Pages, Projects, Media, Taxonomy, Site Settings, dan Users.
+- [x] Buat dashboard admin dengan ringkasan jumlah konten, status editorial, quick action, dan daftar konten terbaru.
+- [x] Buat manajemen post, page, dan project mencakup pencarian, filter status, pembuatan, pengeditan, pengarsipan, publikasi, dan penghapusan.
+- [x] Buat editor Markdown dengan toolbar rich-text, preview ter-render, pengaturan title/description/slug SEO, dan pemilih kategori serta tag.
+- [x] Buat media library yang menerima unggahan gambar dan dokumen melalui S3, menyimpan metadata dan key di database, serta memungkinkan penyalinan URL dan penghapusan referensi.
+- [x] Buat pengelolaan kategori dan tag untuk menambah, mengedit, serta menghapus taxonomies secara aman.
+- [x] Buat panel manajemen pengguna bagi admin untuk melihat pengguna terdaftar dan mengubah peran user/admin.
+- [x] Tambahkan seluruh rute publik dan /admin yang dibutuhkan, termasuk handling 404 serta pembatasan akses admin di antarmuka.
+- [x] Tambahkan pengujian Vitest untuk aturan status konten, pembatasan peran admin, dan utilitas slug/metadata.
+- [x] Jalankan pemeriksaan tipe, unit test, dan verifikasi visual desktop/mobile untuk pengalaman publik serta admin.
+- [x] Tambahkan listing publik untuk pages dan pembaruan meta description per item pada halaman detail.
+- [x] Tambahkan panel konten terbaru lintas tipe pada dashboard admin.
+- [x] Tambahkan kemampuan edit aman untuk kategori dan tag.
+- [x] Tambahkan pengujian metadata SEO yang relevan.
+- [x] Lakukan verifikasi visual mobile terhadap rute publik dan admin.
+- [x] Tinjau todo.md, buat checkpoint akhir, dan siapkan proyek untuk dipublikasikan dari antarmuka.
+- [x] Ganti arsitektur proyek dari stack fullstack sebelumnya menjadi Next.js App Router statis dengan output export.
+- [x] Hapus seluruh ketergantungan dan kode database, autentikasi, API server, media storage, serta CMS kustom dari implementasi baru.
+- [x] Buat struktur /content Markdown polos untuk hero, about, project, skills, timeline, dan contact yang dibaca saat build.
+- [x] Terapkan enam section portfolio sesuai style guide sebelumnya dengan Tailwind CSS dan data Markdown lokal.
+- [x] Buat empat halaman detail project statis berbasis frontmatter dan Markdown.
+- [x] Konfigurasikan metadata, routing, dan asset lokal agar kompatibel dengan Next.js static export.
+- [x] Tambahkan pengujian parser Markdown serta validasi build static export.
+- [x] Verifikasi visual desktop dan mobile untuk beranda serta halaman detail project sebelum checkpoint final.
+- [x] Ganti seluruh identitas MAEL/Mael menjadi Abimael pada konten, metadata, navigasi, footer, dan halaman detail.
+- [x] Ubah hero menjadi animasi split-text stagger per huruf dengan glow ember sinematik yang sepenuhnya client-side dan menghormati prefers-reduced-motion.
+- [x] Pastikan source tree app/, components/, lib/, content/, konfigurasi, dan dokumentasi tidak diabaikan dalam artifact checkpoint/ekspor.
+- [x] Tambahkan manifest source dan verifikasi otomatis untuk membuktikan file sumber Markdown serta aplikasi tersedia di build proyek.
+- [x] Jalankan typecheck, unit test, static export, dan verifikasi visual animasi hero sebelum checkpoint pembaruan.
+- [x] Tambahkan preloader full-screen kosmetik yang selesai sebelum animasi hero, dengan progress minimal, transisi lembut, dan fallback prefers-reduced-motion.
+- [x] Simpan checkpoint pembaruan lalu verifikasi artifact export memuat app/, components/, lib/, content/, serta manifest source.
+- [x] Verifikasi urutan preloader, fade-out, glow, dan split-text hero pada preview secara manual sebelum checkpoint akhir.
+- [x] Audit ulang komponen, dependensi, model Markdown, rute, serta token visual agar peningkatan memakai fondasi Next.js statis yang ada.
+- [x] Perluas frontmatter project dan data Markdown untuk metadata terstruktur, kategori, tools, evidence skill, dan narasi case study tanpa membuat klaim atau metrik baru.
+- [x] Bangun project explorer client-side dengan filter kategori/tag, pencarian, preview, dan transisi aksesibel.
+- [x] Perkaya halaman case study dengan navigasi konten, stage Problem/System/Impact, diagram SVG/CSS, project terkait, serta navigasi previous/next.
+- [x] Ubah skills menjadi matriks evidence interaktif yang menghubungkan ke project yang benar-benar memakai keahlian tersebut.
+- [x] Tambahkan Data Playground berbasis dataset sintetis lokal dengan KPI, filter, chart SVG, tabel tersortir, reset, dan penjelasan metode tanpa API.
+- [x] Tambahkan timeline dan How I Work berbasis progressive disclosure, plus copy-email dan CTA mobile yang aman serta aksesibel.
+- [x] Tambahkan command palette keyboard, progress scroll, dan interaksi hero pointer desktop yang menghormati reduced motion.
+- [x] Lengkapi SEO static per halaman: metadata unik, canonical, Open Graph, Twitter card, JSON-LD, sitemap, robots, dan favicon identitas Abimael.
+- [x] Audit aksesibilitas, responsive layout, dependency/bundle, loading/error state, serta hapus kebutuhan infrastruktur yang tidak diizinkan.
+- [x] Jalankan typecheck, unit test, static export, pemeriksaan rute, dan QA visual desktop/mobile sebelum checkpoint akhir.
+- [x] Hapus sisa scaffold fullstack lama agar source tree tidak memuat database, autentikasi, atau backend yang tidak digunakan.
+- [x] Tambahkan generateMetadata unik per halaman case study dengan canonical, Open Graph, dan Twitter card berbasis frontmatter.
+- [x] Jalankan ulang audit static-only/dependency setelah cleanup dan dokumentasikan hasil bebas database, auth, storage cloud, serta backend.
+- [x] Audit aksesibilitas dan state loading/error eksplisit untuk explorer, playground, timeline, serta command palette.
+- [x] Dokumentasikan audit static-only/dependency pada source tree final dan bukti bebas database, auth, storage cloud, serta backend.
+- [x] Dokumentasikan audit keyboard, fokus, ARIA, dan state kosong untuk Project Explorer, Data Playground, Timeline Explorer, serta Command Palette.
+- [x] Tambahkan fallback state kosong untuk Data Playground dan Timeline Explorer, lalu dokumentasikan perilaku tersebut dalam audit aksesibilitas.
+- [x] Definisikan metadata evidence visual lokal untuk caption, alt text, slot screenshot, dan placeholder pada setiap case study.
+- [x] Tambahkan tiga slot evidence visual yang mudah diganti pada keempat file Markdown project.
+- [x] Bangun section evidence pada halaman case study dengan placeholder sistematis, empty state, dan tautan aset lokal yang static-export compatible.
+- [x] Buat panduan singkat agar screenshot dapat ditambahkan ke public/evidence dan direferensikan melalui frontmatter Markdown.
+- [x] Jalankan typecheck, unit test, static export, dan verifikasi visual case study setelah evidence visual ditambahkan.
+- [x] Tetapkan NODE_ENV=production pada skrip build static untuk mencegah kegagalan prerender akibat lingkungan non-standar.
+- [x] Tambahkan empty state eksplisit pada VisualEvidence untuk project tanpa metadata evidence, dengan copy aksesibel dan panduan lokasi aset lokal.
+- [x] Telaah isi lampiran terbaru dan petakan setiap elemen yang relevan ke halaman atau Markdown portfolio Abimael.
+- [x] Integrasikan konten baru yang terkonfirmasi ke sumber Markdown dan/atau komponen statis tanpa menambah layanan backend.
+- [x] Jalankan typecheck, unit test, static export, dan verifikasi visual terhadap pembaruan konten.
+- [x] Inspeksi archive dataset Amazon, dokumentasikan skema file, dan simpan workflow profiling yang dapat direproduksi.
+- [x] Bersihkan serta normalisasi field harga, diskon, rating, kategori, review, dan record duplikat dengan aturan berbasis data.
+- [x] Hitung EDA, statistik kategori, sinyal NLP, dan hubungan harga/rating menggunakan data asli tanpa insight atau angka buatan.
+- [x] Latih serta evaluasi model prediksi high-rating dari dataset asli atau tampilkan state training yang jujur bila artefak tidak dapat dibangun.
+- [x] Dokumentasikan skema dataset Amazon, asumsi parsing, dan workflow analisis reproduksibel di source proyek.
+- [x] Ekspor agregat analitik dan artefak model ringkas sebagai JSON lokal untuk visualisasi dan prediksi client-side.
+- [x] Tambahkan case study Amazon Product Intelligence ke navigation portfolio serta Markdown project dengan sumber dan batasan yang jelas.
+- [x] Bangun dashboard Amazon interaktif client-side dengan filter global, chart aksesibel, category explorer, review intelligence, dan prediction demo.
+- [x] Buat route khusus Amazon Product Intelligence dengan struktur case study lengkap dan TOC yang sesuai untuk navigasi section kaya.
+- [x] Tambahkan TOC khusus Amazon untuk overview, analisis data, model, keterbatasan, dan visual evidence.
+- [x] Tambahkan dokumentasi reproducibility, data cleaning, modeling, batasan, dan panduan GitHub untuk case study Amazon.
+- [x] Validasi seluruh angka dashboard terhadap dataset, static export, responsive layout, aksesibilitas, serta tautan yang tidak dibuat-buat.
+- [x] Tambahkan filter global Amazon untuk category, rating, rentang diskon, dan rentang harga beserta reset yang memperbarui KPI serta chart secara konsisten.
+- [x] Tambahkan test artifact Amazon dan audit aksesibilitas khusus dashboard untuk memvalidasi angka dari JSON serta kontrol filter baru.
+- [x] Dokumentasikan audit aksesibilitas khusus Amazon dashboard, termasuk panel filter, label, state, keyboard, dan perilaku mobile.
+- [x] Tambahkan checklist verifikasi eksplisit untuk memastikan filter Amazon memperbarui KPI serta chart dan reset memulihkan view awal.
+- [x] Sertakan AUDIT.md pada source bundle agar dokumentasi aksesibilitas Amazon ikut terbawa saat export.
+- [x] Audit struktur kartu Project Explorer dan siapkan metadata sneak peek yang berbasis konten nyata untuk setiap project.
+- [x] Tambahkan panel sneak peek pada hover dan keyboard focus untuk seluruh kartu project, dengan fallback sentuh yang tetap terbaca.
+- [x] Verifikasi interaksi sneak peek pada desktop/mobile, keyboard, typecheck, test, dan static export sebelum checkpoint.
+- [x] Dokumentasikan verifikasi keyboard sneak peek untuk urutan Tab, fokus terlihat, preview saat fokus, dan navigasi Enter.
+- [x] Tambahkan checklist eksplisit untuk metadata preview seluruh project serta fallback touch/mobile sneak peek.

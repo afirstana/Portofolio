@@ -1,0 +1,1 @@
+export function MarkdownBody({ source }: { source: string }) { return <div className="markdown-body">{source.split("\n\n").map((block) => block.startsWith("## ") ? <h2 key={block}>{block.replace("## ", "")}</h2> : <p key={block}>{block}</p>)}</div>; }

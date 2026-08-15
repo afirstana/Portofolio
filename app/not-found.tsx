@@ -1,0 +1,1 @@
+export default function NotFound() { return <main className="site-shell not-found page-width"><p className="mono section-label">404 / Not found</p><h1>This page is not in the system.</h1><a className="contact-cta" href="/">Return home ↗</a></main>; }

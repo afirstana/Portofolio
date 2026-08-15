@@ -1,0 +1,172 @@
+backend:
+  name: github
+  repo: afirstana/Portofolio
+  branch: main
+
+# Enable local backend proxy when running locally
+local_backend: true
+
+media_folder: "public/evidence"
+public_folder: "/evidence"
+
+collections:
+  # -------------------------------------------------------------
+  # 1. PROJECTS / CASE STUDIES
+  # -------------------------------------------------------------
+  - name: "projects"
+    label: "Studi Kasus Proyek"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    summary: "{{title}} (Order: {{order}}) — {{category}}"
+    sortable_fields: ["order", "title", "category"]
+    fields:
+      - { label: "Judul Proyek", name: "title", widget: "string" }
+      - { label: "Slug URL", name: "slug", widget: "string", hint: "Contoh: ml-product-mapping-system (huruf kecil, gunakan tanda minus)" }
+      - { label: "Ringkasan 1 Baris (One Liner)", name: "one_liner", widget: "string" }
+      - { label: "Masalah yang Dihadapi (Problem)", name: "problem", widget: "text" }
+      - { label: "Pendekatan / Solusi (Approach)", name: "approach", widget: "text" }
+      - { label: "Dampak / Hasil Bisnis (Impact)", name: "impact", widget: "text" }
+      - label: "Kategori"
+        name: "category"
+        widget: "select"
+        options: ["Applied Data Science", "Machine learning", "Analytics", "Automation", "Data Engineering"]
+      - { label: "Daftar Tools", name: "tools", widget: "list", field: { label: "Tool", name: "tool", widget: "string" } }
+      - { label: "Daftar Skills Terkait", name: "skills", widget: "list", field: { label: "Skill", name: "skill", widget: "string" } }
+      - { label: "Urutan Tampil (Order)", name: "order", widget: "number", value_type: "int", min: 1, max: 99 }
+      
+      - label: "Arsitektur / Alur Sistem (System Flow)"
+        name: "system"
+        widget: "list"
+        fields:
+          - { label: "Tahap (Label)", name: "label", widget: "string" }
+          - { label: "Deskripsi Tahap (Value)", name: "value", widget: "string" }
+
+      - { label: "Pelajaran yang Dipetik (Lessons Learned)", name: "lessons", widget: "list", field: { label: "Lesson", name: "lesson", widget: "string" } }
+
+      - label: "Live Preview / Snapshot Kartu"
+        name: "preview"
+        widget: "object"
+        fields:
+          - { label: "Eyebrow / Subjudul Kecil", name: "eyebrow", widget: "string" }
+          - label: "Metrik Singkat (3 Item)"
+            name: "metrics"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Label Metrik", name: "label", widget: "string" }
+              - { label: "Nilai Metrik", name: "value", widget: "string" }
+          - { label: "Kesimpulan Singkat (Takeaway)", name: "takeaway", widget: "string" }
+
+      - label: "Bukti Visual / Screenshot Proyek (Evidence)"
+        name: "evidence"
+        widget: "list"
+        fields:
+          - { label: "Slot (01, 02, 03)", name: "slot", widget: "string" }
+          - label: "Tipe Visual"
+            name: "kind"
+            widget: "select"
+            options: ["screenshot", "dashboard", "diagram"]
+          - { label: "Judul Gambar", name: "title", widget: "string" }
+          - { label: "Deskripsi Penjelasan", name: "description", widget: "text" }
+          - { label: "Alt Teks Aksesibilitas", name: "alt", widget: "string" }
+          - { label: "Unggah Gambar", name: "image", widget: "image", required: false }
+
+      - { label: "Dokumentasi Lengkap (Isi Markdown)", name: "body", widget: "markdown" }
+
+  # -------------------------------------------------------------
+  # 2. PROFIL & HALAMAN UTAMA (SITE SECTIONS)
+  # -------------------------------------------------------------
+  - name: "pages"
+    label: "Profil & Bagian Website"
+    files:
+      - name: "hero"
+        label: "01. Hero Section (Header Utama)"
+        file: "content/hero.md"
+        fields:
+          - { label: "Nama Tampil di Hero", name: "name", widget: "string", default: "Abimael." }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Teks Tombol CTA", name: "cta_label", widget: "string", default: "Explore Work" }
+          - { label: "Lokasi", name: "location", widget: "string", default: "Jakarta, Indonesia" }
+          - { label: "Eyebrow / Tahun", name: "eyebrow", widget: "string", default: "Independent data practice — 2026" }
+          - { label: "Catatan Tambahan", name: "body", widget: "markdown", required: false }
+
+      - name: "about"
+        label: "02. About Section (Tentang Saya & Nilai)"
+        file: "content/about.md"
+        fields:
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "01 / About" }
+          - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
+          - { label: "Foto Profil / Avatar ID", name: "photo", widget: "string", default: "abstract-systems-placeholder" }
+          - { label: "Teks Bio", name: "bio_text", widget: "text" }
+          - { label: "Daftar Nilai Kerja (Values)", name: "values", widget: "list", field: { label: "Nilai", name: "val", widget: "string" } }
+          - { label: "Catatan Tambahan", name: "body", widget: "markdown", required: false }
+
+      - name: "method"
+        label: "03. How I Work (Metodologi Kerja)"
+        file: "content/method.md"
+        fields:
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "05 / How I work" }
+          - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
+          - label: "Langkah-Langkah Kerja (Steps)"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Judul Tahap", name: "title", widget: "string" }
+              - { label: "Penjelasan Tahap", name: "description", widget: "text" }
+          - { label: "Catatan Tambahan", name: "body", widget: "markdown", required: false }
+
+      - name: "skills"
+        label: "04. Skills & Tools Matrix"
+        file: "content/skills.md"
+        fields:
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "03 / Skills & tools" }
+          - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
+          - label: "Kelompok Keahlian (Groups)"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "Nama Kategori (misal: Automation, Analytics)", name: "name", widget: "string" }
+              - label: "Daftar Skill di Kategori Ini"
+                name: "skills"
+                widget: "list"
+                fields:
+                  - { label: "Nama Skill (misal: Python, SQL)", name: "name", widget: "string" }
+                  - { label: "Slug Proyek Pembuktian (Evidence)", name: "evidence", widget: "list", field: { label: "Project Slug", name: "slug", widget: "string" }, required: false }
+          - { label: "Catatan Tambahan", name: "body", widget: "markdown", required: false }
+
+      - name: "timeline"
+        label: "05. Career Timeline (Where I've Been)"
+        file: "content/timeline.md"
+        fields:
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "06 / Where I've been" }
+          - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
+          - label: "Riwayat Pengalaman (Entries)"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Posisi / Role", name: "role", widget: "string" }
+              - { label: "Periode Waktu (misal: Now, 2023 - 2025)", name: "period", widget: "string" }
+              - { label: "Deskripsi Singkat", name: "description", widget: "text" }
+              - { label: "Fokus & Detail Tanggung Jawab", name: "detail", widget: "text" }
+              - { label: "Tools yang Digunakan", name: "tools", widget: "list", field: { label: "Tool", name: "t", widget: "string" } }
+          - { label: "Catatan Tambahan", name: "body", widget: "markdown", required: false }
+
+      - name: "contact"
+        label: "06. Contact & Socials"
+        file: "content/contact.md"
+        fields:
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "07 / Contact" }
+          - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
+          - { label: "Email Utama", name: "email", widget: "string" }
+          - { label: "Teks Tombol Utama (CTA)", name: "cta_text", widget: "string", default: "Start a conversation" }
+          - { label: "Teks Tombol Copy Email", name: "copy_label", widget: "string", default: "Copy email" }
+          - label: "Tautan Sosial Media"
+            name: "social_links"
+            widget: "list"
+            fields:
+              - { label: "Platform (misal: LinkedIn, GitHub)", name: "label", widget: "string" }
+              - { label: "URL Tautan", name: "url", widget: "string" }
+          - { label: "Catatan Tambahan", name: "body", widget: "markdown", required: false }

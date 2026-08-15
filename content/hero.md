@@ -1,5 +1,5 @@
 ---
-name: "Abimael."
+name: "Abimael Firstana."
 tagline: "Data systems, analytical clarity, and useful automation."
 cta_label: "Explore Work"
 location: "Jakarta, Indonesia"

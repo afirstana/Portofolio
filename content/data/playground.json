@@ -1,14 +1,2402 @@
 [
-  {"month":"Jan","category":"Automation","value":42,"volume":118},
-  {"month":"Feb","category":"Automation","value":48,"volume":126},
-  {"month":"Mar","category":"Automation","value":55,"volume":141},
-  {"month":"Apr","category":"Automation","value":61,"volume":154},
-  {"month":"May","category":"Analytics","value":37,"volume":96},
-  {"month":"Jun","category":"Analytics","value":44,"volume":111},
-  {"month":"Jul","category":"Analytics","value":51,"volume":127},
-  {"month":"Aug","category":"Analytics","value":58,"volume":139},
-  {"month":"Sep","category":"Data quality","value":46,"volume":104},
-  {"month":"Oct","category":"Data quality","value":54,"volume":119},
-  {"month":"Nov","category":"Data quality","value":63,"volume":145},
-  {"month":"Dec","category":"Data quality","value":67,"volume":152}
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Lung Cancer",
+    "value": 1065.1,
+    "volume": 1065139,
+    "metric_label": "1,065,139 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Colorectal Cancer",
+    "value": 518.1,
+    "volume": 518126,
+    "metric_label": "518,126 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Stomach Cancer",
+    "value": 788.3,
+    "volume": 788317,
+    "metric_label": "788,317 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Liver Cancer",
+    "value": 365.2,
+    "volume": 365215,
+    "metric_label": "365,215 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Breast Cancer",
+    "value": 380.9,
+    "volume": 380905,
+    "metric_label": "380,905 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Esophageal Cancer",
+    "value": 319.3,
+    "volume": 319332,
+    "metric_label": "319,332 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Pancreatic Cancer",
+    "value": 198.1,
+    "volume": 198051,
+    "metric_label": "198,051 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Prostate Cancer",
+    "value": 233.0,
+    "volume": 232999,
+    "metric_label": "232,999 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Cervical Cancer",
+    "value": 184.5,
+    "volume": 184527,
+    "metric_label": "184,527 deaths"
+  },
+  {
+    "year": "1990",
+    "month": "1990",
+    "category": "Leukemia",
+    "value": 263.3,
+    "volume": 263263,
+    "metric_label": "263,263 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Lung Cancer",
+    "value": 1088.1,
+    "volume": 1088143,
+    "metric_label": "1,088,143 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Colorectal Cancer",
+    "value": 529.7,
+    "volume": 529699,
+    "metric_label": "529,699 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Stomach Cancer",
+    "value": 791.1,
+    "volume": 791061,
+    "metric_label": "791,061 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Liver Cancer",
+    "value": 382.8,
+    "volume": 382764,
+    "metric_label": "382,764 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Breast Cancer",
+    "value": 388.9,
+    "volume": 388876,
+    "metric_label": "388,876 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Esophageal Cancer",
+    "value": 327.0,
+    "volume": 327023,
+    "metric_label": "327,023 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Pancreatic Cancer",
+    "value": 204.1,
+    "volume": 204106,
+    "metric_label": "204,106 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Prostate Cancer",
+    "value": 239.7,
+    "volume": 239667,
+    "metric_label": "239,667 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Cervical Cancer",
+    "value": 185.4,
+    "volume": 185386,
+    "metric_label": "185,386 deaths"
+  },
+  {
+    "year": "1991",
+    "month": "1991",
+    "category": "Leukemia",
+    "value": 265.1,
+    "volume": 265139,
+    "metric_label": "265,139 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Lung Cancer",
+    "value": 1113.9,
+    "volume": 1113920,
+    "metric_label": "1,113,920 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Colorectal Cancer",
+    "value": 543.0,
+    "volume": 543017,
+    "metric_label": "543,017 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Stomach Cancer",
+    "value": 796.4,
+    "volume": 796404,
+    "metric_label": "796,404 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Liver Cancer",
+    "value": 399.7,
+    "volume": 399662,
+    "metric_label": "399,662 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Breast Cancer",
+    "value": 398.3,
+    "volume": 398279,
+    "metric_label": "398,279 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Esophageal Cancer",
+    "value": 334.1,
+    "volume": 334099,
+    "metric_label": "334,099 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Pancreatic Cancer",
+    "value": 210.6,
+    "volume": 210632,
+    "metric_label": "210,632 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Prostate Cancer",
+    "value": 246.7,
+    "volume": 246717,
+    "metric_label": "246,717 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Cervical Cancer",
+    "value": 188.2,
+    "volume": 188200,
+    "metric_label": "188,200 deaths"
+  },
+  {
+    "year": "1992",
+    "month": "1992",
+    "category": "Leukemia",
+    "value": 267.1,
+    "volume": 267135,
+    "metric_label": "267,135 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Lung Cancer",
+    "value": 1151.3,
+    "volume": 1151283,
+    "metric_label": "1,151,283 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Colorectal Cancer",
+    "value": 562.4,
+    "volume": 562393,
+    "metric_label": "562,393 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Stomach Cancer",
+    "value": 808.1,
+    "volume": 808119,
+    "metric_label": "808,119 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Liver Cancer",
+    "value": 417.3,
+    "volume": 417329,
+    "metric_label": "417,329 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Breast Cancer",
+    "value": 411.6,
+    "volume": 411584,
+    "metric_label": "411,584 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Esophageal Cancer",
+    "value": 342.8,
+    "volume": 342837,
+    "metric_label": "342,837 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Pancreatic Cancer",
+    "value": 219.9,
+    "volume": 219883,
+    "metric_label": "219,883 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Prostate Cancer",
+    "value": 254.5,
+    "volume": 254462,
+    "metric_label": "254,462 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Cervical Cancer",
+    "value": 190.6,
+    "volume": 190590,
+    "metric_label": "190,590 deaths"
+  },
+  {
+    "year": "1993",
+    "month": "1993",
+    "category": "Leukemia",
+    "value": 269.8,
+    "volume": 269758,
+    "metric_label": "269,758 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Lung Cancer",
+    "value": 1176.8,
+    "volume": 1176758,
+    "metric_label": "1,176,758 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Colorectal Cancer",
+    "value": 575.5,
+    "volume": 575487,
+    "metric_label": "575,487 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Stomach Cancer",
+    "value": 810.7,
+    "volume": 810667,
+    "metric_label": "810,667 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Liver Cancer",
+    "value": 435.1,
+    "volume": 435088,
+    "metric_label": "435,088 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Breast Cancer",
+    "value": 421.9,
+    "volume": 421889,
+    "metric_label": "421,889 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Esophageal Cancer",
+    "value": 348.2,
+    "volume": 348242,
+    "metric_label": "348,242 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Pancreatic Cancer",
+    "value": 226.5,
+    "volume": 226459,
+    "metric_label": "226,459 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Prostate Cancer",
+    "value": 261.6,
+    "volume": 261576,
+    "metric_label": "261,576 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Cervical Cancer",
+    "value": 193.3,
+    "volume": 193347,
+    "metric_label": "193,347 deaths"
+  },
+  {
+    "year": "1994",
+    "month": "1994",
+    "category": "Leukemia",
+    "value": 272.8,
+    "volume": 272764,
+    "metric_label": "272,764 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Lung Cancer",
+    "value": 1200.0,
+    "volume": 1200039,
+    "metric_label": "1,200,039 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Colorectal Cancer",
+    "value": 586.9,
+    "volume": 586929,
+    "metric_label": "586,929 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Stomach Cancer",
+    "value": 808.9,
+    "volume": 808881,
+    "metric_label": "808,881 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Liver Cancer",
+    "value": 450.5,
+    "volume": 450534,
+    "metric_label": "450,534 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Breast Cancer",
+    "value": 429.7,
+    "volume": 429654,
+    "metric_label": "429,654 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Esophageal Cancer",
+    "value": 354.0,
+    "volume": 354022,
+    "metric_label": "354,022 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Pancreatic Cancer",
+    "value": 231.9,
+    "volume": 231927,
+    "metric_label": "231,927 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Prostate Cancer",
+    "value": 268.6,
+    "volume": 268558,
+    "metric_label": "268,558 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Cervical Cancer",
+    "value": 194.7,
+    "volume": 194701,
+    "metric_label": "194,701 deaths"
+  },
+  {
+    "year": "1995",
+    "month": "1995",
+    "category": "Leukemia",
+    "value": 275.2,
+    "volume": 275233,
+    "metric_label": "275,233 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Lung Cancer",
+    "value": 1215.4,
+    "volume": 1215381,
+    "metric_label": "1,215,381 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Colorectal Cancer",
+    "value": 596.4,
+    "volume": 596398,
+    "metric_label": "596,398 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Stomach Cancer",
+    "value": 805.4,
+    "volume": 805369,
+    "metric_label": "805,369 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Liver Cancer",
+    "value": 462.9,
+    "volume": 462869,
+    "metric_label": "462,869 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Breast Cancer",
+    "value": 436.4,
+    "volume": 436386,
+    "metric_label": "436,386 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Esophageal Cancer",
+    "value": 360.7,
+    "volume": 360700,
+    "metric_label": "360,700 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Pancreatic Cancer",
+    "value": 236.8,
+    "volume": 236797,
+    "metric_label": "236,797 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Prostate Cancer",
+    "value": 275.6,
+    "volume": 275590,
+    "metric_label": "275,590 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Cervical Cancer",
+    "value": 196.9,
+    "volume": 196946,
+    "metric_label": "196,946 deaths"
+  },
+  {
+    "year": "1996",
+    "month": "1996",
+    "category": "Leukemia",
+    "value": 276.1,
+    "volume": 276054,
+    "metric_label": "276,054 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Lung Cancer",
+    "value": 1231.5,
+    "volume": 1231496,
+    "metric_label": "1,231,496 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Colorectal Cancer",
+    "value": 607.5,
+    "volume": 607453,
+    "metric_label": "607,453 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Stomach Cancer",
+    "value": 804.9,
+    "volume": 804886,
+    "metric_label": "804,886 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Liver Cancer",
+    "value": 469.9,
+    "volume": 469867,
+    "metric_label": "469,867 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Breast Cancer",
+    "value": 443.6,
+    "volume": 443626,
+    "metric_label": "443,626 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Esophageal Cancer",
+    "value": 368.2,
+    "volume": 368197,
+    "metric_label": "368,197 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Pancreatic Cancer",
+    "value": 242.5,
+    "volume": 242477,
+    "metric_label": "242,477 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Prostate Cancer",
+    "value": 282.2,
+    "volume": 282168,
+    "metric_label": "282,168 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Cervical Cancer",
+    "value": 200.2,
+    "volume": 200178,
+    "metric_label": "200,178 deaths"
+  },
+  {
+    "year": "1997",
+    "month": "1997",
+    "category": "Leukemia",
+    "value": 277.6,
+    "volume": 277565,
+    "metric_label": "277,565 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Lung Cancer",
+    "value": 1254.5,
+    "volume": 1254538,
+    "metric_label": "1,254,538 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Colorectal Cancer",
+    "value": 622.4,
+    "volume": 622442,
+    "metric_label": "622,442 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Stomach Cancer",
+    "value": 811.5,
+    "volume": 811537,
+    "metric_label": "811,537 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Liver Cancer",
+    "value": 476.7,
+    "volume": 476714,
+    "metric_label": "476,714 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Breast Cancer",
+    "value": 451.1,
+    "volume": 451135,
+    "metric_label": "451,135 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Esophageal Cancer",
+    "value": 377.4,
+    "volume": 377420,
+    "metric_label": "377,420 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Pancreatic Cancer",
+    "value": 249.7,
+    "volume": 249713,
+    "metric_label": "249,713 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Prostate Cancer",
+    "value": 289.2,
+    "volume": 289153,
+    "metric_label": "289,153 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Cervical Cancer",
+    "value": 202.3,
+    "volume": 202315,
+    "metric_label": "202,315 deaths"
+  },
+  {
+    "year": "1998",
+    "month": "1998",
+    "category": "Leukemia",
+    "value": 280.1,
+    "volume": 280051,
+    "metric_label": "280,051 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Lung Cancer",
+    "value": 1287.8,
+    "volume": 1287809,
+    "metric_label": "1,287,809 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Colorectal Cancer",
+    "value": 643.5,
+    "volume": 643454,
+    "metric_label": "643,454 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Stomach Cancer",
+    "value": 827.8,
+    "volume": 827849,
+    "metric_label": "827,849 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Liver Cancer",
+    "value": 480.3,
+    "volume": 480253,
+    "metric_label": "480,253 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Breast Cancer",
+    "value": 461.7,
+    "volume": 461704,
+    "metric_label": "461,704 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Esophageal Cancer",
+    "value": 389.8,
+    "volume": 389815,
+    "metric_label": "389,815 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Pancreatic Cancer",
+    "value": 259.0,
+    "volume": 258953,
+    "metric_label": "258,953 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Prostate Cancer",
+    "value": 295.8,
+    "volume": 295781,
+    "metric_label": "295,781 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Cervical Cancer",
+    "value": 205.6,
+    "volume": 205592,
+    "metric_label": "205,592 deaths"
+  },
+  {
+    "year": "1999",
+    "month": "1999",
+    "category": "Leukemia",
+    "value": 283.0,
+    "volume": 283007,
+    "metric_label": "283,007 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Lung Cancer",
+    "value": 1321.3,
+    "volume": 1321280,
+    "metric_label": "1,321,280 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Colorectal Cancer",
+    "value": 662.5,
+    "volume": 662459,
+    "metric_label": "662,459 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Stomach Cancer",
+    "value": 849.2,
+    "volume": 849163,
+    "metric_label": "849,163 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Liver Cancer",
+    "value": 470.2,
+    "volume": 470152,
+    "metric_label": "470,152 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Breast Cancer",
+    "value": 469.5,
+    "volume": 469528,
+    "metric_label": "469,528 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Esophageal Cancer",
+    "value": 406.3,
+    "volume": 406267,
+    "metric_label": "406,267 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Pancreatic Cancer",
+    "value": 268.0,
+    "volume": 268046,
+    "metric_label": "268,046 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Prostate Cancer",
+    "value": 303.1,
+    "volume": 303085,
+    "metric_label": "303,085 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Cervical Cancer",
+    "value": 208.6,
+    "volume": 208598,
+    "metric_label": "208,598 deaths"
+  },
+  {
+    "year": "2000",
+    "month": "2000",
+    "category": "Leukemia",
+    "value": 284.9,
+    "volume": 284920,
+    "metric_label": "284,920 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Lung Cancer",
+    "value": 1348.0,
+    "volume": 1347965,
+    "metric_label": "1,347,965 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Colorectal Cancer",
+    "value": 680.9,
+    "volume": 680900,
+    "metric_label": "680,900 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Stomach Cancer",
+    "value": 868.0,
+    "volume": 868037,
+    "metric_label": "868,037 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Liver Cancer",
+    "value": 444.7,
+    "volume": 444735,
+    "metric_label": "444,735 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Breast Cancer",
+    "value": 477.7,
+    "volume": 477704,
+    "metric_label": "477,704 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Esophageal Cancer",
+    "value": 421.0,
+    "volume": 421013,
+    "metric_label": "421,013 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Pancreatic Cancer",
+    "value": 277.5,
+    "volume": 277467,
+    "metric_label": "277,467 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Prostate Cancer",
+    "value": 310.7,
+    "volume": 310664,
+    "metric_label": "310,664 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Cervical Cancer",
+    "value": 211.8,
+    "volume": 211803,
+    "metric_label": "211,803 deaths"
+  },
+  {
+    "year": "2001",
+    "month": "2001",
+    "category": "Leukemia",
+    "value": 285.7,
+    "volume": 285695,
+    "metric_label": "285,695 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Lung Cancer",
+    "value": 1384.0,
+    "volume": 1383984,
+    "metric_label": "1,383,984 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Colorectal Cancer",
+    "value": 704.6,
+    "volume": 704560,
+    "metric_label": "704,560 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Stomach Cancer",
+    "value": 895.2,
+    "volume": 895244,
+    "metric_label": "895,244 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Liver Cancer",
+    "value": 409.8,
+    "volume": 409845,
+    "metric_label": "409,845 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Breast Cancer",
+    "value": 487.7,
+    "volume": 487703,
+    "metric_label": "487,703 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Esophageal Cancer",
+    "value": 437.3,
+    "volume": 437276,
+    "metric_label": "437,276 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Pancreatic Cancer",
+    "value": 289.0,
+    "volume": 288965,
+    "metric_label": "288,965 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Prostate Cancer",
+    "value": 319.2,
+    "volume": 319197,
+    "metric_label": "319,197 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Cervical Cancer",
+    "value": 216.4,
+    "volume": 216381,
+    "metric_label": "216,381 deaths"
+  },
+  {
+    "year": "2002",
+    "month": "2002",
+    "category": "Leukemia",
+    "value": 285.6,
+    "volume": 285554,
+    "metric_label": "285,554 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Lung Cancer",
+    "value": 1417.1,
+    "volume": 1417126,
+    "metric_label": "1,417,126 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Colorectal Cancer",
+    "value": 726.7,
+    "volume": 726665,
+    "metric_label": "726,665 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Stomach Cancer",
+    "value": 920.8,
+    "volume": 920794,
+    "metric_label": "920,794 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Liver Cancer",
+    "value": 381.9,
+    "volume": 381934,
+    "metric_label": "381,934 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Breast Cancer",
+    "value": 496.0,
+    "volume": 496047,
+    "metric_label": "496,047 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Esophageal Cancer",
+    "value": 453.1,
+    "volume": 453072,
+    "metric_label": "453,072 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Pancreatic Cancer",
+    "value": 300.2,
+    "volume": 300218,
+    "metric_label": "300,218 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Prostate Cancer",
+    "value": 326.1,
+    "volume": 326061,
+    "metric_label": "326,061 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Cervical Cancer",
+    "value": 220.3,
+    "volume": 220282,
+    "metric_label": "220,282 deaths"
+  },
+  {
+    "year": "2003",
+    "month": "2003",
+    "category": "Leukemia",
+    "value": 285.6,
+    "volume": 285623,
+    "metric_label": "285,623 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Lung Cancer",
+    "value": 1449.1,
+    "volume": 1449142,
+    "metric_label": "1,449,142 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Colorectal Cancer",
+    "value": 743.4,
+    "volume": 743434,
+    "metric_label": "743,434 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Stomach Cancer",
+    "value": 940.5,
+    "volume": 940457,
+    "metric_label": "940,457 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Liver Cancer",
+    "value": 363.0,
+    "volume": 363000,
+    "metric_label": "363,000 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Breast Cancer",
+    "value": 501.2,
+    "volume": 501204,
+    "metric_label": "501,204 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Esophageal Cancer",
+    "value": 465.8,
+    "volume": 465849,
+    "metric_label": "465,849 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Pancreatic Cancer",
+    "value": 310.2,
+    "volume": 310193,
+    "metric_label": "310,193 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Prostate Cancer",
+    "value": 332.3,
+    "volume": 332326,
+    "metric_label": "332,326 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Cervical Cancer",
+    "value": 222.5,
+    "volume": 222514,
+    "metric_label": "222,514 deaths"
+  },
+  {
+    "year": "2004",
+    "month": "2004",
+    "category": "Leukemia",
+    "value": 285.7,
+    "volume": 285704,
+    "metric_label": "285,704 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Lung Cancer",
+    "value": 1485.8,
+    "volume": 1485760,
+    "metric_label": "1,485,760 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Colorectal Cancer",
+    "value": 766.0,
+    "volume": 765962,
+    "metric_label": "765,962 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Stomach Cancer",
+    "value": 946.2,
+    "volume": 946191,
+    "metric_label": "946,191 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Liver Cancer",
+    "value": 358.8,
+    "volume": 358848,
+    "metric_label": "358,848 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Breast Cancer",
+    "value": 511.7,
+    "volume": 511748,
+    "metric_label": "511,748 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Esophageal Cancer",
+    "value": 469.7,
+    "volume": 469652,
+    "metric_label": "469,652 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Pancreatic Cancer",
+    "value": 323.5,
+    "volume": 323537,
+    "metric_label": "323,537 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Prostate Cancer",
+    "value": 339.8,
+    "volume": 339781,
+    "metric_label": "339,781 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Cervical Cancer",
+    "value": 225.6,
+    "volume": 225592,
+    "metric_label": "225,592 deaths"
+  },
+  {
+    "year": "2005",
+    "month": "2005",
+    "category": "Leukemia",
+    "value": 288.1,
+    "volume": 288052,
+    "metric_label": "288,052 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Lung Cancer",
+    "value": 1506.0,
+    "volume": 1505994,
+    "metric_label": "1,505,994 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Colorectal Cancer",
+    "value": 777.4,
+    "volume": 777377,
+    "metric_label": "777,377 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Stomach Cancer",
+    "value": 927.5,
+    "volume": 927497,
+    "metric_label": "927,497 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Liver Cancer",
+    "value": 361.2,
+    "volume": 361207,
+    "metric_label": "361,207 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Breast Cancer",
+    "value": 518.4,
+    "volume": 518380,
+    "metric_label": "518,380 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Esophageal Cancer",
+    "value": 462.6,
+    "volume": 462626,
+    "metric_label": "462,626 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Pancreatic Cancer",
+    "value": 333.5,
+    "volume": 333459,
+    "metric_label": "333,459 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Prostate Cancer",
+    "value": 346.7,
+    "volume": 346707,
+    "metric_label": "346,707 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Cervical Cancer",
+    "value": 226.9,
+    "volume": 226907,
+    "metric_label": "226,907 deaths"
+  },
+  {
+    "year": "2006",
+    "month": "2006",
+    "category": "Leukemia",
+    "value": 288.6,
+    "volume": 288620,
+    "metric_label": "288,620 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Lung Cancer",
+    "value": 1543.8,
+    "volume": 1543830,
+    "metric_label": "1,543,830 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Colorectal Cancer",
+    "value": 796.0,
+    "volume": 795972,
+    "metric_label": "795,972 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Stomach Cancer",
+    "value": 920.3,
+    "volume": 920304,
+    "metric_label": "920,304 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Liver Cancer",
+    "value": 366.4,
+    "volume": 366399,
+    "metric_label": "366,399 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Breast Cancer",
+    "value": 527.9,
+    "volume": 527871,
+    "metric_label": "527,871 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Esophageal Cancer",
+    "value": 458.0,
+    "volume": 458024,
+    "metric_label": "458,024 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Pancreatic Cancer",
+    "value": 346.1,
+    "volume": 346117,
+    "metric_label": "346,117 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Prostate Cancer",
+    "value": 353.6,
+    "volume": 353573,
+    "metric_label": "353,573 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Cervical Cancer",
+    "value": 228.7,
+    "volume": 228723,
+    "metric_label": "228,723 deaths"
+  },
+  {
+    "year": "2007",
+    "month": "2007",
+    "category": "Leukemia",
+    "value": 290.4,
+    "volume": 290359,
+    "metric_label": "290,359 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Lung Cancer",
+    "value": 1590.7,
+    "volume": 1590730,
+    "metric_label": "1,590,730 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Colorectal Cancer",
+    "value": 819.3,
+    "volume": 819317,
+    "metric_label": "819,317 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Stomach Cancer",
+    "value": 921.3,
+    "volume": 921304,
+    "metric_label": "921,304 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Liver Cancer",
+    "value": 376.3,
+    "volume": 376325,
+    "metric_label": "376,325 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Breast Cancer",
+    "value": 540.0,
+    "volume": 540036,
+    "metric_label": "540,036 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Esophageal Cancer",
+    "value": 455.9,
+    "volume": 455861,
+    "metric_label": "455,861 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Pancreatic Cancer",
+    "value": 360.7,
+    "volume": 360719,
+    "metric_label": "360,719 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Prostate Cancer",
+    "value": 362.2,
+    "volume": 362153,
+    "metric_label": "362,153 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Cervical Cancer",
+    "value": 231.3,
+    "volume": 231303,
+    "metric_label": "231,303 deaths"
+  },
+  {
+    "year": "2008",
+    "month": "2008",
+    "category": "Leukemia",
+    "value": 294.5,
+    "volume": 294512,
+    "metric_label": "294,512 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Lung Cancer",
+    "value": 1631.8,
+    "volume": 1631778,
+    "metric_label": "1,631,778 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Colorectal Cancer",
+    "value": 837.4,
+    "volume": 837376,
+    "metric_label": "837,376 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Stomach Cancer",
+    "value": 920.0,
+    "volume": 920024,
+    "metric_label": "920,024 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Liver Cancer",
+    "value": 381.2,
+    "volume": 381199,
+    "metric_label": "381,199 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Breast Cancer",
+    "value": 550.6,
+    "volume": 550621,
+    "metric_label": "550,621 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Esophageal Cancer",
+    "value": 453.4,
+    "volume": 453421,
+    "metric_label": "453,421 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Pancreatic Cancer",
+    "value": 374.1,
+    "volume": 374120,
+    "metric_label": "374,120 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Prostate Cancer",
+    "value": 369.5,
+    "volume": 369474,
+    "metric_label": "369,474 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Cervical Cancer",
+    "value": 233.9,
+    "volume": 233890,
+    "metric_label": "233,890 deaths"
+  },
+  {
+    "year": "2009",
+    "month": "2009",
+    "category": "Leukemia",
+    "value": 297.0,
+    "volume": 296962,
+    "metric_label": "296,962 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Lung Cancer",
+    "value": 1670.7,
+    "volume": 1670745,
+    "metric_label": "1,670,745 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Colorectal Cancer",
+    "value": 857.8,
+    "volume": 857808,
+    "metric_label": "857,808 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Stomach Cancer",
+    "value": 922.3,
+    "volume": 922293,
+    "metric_label": "922,293 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Liver Cancer",
+    "value": 386.3,
+    "volume": 386342,
+    "metric_label": "386,342 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Breast Cancer",
+    "value": 564.6,
+    "volume": 564632,
+    "metric_label": "564,632 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Esophageal Cancer",
+    "value": 453.1,
+    "volume": 453114,
+    "metric_label": "453,114 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Pancreatic Cancer",
+    "value": 389.2,
+    "volume": 389196,
+    "metric_label": "389,196 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Prostate Cancer",
+    "value": 377.9,
+    "volume": 377905,
+    "metric_label": "377,905 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Cervical Cancer",
+    "value": 237.9,
+    "volume": 237933,
+    "metric_label": "237,933 deaths"
+  },
+  {
+    "year": "2010",
+    "month": "2010",
+    "category": "Leukemia",
+    "value": 299.6,
+    "volume": 299603,
+    "metric_label": "299,603 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Lung Cancer",
+    "value": 1704.6,
+    "volume": 1704610,
+    "metric_label": "1,704,610 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Colorectal Cancer",
+    "value": 875.9,
+    "volume": 875886,
+    "metric_label": "875,886 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Stomach Cancer",
+    "value": 918.1,
+    "volume": 918145,
+    "metric_label": "918,145 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Liver Cancer",
+    "value": 391.1,
+    "volume": 391139,
+    "metric_label": "391,139 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Breast Cancer",
+    "value": 577.3,
+    "volume": 577280,
+    "metric_label": "577,280 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Esophageal Cancer",
+    "value": 450.2,
+    "volume": 450189,
+    "metric_label": "450,189 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Pancreatic Cancer",
+    "value": 402.4,
+    "volume": 402385,
+    "metric_label": "402,385 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Prostate Cancer",
+    "value": 386.5,
+    "volume": 386456,
+    "metric_label": "386,456 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Cervical Cancer",
+    "value": 241.6,
+    "volume": 241569,
+    "metric_label": "241,569 deaths"
+  },
+  {
+    "year": "2011",
+    "month": "2011",
+    "category": "Leukemia",
+    "value": 302.9,
+    "volume": 302949,
+    "metric_label": "302,949 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Lung Cancer",
+    "value": 1736.4,
+    "volume": 1736387,
+    "metric_label": "1,736,387 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Colorectal Cancer",
+    "value": 894.8,
+    "volume": 894817,
+    "metric_label": "894,817 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Stomach Cancer",
+    "value": 915.3,
+    "volume": 915312,
+    "metric_label": "915,312 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Liver Cancer",
+    "value": 398.1,
+    "volume": 398129,
+    "metric_label": "398,129 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Breast Cancer",
+    "value": 588.5,
+    "volume": 588488,
+    "metric_label": "588,488 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Esophageal Cancer",
+    "value": 448.1,
+    "volume": 448068,
+    "metric_label": "448,068 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Pancreatic Cancer",
+    "value": 416.5,
+    "volume": 416453,
+    "metric_label": "416,453 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Prostate Cancer",
+    "value": 395.3,
+    "volume": 395329,
+    "metric_label": "395,329 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Cervical Cancer",
+    "value": 245.0,
+    "volume": 244990,
+    "metric_label": "244,990 deaths"
+  },
+  {
+    "year": "2012",
+    "month": "2012",
+    "category": "Leukemia",
+    "value": 305.6,
+    "volume": 305640,
+    "metric_label": "305,640 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Lung Cancer",
+    "value": 1766.0,
+    "volume": 1765970,
+    "metric_label": "1,765,970 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Colorectal Cancer",
+    "value": 912.4,
+    "volume": 912373,
+    "metric_label": "912,373 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Stomach Cancer",
+    "value": 909.3,
+    "volume": 909263,
+    "metric_label": "909,263 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Liver Cancer",
+    "value": 408.6,
+    "volume": 408647,
+    "metric_label": "408,647 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Breast Cancer",
+    "value": 603.0,
+    "volume": 603008,
+    "metric_label": "603,008 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Esophageal Cancer",
+    "value": 446.0,
+    "volume": 446023,
+    "metric_label": "446,023 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Pancreatic Cancer",
+    "value": 429.5,
+    "volume": 429481,
+    "metric_label": "429,481 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Prostate Cancer",
+    "value": 405.1,
+    "volume": 405089,
+    "metric_label": "405,089 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Cervical Cancer",
+    "value": 250.6,
+    "volume": 250613,
+    "metric_label": "250,613 deaths"
+  },
+  {
+    "year": "2013",
+    "month": "2013",
+    "category": "Leukemia",
+    "value": 308.5,
+    "volume": 308499,
+    "metric_label": "308,499 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Lung Cancer",
+    "value": 1799.3,
+    "volume": 1799303,
+    "metric_label": "1,799,303 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Colorectal Cancer",
+    "value": 931.5,
+    "volume": 931530,
+    "metric_label": "931,530 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Stomach Cancer",
+    "value": 906.6,
+    "volume": 906599,
+    "metric_label": "906,599 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Liver Cancer",
+    "value": 422.1,
+    "volume": 422102,
+    "metric_label": "422,102 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Breast Cancer",
+    "value": 618.9,
+    "volume": 618874,
+    "metric_label": "618,874 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Esophageal Cancer",
+    "value": 446.9,
+    "volume": 446949,
+    "metric_label": "446,949 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Pancreatic Cancer",
+    "value": 443.3,
+    "volume": 443257,
+    "metric_label": "443,257 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Prostate Cancer",
+    "value": 415.8,
+    "volume": 415833,
+    "metric_label": "415,833 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Cervical Cancer",
+    "value": 257.1,
+    "volume": 257081,
+    "metric_label": "257,081 deaths"
+  },
+  {
+    "year": "2014",
+    "month": "2014",
+    "category": "Leukemia",
+    "value": 311.8,
+    "volume": 311752,
+    "metric_label": "311,752 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Lung Cancer",
+    "value": 1840.8,
+    "volume": 1840754,
+    "metric_label": "1,840,754 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Colorectal Cancer",
+    "value": 958.7,
+    "volume": 958727,
+    "metric_label": "958,727 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Stomach Cancer",
+    "value": 910.7,
+    "volume": 910683,
+    "metric_label": "910,683 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Liver Cancer",
+    "value": 436.6,
+    "volume": 436627,
+    "metric_label": "436,627 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Breast Cancer",
+    "value": 638.4,
+    "volume": 638351,
+    "metric_label": "638,351 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Esophageal Cancer",
+    "value": 451.1,
+    "volume": 451095,
+    "metric_label": "451,095 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Pancreatic Cancer",
+    "value": 460.0,
+    "volume": 459984,
+    "metric_label": "459,984 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Prostate Cancer",
+    "value": 428.2,
+    "volume": 428183,
+    "metric_label": "428,183 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Cervical Cancer",
+    "value": 264.0,
+    "volume": 264032,
+    "metric_label": "264,032 deaths"
+  },
+  {
+    "year": "2015",
+    "month": "2015",
+    "category": "Leukemia",
+    "value": 316.5,
+    "volume": 316506,
+    "metric_label": "316,506 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Lung Cancer",
+    "value": 1879.2,
+    "volume": 1879226,
+    "metric_label": "1,879,226 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Colorectal Cancer",
+    "value": 983.8,
+    "volume": 983756,
+    "metric_label": "983,756 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Stomach Cancer",
+    "value": 920.2,
+    "volume": 920225,
+    "metric_label": "920,225 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Liver Cancer",
+    "value": 449.6,
+    "volume": 449633,
+    "metric_label": "449,633 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Breast Cancer",
+    "value": 653.2,
+    "volume": 653229,
+    "metric_label": "653,229 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Esophageal Cancer",
+    "value": 459.0,
+    "volume": 458974,
+    "metric_label": "458,974 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Pancreatic Cancer",
+    "value": 475.0,
+    "volume": 474955,
+    "metric_label": "474,955 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Prostate Cancer",
+    "value": 441.0,
+    "volume": 441036,
+    "metric_label": "441,036 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Cervical Cancer",
+    "value": 269.7,
+    "volume": 269747,
+    "metric_label": "269,747 deaths"
+  },
+  {
+    "year": "2016",
+    "month": "2016",
+    "category": "Leukemia",
+    "value": 320.6,
+    "volume": 320596,
+    "metric_label": "320,596 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Lung Cancer",
+    "value": 1920.9,
+    "volume": 1920896,
+    "metric_label": "1,920,896 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Colorectal Cancer",
+    "value": 1010.0,
+    "volume": 1009950,
+    "metric_label": "1,009,950 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Stomach Cancer",
+    "value": 925.4,
+    "volume": 925372,
+    "metric_label": "925,372 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Liver Cancer",
+    "value": 460.8,
+    "volume": 460784,
+    "metric_label": "460,784 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Breast Cancer",
+    "value": 666.4,
+    "volume": 666366,
+    "metric_label": "666,366 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Esophageal Cancer",
+    "value": 467.8,
+    "volume": 467777,
+    "metric_label": "467,777 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Pancreatic Cancer",
+    "value": 490.0,
+    "volume": 489986,
+    "metric_label": "489,986 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Prostate Cancer",
+    "value": 454.5,
+    "volume": 454494,
+    "metric_label": "454,494 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Cervical Cancer",
+    "value": 273.2,
+    "volume": 273183,
+    "metric_label": "273,183 deaths"
+  },
+  {
+    "year": "2017",
+    "month": "2017",
+    "category": "Leukemia",
+    "value": 323.9,
+    "volume": 323913,
+    "metric_label": "323,913 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Lung Cancer",
+    "value": 1979.3,
+    "volume": 1979288,
+    "metric_label": "1,979,288 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Colorectal Cancer",
+    "value": 1047.3,
+    "volume": 1047266,
+    "metric_label": "1,047,266 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Stomach Cancer",
+    "value": 938.6,
+    "volume": 938560,
+    "metric_label": "938,560 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Liver Cancer",
+    "value": 471.8,
+    "volume": 471761,
+    "metric_label": "471,761 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Breast Cancer",
+    "value": 683.5,
+    "volume": 683498,
+    "metric_label": "683,498 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Esophageal Cancer",
+    "value": 481.6,
+    "volume": 481641,
+    "metric_label": "481,641 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Pancreatic Cancer",
+    "value": 510.4,
+    "volume": 510406,
+    "metric_label": "510,406 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Prostate Cancer",
+    "value": 470.1,
+    "volume": 470146,
+    "metric_label": "470,146 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Cervical Cancer",
+    "value": 276.6,
+    "volume": 276625,
+    "metric_label": "276,625 deaths"
+  },
+  {
+    "year": "2018",
+    "month": "2018",
+    "category": "Leukemia",
+    "value": 329.4,
+    "volume": 329396,
+    "metric_label": "329,396 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Lung Cancer",
+    "value": 2042.6,
+    "volume": 2042640,
+    "metric_label": "2,042,640 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Colorectal Cancer",
+    "value": 1085.8,
+    "volume": 1085797,
+    "metric_label": "1,085,797 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Stomach Cancer",
+    "value": 957.2,
+    "volume": 957185,
+    "metric_label": "957,185 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Liver Cancer",
+    "value": 484.6,
+    "volume": 484577,
+    "metric_label": "484,577 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Breast Cancer",
+    "value": 700.7,
+    "volume": 700660,
+    "metric_label": "700,660 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Esophageal Cancer",
+    "value": 498.1,
+    "volume": 498067,
+    "metric_label": "498,067 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Pancreatic Cancer",
+    "value": 531.1,
+    "volume": 531107,
+    "metric_label": "531,107 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Prostate Cancer",
+    "value": 486.8,
+    "volume": 486836,
+    "metric_label": "486,836 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Cervical Cancer",
+    "value": 280.5,
+    "volume": 280479,
+    "metric_label": "280,479 deaths"
+  },
+  {
+    "year": "2019",
+    "month": "2019",
+    "category": "Leukemia",
+    "value": 334.6,
+    "volume": 334592,
+    "metric_label": "334,592 deaths"
+  }
 ]

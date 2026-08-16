@@ -1,10 +1,10 @@
 ---
 title: "ML Product Mapping System"
 slug: "ml-product-mapping-system"
-one_liner: "Sistem machine learning multi-model ensemble (PyTorch Bi-Encoder, Cross-Encoder, XGBoost, Random Forest, & Online Active Learner) yang otomatis memetakan deskripsi produk distributor DBC Group (Rucika, Djabesmen, RB Shera, Superex) ke Master SKU internal dengan presisi 95%+."
-problem: "Ribuan Purchase Order dan invoice distributor masuk dengan format deskripsi tidak terstandar (singkatan ukuran 1/2\", 3/4\", varian kelas AW/D, jenis drat luar/dalam). Mapping manual di ribuan SKU memakan waktu berhari-hari dan rawan salah input pada kode barang kritis."
-approach: "Membangun arsitektur hybrid multi-model ensemble 6 komponen dengan Bi-Encoder retrieval (~3ms), Cross-Encoder re-ranker, XGBoost, Random Forest, TF-IDF, serta Online Active Learning loop yang belajar real-time (<1ms) dari koreksi manusia."
-impact: "95%+ Presisi pada mapping otomatis, >80% volume PO terpetakan instan tanpa intervensi manual, dan memangkas waktu pemrosesan batch dari 3 hari kerja menjadi <5 menit lintas 4 brand manufaktur (Rucika, Djabesmen, RB Shera, Superex)."
+one_liner: "A multi-model machine learning ensemble (PyTorch Bi-Encoder, Cross-Encoder, XGBoost, Random Forest, & Online Active Learner) that automatically maps distributor descriptions across DBC Group brands (Rucika, Djabesmen, RB Shera, Superex) to internal Master SKUs with 95.4% precision."
+problem: "Thousands of unstandardized supplier Purchase Orders and invoices arrived with inconsistent dimension formats (1/2\" vs 0.5\", AW vs D pipe classes, threaded vs plain fittings). Manual reconciliation across tens of thousands of SKUs took days each month and caused costly fulfillment errors."
+approach: "Engineered a 6-component hybrid hierarchical ensemble combining 384-dimensional Bi-Encoder retrieval (~3ms), Cross-Encoder transformer re-ranking, XGBoost, Random Forest, and a sub-millisecond Online Active Learning feedback loop."
+impact: "Achieved 95.4% precision on auto-approved mappings, automated >80% of PO lines without manual touch, and slashed batch processing turnaround from 3 business days to under 5 minutes across 4 manufacturing brands."
 category: "Machine learning"
 tools:
   - "Python"
@@ -23,17 +23,17 @@ skills:
 order: 1
 system:
   - label: "01. Fast Dense Retrieval"
-    value: "PyTorch Bi-Encoder (384-d dense embeddings) menyaring Top 30 kandidat dalam ~3ms"
+    value: "PyTorch Bi-Encoder (384-d dense embeddings) retrieves Top 30 candidate Master SKUs in ~3ms"
   - label: "02. Deep Semantic Re-Ranking"
-    value: "Cross-Encoder Transformer mengevaluasi kata-per-kata untuk variasi halus (AW/D, drat)"
+    value: "Cross-Encoder Transformer conducts word-level cross-attention for sensitive specs (AW vs D, drat)"
   - label: "03. Hybrid Meta-Classifier"
-    value: "XGBoost + Random Forest menghitung probabilitas fitur statistik & leksikal 8-dimensi"
+    value: "XGBoost + Random Forest compute probabilities across 8 statistical & lexical feature dimensions"
   - label: "04. Active Human-in-the-Loop"
-    value: "Online Active Learner (SGD log_loss) belajar dalam <1ms dari umpan balik operator"
+    value: "Online Active Learner (SGD log_loss) updates ensemble weights in <1ms from operator feedback"
 lessons:
-  - "Multi-model ensemble jauh lebih tangguh menangani variasi penulisan teknis ekstrem dibanding model NLP tunggal."
-  - "Pemisahan threshold confidence (Auto-Approve vs Human Review Queue) adalah kunci adopsi operasional yang aman di industri manufaktur."
-  - "Online incremental learning memastikan model terus menjadi lebih pintar tanpa memerlukan retrain batch besar yang membebani infrastruktur."
+  - "Multi-model ensembles provide significantly greater robustness against extreme technical phrasing variations than any single NLP model."
+  - "Strict confidence tiering (Auto-Approve vs Human Review Queue) is critical for enterprise operational trust and zero-downtime adoption."
+  - "Online incremental learning ensures continuous model improvement without requiring heavy, disruptive batch retraining pipelines."
 preview:
   eyebrow: "5-Model Hybrid Ensemble"
   metrics:
@@ -43,67 +43,70 @@ preview:
       value: ">80%"
     - label: "Batch Speed"
       value: "<5 Min"
-  takeaway: "Ensemble 5 model + Active Learning memangkas rekonsiliasi SKU multi-brand DBC Group dari hari ke menit."
+  takeaway: "5-model ensemble with active learning reduced multi-brand SKU reconciliation from days to minutes."
 evidence:
   - slot: "01"
     kind: "diagram"
     title: "5-Model Hybrid Ensemble Architecture"
-    description: "Arsitektur retrieval 2 tahap (Bi-Encoder Dense Search ➡️ Cross-Encoder Re-Ranker) digabung dengan XGBoost, Random Forest, dan Online Active Learner."
-    alt: "Diagram arsitektur hybrid multi-model ensemble ML product mapping."
+    description: "Hierarchical 2-stage retrieval (Bi-Encoder Dense Search ➡️ Cross-Encoder Re-Ranker) augmented with XGBoost, Random Forest, and Online Active Learner."
+    alt: "Diagram of the 5-model hybrid ensemble ML product mapping architecture."
+    image: ""
   - slot: "02"
     kind: "dashboard"
     title: "Confidence Calibration & Review Queue"
-    description: "Antarmuka triage confidence: Skor >=85% langsung sinkron ke ERP Master SKU, 60-85% masuk antrean review operator dengan saran Top 3."
-    alt: "Mockup antarmuka confidence calibration dan review queue."
+    description: "Confidence triage interface: Scores >=85% auto-sync to ERP Master SKU, 60-85% routed to operator review queue with Top 3 suggestions."
+    alt: "Interface mockup of confidence calibration and human review queue."
+    image: ""
   - slot: "03"
     kind: "screenshot"
     title: "Multi-Brand SKU Transformation Matrix"
-    description: "Contoh hasil pemetaan real-world deskripsi distributor ke Master SKU standar Rucika, Djabesmen, RB Shera, dan Superex."
-    alt: "Matriks transformasi deskripsi distributor ke Master SKU DBC Group."
+    description: "Production mapping examples transforming raw distributor descriptions into standardized DBC Group Master SKUs."
+    alt: "Transformation matrix showing raw distributor text mapped to standardized DBC Group SKUs."
+    image: ""
 ---
 
-## Problem: Fragmentasi Deskripsi Distributor Lintas Brand DBC Group
+## Problem: Fragmented Distributor Descriptions Across DBC Group Brands
 
-Di lingkungan distribusi bahan bangunan berskala nasional seperti **DBC Group (Djabesmen Group)**, ribuan transaksi *Purchase Order (PO)* dan invoice masuk setiap hari dari ratusan toko bangunan dan distributor rekanan untuk 4 lini produk utama:
-1. **Rucika**: Pipa PVC (Standard AW/D, JIS), pipa PPR, HDPE, serta ratusan varian sambungan/fitting (Knee/Elbow, Tee, Socket, Valve, Drat Luar/Dalam).
-2. **Djabesmen**: Lembaran atap gelombang fiber semen dan nok penutup dengan variasi ketebalan, panjang, dan profil gelombang.
-3. **RB Shera**: Papan semen (*fiber cement board*), *wood plank*, dan lisplang bertekstur kayu dengan spesifikasi dimensi milimeter.
-4. **Superex**: Pipa PVC dan sistem talang air hujan (*gutter & fittings*).
+Across **DBC Group (Djabesmen Group)**—a major building materials and industrial manufacturing conglomerate—thousands of *Purchase Orders (PO)* and invoice lines are received daily from hundreds of independent distributors and building material retailers for 4 major product divisions:
+1. **Rucika**: PVC pipes (Standard AW/D pressure classes, JIS), PPR/HDPE pipes, and hundreds of fitting variants (Elbows, Tees, Sockets, Valves, Internal/External Threads).
+2. **Djabesmen**: Corrugated fiber-cement roofing sheets and ridge caps across varying thicknesses, lengths, and corrugation profiles.
+3. **RB Shera**: Fiber cement boards, wood-grain textured planks, and decorative eaves with precise millimeter dimensions.
+4. **Superex**: PVC pipes and rainwater drainage gutter systems (*gutters & fittings*).
 
-### Bottleneck Operasional:
-- **Ketidakteraturan Teks Input**: Setiap distributor menuliskan nama barang dengan gaya bebas, singkatan non-standar, dan salah ketik. Contoh: *"PPA RCK AW 1/2 IN"* vs *"PIPA PVC RUCIKA STD KELAS AW 0.5 INCH 4 METER"*, atau *"SHERA PLANK TEAK BROWN 8X200X3000"* vs *"PAPAN RB SHERA COKLAT 3M"*.
-- **Risiko Salah Mapping**: Kesalahan membedakan kelas pipa (misal: pipa kelas AW yang bertekanan tinggi tertukar dengan kelas D untuk air limbah) berakibat fatal pada pengiriman barang dan ketidaksesuaian inventori ERP.
-- **Biaya Waktu Manual**: Tim operasional menghabiskan waktu berhari-hari di setiap akhir bulan hanya untuk mencocokkan baris data PO secara manual satu per satu di spreadsheet.
+### Operational Bottlenecks:
+- **Unstructured Input Text**: Every distributor uses arbitrary shorthand, irregular abbreviations, and typos. For example: *"RCK PPA AW 1/2 IN"* vs. *"PIPA PVC RUCIKA STD KELAS AW 0.5 INCH 4 METER"*, or *"SHERA PLANK TEAK BROWN 8X200X3000"* vs. *"PAPAN RB SHERA COKLAT 3M"*.
+- **High-Risk Spec Mismatch**: Conflating critical technical variants (e.g., high-pressure Class AW pipes mistakenly mapped as thin Class D drainage pipes) caused severe logistics fulfillment failures and ERP inventory discrepancies.
+- **Manual Time Overhead**: Inventory operators spent up to 3 full business days at month-end manually cross-referencing lines in spreadsheets.
 
 ---
 
-## Technical Solution: Arsitektur 5-Model + TF-IDF Hybrid Ensemble
+## Technical Solution: 5-Model + TF-IDF Hybrid Hierarchical Ensemble
 
-Untuk mencapai presisi tinggi tanpa mengorbankan kecepatan, dibangun arsitektur pencocokan bertingkat (*hierarchical multi-model ensemble*) yang memadukan komputasi vektor padat (*dense embedding*), analisis perhatian kontekstual (*cross-attention*), model pohon keputusan (*gradient boosting & random forest*), dan pembelajaran aktif online (*online active learning*).
+To achieve near-perfect precision without sacrificing retrieval speed, the system implements a hierarchical multi-stage matching architecture that combines dense vector retrieval, transformer cross-attention, gradient-boosted decision trees, and real-time online active learning.
 
-### 1. Komponen Ensemble & Formula Pembobotan:
+### 1. Ensemble Components & Mathematical Weighting Formula:
 
-Sistem menghitung skor kecocokan akhir (**Final Ensemble Confidence Score**) dengan formula pembobotan matematis:
+The final match probability (**Final Ensemble Confidence Score**) is calculated via a calibrated linear combination:
 
 $$\text{Final Score} = 0.20 \times M_1 + 0.25 \times M_2 + 0.20 \times M_3 + 0.15 \times M_4 + 0.10 \times M_5 + 0.10 \times \text{TF-IDF}$$
 
-| Komponen | Model / Engine | Latensi | Peran Khusus dalam Pipeline |
+| Component | Model / Engine | Latency | Specialized Role in Pipeline |
 | :--- | :--- | :--- | :--- |
-| **Model 1 (20%)** | **PyTorch Bi-Encoder** | ~3ms | Menghasilkan vektor embedding 384-dimensi untuk *fast dense vector retrieval* Top 30 kandidat Master SKU dari database katalog. |
-| **Model 2 (25%)** | **Cross-Encoder Re-Ranker** | ~18ms | Transformer dengan *cross-attention* kata-per-kata untuk mengevaluasi detail teknis sensitif (kelas AW vs D, drat luar vs dalam, inch vs mm). |
-| **Model 3 (20%)** | **XGBoost Classifier** | ~2ms | *Gradient boosted decision trees* untuk kalkulasi probabilitas berdasarkan 8 fitur statistik dan leksikal (rasio overlap token, kesamaan panjang, pencocokan numerik). |
-| **Model 4 (15%)** | **Random Forest Classifier** | ~2ms | *Bagged meta-ensemble* (100 decision trees) yang bertindak sebagai penyeimbang variansi dan meminimalkan bias prediksi pada data langka. |
-| **Model 5 (10%)** | **Online Active Learner** | <1ms | Model inkremental *real-time* (`SGDClassifier` dengan *log_loss*) yang langsung menyerap koreksi operator dan memperbarui bobot dalam hitungan milidetik. |
-| **TF-IDF (10%)** | **N-Gram Character Vectorizer** | <1ms | Mempertahankan pencocokan leksikal tingkat karakter untuk menangani *typo* ekstrem dan singkatan kode khusus supplier. |
+| **Model 1 (20%)** | **PyTorch Bi-Encoder** | ~3ms | Generates 384-dimensional dense semantic embeddings for *fast dense vector retrieval* of Top 30 Master SKU candidates from the catalog database. |
+| **Model 2 (25%)** | **Cross-Encoder Re-Ranker** | ~18ms | Transformer with word-level *cross-attention* evaluating fine-grained technical nuances (AW vs. D classes, internal vs. external threading, inch vs. mm). |
+| **Model 3 (20%)** | **XGBoost Classifier** | ~2ms | *Gradient-boosted decision trees* calculating match probabilities across an 8-dimensional feature vector (token overlap ratio, length similarity, numeric dimension match). |
+| **Model 4 (15%)** | **Random Forest Classifier** | ~2ms | *Bagged meta-ensemble* (100 trees) serving as a variance regularizer to minimize prediction bias on sparse or rare SKU variants. |
+| **Model 5 (10%)** | **Online Active Learner** | <1ms | Real-time incremental learner (`SGDClassifier` with `log_loss`) that absorbs operator corrections on the fly, updating model weights in sub-milliseconds. |
+| **TF-IDF (10%)** | **Character N-Gram Vectorizer** | <1ms | Retains sub-word character matching to robustly handle extreme typos, missing vowels, and proprietary distributor shorthand. |
 
 ---
 
 ## Operational Workflow: Human-in-the-Loop & Confidence Calibration
 
-Sistem dirancang dengan prinsip **keterandalan tanpa kompromi**. Alih-alih memaksakan keputusan otomatis pada data yang meragukan, sistem menerapkan kalibrasi confidence 3 tingkat:
+The system is engineered around **uncompromising reliability**. Rather than forcing binary automation on ambiguous text, it enforces a calibrated 3-tier confidence triage:
 
 ```
-[Input PO / Invoice Distributor]
+[Distributor PO / Invoice Text]
                │
                ▼
 ┌─────────────────────────────────────────────────┐
@@ -120,34 +123,34 @@ Sistem dirancang dengan prinsip **keterandalan tanpa kompromi**. Alih-alih memak
        ┌───────────────┴───────────────┐
        ▼                               ▼
 [Score ≥ 85%: AUTO-APPROVE]   [Score 60-85%: REVIEW QUEUE]   [Score < 60%: ANOMALY FLAG]
- (>80% Total PO Volume)        (Saran Top 3 Kandidat)         (Indikasi Produk Baru)
+ (>80% Total PO Volume)        (Top 3 Suggested Candidates)   (New Uncataloged SKU)
        │                               │                               │
        │                               ▼                               │
-       │                   [Operator Memilih Koreksi]                  │
+       │                   [Operator Validates Choice]                 │
        │                               │                               │
        │                               ▼                               │
        │                   ┌────────────────────────┐                  │
        │                   │ Online Active Learner  │                  │
-       │                   │ Update Bobot (<1ms)    │                  │
+       │                   │ Weight Update (<1ms)   │                  │
        │                   └────────────────────────┘                  │
        ▼                               ▼                               ▼
  [ERP SAP Master SKU]         [ERP SAP Master SKU]            [Master Data Triage]
 ```
 
 1. **Tier 1 — Auto-Approved ($\ge 85\%$ Confidence)**:
-   - Mencakup **>80% dari total volume PO harian**.
-   - Diproses langsung tanpa campur tangan manusia ke dalam sistem ERP SAP dengan tingkat presisi terverifikasi **95.4%**.
+   - Covers **>80% of daily incoming PO volume**.
+   - Directly synchronized into the SAP ERP system with an audited **95.4% precision rate**.
 2. **Tier 2 — Human Review Queue ($60\% - 85\%$ Confidence)**:
-   - Menampilkan antarmuka audit ringkas dengan **3 rekomendasi kandidat teratas** beserta probabilitasnya.
-   - Ketika operator memilih kandidat yang benar, **Online Active Learner langsung memperbarui bobot secara instan (<1ms)** sehingga sistem tidak mengulangi ketidakpastian yang sama.
+   - Surfaces a streamlined audit interface with **Top 3 candidate recommendations** and match probabilities.
+   - When an operator validates the true match, the **Online Active Learner updates its weights in <1ms**, preventing recurrence of identical uncertainties.
 3. **Tier 3 — Anomaly / New Product Flag ($< 60\%$ Confidence)**:
-   - Mengisolasi kode produk baru yang belum pernah terdaftar di Master Catalog untuk ditinjau tim Master Data Management.
+   - Isolates unrecognized product lines for review by the Master Data Management team before catalog ingestion.
 
 ---
 
-## Visual Comparison: Transformasi Input Distributor ke Master SKU
+## Visual Transformation Matrix: Raw Input to Master SKU
 
-Berikut contoh konkret pemetaan data nyata yang berhasil dieksekusi sistem lintas 4 brand DBC Group:
+Real-world production transformations demonstrating the multi-brand capability across DBC Group divisions:
 
 | Brand | Raw Distributor Description (Input) | Standardized Internal Master SKU (Output) | Ensemble Score | Status |
 | :--- | :--- | :--- | :---: | :---: |
@@ -162,17 +165,17 @@ Berikut contoh konkret pemetaan data nyata yang berhasil dieksekusi sistem linta
 
 ## Quantitative Business Impact & Outcomes
 
-Penerapan sistem ini di lingkungan operasional DBC Group memberikan dampak efisiensi nyata yang terukur:
+Deploying the system across DBC Group operational divisions delivered measurable enterprise efficiency gains:
 
 ```text
 ┌──────────────────────────────┬──────────────────────────────┬──────────────────────────────┐
 │       AUTO-PRECISION         │       AUTOMATION RATE        │       BATCH TIME SAVED       │
 │           95.4%              │            >80%              │          99.1%               │
-│  Terverifikasi pada >50k SKU │   Tanpa sentuhan manual      │  Dari 3 hari ke <5 menit     │
+│   Verified on >50k SKUs      │   Zero-touch automation      │  From 3 days to <5 minutes   │
 └──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
 ```
 
-- **Pengurangan Waktu Pemrosesan 99%**: Waktu rekonsiliasi PO distributor berukuran puluhan ribu baris data turun drastis dari **3 hari kerja menjadi kurang dari 5 menit**.
-- **Skalabilitas Multi-Brand**: Modul pencocokan berhasil direplikasi ke **4 brand manufaktur** (Rucika, Djabesmen, RB Shera, Superex) tanpa perlu membangun arsitektur ulang dari awal.
-- **Eliminasi Human Error**: Mengurangi insiden salah kirim varian teknis (AW vs D) hingga mendekati nol, menjaga akurasi pemenuhan pesanan dan kepuasan pelanggan distributor.
-- **Peningkatan Kapasitas Tim**: Tim administrasi inventori dapat dialihkan dari pekerjaan klerikal mapping manual ke analisis perkiraan permintaan (*demand forecasting*) dan optimalisasi rantai pasok.
+- **99% Reduction in Processing Time**: Monthly reconciliation of tens of thousands of distributor lines dropped from **3 business days to under 5 minutes**.
+- **Multi-Brand Scalability**: Replicated across **4 manufacturing brands** (Rucika, Djabesmen, RB Shera, Superex) without requiring architectural rewrites.
+- **Elimination of Critical Mismatches**: Near-zero incidence of erroneous pipe schedule dispatches (Class AW vs. Class D), protecting customer trust and order fulfillment SLAs.
+- **Strategic Resource Reallocation**: Inventory and order processing staff were reallocated from repetitive clerical mapping to high-value supply chain demand forecasting.

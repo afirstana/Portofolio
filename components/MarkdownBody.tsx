@@ -15,7 +15,23 @@ function formatInline(text: string): React.ReactNode[] {
     if (token.startsWith("**") && token.endsWith("**")) {
       parts.push(<strong key={match.index} style={{ color: "#ffffff", fontWeight: 700 }}>{token.slice(2, -2)}</strong>);
     } else if (token.startsWith("`") && token.endsWith("`")) {
-      parts.push(<code key={match.index} style={{ color: "var(--accent)", backgroundColor: "rgba(255,77,28,0.08)", padding: "1px 5px", borderRadius: 3, font: "9px 'Courier New', monospace" }}>{token.slice(1, -1)}</code>);
+      parts.push(
+        <code
+          key={match.index}
+          style={{
+            fontFamily: "'Courier New', monospace",
+            fontSize: "0.85em",
+            color: "#ff7a45",
+            backgroundColor: "rgba(255, 255, 255, 0.06)",
+            padding: "2px 6px",
+            borderRadius: "3px",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            letterSpacing: "0.02em",
+          }}
+        >
+          {token.slice(1, -1)}
+        </code>
+      );
     } else if (token.startsWith("$") && token.endsWith("$")) {
       parts.push(<span key={match.index} className="mono" style={{ color: "var(--accent)", backgroundColor: "rgba(255,255,255,0.05)", padding: "1px 6px", borderRadius: 2, fontSize: 11 }}>{token.slice(1, -1)}</span>);
     } else if (token.startsWith("[") && token.includes("](")) {
@@ -70,13 +86,11 @@ export function MarkdownBody({ source }: { source: string }) {
             backgroundColor: "#0a0a0d",
             border: "1px solid var(--line)",
             padding: "16px 20px",
-            borderRadius: 4,
+            borderRadius: 3,
             overflowX: "auto",
             margin: "24px 0",
-            fontSize: 12,
-            lineHeight: 1.55,
+            font: "11px/1.6 'Courier New', monospace",
             color: "#e2e2e8",
-            fontFamily: "'Courier New', monospace",
           }}
         >
           <code>{codeLines.join("\n")}</code>
@@ -111,26 +125,35 @@ export function MarkdownBody({ source }: { source: string }) {
       continue;
     }
 
-    // Blockquote
+    // Multi-line Blockquote Card
     if (line.trim().startsWith(">")) {
-      const quoteText = line.trim().replace(/^>\s*/, "");
+      const quoteLines: string[] = [];
+      while (i < lines.length && lines[i].trim().startsWith(">")) {
+        quoteLines.push(lines[i].trim().replace(/^>\s*/, ""));
+        i++;
+      }
       nodes.push(
-        <blockquote
+        <div
           key={`quote-${i}`}
           style={{
+            border: "1px solid rgba(255, 77, 28, 0.22)",
             borderLeft: "3px solid var(--accent)",
-            padding: "10px 18px",
+            padding: "14px 18px",
             margin: "20px 0",
-            backgroundColor: "rgba(255,77,28,0.04)",
+            backgroundColor: "rgba(255, 77, 28, 0.03)",
+            borderRadius: 3,
             color: "#d4d4d8",
             fontSize: 13,
             lineHeight: 1.6,
           }}
         >
-          {formatInline(quoteText)}
-        </blockquote>
+          {quoteLines.map((qText, qIdx) => (
+            <p key={qIdx} style={{ margin: qIdx === 0 ? 0 : "8px 0 0" }}>
+              {formatInline(qText)}
+            </p>
+          ))}
+        </div>
       );
-      i++;
       continue;
     }
 
@@ -241,6 +264,45 @@ export function MarkdownBody({ source }: { source: string }) {
       continue;
     }
 
+    // Heading 4
+    if (line.startsWith("#### ")) {
+      const heading = line.replace("#### ", "");
+      nodes.push(
+        <h4
+          key={`h4-${i}`}
+          style={{
+            fontSize: 13,
+            color: "#e4e4e7",
+            fontFamily: "'Courier New', monospace",
+            textTransform: "uppercase",
+            letterSpacing: "0.06em",
+            marginTop: 22,
+            marginBottom: 8,
+          }}
+        >
+          {heading}
+        </h4>
+      );
+      i++;
+      continue;
+    }
+
+    // Horizontal Rule
+    if (line.trim() === "---" || line.trim() === "***") {
+      nodes.push(
+        <hr
+          key={`hr-${i}`}
+          style={{
+            border: "0",
+            borderTop: "1px solid var(--line)",
+            margin: "36px 0",
+          }}
+        />
+      );
+      i++;
+      continue;
+    }
+
     // Unordered List
     if (line.trim().startsWith("- ") || line.trim().startsWith("* ")) {
       const listItems: string[] = [];
@@ -256,6 +318,25 @@ export function MarkdownBody({ source }: { source: string }) {
             </li>
           ))}
         </ul>
+      );
+      continue;
+    }
+
+    // Ordered List
+    if (/^\d+\.\s+/.test(line.trim())) {
+      const orderedItems: string[] = [];
+      while (i < lines.length && /^\d+\.\s+/.test(lines[i].trim())) {
+        orderedItems.push(lines[i].trim().replace(/^\d+\.\s+/, ""));
+        i++;
+      }
+      nodes.push(
+        <ol key={`ol-${i}`} style={{ paddingLeft: 22, margin: "14px 0 20px", color: "#c8c8ce", lineHeight: 1.65, fontSize: 13 }}>
+          {orderedItems.map((item, oIdx) => (
+            <li key={oIdx} style={{ marginBottom: 6 }}>
+              {formatInline(item)}
+            </li>
+          ))}
+        </ol>
       );
       continue;
     }

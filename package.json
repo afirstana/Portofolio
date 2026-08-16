@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "cms": "npx decap-server",
-    "build": "NODE_ENV=production next build && node scripts/prepare-static-source.mjs",
+    "build": "next build && node scripts/prepare-static-source.mjs",
     "start": "npx serve@14.2.4 out",
     "lint": "next lint",
     "test": "vitest run",

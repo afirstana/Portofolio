@@ -4,9 +4,10 @@ import { getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(5);
+    expect(projects).toHaveLength(6);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length === 3 && project.preview.takeaway)).toBe(true);
+    expect(projects.some((project) => project.slug === "olist-payment-behavior-analytics")).toBe(true);
   });
 
   it("keeps project detail metadata available at build time", () => {

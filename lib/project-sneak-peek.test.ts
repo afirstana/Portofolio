@@ -10,7 +10,7 @@ const root = process.cwd();
 describe("Project Explorer sneak peek", () => {
   it("keeps content-backed preview metadata for every authored project", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(5);
+    expect(projects).toHaveLength(6);
     expect(projects.every((project) => project.preview.eyebrow && project.preview.metrics.length === 3 && project.preview.takeaway)).toBe(true);
     expect(getProjects().find((project) => project.slug === "amazon-product-intelligence")?.preview.metrics).toContainEqual({ label: "ROC–AUC", value: "0.8369" });
   });

@@ -17,7 +17,9 @@ export const dynamicParams = false;
 type RouteProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return getProjects().map((project) => ({ slug: project.slug }));
+  return getProjects()
+    .filter((project) => project.slug !== "amazon-product-intelligence" && project.slug !== "olist-payment-behavior-analytics")
+    .map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: RouteProps): Promise<Metadata> {

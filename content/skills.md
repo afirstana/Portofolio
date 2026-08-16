@@ -9,6 +9,7 @@ groups:
           - "ml-product-mapping-system"
           - "revenue-reconciliation-automation"
           - "certificate-generator-desktop-app"
+          - "olist-payment-behavior-analytics"
       - name: "Excel"
         evidence:
           - "revenue-reconciliation-automation"
@@ -18,13 +19,16 @@ groups:
       - name: "Power BI"
         evidence:
           - "olist-e-commerce-logistics-analysis"
+          - "olist-payment-behavior-analytics"
       - name: "SQL"
         evidence:
           - "olist-e-commerce-logistics-analysis"
+          - "olist-payment-behavior-analytics"
           - "ml-product-mapping-system"
       - name: "Predictive analytics"
         evidence:
           - "amazon-product-intelligence"
+          - "olist-payment-behavior-analytics"
   - name: "Machine learning"
     skills:
       - name: "Scikit-learn"
@@ -40,6 +44,7 @@ groups:
         evidence:
           - "ml-product-mapping-system"
           - "olist-e-commerce-logistics-analysis"
+          - "olist-payment-behavior-analytics"
           - "amazon-product-intelligence"
       - name: "Automation design"
         evidence:

@@ -7,6 +7,7 @@ import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { OlistGeoShowcase } from "@/components/OlistGeoShowcase";
 import { OlistRfmShowcase } from "@/components/OlistRfmShowcase";
+import { OlistPaymentInteractiveShowcase } from "@/components/OlistPaymentInteractiveShowcase";
 import { CertificateInteractiveShowcase } from "@/components/CertificateInteractiveShowcase";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
@@ -17,9 +18,7 @@ export const dynamicParams = false;
 type RouteProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return getProjects()
-    .filter((project) => project.slug !== "amazon-product-intelligence" && project.slug !== "olist-payment-behavior-analytics")
-    .map((project) => ({ slug: project.slug }));
+  return getProjects().map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: RouteProps): Promise<Metadata> {
@@ -59,6 +58,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   ];
   const hasEvidence = Boolean(project.evidence?.some((e) => Boolean(e.image && e.image.trim() !== "")));
   const isOlist = project.slug === "olist-e-commerce-logistics-analysis";
+  const isOlistPayment = project.slug === "olist-payment-behavior-analytics";
   const isCertificate = project.slug === "certificate-generator-desktop-app";
 
   return (
@@ -92,11 +92,14 @@ export default async function ProjectPage({ params }: RouteProps) {
               <SystemDiagram nodes={project.system} />
             </section>
 
-            {/* Standalone Geospatial Logistics & Lead Time Explorer (Olist) */}
+            {/* Standalone Geospatial Logistics & Lead Time Explorer (Olist Logistics) */}
             {isOlist && <OlistGeoShowcase />}
 
-            {/* Standalone 2D RFM Customer Intelligence Matrix (Olist) */}
+            {/* Standalone 2D RFM Customer Intelligence Matrix (Olist Logistics) */}
             {isOlist && <OlistRfmShowcase />}
+
+            {/* Standalone Payment Method & Installment Elasticity Showcase */}
+            {isOlistPayment && <OlistPaymentInteractiveShowcase />}
 
             {/* Standalone Interactive Certificate Canvas & Batch Simulator */}
             {isCertificate && <CertificateInteractiveShowcase />}

@@ -1,81 +1,64 @@
 ---
-title: "Olist E-Commerce Logistics Analysis"
+title: "Olist E-Commerce Logistics & Customer Intelligence"
 slug: "olist-e-commerce-logistics-analysis"
-one_liner: "Analisis performa logistik dan dampak bisnis dari dataset e-commerce ~100.000 order."
-problem: "Perusahaan perlu tahu faktor yang paling mempengaruhi kepuasan pelanggan dan profitabilitas logistik."
-approach: "Dashboard Power BI (Power Query + DAX), uji statistik SPSS (regresi, ANOVA, K-Means, Chi-Square), roadmap ML."
-impact: "End-to-end deliverable dari raw data sampai rekomendasi bisnis."
+one_liner: "An end-to-end analytics study of 99,441 Brazilian e-commerce orders (R$ 16.0M GMV) diagnosing supply chain bottlenecks (Haversine distance vs 2x cross-state lead time) and customer retention through a 9-segment RFM model."
+problem: "High customer churn (97.0% one-time buyers) and significant delivery lead time disparities (averaging 14.7 days for cross-state shipments vs 7.5 days for local orders) created margin erosion and customer dissatisfaction across Brazil's 27 states."
+approach: "Engineered a relational analytics pipeline across 9 tables (1.55M records) using SQL, Python, Power BI (Power Query + DAX), and SPSS; computed Haversine geodesic shipping distances and built a non-linear 9-tier RFM customer segmentation matrix."
+impact: "Identified that 62.5% of GMV originates from Southeast Brazil while 63.9% of shipments suffer cross-state transit delays, formulated a strategic blueprint for secondary fulfillment hubs in RJ/MG, and targeted 62.3% of revenue residing in high-value one-time buyer segments."
 category: "Analytics"
 tools:
-  - "Power BI"
-  - "DAX"
-  - "SPSS"
-  - "Statistical Testing"
-  - "Business Analytics"
-skills:
-  - "Power BI"
   - "SQL"
-  - "Data quality"
+  - "Python (Pandas & Haversine)"
+  - "Power BI (DAX & Power Query)"
+  - "SPSS Statistical Testing"
+  - "RFM Customer Modeling"
+skills:
+  - "Business analytics"
+  - "Supply chain & logistics"
+  - "RFM segmentation"
+  - "Data modeling (DAX & SQL)"
+  - "Geospatial analytics"
 order: 3
 system:
-  - label: "Raw data"
-    value: "~100k orders"
-  - label: "Model"
-    value: "Power Query + DAX"
-  - label: "Test"
-    value: "SPSS analysis"
-  - label: "Output"
-    value: "Decision roadmap"
+  - label: "01. Multi-Table Relational Model"
+    value: "Aggregates 1.55M rows across 9 tables, normalizing multi-payments, item-level grains, and zip coordinates"
+  - label: "02. Geospatial Distance & Lead Time"
+    value: "Computes Haversine shipping distances across 27 states, proving an r=0.394 correlation with delivery delay"
+  - label: "03. 9-Tier Behavioral RFM Engine"
+    value: "Segments 93,358 delivered customer entities, identifying that 62.3% of revenue comes from high-ticket single buyers"
+  - label: "04. Strategic Executive Blueprint"
+    value: "Delivers interactive Power BI dashboards, statistical ANOVA/regression validation, and hub expansion roadmaps"
 lessons:
-  - "A dashboard becomes more credible when operational views are paired with explicit statistical testing."
-  - "The path from raw records to business decision should stay visible to the audience."
+  - "In e-commerce marketplaces with 97% single-order distributions, standard quintile RFM frequency fails; discrete binary behavioral thresholding is required."
+  - "Geographic seller concentration (59.7% in São Paulo) creates an invisible structural freight burden that cannot be solved by courier SLAs alone without regional fulfillment hubs."
+  - "Remote regions with higher freight costs exhibit naturally higher Average Order Values (AOV) due to consumer basket consolidation."
 preview:
-  eyebrow: "Analytics pathway"
+  eyebrow: "Supply Chain & RFM Matrix"
   metrics:
-    - label: "Scope"
-      value: "~100k orders"
-    - label: "Model"
-      value: "Power Query + DAX"
-    - label: "Validation"
-      value: "SPSS analysis"
-  takeaway: "Operational views are paired with statistical testing."
+    - label: "Dataset GMV"
+      value: "R$ 16.0M"
+    - label: "Orders Analyzed"
+      value: "99,441"
+    - label: "One-Time Buyers"
+      value: "97.0%"
+  takeaway: "Diagnosed cross-state freight bottlenecks and isolated high-ticket retention segments across 99.4k Brazilian orders."
 evidence:
   - slot: "01"
     kind: "dashboard"
-    title: "Operational dashboard"
-    description: "Replace with a screenshot of the Power BI logistics dashboard or a selected report view."
-    alt: "Placeholder for a Power BI logistics dashboard screenshot."
+    title: "Geographic Delivery & Revenue Choropleth"
+    description: "Power BI geospatial dashboard visualizing state-level revenue concentration, average order values, and freight-to-price ratios."
+    alt: "Power BI geospatial logistics dashboard for Olist Brazilian e-commerce."
     image: ""
   - slot: "02"
     kind: "screenshot"
-    title: "Statistical validation"
-    description: "Replace with a redacted output from the statistical-testing stage."
-    alt: "Placeholder for a statistical analysis output screenshot."
+    title: "RFM Customer Segmentation Matrix"
+    description: "9-segment behavioral matrix analyzing Recency, Frequency, and Monetary distribution across 93,358 unique customers."
+    alt: "RFM customer segmentation distribution matrix."
     image: ""
   - slot: "03"
     kind: "diagram"
-    title: "Decision roadmap"
-    description: "Replace with a visual linking data preparation, analysis, and the decision roadmap."
-    alt: "Placeholder for an analytics decision-roadmap diagram."
+    title: "Haversine Distance vs Lead Time Curve"
+    description: "Statistical regression and distance bucket analysis illustrating the r=0.394 correlation between shipping distance and delivery days."
+    alt: "Distance versus delivery lead time curve diagram."
     image: ""
 ---
-
-## Problem
-
-E-commerce logistics touches customer satisfaction and margin at the same time. The challenge was identifying which operational factors deserve attention across roughly 100,000 orders.
-
-## Data
-
-The analysis uses order-level e-commerce data and operational fields relevant to logistics performance, customer experience, and business outcomes.
-
-## Approach
-
-The work joined an operational Power BI dashboard with Power Query and DAX, statistical testing in SPSS, and a clear roadmap for where machine learning could add value next.
-
-## System
-
-The deliverable connects data preparation, dashboard analysis, statistical validation, and a decision-oriented roadmap.
-
-## Impact
-
-The result connects raw records to a business-facing narrative, with evidence to support subsequent decisions about customer experience and logistics performance.

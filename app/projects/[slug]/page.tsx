@@ -7,6 +7,7 @@ import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { OlistGeoShowcase } from "@/components/OlistGeoShowcase";
 import { OlistRfmShowcase } from "@/components/OlistRfmShowcase";
+import { CertificateInteractiveShowcase } from "@/components/CertificateInteractiveShowcase";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -56,6 +57,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   ];
   const hasEvidence = Boolean(project.evidence?.some((e) => Boolean(e.image && e.image.trim() !== "")));
   const isOlist = project.slug === "olist-e-commerce-logistics-analysis";
+  const isCertificate = project.slug === "certificate-generator-desktop-app";
 
   return (
     <main className="site-shell">
@@ -88,11 +90,14 @@ export default async function ProjectPage({ params }: RouteProps) {
               <SystemDiagram nodes={project.system} />
             </section>
 
-            {/* Standalone Geospatial Logistics & Lead Time Explorer */}
+            {/* Standalone Geospatial Logistics & Lead Time Explorer (Olist) */}
             {isOlist && <OlistGeoShowcase />}
 
-            {/* Standalone 2D RFM Customer Intelligence Matrix */}
+            {/* Standalone 2D RFM Customer Intelligence Matrix (Olist) */}
             {isOlist && <OlistRfmShowcase />}
+
+            {/* Standalone Interactive Certificate Canvas & Batch Simulator */}
+            {isCertificate && <CertificateInteractiveShowcase />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

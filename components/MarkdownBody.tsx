@@ -13,7 +13,7 @@ function formatInline(text: string): React.ReactNode[] {
     }
     const token = match[0];
     if (token.startsWith("**") && token.endsWith("**")) {
-      parts.push(<strong key={match.index} style={{ color: "#ffffff", fontWeight: 700 }}>{token.slice(2, -2)}</strong>);
+      parts.push(<strong key={match.index} style={{ color: "var(--ink-heading)", fontWeight: 700 }}>{token.slice(2, -2)}</strong>);
     } else if (token.startsWith("`") && token.endsWith("`")) {
       parts.push(
         <code
@@ -21,11 +21,11 @@ function formatInline(text: string): React.ReactNode[] {
           style={{
             fontFamily: "'Courier New', monospace",
             fontSize: "0.85em",
-            color: "#ff7a45",
-            backgroundColor: "rgba(255, 255, 255, 0.06)",
+            color: "var(--accent)",
+            backgroundColor: "var(--accent-subtle)",
             padding: "2px 6px",
             borderRadius: "3px",
-            border: "1px solid rgba(255, 255, 255, 0.08)",
+            border: "1px solid var(--line)",
             letterSpacing: "0.02em",
           }}
         >
@@ -33,7 +33,7 @@ function formatInline(text: string): React.ReactNode[] {
         </code>
       );
     } else if (token.startsWith("$") && token.endsWith("$")) {
-      parts.push(<span key={match.index} className="mono" style={{ color: "var(--accent)", backgroundColor: "rgba(255,255,255,0.05)", padding: "1px 6px", borderRadius: 2, fontSize: 11 }}>{token.slice(1, -1)}</span>);
+      parts.push(<span key={match.index} className="mono" style={{ color: "var(--accent)", backgroundColor: "var(--accent-subtle)", padding: "1px 6px", borderRadius: 2, fontSize: 11 }}>{token.slice(1, -1)}</span>);
     } else if (token.startsWith("[") && token.includes("](")) {
       const labelMatch = token.match(/\[(.*?)\]\((.*?)\)/);
       if (labelMatch) {
@@ -83,14 +83,14 @@ export function MarkdownBody({ source }: { source: string }) {
         <pre
           key={`code-${i}`}
           style={{
-            backgroundColor: "#0a0a0d",
+            backgroundColor: "var(--surface-secondary)",
             border: "1px solid var(--line)",
             padding: "16px 20px",
             borderRadius: 3,
             overflowX: "auto",
             margin: "24px 0",
             font: "11px/1.6 'Courier New', monospace",
-            color: "#e2e2e8",
+            color: "var(--ink)",
           }}
         >
           <code>{codeLines.join("\n")}</code>
@@ -106,8 +106,8 @@ export function MarkdownBody({ source }: { source: string }) {
         <div
           key={`math-${i}`}
           style={{
-            backgroundColor: "#0d0d12",
-            border: "1px solid rgba(255,77,28,0.3)",
+            backgroundColor: "var(--surface-secondary)",
+            border: "1px solid var(--accent)",
             padding: "14px 20px",
             margin: "20px 0",
             borderRadius: 3,
@@ -136,13 +136,13 @@ export function MarkdownBody({ source }: { source: string }) {
         <div
           key={`quote-${i}`}
           style={{
-            border: "1px solid rgba(255, 77, 28, 0.22)",
+            border: "1px solid var(--line)",
             borderLeft: "3px solid var(--accent)",
             padding: "14px 18px",
             margin: "20px 0",
-            backgroundColor: "rgba(255, 77, 28, 0.03)",
+            backgroundColor: "var(--accent-subtle)",
             borderRadius: 3,
-            color: "#d4d4d8",
+            color: "var(--ink)",
             fontSize: 13,
             lineHeight: 1.6,
           }}
@@ -167,7 +167,6 @@ export function MarkdownBody({ source }: { source: string }) {
 
       if (tableLines.length >= 2) {
         const headerRow = tableLines[0].split("|").slice(1, -1).map((c) => c.trim());
-        // line 1 is separator |:---|---:|
         const dataRows = tableLines.slice(2).map((row) => row.split("|").slice(1, -1).map((c) => c.trim()));
 
         nodes.push(
@@ -178,13 +177,13 @@ export function MarkdownBody({ source }: { source: string }) {
               margin: "24px 0",
               border: "1px solid var(--line)",
               borderRadius: 3,
-              backgroundColor: "#0c0c0f",
+              backgroundColor: "var(--panel)",
               overflowX: "auto",
             }}
           >
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
               <thead>
-                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "#111116" }}>
+                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--surface-secondary)" }}>
                   {headerRow.map((th, thIdx) => (
                     <th
                       key={thIdx}
@@ -204,9 +203,9 @@ export function MarkdownBody({ source }: { source: string }) {
               </thead>
               <tbody>
                 {dataRows.map((row, rIdx) => (
-                  <tr key={rIdx} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <tr key={rIdx} style={{ borderBottom: "1px solid var(--line)" }}>
                     {row.map((cell, cIdx) => (
-                      <td key={cIdx} style={{ padding: "10px 14px", color: "#d2d2d6", lineHeight: 1.45 }}>
+                      <td key={cIdx} style={{ padding: "10px 14px", color: "var(--ink)", lineHeight: 1.45 }}>
                         {formatInline(cell)}
                       </td>
                     ))}
@@ -228,7 +227,7 @@ export function MarkdownBody({ source }: { source: string }) {
           key={`h2-${i}`}
           style={{
             fontSize: "clamp(20px, 2.2vw, 28px)",
-            color: "#ffffff",
+            color: "var(--ink-heading)",
             letterSpacing: "-0.04em",
             marginTop: 48,
             marginBottom: 16,
@@ -272,7 +271,7 @@ export function MarkdownBody({ source }: { source: string }) {
           key={`h4-${i}`}
           style={{
             fontSize: 13,
-            color: "#e4e4e7",
+            color: "var(--ink-heading)",
             fontFamily: "'Courier New', monospace",
             textTransform: "uppercase",
             letterSpacing: "0.06em",
@@ -311,7 +310,7 @@ export function MarkdownBody({ source }: { source: string }) {
         i++;
       }
       nodes.push(
-        <ul key={`ul-${i}`} style={{ paddingLeft: 20, margin: "14px 0 20px", color: "#c8c8ce", lineHeight: 1.65, fontSize: 13 }}>
+        <ul key={`ul-${i}`} style={{ paddingLeft: 20, margin: "14px 0 20px", color: "var(--muted)", lineHeight: 1.65, fontSize: 13 }}>
           {listItems.map((item, lIdx) => (
             <li key={lIdx} style={{ marginBottom: 6 }}>
               {formatInline(item)}
@@ -330,7 +329,7 @@ export function MarkdownBody({ source }: { source: string }) {
         i++;
       }
       nodes.push(
-        <ol key={`ol-${i}`} style={{ paddingLeft: 22, margin: "14px 0 20px", color: "#c8c8ce", lineHeight: 1.65, fontSize: 13 }}>
+        <ol key={`ol-${i}`} style={{ paddingLeft: 22, margin: "14px 0 20px", color: "var(--muted)", lineHeight: 1.65, fontSize: 13 }}>
           {orderedItems.map((item, oIdx) => (
             <li key={oIdx} style={{ marginBottom: 6 }}>
               {formatInline(item)}
@@ -343,7 +342,7 @@ export function MarkdownBody({ source }: { source: string }) {
 
     // Paragraph
     nodes.push(
-      <p key={`p-${i}`} style={{ color: "#c5c5cb", lineHeight: 1.7, fontSize: 14, margin: "14px 0" }}>
+      <p key={`p-${i}`} style={{ color: "var(--muted)", lineHeight: 1.7, fontSize: 14, margin: "14px 0" }}>
         {formatInline(line)}
       </p>
     );

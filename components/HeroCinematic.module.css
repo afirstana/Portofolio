@@ -1,6 +1,6 @@
 .preloader {
   align-items: center;
-  background: #050506;
+  background: var(--bg);
   display: flex;
   inset: 0;
   justify-content: center;
@@ -10,36 +10,38 @@
 }
 
 .preloaderExit { opacity: 0; pointer-events: none; visibility: hidden; }
-.preloaderInner { width: min(360px, calc(100vw - 64px)); color: #a0a0a8; font: 10px/1 "Courier New", monospace; letter-spacing: .12em; text-transform: uppercase; }
-.preloaderLabel { color: #f5f5f4; display: block; margin-bottom: 18px; }
-.progressTrack { background: rgba(255,255,255,.14); height: 1px; overflow: hidden; width: 100%; }
-.progressTrack span { background: #f5f5f4; display: block; height: 100%; transform-origin: left; transition: transform 75ms linear; width: 100%; }
+.preloaderInner { width: min(360px, calc(100vw - 64px)); color: var(--muted); font: 10px/1 "Courier New", monospace; letter-spacing: .12em; text-transform: uppercase; }
+.preloaderLabel { color: var(--ink); display: block; margin-bottom: 18px; }
+.progressTrack { background: var(--line); height: 1px; overflow: hidden; width: 100%; }
+.progressTrack span { background: var(--accent); display: block; height: 100%; transform-origin: left; transition: transform 75ms linear; width: 100%; }
 .preloader p { align-items: center; display: flex; gap: 10px; justify-content: flex-end; margin: 14px 0 0; }
-.preloader p span { color: #f5f5f4; }
-.preloader p i { color: #ff4d1c; font-style: normal; }
-.preloader p b { color: #5a5a61; font-weight: normal; }
+.preloader p span { color: var(--ink); }
+.preloader p i { color: var(--accent); font-style: normal; }
+.preloader p b { color: var(--dim); font-weight: normal; }
 
 .heroGrid {
-  background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
   background-size: 56px 56px;
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid var(--line);
   min-height: calc(100vh - 77px);
   overflow: hidden;
   position: relative;
 }
 
-.heroGrid::after { background: radial-gradient(360px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255,77,28,.09), transparent 68%); content: ""; inset: 0; opacity: 0; pointer-events: none; position: absolute; transition: opacity 1s cubic-bezier(.16,1,.3,1), background-position .22s cubic-bezier(.16,1,.3,1); }
+.heroGrid::after { background: radial-gradient(360px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), var(--accent-subtle), transparent 68%); content: ""; inset: 0; opacity: 0; pointer-events: none; position: absolute; transition: opacity 1s cubic-bezier(.16,1,.3,1), background-position .22s cubic-bezier(.16,1,.3,1); }
 
 .heroInner { display: grid; grid-template-rows: auto 1fr auto auto; min-height: calc(100vh - 77px); padding: 50px 0 46px; position: relative; z-index: 1; }
-.heroMeta { color: #5a5a61; display: flex; font-size: 10px; justify-content: space-between; }
+.heroMeta { color: var(--dim); display: flex; font-size: 10px; justify-content: space-between; }
 .nameStage { align-self: center; position: relative; width: fit-content; }
-.heroGlow { background: radial-gradient(circle, rgba(255,77,28,.46) 0%, rgba(255,77,28,.18) 31%, transparent 70%); filter: blur(24px); height: clamp(180px, 28vw, 340px); left: 6%; opacity: 0; pointer-events: none; position: absolute; top: 42%; transform: translate(-10%, -50%) scale(.78); width: clamp(340px, 68vw, 760px); }
-.heroName { color: #f5f5f4; font-size: clamp(72px, 15.5vw, 215px); font-weight: 900; letter-spacing: -.09em; line-height: .78; margin: 0; position: relative; white-space: nowrap; }
+.heroGlow { background: radial-gradient(circle, rgba(var(--accent-rgb), 0.46) 0%, rgba(var(--accent-rgb), 0.18) 31%, transparent 70%); filter: blur(24px); height: clamp(180px, 28vw, 340px); left: 6%; opacity: 0; pointer-events: none; position: absolute; top: 42%; transform: translate(-10%, -50%) scale(.78); width: clamp(340px, 68vw, 760px); }
+.heroName { color: var(--ink-heading); font-size: clamp(72px, 15.5vw, 215px); font-weight: 900; letter-spacing: -.09em; line-height: .78; margin: 0; position: relative; white-space: nowrap; }
 .heroName > span { display: inline-block; filter: blur(18px); opacity: 0; transform: translate3d(0, 44px, 0) rotate(2deg); }
-.accentCharacter { color: #ff4d1c; }
-.heroTagline { color: #a0a0a8; font-size: 18px; line-height: 1.5; margin: 0 0 58px; max-width: 390px; }
-.textLink { color: #f5f5f4; display: inline-flex; font-size: 11px; gap: 12px; transition: color 500ms cubic-bezier(.16,1,.3,1); width: fit-content; }
-.textLink:hover { color: #ff4d1c; }.textLink span { font-size: 17px; }.heroSignal { align-self: end; color: #5a5a61; font-size: 10px; justify-self: end; }
+.accentCharacter { color: var(--accent); }
+.heroTagline { color: var(--muted); font-size: 18px; line-height: 1.5; margin: 0 0 58px; max-width: 390px; }
+.textLink { color: var(--ink-heading); display: inline-flex; font-size: 11px; gap: 12px; transition: color 500ms cubic-bezier(.16,1,.3,1); width: fit-content; }
+.textLink:hover { color: var(--accent); }
+.textLink span { font-size: 17px; }
+.heroSignal { align-self: end; color: var(--dim); font-size: 10px; justify-self: end; }
 
 .heroGrid[data-ready="true"] .heroGlow { animation: glow-in 1.55s cubic-bezier(.16,1,.3,1) .12s forwards; }
 .heroGrid[data-ready="true"] .heroName > span { animation: character-reveal 1.05s cubic-bezier(.16,1,.3,1) var(--character-delay) forwards; }
@@ -55,5 +57,10 @@
 
 @media (max-width: 720px) {
   .heroGrid, .heroInner { min-height: calc(100svh - 65px); }
-  .heroInner { padding: 26px 0 34px; }.heroMeta { font-size: 8px; }.heroName { font-size: clamp(59px, 17.6vw, 92px); letter-spacing: -.075em; }.heroTagline { font-size: 15px; margin-bottom: 40px; }.heroSignal { font-size: 8px; }.heroGlow { height: 170px; left: 0; width: 330px; }
+  .heroInner { padding: 26px 0 34px; }
+  .heroMeta { font-size: 8px; }
+  .heroName { font-size: clamp(59px, 17.6vw, 92px); letter-spacing: -.075em; }
+  .heroTagline { font-size: 15px; margin-bottom: 40px; }
+  .heroSignal { font-size: 8px; }
+  .heroGlow { height: 170px; left: 0; width: 330px; }
 }

@@ -23,7 +23,7 @@ const PAYMENT_METHODS: PaymentMethod[] = [
     order_count: "76,795 txns",
     avg_ticket: "R$ 163.32",
     avg_installments: 3.51,
-    color: "#ff4d1c",
+    color: "var(--accent)",
     insight: "The primary marketplace engine. Dominates 78.4% of total GMV and acts as the sole vehicle for installment financing across Brazil."
   },
   {
@@ -62,10 +62,10 @@ const PAYMENT_METHODS: PaymentMethod[] = [
 ];
 
 const INSTALLMENT_TIERS = [
-  { tier: "1x (Full Payment)", orders: "24,004 (32.0%)", aov: 100.91, median: 71.62, color: "#94a3b8", surge: "Baseline" },
+  { tier: "1x (Full Payment)", orders: "24,004 (32.0%)", aov: 100.91, median: 71.62, color: "var(--dim)", surge: "Baseline" },
   { tier: "2–3x Installments", orders: "22,649 (30.2%)", aov: 135.58, median: 111.38, color: "#38bdf8", surge: "+34.4%" },
   { tier: "4–6x Installments", orders: "16,160 (21.6%)", aov: 182.56, median: 128.28, color: "#facc15", surge: "+80.9%" },
-  { tier: "7–10x Installments", orders: "11,819 (15.8%)", aov: 336.44, median: 206.78, color: "#ff4d1c", surge: "+233.4% (3.3x)" },
+  { tier: "7–10x Installments", orders: "11,819 (15.8%)", aov: 336.44, median: 206.78, color: "var(--accent)", surge: "+233.4% (3.3x)" },
   { tier: "11–24x (Long-Tail)", orders: "341 (0.5%)", aov: 360.37, median: 216.05, color: "#ef4444", surge: "+257.1% (3.6x)" }
 ];
 
@@ -89,26 +89,26 @@ export function OlistPaymentInteractiveShowcase() {
       id="payment-analytics-terminal"
       style={{
         margin: "36px 0",
-        backgroundColor: "#07070a",
-        border: "1px solid #1c1c24",
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
         borderRadius: 4,
         padding: "22px 20px",
       }}
       aria-label="Olist Payment & Installment Behavior Analytics Terminal"
     >
       {/* Terminal Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, borderBottom: "1px solid #181822", paddingBottom: 14, marginBottom: 18 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, borderBottom: "1px solid var(--line)", paddingBottom: 14, marginBottom: 18 }}>
         <div>
           <span className="mono" style={{ color: "var(--accent)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase" }}>
             FINTECH & BEHAVIORAL ECONOMICS • OLIST BRAZIL (103.9K TRANSACTIONS)
           </span>
-          <h2 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "#ffffff", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
+          <h2 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
             Payment Method Mix & Installment Elasticity Engine
           </h2>
         </div>
 
         {/* View Switcher Buttons */}
-        <div style={{ display: "flex", gap: 6 }}>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
           <button
             type="button"
             onClick={() => setActiveTab("methods")}
@@ -116,9 +116,9 @@ export function OlistPaymentInteractiveShowcase() {
               fontFamily: "'Courier New', monospace",
               fontSize: 10,
               padding: "7px 12px",
-              backgroundColor: activeTab === "methods" ? "rgba(255,77,28,0.15)" : "#0d0d12",
-              color: activeTab === "methods" ? "#ffffff" : "#888892",
-              border: activeTab === "methods" ? "1px solid var(--accent)" : "1px solid #22222a",
+              backgroundColor: activeTab === "methods" ? "var(--accent-subtle)" : "var(--surface-secondary)",
+              color: activeTab === "methods" ? "var(--ink-heading)" : "var(--dim)",
+              border: activeTab === "methods" ? "1px solid var(--accent)" : "1px solid var(--line)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -132,9 +132,9 @@ export function OlistPaymentInteractiveShowcase() {
               fontFamily: "'Courier New', monospace",
               fontSize: 10,
               padding: "7px 12px",
-              backgroundColor: activeTab === "elasticity" ? "rgba(255,77,28,0.15)" : "#0d0d12",
-              color: activeTab === "elasticity" ? "#ffffff" : "#888892",
-              border: activeTab === "elasticity" ? "1px solid var(--accent)" : "1px solid #22222a",
+              backgroundColor: activeTab === "elasticity" ? "var(--accent-subtle)" : "var(--surface-secondary)",
+              color: activeTab === "elasticity" ? "var(--ink-heading)" : "var(--dim)",
+              border: activeTab === "elasticity" ? "1px solid var(--accent)" : "1px solid var(--line)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -148,9 +148,9 @@ export function OlistPaymentInteractiveShowcase() {
               fontFamily: "'Courier New', monospace",
               fontSize: 10,
               padding: "7px 12px",
-              backgroundColor: activeTab === "categories" ? "rgba(255,77,28,0.15)" : "#0d0d12",
-              color: activeTab === "categories" ? "#ffffff" : "#888892",
-              border: activeTab === "categories" ? "1px solid var(--accent)" : "1px solid #22222a",
+              backgroundColor: activeTab === "categories" ? "var(--accent-subtle)" : "var(--surface-secondary)",
+              color: activeTab === "categories" ? "var(--ink-heading)" : "var(--dim)",
+              border: activeTab === "categories" ? "1px solid var(--accent)" : "1px solid var(--line)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -166,8 +166,8 @@ export function OlistPaymentInteractiveShowcase() {
       {activeTab === "methods" && (
         <div>
           {/* Executive Summary Bar */}
-          <div style={{ backgroundColor: "#0b0b0f", border: "1px solid #1a1a24", padding: "12px 16px", borderRadius: 3, marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-            <span style={{ color: "#e2e2e8", fontSize: 13 }}>
+          <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px 16px", borderRadius: 3, marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+            <span style={{ color: "var(--ink)", fontSize: 13 }}>
               💳 <strong>Credit Cards drive 78.4% of total GMV</strong> (R$ 12.54M), while <strong>Boleto Bancário</strong> acts as the essential #2 non-credit cash channel (17.9% GMV).
             </span>
             <span className="mono" style={{ fontSize: 9, color: "var(--accent)", border: "1px solid var(--accent)", padding: "2px 6px", borderRadius: 2 }}>
@@ -186,8 +186,8 @@ export function OlistPaymentInteractiveShowcase() {
                   onMouseEnter={() => setSelectedMethod(pm)}
                   style={{
                     padding: "16px 14px",
-                    backgroundColor: isSelected ? "rgba(255,77,28,0.1)" : "#0c0c10",
-                    border: isSelected ? `2px solid ${pm.color}` : "1px solid #1a1a22",
+                    backgroundColor: isSelected ? "var(--accent-subtle)" : "var(--surface-secondary)",
+                    border: isSelected ? `2px solid ${pm.color}` : "1px solid var(--line)",
                     borderRadius: 3,
                     cursor: "pointer",
                     transition: "all 0.15s ease",
@@ -197,10 +197,10 @@ export function OlistPaymentInteractiveShowcase() {
                     <span className="mono" style={{ fontSize: 9, color: pm.color, border: `1px solid ${pm.color}`, padding: "1px 5px", borderRadius: 2 }}>
                       {pm.share_gmv}% GMV
                     </span>
-                    <strong style={{ fontSize: 14, color: "#ffffff", fontFamily: "monospace" }}>{pm.total_gmv}</strong>
+                    <strong style={{ fontSize: 14, color: "var(--ink-heading)", fontFamily: "monospace" }}>{pm.total_gmv}</strong>
                   </div>
 
-                  <strong style={{ fontSize: 14, color: isSelected ? "#ffffff" : "#d0d0d8", display: "block", margin: "6px 0 2px" }}>
+                  <strong style={{ fontSize: 14, color: isSelected ? "var(--ink-heading)" : "var(--ink)", display: "block", margin: "6px 0 2px" }}>
                     {pm.method}
                   </strong>
                   <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>
@@ -212,12 +212,12 @@ export function OlistPaymentInteractiveShowcase() {
           </div>
 
           {/* 1-Box Deep Method Dossier */}
-          <div style={{ backgroundColor: "#0b0b10", border: `1px solid ${selectedMethod.color}`, padding: "14px 18px", borderRadius: 3, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
+          <div style={{ backgroundColor: "var(--surface-secondary)", border: `1px solid ${selectedMethod.color}`, padding: "14px 18px", borderRadius: 3, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
             <div>
               <span className="mono" style={{ color: selectedMethod.color, fontSize: 9 }}>
                 CHANNEL ARCHITECTURE • {selectedMethod.method.toUpperCase()}
               </span>
-              <p style={{ margin: "4px 0 0", color: "#f0f0f4", fontSize: 12, lineHeight: 1.5 }}>
+              <p style={{ margin: "4px 0 0", color: "var(--ink)", fontSize: 12, lineHeight: 1.5 }}>
                 {selectedMethod.insight}
               </p>
             </div>
@@ -238,38 +238,38 @@ export function OlistPaymentInteractiveShowcase() {
       {activeTab === "elasticity" && (
         <div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 18 }}>
-            <div style={{ backgroundColor: "#0b0b0f", border: "1px solid #1e293b", padding: "16px 20px", borderRadius: 3 }}>
+            <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "16px 20px", borderRadius: 3 }}>
               <span className="mono" style={{ color: "#38bdf8", fontSize: 9 }}>SINGLE-PAYMENT BASELINE (1x)</span>
               <strong style={{ fontSize: 26, color: "#38bdf8", fontFamily: "monospace", display: "block", margin: "6px 0 2px" }}>
-                R$ 100.91 <small style={{ fontSize: 12, color: "#94a3b8" }}>(Median: R$ 71.62)</small>
+                R$ 100.91 <small style={{ fontSize: 12, color: "var(--dim)" }}>(Median: R$ 71.62)</small>
               </strong>
-              <p style={{ margin: 0, color: "#a0a0a8", fontSize: 12 }}>Standard low-ticket purchases and routine consumable reorders settled in full.</p>
+              <p style={{ margin: 0, color: "var(--muted)", fontSize: 12 }}>Standard low-ticket purchases and routine consumable reorders settled in full.</p>
             </div>
 
-            <div style={{ backgroundColor: "#0b0b0f", border: "1px solid rgba(255,77,28,0.4)", padding: "16px 20px", borderRadius: 3 }}>
+            <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--accent)", padding: "16px 20px", borderRadius: 3 }}>
               <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>EXTENDED INSTALLMENTS (7–10x) • 3.3x HIGHER AOV</span>
               <strong style={{ fontSize: 26, color: "var(--accent)", fontFamily: "monospace", display: "block", margin: "6px 0 2px" }}>
-                R$ 336.44 <small style={{ fontSize: 12, color: "#94a3b8" }}>(Median: R$ 206.78)</small>
+                R$ 336.44 <small style={{ fontSize: 12, color: "var(--dim)" }}>(Median: R$ 206.78)</small>
               </strong>
-              <p style={{ margin: 0, color: "#a0a0a8", fontSize: 12 }}>Financing enables high-ticket durable purchases without immediate cashflow strain (r = 0.37).</p>
+              <p style={{ margin: 0, color: "var(--muted)", fontSize: 12 }}>Financing enables high-ticket durable purchases without immediate cashflow strain (r = 0.37).</p>
             </div>
           </div>
 
           {/* 5-Tier Installment Spectrum Table */}
-          <div style={{ backgroundColor: "#09090d", border: "1px solid #1a1a22", padding: "16px 18px", borderRadius: 3 }}>
+          <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "16px 18px", borderRadius: 3 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
               <span className="mono" style={{ color: "var(--dim)", fontSize: 9 }}>
                 INSTALLMENT TIER ESCALATION (74,975 CREDIT CARD ORDERS • PEARSON r = 0.37):
               </span>
-              <span className="mono" style={{ color: "var(--accent)", fontSize: 9, backgroundColor: "rgba(255,77,28,0.1)", padding: "2px 6px", borderRadius: 2 }}>
+              <span className="mono" style={{ color: "var(--accent)", fontSize: 9, backgroundColor: "var(--accent-subtle)", padding: "2px 6px", borderRadius: 2 }}>
                 10x ANOMALY: 5,328 ORDERS (CHECKOUT DEFAULT)
               </span>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8 }}>
               {INSTALLMENT_TIERS.map((tier) => (
-                <div key={tier.tier} style={{ backgroundColor: "#0e0e14", border: "1px solid #1c1c26", padding: "10px 8px", borderRadius: 2, textAlign: "center" }}>
-                  <span className="mono" style={{ fontSize: 8, color: "#d0d0d8", display: "block" }}>{tier.tier}</span>
+                <div key={tier.tier} style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "10px 8px", borderRadius: 2, textAlign: "center" }}>
+                  <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>{tier.tier}</span>
                   <strong style={{ fontSize: 15, color: tier.color, fontFamily: "monospace", display: "block", margin: "3px 0" }}>
                     R$ {tier.aov.toFixed(0)}
                   </strong>
@@ -286,11 +286,11 @@ export function OlistPaymentInteractiveShowcase() {
       {/* TAB 3: CATEGORY SENSITIVITY TO INSTALLMENTS                              */}
       {/* ========================================================================= */}
       {activeTab === "categories" && (
-        <div style={{ backgroundColor: "#09090d", border: "1px solid #1a1a22", padding: "18px 20px", borderRadius: 3 }}>
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "18px 20px", borderRadius: 3 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
             <div>
               <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>CATEGORY FINANCING SENSITIVITY</span>
-              <h4 style={{ fontSize: 16, color: "#ffffff", margin: "2px 0 0" }}>
+              <h4 style={{ fontSize: 16, color: "var(--ink-heading)", margin: "2px 0 0" }}>
                 Durable High-Ticket vs Consumables Installment Behavior
               </h4>
             </div>
@@ -301,14 +301,14 @@ export function OlistPaymentInteractiveShowcase() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
             {CATEGORY_SENSITIVITY.map((cat) => (
-              <div key={cat.category} style={{ backgroundColor: "#0e0e14", border: "1px solid #1c1c26", padding: "12px 14px", borderRadius: 2 }}>
+              <div key={cat.category} style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "12px 14px", borderRadius: 2 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                   <span className="mono" style={{ fontSize: 8, color: "var(--dim)" }}>{cat.type}</span>
-                  <strong style={{ fontSize: 14, color: cat.avg_inst >= 4.5 ? "var(--accent)" : "#94a3b8", fontFamily: "monospace" }}>
+                  <strong style={{ fontSize: 14, color: cat.avg_inst >= 4.5 ? "var(--accent)" : "var(--dim)", fontFamily: "monospace" }}>
                     {cat.avg_inst}x Inst.
                   </strong>
                 </div>
-                <strong style={{ fontSize: 13, color: "#ffffff", display: "block", margin: "4px 0 2px" }}>{cat.category}</strong>
+                <strong style={{ fontSize: 13, color: "var(--ink-heading)", display: "block", margin: "4px 0 2px" }}>{cat.category}</strong>
                 <span className="mono" style={{ fontSize: 9, color: "var(--muted)", display: "block" }}>
                   AOV: R$ {cat.aov.toFixed(0)} • {cat.orders.toLocaleString()} orders
                 </span>

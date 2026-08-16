@@ -57,15 +57,15 @@ export function CertificateInteractiveShowcase() {
   const themeStyles = {
     obsidian: {
       bg: "linear-gradient(135deg, #0e0e14 0%, #161622 100%)",
-      border: "2px solid rgba(255, 77, 28, 0.4)",
+      border: "2px solid var(--accent)",
       accentText: "var(--accent)",
       subText: "#9e9ea8",
-      sealBg: "rgba(255, 77, 28, 0.15)",
+      sealBg: "var(--accent-subtle)",
       sealBorder: "var(--accent)",
     },
     gold: {
       bg: "linear-gradient(135deg, #14120a 0%, #221d12 100%)",
-      border: "2px solid rgba(245, 158, 11, 0.5)",
+      border: "2px solid rgba(245, 158, 11, 0.6)",
       accentText: "#fbbf24",
       subText: "#b5a882",
       sealBg: "rgba(245, 158, 11, 0.15)",
@@ -73,7 +73,7 @@ export function CertificateInteractiveShowcase() {
     },
     emerald: {
       bg: "linear-gradient(135deg, #08140f 0%, #0d2218 100%)",
-      border: "2px solid rgba(16, 185, 129, 0.5)",
+      border: "2px solid rgba(16, 185, 129, 0.6)",
       accentText: "#34d399",
       subText: "#82b59b",
       sealBg: "rgba(16, 185, 129, 0.15)",
@@ -85,19 +85,19 @@ export function CertificateInteractiveShowcase() {
     <div
       style={{
         margin: "36px 0",
-        backgroundColor: "#07070a",
-        border: "1px solid #1c1c24",
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
         borderRadius: 4,
         padding: "22px 20px",
       }}
       aria-label="Certificate Generator Interactive Simulator"
     >
       {/* Header */}
-      <div style={{ borderBottom: "1px solid #181822", paddingBottom: 12, marginBottom: 18 }}>
+      <div style={{ borderBottom: "1px solid var(--line)", paddingBottom: 12, marginBottom: 18 }}>
         <span className="mono" style={{ color: "var(--accent)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase" }}>
           DESKTOP AUTOMATION ENGINE • PYTHON (CUSTOMTKINTER + REPORTLAB + PILLOW)
         </span>
-        <h3 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "#ffffff", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
+        <h3 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
           Interactive Certificate Canvas & Live Batch Compilation Simulator
         </h3>
       </div>
@@ -118,9 +118,9 @@ export function CertificateInteractiveShowcase() {
                     fontFamily: "'Courier New', monospace",
                     fontSize: 8,
                     padding: "3px 7px",
-                    backgroundColor: selectedTheme === theme ? "var(--accent)" : "#121218",
-                    color: selectedTheme === theme ? "#ffffff" : "#888892",
-                    border: "1px solid #22222c",
+                    backgroundColor: selectedTheme === theme ? "var(--accent)" : "var(--surface-secondary)",
+                    color: selectedTheme === theme ? "#ffffff" : "var(--dim)",
+                    border: "1px solid var(--line)",
                     borderRadius: 2,
                     cursor: "pointer",
                     textTransform: "uppercase",
@@ -139,7 +139,7 @@ export function CertificateInteractiveShowcase() {
               border: themeStyles.border,
               borderRadius: 4,
               padding: "28px 24px",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
               position: "relative",
               minHeight: 250,
               display: "flex",
@@ -179,60 +179,63 @@ export function CertificateInteractiveShowcase() {
 
             {/* Event & Meta Details */}
             <div>
-              <p style={{ margin: "0 0 12px", color: themeStyles.subText, fontSize: 11, lineHeight: 1.4 }}>
-                For outstanding contribution during <strong style={{ color: "#ffffff" }}>{selectedParticipant.event}</strong>
+              <p style={{ margin: 0, color: "#d0d0d8", fontSize: 11, fontWeight: 500 }}>
+                {selectedParticipant.event}
               </p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 14, borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 8 }}>
+                <span className="mono" style={{ fontSize: 8, color: "#888892" }}>
+                  DATE: {selectedParticipant.date.toUpperCase()}
+                </span>
 
-              {/* Footer Meta Row */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 10, fontSize: 9 }}>
-                <div style={{ textAlign: "left" }}>
-                  <span className="mono" style={{ color: "var(--dim)", display: "block" }}>ISSUE DATE:</span>
-                  <span className="mono" style={{ color: "#d0d0d8" }}>{selectedParticipant.date}</span>
+                {/* Digital Verified Seal */}
+                <div style={{ display: "flex", alignItems: "center", gap: 4, backgroundColor: themeStyles.sealBg, border: `1px solid ${themeStyles.sealBorder}`, padding: "2px 6px", borderRadius: 3 }}>
+                  <span style={{ fontSize: 9, color: themeStyles.accentText }}>★</span>
+                  <span className="mono" style={{ fontSize: 7, color: "#ffffff", letterSpacing: "0.08em" }}>VERIFIED VECTOR ID</span>
                 </div>
 
-                {/* Decorative Verified Seal */}
-                <div
-                  style={{
-                    backgroundColor: themeStyles.sealBg,
-                    border: `1px solid ${themeStyles.sealBorder}`,
-                    padding: "3px 8px",
-                    borderRadius: 3,
-                  }}
-                >
-                  <span className="mono" style={{ color: themeStyles.accentText, fontSize: 8 }}>★ VERIFIED CREDENTIAL ★</span>
-                </div>
-
-                <div style={{ textAlign: "right" }}>
-                  <span className="mono" style={{ color: "var(--dim)", display: "block" }}>UNIQUE ID:</span>
-                  <span className="mono" style={{ color: "#d0d0d8" }}>{selectedParticipant.cert_id}</span>
-                </div>
+                <span className="mono" style={{ fontSize: 8, color: "#888892" }}>
+                  {selectedParticipant.cert_id}
+                </span>
               </div>
             </div>
           </div>
+
+          {/* Canvas Controls: Font Size Slider */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 10, backgroundColor: "var(--surface-secondary)", padding: "8px 12px", borderRadius: 3, border: "1px solid var(--line)" }}>
+            <span className="mono" style={{ fontSize: 9, color: "var(--dim)" }}>
+              TRUE-TYPE DYNAMIC FONT SIZE: <strong style={{ color: "var(--accent)" }}>{fontSize}px</strong>
+            </span>
+            <input
+              type="range"
+              min={18}
+              max={32}
+              value={fontSize}
+              onChange={(e) => setFontSize(Number(e.target.value))}
+              style={{ accentColor: "var(--accent)", cursor: "pointer", width: 140 }}
+            />
+          </div>
         </div>
 
-        {/* Right Column: Excel Roster Selector & Controls */}
-        <div style={{ backgroundColor: "#0a0a0e", border: "1px solid #1c1c26", borderRadius: 3, padding: "16px 18px" }}>
-          <span className="mono" style={{ color: "var(--accent)", fontSize: 9, display: "block", marginBottom: 8 }}>
-            EXCEL ROSTER SIMULATOR (.XLSX / .CSV)
-          </span>
+        {/* Right Column: Excel Roster Selector & Batch Runner */}
+        <div>
+          {/* Excel Roster Header */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+            <span className="mono" style={{ color: "var(--dim)", fontSize: 9 }}>EXCEL ROSTER INGESTION (MOCK PARTICIPANTS)</span>
+            <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>5 RECORDS LOADED</span>
+          </div>
 
-          <p style={{ margin: "0 0 10px", color: "#a0a0a8", fontSize: 11 }}>
-            Select a participant record to test dynamic TrueType font auto-centering and column schema mapping:
-          </p>
-
-          {/* Roster List */}
+          {/* Roster Cards List */}
           <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 14 }}>
-            {MOCK_ROSTER.map((p) => {
-              const isSelected = selectedParticipant.id === p.id;
+            {MOCK_ROSTER.map((person) => {
+              const isCurrent = selectedParticipant.id === person.id;
               return (
                 <div
-                  key={p.id}
-                  onClick={() => setSelectedParticipant(p)}
+                  key={person.id}
+                  onClick={() => setSelectedParticipant(person)}
                   style={{
-                    padding: "7px 10px",
-                    backgroundColor: isSelected ? "rgba(255,77,28,0.12)" : "#0e0e14",
-                    border: isSelected ? "1px solid var(--accent)" : "1px solid #1a1a24",
+                    padding: "8px 12px",
+                    backgroundColor: isCurrent ? "var(--accent-subtle)" : "var(--surface-secondary)",
+                    border: isCurrent ? "1px solid var(--accent)" : "1px solid var(--line)",
                     borderRadius: 2,
                     cursor: "pointer",
                     display: "flex",
@@ -241,100 +244,107 @@ export function CertificateInteractiveShowcase() {
                     transition: "all 0.15s ease",
                   }}
                 >
-                  <span style={{ fontSize: 12, fontWeight: isSelected ? 700 : 400, color: isSelected ? "#ffffff" : "#c0c0c8" }}>
-                    {p.name}
-                  </span>
-                  <span className="mono" style={{ fontSize: 8, color: isSelected ? "var(--accent)" : "var(--dim)" }}>
-                    {p.role}
-                  </span>
+                  <div>
+                    <strong style={{ fontSize: 12, color: isCurrent ? "var(--ink-heading)" : "var(--ink)" }}>{person.name}</strong>
+                    <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>{person.role}</span>
+                  </div>
+                  <span className="mono" style={{ fontSize: 8, color: isCurrent ? "var(--accent)" : "var(--dim)" }}>{person.cert_id}</span>
                 </div>
               );
             })}
           </div>
 
-          {/* Dynamic Coordinate / Font Adjuster */}
-          <div style={{ borderTop: "1px solid #161620", paddingTop: 10, marginBottom: 14 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-              <span className="mono" style={{ color: "var(--dim)", fontSize: 8 }}>NAME FONT SIZE: {fontSize}px</span>
+          {/* Batch Generation Simulator Box */}
+          <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "14px", borderRadius: 3 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+              <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>BATCH COMPILATION SIMULATOR</span>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)" }}>500 PDFs • REPORTLAB</span>
             </div>
-            <input
-              type="range"
-              min="18"
-              max="32"
-              value={fontSize}
-              onChange={(e) => setFontSize(Number(e.target.value))}
-              style={{ width: "100%", accentColor: "var(--accent)", cursor: "pointer" }}
-            />
-          </div>
 
-          {/* Batch Trigger Button */}
-          <button
-            type="button"
-            disabled={isGenerating}
-            onClick={handleStartBatch}
-            style={{
-              width: "100%",
-              padding: "10px 14px",
-              backgroundColor: isGenerating ? "#22222a" : "var(--accent)",
-              color: "#ffffff",
-              border: "none",
-              borderRadius: 3,
-              fontFamily: "'Courier New', monospace",
-              fontSize: 11,
-              fontWeight: 700,
-              cursor: isGenerating ? "not-allowed" : "pointer",
-              letterSpacing: "0.05em",
-              transition: "background 0.2s ease",
-            }}
-          >
-            {isGenerating ? `COMPILING BATCH... (${progress}%)` : "▶ RUN BATCH COMPILATION (500 CERTS)"}
-          </button>
+            <p style={{ margin: "0 0 10px", color: "var(--muted)", fontSize: 11, lineHeight: 1.4 }}>
+              Simulates multi-threaded PDF compilation with automated true-type centering and CMYK/RGB 300-DPI rasterization.
+            </p>
+
+            {/* Action Button */}
+            <button
+              type="button"
+              onClick={handleStartBatch}
+              disabled={isGenerating}
+              style={{
+                width: "100%",
+                padding: "9px",
+                backgroundColor: isGenerating ? "var(--surface-secondary)" : "var(--accent)",
+                color: isGenerating ? "var(--dim)" : "#ffffff",
+                border: "1px solid var(--line)",
+                borderRadius: 2,
+                cursor: isGenerating ? "not-allowed" : "pointer",
+                fontFamily: "'Courier New', monospace",
+                fontSize: 10,
+                fontWeight: "bold",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                transition: "all 0.2s ease",
+                marginBottom: 10,
+              }}
+            >
+              {isGenerating ? `COMPILING BATCH... ${progress}%` : "▶ RUN BATCH GENERATION (500 CERTS)"}
+            </button>
+
+            {/* Progress Bar */}
+            <div style={{ width: "100%", height: 6, backgroundColor: "var(--panel)", borderRadius: 3, overflow: "hidden", border: "1px solid var(--line)", marginBottom: 8 }}>
+              <div
+                style={{
+                  width: `${progress}%`,
+                  height: "100%",
+                  backgroundColor: "var(--accent)",
+                  transition: "width 0.05s linear",
+                }}
+              />
+            </div>
+
+            {/* Telemetry Output */}
+            {generationComplete ? (
+              <div style={{ backgroundColor: "var(--accent-subtle)", border: "1px solid var(--accent)", padding: "8px 10px", borderRadius: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <strong style={{ fontSize: 11, color: "var(--ink-heading)", display: "block" }}>BATCH COMPILATION COMPLETE!</strong>
+                  <span className="mono" style={{ fontSize: 8, color: "var(--ink)" }}>500/500 PDFs GENERATED IN 24.8s (~20.2 CERTS/SEC)</span>
+                </div>
+                <span style={{ color: "var(--accent)", fontSize: 16 }}>✓</span>
+              </div>
+            ) : (
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 8, fontFamily: "monospace", color: "var(--dim)" }}>
+                <span>THROUGHPUT: ~20.2 CERTS/S</span>
+                <span>ERROR RATE: 0.00%</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* High-Speed Batch Telemetry & Progress Bar */}
-      <div style={{ backgroundColor: "#0b0b10", border: "1px solid #1a1a24", borderRadius: 3, padding: "14px 18px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>BATCH COMPILATION ENGINE</span>
-            {generationComplete && (
-              <span className="mono" style={{ fontSize: 8, color: "#34d399", backgroundColor: "rgba(16,185,129,0.15)", padding: "1px 5px", borderRadius: 2 }}>
-                ✓ 500 PDFS GENERATED IN 24.8s
-              </span>
-            )}
-          </div>
-
-          <span className="mono" style={{ fontSize: 9, color: "var(--dim)" }}>
-            THROUGHPUT: ~20.2 CERTS/SEC • 300 DPI
-          </span>
+      {/* Bottom Quantitative KPI Strip */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10, borderTop: "1px solid var(--line)", paddingTop: 14 }}>
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "10px 12px", borderRadius: 2 }}>
+          <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>CYCLE TIME REDUCTION</span>
+          <strong style={{ fontSize: 16, color: "var(--accent)", fontFamily: "monospace" }}>99.8% Faster</strong>
+          <span style={{ fontSize: 9, color: "var(--muted)", display: "block" }}>From 4 hours to 24.8s</span>
         </div>
 
-        {/* Progress Bar Container */}
-        <div style={{ height: 6, backgroundColor: "rgba(255,255,255,0.06)", borderRadius: 3, overflow: "hidden", marginBottom: 10 }}>
-          <div
-            style={{
-              height: "100%",
-              width: `${isGenerating ? progress : (generationComplete ? 100 : 0)}%`,
-              backgroundColor: generationComplete ? "#34d399" : "var(--accent)",
-              transition: "width 0.1s ease-out",
-            }}
-          />
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "10px 12px", borderRadius: 2 }}>
+          <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>BATCH THROUGHPUT</span>
+          <strong style={{ fontSize: 16, color: "var(--ink-heading)", fontFamily: "monospace" }}>20.2 certs/sec</strong>
+          <span style={{ fontSize: 9, color: "var(--muted)", display: "block" }}>ReportLab multi-thread</span>
         </div>
 
-        {/* 3 Metric Summary Pillars */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, fontSize: 10 }}>
-          <div>
-            <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block" }}>MANUAL WORKFLOW</span>
-            <strong style={{ color: "#ef4444", fontFamily: "monospace" }}>~4.0 Hours (Canva/Photoshop)</strong>
-          </div>
-          <div>
-            <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block" }}>AUTOMATED EXECUTION</span>
-            <strong style={{ color: "#34d399", fontFamily: "monospace" }}>24.8 Seconds (99.8% Faster)</strong>
-          </div>
-          <div>
-            <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block" }}>DEPLOYMENT SPEC</span>
-            <strong style={{ color: "#ffffff", fontFamily: "monospace" }}>Zero-Install Standalone .EXE</strong>
-          </div>
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "10px 12px", borderRadius: 2 }}>
+          <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>TYPOGRAPHICAL ERROR</span>
+          <strong style={{ fontSize: 16, color: "#10b981", fontFamily: "monospace" }}>0.00% Error</strong>
+          <span style={{ fontSize: 9, color: "var(--muted)", display: "block" }}>Direct Excel cell binding</span>
+        </div>
+
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "10px 12px", borderRadius: 2 }}>
+          <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>DEPLOYMENT ARCHITECTURE</span>
+          <strong style={{ fontSize: 16, color: "var(--ink-heading)", fontFamily: "monospace" }}>Zero-Install .EXE</strong>
+          <span style={{ fontSize: 9, color: "var(--muted)", display: "block" }}>PyInstaller standalone</span>
         </div>
       </div>
     </div>

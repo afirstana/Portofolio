@@ -53,7 +53,7 @@ const DISTANCE_SPECTRUM = [
   { tier: "50 – 200 km", lead_time: 7.6, label: "Intra-State Road", orders: "12.9k orders", speed: "7.6 Days", color: "#34d399" },
   { tier: "200 – 500 km", lead_time: 11.7, label: "Regional Neighbor", orders: "30.3k orders", speed: "11.7 Days", color: "#facc15" },
   { tier: "500 – 1,000 km", lead_time: 13.8, label: "Inter-State Trunk", orders: "25.7k orders", speed: "13.8 Days", color: "#fb923c" },
-  { tier: "1,000 – 2,000 km", lead_time: 17.5, label: "Long-Haul Corridor", orders: "9.7k orders", speed: "17.5 Days", color: "#ff4d1c" },
+  { tier: "1,000 – 2,000 km", lead_time: 17.5, label: "Long-Haul Corridor", orders: "9.7k orders", speed: "17.5 Days", color: "var(--accent)" },
   { tier: "> 2,000 km", lead_time: 20.7, label: "Continental Remote", orders: "5.6k orders", speed: "20.7 Days", color: "#ef4444" }
 ];
 
@@ -64,30 +64,30 @@ export function OlistGeoShowcase() {
   const getStateColor = (uf: string, isHovered: boolean) => {
     if (isHovered) return "var(--accent)";
     const metric = STATES_METRICS[uf];
-    if (!metric) return "#1c1c24";
-    if (metric.revenue_pct >= 20) return "rgba(255, 77, 28, 0.85)";
-    if (metric.revenue_pct >= 10) return "rgba(255, 77, 28, 0.60)";
-    if (metric.revenue_pct >= 3) return "rgba(255, 140, 50, 0.45)";
-    if (metric.revenue_pct >= 1) return "rgba(255, 255, 255, 0.22)";
-    return "rgba(255, 255, 255, 0.10)";
+    if (!metric) return "var(--surface-secondary)";
+    if (metric.revenue_pct >= 20) return "var(--accent)";
+    if (metric.revenue_pct >= 10) return "rgba(var(--accent-rgb), 0.75)";
+    if (metric.revenue_pct >= 3) return "rgba(var(--accent-rgb), 0.45)";
+    if (metric.revenue_pct >= 1) return "rgba(var(--accent-rgb), 0.25)";
+    return "var(--line)";
   };
 
   return (
     <div
       style={{
         margin: "36px 0",
-        backgroundColor: "#07070a",
-        border: "1px solid #1c1c24",
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
         borderRadius: 4,
         padding: "20px",
       }}
       aria-label="Olist Brazil Geospatial Logistics Map"
     >
-      <div style={{ borderBottom: "1px solid #181822", paddingBottom: 12, marginBottom: 16 }}>
+      <div style={{ borderBottom: "1px solid var(--line)", paddingBottom: 12, marginBottom: 16 }}>
         <span className="mono" style={{ color: "var(--accent)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase" }}>
           GEOSPATIAL SUPPLY CHAIN BOTTLENECK • OLIST BRAZIL (27 STATES)
         </span>
-        <h3 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "#ffffff", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
+        <h3 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
           Geographic Revenue Monopoly & Cross-State Lead Time Disparity
         </h3>
       </div>
@@ -95,7 +95,7 @@ export function OlistGeoShowcase() {
       {/* Map & Telemetry HUD Grid */}
       <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 18, alignItems: "start", marginBottom: 18 }}>
         {/* Real Brazil Vector Map */}
-        <div style={{ backgroundColor: "#060608", border: "1px solid #1a1a22", borderRadius: 3, padding: "14px", position: "relative" }}>
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", borderRadius: 3, padding: "14px", position: "relative" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
             <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>
               INTERACTIVE BRAZIL MAP (HOVER ANY STATE)
@@ -114,7 +114,7 @@ export function OlistGeoShowcase() {
             >
               <defs>
                 <filter id="geoEmberGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#ff4d1c" floodOpacity="0.6" />
+                  <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="var(--accent)" floodOpacity="0.6" />
                 </filter>
               </defs>
 
@@ -132,7 +132,7 @@ export function OlistGeoShowcase() {
                     <path
                       d={pathD}
                       fill={getStateColor(uf, isHovered)}
-                      stroke={isHovered ? "#ffffff" : "#1f1f28"}
+                      stroke={isHovered ? "var(--ink-heading)" : "var(--line)"}
                       strokeWidth={isHovered ? 2 : 0.8}
                       filter={isHovered ? "url(#geoEmberGlow)" : "none"}
                     />
@@ -157,20 +157,20 @@ export function OlistGeoShowcase() {
               })}
             </svg>
 
-            <div style={{ position: "absolute", bottom: 6, left: 8, fontSize: 8, fontFamily: "monospace", color: "var(--dim)", backgroundColor: "rgba(8,8,12,0.9)", border: "1px solid #1c1c24", padding: "3px 6px", borderRadius: 2 }}>
+            <div style={{ position: "absolute", bottom: 6, left: 8, fontSize: 8, fontFamily: "monospace", color: "var(--dim)", backgroundColor: "var(--bg-translucent)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 2 }}>
               <span style={{ color: "var(--accent)", marginRight: 5 }}>■ Southeast Core (62.5%)</span>
-              <span style={{ color: "rgba(255,140,50,0.8)", marginRight: 5 }}>■ South (14.6%)</span>
+              <span style={{ color: "rgba(var(--accent-rgb), 0.6)", marginRight: 5 }}>■ South (14.6%)</span>
               <span>□ Other</span>
             </div>
           </div>
         </div>
 
         {/* Real-Time Telemetry HUD */}
-        <div style={{ backgroundColor: "#09090d", border: "1px solid #22222c", borderRadius: 3, padding: "16px 18px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: "1px solid #1a1a24", paddingBottom: 10, marginBottom: 12 }}>
+        <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", borderRadius: 3, padding: "16px 18px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: "1px solid var(--line)", paddingBottom: 10, marginBottom: 12 }}>
             <div>
               <span className="mono" style={{ color: "var(--accent)", fontSize: 9 }}>STATE TELEMETRY</span>
-              <h4 style={{ fontSize: 18, color: "#ffffff", margin: "2px 0 0" }}>
+              <h4 style={{ fontSize: 18, color: "var(--ink-heading)", margin: "2px 0 0" }}>
                 {activeState.name} <span className="mono" style={{ fontSize: 12, color: "var(--accent)", border: "1px solid var(--accent)", padding: "1px 4px", borderRadius: 2 }}>[{activeState.uf}]</span>
               </h4>
               <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block", marginTop: 2 }}>
@@ -179,70 +179,93 @@ export function OlistGeoShowcase() {
             </div>
 
             <div style={{ textAlign: "right" }}>
-              <strong style={{ fontSize: 18, color: "var(--accent)", fontFamily: "monospace", display: "block" }}>
+              <span className="mono" style={{ fontSize: 9, color: "var(--dim)" }}>NATIONAL GMV</span>
+              <strong style={{ fontSize: 20, color: "var(--accent)", display: "block", fontFamily: "monospace" }}>
                 {activeState.revenue_pct}%
               </strong>
-              <span className="mono" style={{ fontSize: 8, color: "var(--dim)" }}>NATIONAL GMV</span>
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 12 }}>
-            <div style={{ backgroundColor: "#0e0e14", padding: "8px 10px", border: "1px solid #1a1a24" }}>
+          {/* 6 Key Data Metrics Grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 14 }}>
+            <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "8px 10px", borderRadius: 2 }}>
               <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>TOTAL REVENUE</span>
-              <strong style={{ fontSize: 14, color: "#ffffff", fontFamily: "monospace" }}>R$ {(activeState.revenue / 1000000).toFixed(2)}M</strong>
-              <span className="mono" style={{ fontSize: 8, color: "#888892", display: "block" }}>{activeState.orders.toLocaleString()} Orders</span>
+              <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>
+                R$ {(activeState.revenue / 1000).toFixed(1)}k
+              </strong>
             </div>
 
-            <div style={{ backgroundColor: "#0e0e14", padding: "8px 10px", border: "1px solid #1a1a24" }}>
-              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>LEAD TIME</span>
-              <strong style={{ fontSize: 14, color: activeState.avg_lead_time > 18 ? "var(--accent)" : "#ffffff", fontFamily: "monospace" }}>{activeState.avg_lead_time} Days</strong>
-              <span className="mono" style={{ fontSize: 8, color: "#888892", display: "block" }}>AOV: R$ {activeState.aov.toFixed(1)}</span>
+            <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "8px 10px", borderRadius: 2 }}>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>ORDER VOLUME</span>
+              <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>
+                {activeState.orders.toLocaleString()} orders
+              </strong>
             </div>
 
-            <div style={{ backgroundColor: "#0e0e14", padding: "8px 10px", border: "1px solid #1a1a24" }}>
-              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>SELLER BASE</span>
-              <strong style={{ fontSize: 13, color: "#ffffff", fontFamily: "monospace" }}>{activeState.seller_count} Sellers</strong>
+            <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "8px 10px", borderRadius: 2 }}>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>AVG LEAD TIME</span>
+              <strong style={{ fontSize: 13, color: activeState.avg_lead_time > 18 ? "#ef4444" : activeState.avg_lead_time > 12 ? "#facc15" : "#10b981", fontFamily: "monospace" }}>
+                {activeState.avg_lead_time} Days
+              </strong>
             </div>
 
-            <div style={{ backgroundColor: "#0e0e14", padding: "8px 10px", border: "1px solid #1a1a24" }}>
-              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>CROSS-STATE</span>
-              <strong style={{ fontSize: 13, color: activeState.cross_state_pct > 90 ? "var(--accent)" : "#ffffff", fontFamily: "monospace" }}>{activeState.cross_state_pct}%</strong>
+            <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "8px 10px", borderRadius: 2 }}>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>AVERAGE TICKET (AOV)</span>
+              <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>
+                R$ {activeState.aov.toFixed(1)}
+              </strong>
+            </div>
+
+            <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "8px 10px", borderRadius: 2 }}>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>ACTIVE SELLERS</span>
+              <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>
+                {activeState.seller_count} ({((activeState.seller_count / 3095) * 100).toFixed(1)}%)
+              </strong>
+            </div>
+
+            <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "8px 10px", borderRadius: 2 }}>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>CROSS-STATE TRANSIT</span>
+              <strong style={{ fontSize: 13, color: activeState.cross_state_pct > 80 ? "var(--accent)" : "var(--ink-heading)", fontFamily: "monospace" }}>
+                {activeState.cross_state_pct}%
+              </strong>
             </div>
           </div>
 
-          <div style={{ backgroundColor: "#08080c", borderLeft: "3px solid var(--accent)", padding: "8px 12px" }}>
-            <p style={{ margin: 0, color: "#c8c8ce", fontSize: 11, lineHeight: 1.45 }}>{activeState.insight}</p>
+          {/* Logistics Insight Banner */}
+          <div style={{ backgroundColor: "var(--accent-subtle)", border: "1px solid var(--accent)", padding: "10px 12px", borderRadius: 2 }}>
+            <span className="mono" style={{ fontSize: 8, color: "var(--accent)", display: "block", textTransform: "uppercase" }}>
+              SUPPLY CHAIN TELEMETRY INSIGHT:
+            </span>
+            <p style={{ margin: "4px 0 0", color: "var(--ink)", fontSize: 11, lineHeight: 1.4 }}>
+              {activeState.insight}
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Disparity & Distance Spectrum Banner */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
-        <div style={{ backgroundColor: "#0b0b0f", border: "1px solid #1e293b", padding: "12px 16px", borderRadius: 3 }}>
-          <span className="mono" style={{ color: "#34d399", fontSize: 8 }}>SAME-STATE LOCAL TRANSIT (36.1% ORDERS)</span>
-          <strong style={{ fontSize: 20, color: "#34d399", fontFamily: "monospace", display: "block", margin: "3px 0 1px" }}>
-            7.48 Days <small style={{ fontSize: 11, color: "#94a3b8" }}>(153 km)</small>
-          </strong>
-          <p style={{ margin: 0, color: "#a0a0a8", fontSize: 11 }}>Direct courier dispatch within same state boundary without regional linehaul delay.</p>
+      {/* 2.0x Disparity Comparison Spectrum */}
+      <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "16px 18px", borderRadius: 3 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+          <span className="mono" style={{ color: "var(--dim)", fontSize: 9 }}>
+            DISTANCE VS TRANSIT DURATION SPECTRUM (6 HAVERSINE DISTANCE TIERS):
+          </span>
+          <span className="mono" style={{ color: "var(--accent)", fontSize: 9, backgroundColor: "var(--accent-subtle)", padding: "2px 6px", borderRadius: 2 }}>
+            2.0x LEAD TIME DISPARITY (7.48d SAME-STATE VS 14.68d CROSS-STATE)
+          </span>
         </div>
 
-        <div style={{ backgroundColor: "#0b0b0f", border: "1px solid rgba(255,77,28,0.4)", padding: "12px 16px", borderRadius: 3 }}>
-          <span className="mono" style={{ color: "var(--accent)", fontSize: 8 }}>CROSS-STATE TRANSIT (63.9% ORDERS) • 2.0x SLOWER</span>
-          <strong style={{ fontSize: 20, color: "var(--accent)", fontFamily: "monospace", display: "block", margin: "3px 0 1px" }}>
-            14.68 Days <small style={{ fontSize: 11, color: "#94a3b8" }}>(853 km)</small>
-          </strong>
-          <p style={{ margin: 0, color: "#a0a0a8", fontSize: 11 }}>Forced inter-state transit because 59.7% of all sellers are concentrated in São Paulo.</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 8 }}>
+          {DISTANCE_SPECTRUM.map((tier) => (
+            <div key={tier.tier} style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", padding: "10px 8px", borderRadius: 2, textAlign: "center" }}>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>{tier.tier}</span>
+              <strong style={{ fontSize: 16, color: tier.color, fontFamily: "monospace", display: "block", margin: "4px 0 2px" }}>
+                {tier.speed}
+              </strong>
+              <span style={{ fontSize: 9, color: "var(--ink)", display: "block" }}>{tier.label}</span>
+              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block", marginTop: 2 }}>{tier.orders}</span>
+            </div>
+          ))}
         </div>
-      </div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 6 }}>
-        {DISTANCE_SPECTRUM.map((item) => (
-          <div key={item.tier} style={{ backgroundColor: "#0e0e14", border: "1px solid #1c1c26", padding: "8px 6px", borderRadius: 2, textAlign: "center" }}>
-            <span className="mono" style={{ fontSize: 8, color: "#d0d0d8", display: "block" }}>{item.tier}</span>
-            <strong style={{ fontSize: 14, color: item.color, fontFamily: "monospace", display: "block", margin: "2px 0" }}>{item.speed}</strong>
-            <span className="mono" style={{ fontSize: 7, color: "var(--dim)", display: "block" }}>{item.orders}</span>
-          </div>
-        ))}
       </div>
     </div>
   );

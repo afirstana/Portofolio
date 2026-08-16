@@ -12,7 +12,7 @@ const RFM_PILLARS = [
     cust_pct: 14.7,
     avg_spend: "R$ 308",
     recency: "443 Days (>14 mo)",
-    accent: "#ff4d1c",
+    accent: "var(--accent)",
     status: "CRITICAL CHURN RISK (27.5% GMV)",
     action: "Top revenue cohort (27.5% GMV) in dormant status. Deploy high-value win-back vouchers (R$ 50 off) to re-engage before permanent churn."
   },
@@ -38,7 +38,7 @@ const RFM_PILLARS = [
     cust_pct: 59.4,
     avg_spend: "R$ 73",
     recency: "288 Days",
-    accent: "#71717a",
+    accent: "#64748b",
     status: "MASS AUTOMATION ONLY",
     action: "Accounts for 59.4% of buyers but low ticket size. Maintain zero-cost automated email newsletters; avoid expensive ad subsidies."
   },
@@ -64,25 +64,25 @@ export function OlistRfmShowcase() {
     <div
       style={{
         margin: "36px 0",
-        backgroundColor: "#07070a",
-        border: "1px solid #1c1c24",
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
         borderRadius: 4,
         padding: "20px",
       }}
       aria-label="Olist 9-Tier RFM Customer Retention Matrix"
     >
-      <div style={{ borderBottom: "1px solid #181822", paddingBottom: 12, marginBottom: 16 }}>
+      <div style={{ borderBottom: "1px solid var(--line)", paddingBottom: 12, marginBottom: 16 }}>
         <span className="mono" style={{ color: "var(--accent)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase" }}>
           CUSTOMER INTELLIGENCE & RETENTION • OLIST BRAZIL (93.4K BUYERS)
         </span>
-        <h3 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "#ffffff", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
+        <h3 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
           9-Tier Behavioral RFM Retention Matrix
         </h3>
       </div>
 
       {/* Discovery Summary */}
-      <div style={{ backgroundColor: "#0b0b0f", border: "1px solid #1a1a24", padding: "12px 16px", borderRadius: 3, marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-        <span style={{ color: "#e2e2e8", fontSize: 13 }}>
+      <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px 16px", borderRadius: 3, marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+        <span style={{ color: "var(--ink)", fontSize: 13 }}>
           🎯 <strong>97.0% of buyers purchase once.</strong> High-ticket single buyers drive <strong>68.3% of total platform GMV</strong> (R$ 10.5M+).
         </span>
         <span className="mono" style={{ fontSize: 9, color: "var(--accent)", border: "1px solid var(--accent)", padding: "2px 6px", borderRadius: 2 }}>
@@ -101,8 +101,8 @@ export function OlistRfmShowcase() {
               onMouseEnter={() => setSelectedPillar(pillar)}
               style={{
                 padding: "16px 14px",
-                backgroundColor: isSelected ? "rgba(255,77,28,0.1)" : "#0c0c10",
-                border: isSelected ? `2px solid ${pillar.accent}` : "1px solid #1a1a22",
+                backgroundColor: isSelected ? "var(--accent-subtle)" : "var(--surface-secondary)",
+                border: isSelected ? `2px solid ${pillar.accent}` : "1px solid var(--line)",
                 borderRadius: 3,
                 cursor: "pointer",
                 transition: "all 0.15s ease",
@@ -115,7 +115,7 @@ export function OlistRfmShowcase() {
                 <strong style={{ fontSize: 15, color: pillar.accent, fontFamily: "monospace" }}>{pillar.gmv_pct}% GMV</strong>
               </div>
 
-              <strong style={{ fontSize: 13, color: isSelected ? "#ffffff" : "#d0d0d8", display: "block", margin: "6px 0 2px" }}>
+              <strong style={{ fontSize: 13, color: isSelected ? "var(--ink-heading)" : "var(--ink)", display: "block", margin: "6px 0 2px" }}>
                 {pillar.name}
               </strong>
               <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>
@@ -127,19 +127,19 @@ export function OlistRfmShowcase() {
       </div>
 
       {/* Strategic Action Plan Box */}
-      <div style={{ backgroundColor: "#0b0b10", border: `1px solid ${selectedPillar.accent}`, padding: "14px 18px", borderRadius: 3, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
+      <div style={{ backgroundColor: "var(--surface-secondary)", border: `1px solid ${selectedPillar.accent}`, padding: "14px 18px", borderRadius: 3, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
         <div>
           <span className="mono" style={{ color: selectedPillar.accent, fontSize: 9 }}>
             RECOMMENDED ACTION • {selectedPillar.name.toUpperCase()}
           </span>
-          <p style={{ margin: "4px 0 0", color: "#f0f0f4", fontSize: 12, lineHeight: 1.5 }}>
+          <p style={{ margin: "4px 0 0", color: "var(--ink)", fontSize: 12, lineHeight: 1.5 }}>
             {selectedPillar.action}
           </p>
         </div>
 
         <div style={{ textAlign: "right", minWidth: 140 }}>
           <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>RECENCY WINDOW</span>
-          <strong style={{ fontSize: 14, color: "#ffffff", fontFamily: "monospace" }}>{selectedPillar.recency}</strong>
+          <strong style={{ fontSize: 14, color: "var(--ink-heading)", fontFamily: "monospace" }}>{selectedPillar.recency}</strong>
         </div>
       </div>
     </div>

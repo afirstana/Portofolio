@@ -325,17 +325,17 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
                         }}
                         onMouseLeave={() => setHoveredPoint(null)}
                         style={{
-                          backgroundColor: isHovered ? "rgba(255,77,28,0.1)" : "transparent",
+                          backgroundColor: isHovered ? "var(--accent-subtle)" : "transparent",
                           cursor: "pointer",
                           transition: "background 0.15s ease-out",
                           borderLeft: isHovered ? "3px solid var(--accent)" : "3px solid transparent",
                         }}
                       >
-                        <td><strong style={{ color: isHovered ? "var(--accent)" : "#ffffff" }}>{row.year}</strong></td>
-                        <td style={{ color: "#d5d5d8" }}>
+                        <td><strong style={{ color: isHovered ? "var(--accent)" : "var(--ink-heading)" }}>{row.year}</strong></td>
+                        <td style={{ color: "var(--ink)" }}>
                           {row.category === "All Cancer Types (Global Total)" ? "Global Total" : row.category}
                         </td>
-                        <td style={{ textAlign: "right", fontFamily: "monospace", color: "#f5f5f4" }}>
+                        <td style={{ textAlign: "right", fontFamily: "monospace", color: "var(--ink)" }}>
                           {row.value.toLocaleString()}k
                         </td>
                         <td style={{ textAlign: "right", fontFamily: "monospace", color: isHovered ? "var(--accent)" : "var(--muted)" }}>

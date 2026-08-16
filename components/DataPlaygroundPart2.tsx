@@ -68,35 +68,37 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
 
   // Hover state for interactive inspection (defaults to Indonesia or benchmark)
   const [hoveredCountry, setHoveredCountry] = useState<CountryRecord | null>(
-    data.countries.find((c) => c.country === "Indonesia") || data.countries[0]
+    data.countries.find((c) => c.country === "Indonesia") || data.countries[0] || null
   );
   const [hoveredSurvival, setHoveredSurvival] = useState<SurvivalRecord | null>(
-    data.survival_matrix.find((s) => s.cancer_type === "Lung Cancer") || data.survival_matrix[0]
+    data.survival_matrix[0] || null
   );
-  const [hoveredIncome, setHoveredIncome] = useState<IncomeTier | null>(data.income_tiers[0]);
+  const [hoveredIncome, setHoveredIncome] = useState<IncomeTier | null>(
+    data.income_tiers[0] || null
+  );
 
   // Filtered and sorted countries
   const filteredCountries = useMemo(() => {
     return data.countries
       .filter((c) => {
-        const query = searchQuery.trim().toLowerCase();
-        return c.country.toLowerCase().includes(query) || c.code.toLowerCase().includes(query);
+        if (!searchQuery.trim()) return true;
+        const q = searchQuery.toLowerCase();
+        return c.country.toLowerCase().includes(q) || c.code.toLowerCase().includes(q) || c.region.toLowerCase().includes(q);
       })
       .sort((a, b) => {
-        const multiplier = countrySortOrder === "asc" ? 1 : -1;
+        const mult = countrySortOrder === "asc" ? 1 : -1;
         if (countrySortKey === "country") {
-          return a.country.localeCompare(b.country) * multiplier;
+          return a.country.localeCompare(b.country) * mult;
         }
-        return (a[countrySortKey] - b[countrySortKey]) * multiplier;
+        return (a[countrySortKey] - b[countrySortKey]) * mult;
       });
   }, [data.countries, searchQuery, countrySortKey, countrySortOrder]);
 
   // Sorted survival matrix
   const sortedSurvival = useMemo(() => {
     return [...data.survival_matrix].sort((a, b) => {
-      return survivalSortOrder === "asc"
-        ? a.survival_rate - b.survival_rate
-        : b.survival_rate - a.survival_rate;
+      const mult = survivalSortOrder === "asc" ? 1 : -1;
+      return (a.survival_rate - b.survival_rate) * mult;
     });
   }, [data.survival_matrix, survivalSortOrder]);
 
@@ -111,11 +113,18 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
 
   const getPrognosisColor = (prognosis: string) => {
     switch (prognosis) {
-      case "Critical":
-      case "Very Low":
-        return "var(--accent)";
+      case "Very High":
+        return "#10b981";
+      case "High":
+        return "#34d399";
+      case "Moderate":
+        return "#facc15";
+      case "Low":
+        return "#fb923c";
+      case "Very Low (Critical)":
+        return "#ef4444";
       default:
-        return "#d4d4d8";
+        return "var(--dim)";
     }
   };
 
@@ -186,7 +195,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
               <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--accent)" }} />
               LOWEST 5-YEAR SURVIVAL (CRITICAL)
             </span>
-            <strong style={{ color: "var(--accent)", textShadow: "0 0 24px rgba(255,77,28,0.2)" }}>
+            <strong style={{ color: "var(--accent)" }}>
               7.2%
             </strong>
             <p>Pancreatic & Lung cancer due to late-stage asymptomatic onset.</p>
@@ -257,9 +266,9 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                         onMouseEnter={() => setHoveredCountry(c)}
                         style={{
                           backgroundColor: isSelected
-                            ? "rgba(255,77,28,0.1)"
+                            ? "var(--accent-subtle)"
                             : isIndonesia
-                            ? "rgba(255,77,28,0.03)"
+                            ? "var(--surface-secondary)"
                             : "transparent",
                           cursor: "pointer",
                           transition: "all 0.15s ease-out",
@@ -270,7 +279,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                           #{c.rank}
                         </td>
                         <td>
-                          <strong style={{ color: isSelected ? "#ffffff" : (isIndonesia ? "var(--accent)" : "#e0e0e4") }}>
+                          <strong style={{ color: isSelected || isIndonesia ? "var(--accent)" : "var(--ink-heading)" }}>
                             {c.country}
                           </strong>
                           {isIndonesia && (
@@ -281,18 +290,18 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                         </td>
                         <td><span className="mono" style={{ color: "var(--dim)" }}>{c.code}</span></td>
                         <td>
-                          <span style={{ fontWeight: 700, color: c.rate_per_100k > 180 ? "var(--accent)" : "#f5f5f4" }}>
+                          <span style={{ fontWeight: 700, color: c.rate_per_100k > 180 ? "var(--accent)" : "var(--ink)" }}>
                             {c.rate_per_100k}
                           </span>
                         </td>
-                        <td>{c.deaths_formatted}</td>
+                        <td style={{ color: "var(--ink)" }}>{c.deaths_formatted}</td>
                         <td style={{ width: 130 }}>
-                          <div style={{ height: 6, width: "100%", backgroundColor: "rgba(255,255,255,0.08)", borderRadius: 3, overflow: "hidden" }}>
+                          <div style={{ height: 6, width: "100%", backgroundColor: "var(--line)", borderRadius: 3, overflow: "hidden" }}>
                             <div
                               style={{
                                 height: "100%",
                                 width: `${barWidth}%`,
-                                backgroundColor: isSelected || isIndonesia ? "var(--accent)" : (c.rate_per_100k > 180 ? "var(--accent)" : "#707078"),
+                                backgroundColor: isSelected || isIndonesia ? "var(--accent)" : (c.rate_per_100k > 180 ? "var(--accent)" : "var(--dim)"),
                                 transition: "width 0.3s ease-out",
                               }}
                             />
@@ -346,14 +355,14 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                         key={s.cancer_type}
                         onMouseEnter={() => setHoveredSurvival(s)}
                         style={{
-                          backgroundColor: isSelected ? "rgba(255,77,28,0.1)" : "transparent",
+                          backgroundColor: isSelected ? "var(--accent-subtle)" : "transparent",
                           cursor: "pointer",
                           transition: "all 0.15s ease-out",
                           borderLeft: isSelected ? "3px solid var(--accent)" : "3px solid transparent",
                         }}
                       >
                         <td>
-                          <strong style={{ color: isSelected ? "#ffffff" : "#e0e0e4" }}>
+                          <strong style={{ color: isSelected ? "var(--accent)" : "var(--ink-heading)" }}>
                             {s.cancer_type}
                           </strong>
                         </td>
@@ -362,7 +371,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                             <span style={{ fontWeight: 800, minWidth: 46, color: getPrognosisColor(s.prognosis) }}>
                               {s.survival_rate}%
                             </span>
-                            <div style={{ height: 6, width: 80, backgroundColor: "rgba(255,255,255,0.08)", borderRadius: 3, overflow: "hidden" }}>
+                            <div style={{ height: 6, width: 80, backgroundColor: "var(--line)", borderRadius: 3, overflow: "hidden" }}>
                               <div
                                 style={{
                                   height: "100%",
@@ -380,7 +389,8 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                               fontSize: 10,
                               padding: "2px 7px",
                               borderRadius: 3,
-                              backgroundColor: "rgba(255,255,255,0.06)",
+                              backgroundColor: "var(--surface-secondary)",
+                              border: "1px solid var(--line)",
                               color: getPrognosisColor(s.prognosis),
                               fontWeight: 700,
                             }}
@@ -388,7 +398,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                             {s.prognosis}
                           </span>
                         </td>
-                        <td style={{ color: "#d5d5d8" }}>{s.early_detection}</td>
+                        <td style={{ color: "var(--ink)" }}>{s.early_detection}</td>
                         <td style={{ color: "var(--muted)", fontSize: 11 }}>{s.primary_factor}</td>
                       </tr>
                     );
@@ -433,26 +443,26 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                         key={tier.tier}
                         onMouseEnter={() => setHoveredIncome(tier)}
                         style={{
-                          backgroundColor: isSelected ? "rgba(255,77,28,0.1)" : "transparent",
+                          backgroundColor: isSelected ? "var(--accent-subtle)" : "transparent",
                           cursor: "pointer",
                           transition: "all 0.15s ease-out",
                           borderLeft: isSelected ? "3px solid var(--accent)" : "3px solid transparent",
                         }}
                       >
                         <td>
-                          <strong style={{ color: isSelected ? "#ffffff" : "#e0e0e4" }}>
+                          <strong style={{ color: isSelected ? "var(--accent)" : "var(--ink-heading)" }}>
                             {tier.tier}
                           </strong>
                         </td>
                         <td style={{ color: "var(--dim)", fontSize: 11 }}>{tier.countries_sample}</td>
-                        <td><span className="mono">{tier.crude_death_rate} / 100k</span></td>
+                        <td><span className="mono" style={{ color: "var(--ink)" }}>{tier.crude_death_rate} / 100k</span></td>
                         <td>
-                          <span className="mono" style={{ color: tier.age_standardized_rate > 130 ? "var(--accent)" : "#f5f5f4", fontWeight: 700 }}>
+                          <span className="mono" style={{ color: tier.age_standardized_rate > 130 ? "var(--accent)" : "var(--ink)", fontWeight: 700 }}>
                             {tier.age_standardized_rate} / 100k
                           </span>
                         </td>
-                        <td><span className="mono">{tier.aging_population_pct}%</span></td>
-                        <td style={{ color: "#d2d2d5", fontSize: 11, lineHeight: 1.5 }}>
+                        <td><span className="mono" style={{ color: "var(--ink)" }}>{tier.aging_population_pct}%</span></td>
+                        <td style={{ color: "var(--ink)", fontSize: 11, lineHeight: 1.5 }}>
                           {tier.insight}
                         </td>
                       </tr>
@@ -470,7 +480,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
         <div
           style={{
             marginTop: 12,
-            backgroundColor: "#0a0a0d",
+            backgroundColor: "var(--panel)",
             border: "1px solid var(--line)",
             borderRadius: 3,
             padding: "12px 16px",
@@ -480,9 +490,9 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
         >
           {activeView === "countries" && hoveredCountry && (
             <div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: 8, marginBottom: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, borderBottom: "1px solid var(--line)", paddingBottom: 8, marginBottom: 8 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 14, fontWeight: 700, color: "#ffffff" }}>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: "var(--ink-heading)" }}>
                     {hoveredCountry.country}
                   </span>
                   <span className="mono" style={{ fontSize: 9, color: "var(--dim)" }}>
@@ -505,7 +515,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                   </div>
                   <div>
                     <span className="mono" style={{ fontSize: 9, color: "var(--dim)", marginRight: 6 }}>DEATHS:</span>
-                    <strong style={{ fontSize: 13, color: "#ffffff", fontFamily: "monospace" }}>{hoveredCountry.deaths_formatted}</strong>
+                    <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>{hoveredCountry.deaths_formatted}</strong>
                   </div>
                 </div>
               </div>
@@ -513,15 +523,15 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10, fontSize: 11, color: "var(--muted)" }}>
                 <div>
                   <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block", marginBottom: 2 }}>LEADING CAUSES</span>
-                  <p style={{ margin: 0, color: "#d5d5d8" }}>{hoveredCountry.top_cancer_cause}</p>
+                  <p style={{ margin: 0, color: "var(--ink)" }}>{hoveredCountry.top_cancer_cause}</p>
                 </div>
                 <div>
                   <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block", marginBottom: 2 }}>PRIMARY RISK FACTOR</span>
-                  <p style={{ margin: 0, color: "#d5d5d8" }}>{hoveredCountry.risk_factors}</p>
+                  <p style={{ margin: 0, color: "var(--ink)" }}>{hoveredCountry.risk_factors}</p>
                 </div>
                 <div style={{ gridColumn: "1 / -1" }}>
                   <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block", marginBottom: 2 }}>CLINICAL FINDING</span>
-                  <p style={{ margin: 0, color: "#a0a0a8", lineHeight: 1.45 }}>{hoveredCountry.clinical_insight}</p>
+                  <p style={{ margin: 0, color: "var(--muted)", lineHeight: 1.45 }}>{hoveredCountry.clinical_insight}</p>
                 </div>
               </div>
             </div>
@@ -529,9 +539,9 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
 
           {activeView === "survival" && hoveredSurvival && (
             <div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: 8, marginBottom: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, borderBottom: "1px solid var(--line)", paddingBottom: 8, marginBottom: 8 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 14, fontWeight: 700, color: "#ffffff" }}>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: "var(--ink-heading)" }}>
                     {hoveredSurvival.cancer_type}
                   </span>
                   <span className="mono" style={{ fontSize: 9, color: getPrognosisColor(hoveredSurvival.prognosis) }}>
@@ -549,7 +559,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                   </div>
                   <div>
                     <span className="mono" style={{ fontSize: 9, color: "var(--dim)", marginRight: 6 }}>STAGE I vs IV:</span>
-                    <span style={{ fontSize: 12, color: "#ffffff", fontWeight: "bold" }}>{hoveredSurvival.stage_1_survival}</span>
+                    <span style={{ fontSize: 12, color: "var(--ink-heading)", fontWeight: "bold" }}>{hoveredSurvival.stage_1_survival}</span>
                     <span style={{ color: "var(--dim)", margin: "0 3px" }}>vs</span>
                     <span style={{ fontSize: 12, color: "var(--accent)", fontWeight: "bold" }}>{hoveredSurvival.stage_4_survival}</span>
                   </div>
@@ -559,11 +569,11 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 10, fontSize: 11, color: "var(--muted)" }}>
                 <div>
                   <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block", marginBottom: 2 }}>STAGING FACTOR</span>
-                  <p style={{ margin: 0, color: "#d5d5d8" }}>{hoveredSurvival.primary_factor}</p>
+                  <p style={{ margin: 0, color: "var(--ink)" }}>{hoveredSurvival.primary_factor}</p>
                 </div>
                 <div>
                   <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block", marginBottom: 2 }}>CLINICAL TAKEAWAY</span>
-                  <p style={{ margin: 0, color: "#a0a0a8", lineHeight: 1.45 }}>{hoveredSurvival.clinical_takeaway}</p>
+                  <p style={{ margin: 0, color: "var(--muted)", lineHeight: 1.45 }}>{hoveredSurvival.clinical_takeaway}</p>
                 </div>
               </div>
             </div>
@@ -571,9 +581,9 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
 
           {activeView === "income" && hoveredIncome && (
             <div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: 8, marginBottom: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, borderBottom: "1px solid var(--line)", paddingBottom: 8, marginBottom: 8 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 14, fontWeight: 700, color: "#ffffff" }}>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: "var(--ink-heading)" }}>
                     {hoveredIncome.tier}
                   </span>
                   <span className="mono" style={{ fontSize: 9, color: "var(--dim)" }}>
@@ -588,18 +598,18 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                   </div>
                   <div>
                     <span className="mono" style={{ fontSize: 9, color: "var(--dim)", marginRight: 6 }}>CRUDE:</span>
-                    <strong style={{ fontSize: 13, color: "#ffffff", fontFamily: "monospace" }}>{hoveredIncome.crude_death_rate} <small style={{ fontSize: 9, color: "var(--muted)" }}>/100k</small></strong>
+                    <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>{hoveredIncome.crude_death_rate} <small style={{ fontSize: 9, color: "var(--muted)" }}>/100k</small></strong>
                   </div>
                   <div>
                     <span className="mono" style={{ fontSize: 9, color: "var(--dim)", marginRight: 6 }}>65+ SHARE:</span>
-                    <strong style={{ fontSize: 13, color: "#ffffff", fontFamily: "monospace" }}>{hoveredIncome.aging_population_pct}%</strong>
+                    <strong style={{ fontSize: 13, color: "var(--ink-heading)", fontFamily: "monospace" }}>{hoveredIncome.aging_population_pct}%</strong>
                   </div>
                 </div>
               </div>
 
               <div>
                 <span className="mono" style={{ color: "var(--dim)", fontSize: 8, display: "block", marginBottom: 2 }}>EPIDEMIOLOGICAL MECHANISM</span>
-                <p style={{ margin: 0, color: "#a0a0a8", fontSize: 11, lineHeight: 1.45 }}>{hoveredIncome.insight}</p>
+                <p style={{ margin: 0, color: "var(--muted)", fontSize: 11, lineHeight: 1.45 }}>{hoveredIncome.insight}</p>
               </div>
             </div>
           )}

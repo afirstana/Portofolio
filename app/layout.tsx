@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./interactive.css";
 import { siteConfig } from "@/lib/site";
+import { FloatingBackToTop } from "@/components/GlobalUX";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -20,4 +21,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en"><body>{children}</body></html>; }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <FloatingBackToTop />
+      </body>
+    </html>
+  );
+}

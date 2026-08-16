@@ -19,7 +19,9 @@ groups:
         evidence:
           - "olist-e-commerce-logistics-analysis"
       - name: "SQL"
-        evidence: []
+        evidence:
+          - "olist-e-commerce-logistics-analysis"
+          - "ml-product-mapping-system"
       - name: "Predictive analytics"
         evidence:
           - "amazon-product-intelligence"
@@ -31,6 +33,7 @@ groups:
       - name: "NLP / TF-IDF"
         evidence:
           - "amazon-product-intelligence"
+          - "ml-product-mapping-system"
   - name: "Systems"
     skills:
       - name: "Data quality"

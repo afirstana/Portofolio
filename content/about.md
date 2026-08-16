@@ -1,6 +1,6 @@
 ---
 photo: "abstract-systems-placeholder"
-bio_text: "Data Analyst yang fokus mengubah data mentah jadi insight yang actionable. Berpengalaman membangun sistem otomasi data dan dashboard analitik."
+bio_text: "Data analyst focused on transforming raw signals into actionable decisions, engineering resilient automation pipelines, and designing high-clarity analytical dashboards."
 values:
   - "Clarity over complexity"
   - "Systems that reduce friction"

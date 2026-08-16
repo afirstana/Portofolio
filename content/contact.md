@@ -1,6 +1,6 @@
 ---
 eyebrow: "07 / Contact"
-heading: "Build a clearer system."
+heading: "Let's build clearer systems together."
 email: "abimael.firstana2000@gmail.com"
 cta_text: "Start a conversation"
 copy_label: "Copy email"

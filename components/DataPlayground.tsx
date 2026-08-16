@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 
 export type PlaygroundRow = {
   year: string;
@@ -17,6 +17,8 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
   const [category, setCategory] = useState("All");
   const [sortBy, setSortBy] = useState<SortKey>("year");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+  const [hoveredPoint, setHoveredPoint] = useState<{ year: string; value: number; volume: number; x: number; y: number } | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   const categories = useMemo(() => {
     return ["All", ...Array.from(new Set(data.map((row) => row.category)))];
@@ -36,7 +38,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
           yearMap.set(row.year, {
             year: row.year,
             month: row.year,
-            category: "All Cancer Types (Global Total)",
+            category: "Global Total",
             value: row.value,
             volume: row.volume,
           });
@@ -65,15 +67,20 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
     ? (((latestRecord.volume - baselineRecord.volume) / baselineRecord.volume) * 100).toFixed(1)
     : "0.0";
 
-  // SVG Chart Dimensions
+  // SVG Chart Dimensions with generous padding and clean minimal layout
   const maxValue = Math.max(...filteredData.map((row) => row.value), 1);
-  const chartPoints = filteredData
-    .map((row, index) => {
-      const x = 30 + index * (320 / Math.max(filteredData.length - 1, 1));
-      const y = 164 - (row.value / maxValue) * 124;
-      return `${x},${y}`;
-    })
-    .join(" ");
+  const minValue = Math.min(...filteredData.map((row) => row.value), 0);
+
+  const pointsCoordinates = useMemo(() => {
+    return filteredData.map((row, index) => {
+      const x = 35 + index * (310 / Math.max(filteredData.length - 1, 1));
+      const y = 155 - ((row.value - minValue * 0.8) / (maxValue - minValue * 0.8)) * 115;
+      return { ...row, x, y };
+    });
+  }, [filteredData, minValue, maxValue]);
+
+  const chartPoints = pointsCoordinates.map((p) => `${p.x},${p.y}`).join(" ");
+  const areaPoints = `35,160 ${chartPoints} 345,160`;
 
   const toggleSort = (key: SortKey) => {
     if (sortBy === key) {
@@ -82,6 +89,24 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
       setSortBy(key);
       setSortOrder("desc");
     }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
+    if (!svgRef.current || pointsCoordinates.length === 0) return;
+    const rect = svgRef.current.getBoundingClientRect();
+    const mouseX = ((e.clientX - rect.left) / rect.width) * 380;
+    
+    // Find closest point along the X axis
+    let closest = pointsCoordinates[0];
+    let minDistance = Math.abs(closest.x - mouseX);
+    for (let i = 1; i < pointsCoordinates.length; i++) {
+      const dist = Math.abs(pointsCoordinates[i].x - mouseX);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closest = pointsCoordinates[i];
+      }
+    }
+    setHoveredPoint(closest);
   };
 
   return (
@@ -106,7 +131,10 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
               <button
                 type="button"
                 aria-pressed={category === item}
-                onClick={() => setCategory(item)}
+                onClick={() => {
+                  setCategory(item);
+                  setHoveredPoint(null);
+                }}
                 key={item}
               >
                 {item}
@@ -120,61 +148,132 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
               setCategory("All");
               setSortBy("year");
               setSortOrder("desc");
+              setHoveredPoint(null);
             }}
           >
             Reset view
           </button>
         </div>
 
-        {/* Real Data KPI Cards */}
+        {/* Purposeful Signal-Driven KPI Cards */}
         <div className="kpi-grid" aria-live="polite">
           <div>
-            <span className="mono">2019 Annual Mortality</span>
-            <strong>{(latestRecord.volume / 1000000).toFixed(2)}M</strong>
-            <p>{latestRecord.volume.toLocaleString()} recorded deaths in 2019.</p>
+            <span className="mono" style={{ color: "var(--accent)", display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--accent)" }} />
+              2019 ANNUAL MORTALITY (GLOBAL BURDEN)
+            </span>
+            <strong style={{ color: "var(--accent)", textShadow: "0 0 24px rgba(255,77,28,0.2)" }}>
+              {(latestRecord.volume / 1000000).toFixed(2)}M
+            </strong>
+            <p>{latestRecord.volume.toLocaleString()} recorded deaths in 2019 ({category === "All" ? "all types" : category}).</p>
           </div>
           <div>
-            <span className="mono">30-Year Trend Change</span>
+            <span className="mono">30-YEAR TREND CHANGE</span>
             <strong>+{percentChange}%</strong>
-            <p>Net growth from 1990 ({baselineRecord.volume.toLocaleString()} deaths).</p>
+            <p>Net growth from 1990 ({baselineRecord.volume.toLocaleString()} baseline deaths).</p>
           </div>
           <div>
-            <span className="mono">Dataset Scope</span>
+            <span className="mono">DATASET SCOPE</span>
             <strong>30 Years</strong>
-            <p>1990–2019 standardized longitudinal panel.</p>
+            <p>1990–2019 standardized longitudinal panel (228 entities).</p>
           </div>
         </div>
 
         {/* Chart & Table Panels */}
         <div className="playground-grid">
-          {/* SVG Trend Chart */}
+          {/* Clean, Minimalist SVG Line Chart */}
           <div className="chart-panel">
             <div className="chart-heading">
-              <p className="mono">Mortality Trajectory (1990–2019)</p>
-              <span>{category === "All" ? "Global Total (in thousands)" : `${category} (in thousands)`}</span>
+              <div>
+                <p className="mono" style={{ margin: 0 }}>Mortality Trajectory (1990–2019)</p>
+                <span style={{ fontSize: 10, color: "var(--dim)" }}>
+                  {category === "All" ? "Global Total (in thousands)" : `${category} (in thousands)`}
+                </span>
+              </div>
+              {hoveredPoint ? (
+                <div style={{ backgroundColor: "rgba(255,77,28,0.15)", border: "1px solid var(--accent)", padding: "3px 9px", borderRadius: 4, fontSize: 10, color: "#ffffff", fontFamily: "monospace" }}>
+                  <strong style={{ color: "var(--accent)" }}>Year {hoveredPoint.year}:</strong> {hoveredPoint.volume.toLocaleString()} deaths ({hoveredPoint.value.toLocaleString()}k)
+                </div>
+              ) : (
+                <div style={{ fontSize: 9, color: "var(--dim)", fontFamily: "monospace" }}>
+                  Hover over chart to trace
+                </div>
+              )}
             </div>
             
-            <svg viewBox="0 0 380 190" role="img" aria-label={`Trend chart for ${category}`}>
-              <path d="M30 164H350M30 102H350M30 40H350" />
-              <polyline points={chartPoints} />
-              <g>
-                {filteredData.map((row, index) => {
-                  const cx = 30 + index * (320 / Math.max(filteredData.length - 1, 1));
-                  const cy = 164 - (row.value / maxValue) * 124;
-                  return (
-                    <circle key={row.year} cx={cx} cy={cy} r="4">
-                      <title>{`Year ${row.year}: ${row.volume.toLocaleString()} deaths (${row.value.toLocaleString()}k)`}</title>
-                    </circle>
-                  );
-                })}
-              </g>
+            <svg
+              ref={svgRef}
+              viewBox="0 0 380 185"
+              role="img"
+              aria-label={`Trend chart for ${category}`}
+              style={{ marginTop: 12, cursor: "crosshair" }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={() => setHoveredPoint(null)}
+            >
+              <defs>
+                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#ff4d1c" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#ff4d1c" stopOpacity="0.01" />
+                </linearGradient>
+              </defs>
+
+              {/* Minimal Baseline Grid */}
+              <path d="M35 155H345M35 100H345M35 45H345" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+
+              {/* Shaded Area Under Curve */}
+              <polygon points={areaPoints} fill="url(#chartGradient)" />
+
+              {/* Single Crisp Clean Trend Line */}
+              <polyline
+                points={chartPoints}
+                fill="none"
+                stroke="var(--accent)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
+              {/* Interactive Crosshair and Single Tracker Dot ON HOVER ONLY */}
+              {hoveredPoint && (
+                <g>
+                  {/* Vertical Crosshair */}
+                  <line
+                    x1={hoveredPoint.x}
+                    y1={25}
+                    x2={hoveredPoint.x}
+                    y2={155}
+                    stroke="rgba(255,77,28,0.5)"
+                    strokeWidth="1"
+                    strokeDasharray="2 2"
+                  />
+                  {/* Outer Pulsing Glow */}
+                  <circle
+                    cx={hoveredPoint.x}
+                    cy={hoveredPoint.y}
+                    r="8"
+                    fill="rgba(255,77,28,0.25)"
+                  />
+                  {/* Center Dot */}
+                  <circle
+                    cx={hoveredPoint.x}
+                    cy={hoveredPoint.y}
+                    r="4.5"
+                    fill="var(--accent)"
+                    stroke="#ffffff"
+                    strokeWidth="2"
+                  />
+                </g>
+              )}
             </svg>
 
-            <div className="chart-axis">
+            {/* Clean X-Axis with 5-Year Spacing */}
+            <div className="chart-axis" style={{ padding: "0 10px" }}>
               {filteredData
                 .filter((_, idx) => idx % 5 === 0 || idx === filteredData.length - 1)
                 .map((row) => (
-                  <span key={row.year}>{row.year}</span>
+                  <span key={row.year} style={{ color: hoveredPoint?.year === row.year ? "var(--accent)" : "var(--dim)", fontWeight: hoveredPoint?.year === row.year ? "bold" : "normal" }}>
+                    {row.year}
+                  </span>
                 ))}
             </div>
           </div>
@@ -183,7 +282,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
           <div className="table-panel">
             <div className="table-heading">
               <p className="mono">Annual Records ({filteredData.length} Years)</p>
-              <div>
+              <div style={{ display: "flex", gap: 6 }}>
                 <button
                   type="button"
                   aria-pressed={sortBy === "year"}
@@ -202,24 +301,49 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
             </div>
 
             <div className="table-scroll">
-              <table aria-label="Annual cancer mortality data table">
+              <table aria-label="Annual cancer mortality data table" style={{ width: "100%" }}>
                 <thead>
                   <tr>
-                    <th scope="col">Year</th>
-                    <th scope="col">Classification</th>
-                    <th scope="col">Deaths (k)</th>
-                    <th scope="col">Exact Count</th>
+                    <th scope="col" style={{ width: "18%" }}>Year</th>
+                    <th scope="col" style={{ width: "38%" }}>Classification</th>
+                    <th scope="col" style={{ width: "22%", textAlign: "right" }}>Deaths (k)</th>
+                    <th scope="col" style={{ width: "22%", textAlign: "right" }}>Exact Count</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedRows.map((row) => (
-                    <tr key={`${row.year}-${row.category}`}>
-                      <td><strong>{row.year}</strong></td>
-                      <td>{row.category}</td>
-                      <td>{row.value.toLocaleString()}k</td>
-                      <td>{row.volume.toLocaleString()}</td>
-                    </tr>
-                  ))}
+                  {sortedRows.map((row) => {
+                    const isHovered = hoveredPoint?.year === row.year;
+                    const matchedCoord = pointsCoordinates.find((p) => p.year === row.year);
+
+                    return (
+                      <tr
+                        key={`${row.year}-${row.category}`}
+                        onMouseEnter={() => {
+                          if (matchedCoord) {
+                            setHoveredPoint(matchedCoord);
+                          }
+                        }}
+                        onMouseLeave={() => setHoveredPoint(null)}
+                        style={{
+                          backgroundColor: isHovered ? "rgba(255,77,28,0.1)" : "transparent",
+                          cursor: "pointer",
+                          transition: "background 0.15s ease-out",
+                          borderLeft: isHovered ? "3px solid var(--accent)" : "3px solid transparent",
+                        }}
+                      >
+                        <td><strong style={{ color: isHovered ? "var(--accent)" : "#ffffff" }}>{row.year}</strong></td>
+                        <td style={{ color: "#d5d5d8" }}>
+                          {row.category === "All Cancer Types (Global Total)" ? "Global Total" : row.category}
+                        </td>
+                        <td style={{ textAlign: "right", fontFamily: "monospace", color: "#f5f5f4" }}>
+                          {row.value.toLocaleString()}k
+                        </td>
+                        <td style={{ textAlign: "right", fontFamily: "monospace", color: isHovered ? "var(--accent)" : "var(--muted)" }}>
+                          {row.volume.toLocaleString()}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

@@ -12,6 +12,13 @@
       "rate_per_100k": 284.3,
       "total_deaths": 5802,
       "deaths_formatted": "5,802",
+      "vs_global_pct": 111.4,
+      "vs_global_label": "+111.4% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 284.3 per 100,000, representing a +111.4% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 1
     },
     {
@@ -20,6 +27,13 @@
       "rate_per_100k": 236.9,
       "total_deaths": 151,
       "deaths_formatted": "151",
+      "vs_global_pct": 76.1,
+      "vs_global_label": "+76.1% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 236.9 per 100,000, representing a +76.1% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 2
     },
     {
@@ -28,6 +42,13 @@
       "rate_per_100k": 233.3,
       "total_deaths": 221,
       "deaths_formatted": "221",
+      "vs_global_pct": 73.5,
+      "vs_global_label": "+73.5% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 233.3 per 100,000, representing a +73.5% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 3
     },
     {
@@ -36,6 +57,13 @@
       "rate_per_100k": 202.5,
       "total_deaths": 176,
       "deaths_formatted": "176",
+      "vs_global_pct": 50.6,
+      "vs_global_label": "+50.6% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 202.5 per 100,000, representing a +50.6% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 4
     },
     {
@@ -44,6 +72,13 @@
       "rate_per_100k": 201.7,
       "total_deaths": 508,
       "deaths_formatted": "508",
+      "vs_global_pct": 50.0,
+      "vs_global_label": "+50.0% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 201.7 per 100,000, representing a +50.0% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 5
     },
     {
@@ -52,6 +87,13 @@
       "rate_per_100k": 191.0,
       "total_deaths": 625,
       "deaths_formatted": "625",
+      "vs_global_pct": 42.0,
+      "vs_global_label": "+42.0% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 191.0 per 100,000, representing a +42.0% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 6
     },
     {
@@ -60,6 +102,13 @@
       "rate_per_100k": 185.3,
       "total_deaths": 5,
       "deaths_formatted": "5",
+      "vs_global_pct": 37.8,
+      "vs_global_label": "+37.8% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 185.3 per 100,000, representing a +37.8% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 7
     },
     {
@@ -68,6 +117,13 @@
       "rate_per_100k": 184.3,
       "total_deaths": 324,
       "deaths_formatted": "324",
+      "vs_global_pct": 37.0,
+      "vs_global_label": "+37.0% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 184.3 per 100,000, representing a +37.0% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 8
     },
     {
@@ -76,6 +132,13 @@
       "rate_per_100k": 184.2,
       "total_deaths": 28,
       "deaths_formatted": "28",
+      "vs_global_pct": 37.0,
+      "vs_global_label": "+37.0% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 184.2 per 100,000, representing a +37.0% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 9
     },
     {
@@ -84,6 +147,13 @@
       "rate_per_100k": 184.0,
       "total_deaths": 120,
       "deaths_formatted": "120",
+      "vs_global_pct": 36.8,
+      "vs_global_label": "+36.8% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 184.0 per 100,000, representing a +36.8% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 10
     },
     {
@@ -92,6 +162,13 @@
       "rate_per_100k": 183.9,
       "total_deaths": 9815,
       "deaths_formatted": "9,815",
+      "vs_global_pct": 36.7,
+      "vs_global_label": "+36.7% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 183.9 per 100,000, representing a +36.7% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 11
     },
     {
@@ -100,6 +177,13 @@
       "rate_per_100k": 183.6,
       "total_deaths": 27626,
       "deaths_formatted": "27,626",
+      "vs_global_pct": 36.5,
+      "vs_global_label": "+36.5% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 183.6 per 100,000, representing a +36.5% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 12
     },
     {
@@ -108,6 +192,13 @@
       "rate_per_100k": 181.9,
       "total_deaths": 33465,
       "deaths_formatted": "33,465",
+      "vs_global_pct": 35.2,
+      "vs_global_label": "+35.2% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 181.9 per 100,000, representing a +35.2% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 13
     },
     {
@@ -116,6 +207,13 @@
       "rate_per_100k": 180.9,
       "total_deaths": 11876,
       "deaths_formatted": "11,876",
+      "vs_global_pct": 34.5,
+      "vs_global_label": "+34.5% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 180.9 per 100,000, representing a +34.5% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 14
     },
     {
@@ -124,6 +222,13 @@
       "rate_per_100k": 179.8,
       "total_deaths": 2145,
       "deaths_formatted": "2,145",
+      "vs_global_pct": 33.7,
+      "vs_global_label": "+33.7% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 179.8 per 100,000, representing a +33.7% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 15
     },
     {
@@ -132,6 +237,13 @@
       "rate_per_100k": 176.7,
       "total_deaths": 18967,
       "deaths_formatted": "18,967",
+      "vs_global_pct": 31.4,
+      "vs_global_label": "+31.4% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 176.7 per 100,000, representing a +31.4% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 16
     },
     {
@@ -140,6 +252,13 @@
       "rate_per_100k": 176.4,
       "total_deaths": 181,
       "deaths_formatted": "181",
+      "vs_global_pct": 31.2,
+      "vs_global_label": "+31.2% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 176.4 per 100,000, representing a +31.2% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 17
     },
     {
@@ -148,6 +267,13 @@
       "rate_per_100k": 175.2,
       "total_deaths": 118722,
       "deaths_formatted": "118,722",
+      "vs_global_pct": 30.3,
+      "vs_global_label": "+30.3% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 175.2 per 100,000, representing a +30.3% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 18
     },
     {
@@ -156,6 +282,13 @@
       "rate_per_100k": 174.5,
       "total_deaths": 5251,
       "deaths_formatted": "5,251",
+      "vs_global_pct": 29.7,
+      "vs_global_label": "+29.7% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 174.5 per 100,000, representing a +29.7% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 19
     },
     {
@@ -164,6 +297,13 @@
       "rate_per_100k": 174.1,
       "total_deaths": 113,
       "deaths_formatted": "113",
+      "vs_global_pct": 29.4,
+      "vs_global_label": "+29.4% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 174.1 per 100,000, representing a +29.4% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 20
     },
     {
@@ -172,6 +312,13 @@
       "rate_per_100k": 172.7,
       "total_deaths": 76,
       "deaths_formatted": "76",
+      "vs_global_pct": 28.4,
+      "vs_global_label": "+28.4% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 172.7 per 100,000, representing a +28.4% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 21
     },
     {
@@ -180,6 +327,13 @@
       "rate_per_100k": 172.6,
       "total_deaths": 943,
       "deaths_formatted": "943",
+      "vs_global_pct": 28.3,
+      "vs_global_label": "+28.3% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 172.6 per 100,000, representing a +28.3% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 22
     },
     {
@@ -188,6 +342,13 @@
       "rate_per_100k": 172.5,
       "total_deaths": 173,
       "deaths_formatted": "173",
+      "vs_global_pct": 28.3,
+      "vs_global_label": "+28.3% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 172.5 per 100,000, representing a +28.3% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 23
     },
     {
@@ -196,6 +357,13 @@
       "rate_per_100k": 171.5,
       "total_deaths": 694,
       "deaths_formatted": "694",
+      "vs_global_pct": 27.5,
+      "vs_global_label": "+27.5% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 171.5 per 100,000, representing a +27.5% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 24
     },
     {
@@ -204,6 +372,13 @@
       "rate_per_100k": 170.4,
       "total_deaths": 799,
       "deaths_formatted": "799",
+      "vs_global_pct": 26.7,
+      "vs_global_label": "+26.7% above global baseline",
+      "region": "Eastern Europe",
+      "top_cancer_cause": "Trachea, Lung & Colorectal Cancer",
+      "risk_factors": "Tobacco smoking, alcohol consumption, environmental & occupational exposures",
+      "clinical_insight": "Age-standardized cancer mortality is 170.4 per 100,000, representing a +26.7% above global baseline in observed 2019 burden.",
+      "screening_coverage": "National / Regional Health Protocol",
       "rank": 25
     },
     {
@@ -212,6 +387,13 @@
       "rate_per_100k": 150.9,
       "total_deaths": 190731,
       "deaths_formatted": "190,731",
+      "vs_global_pct": 12.2,
+      "vs_global_label": "+12.2% above global baseline",
+      "region": "Western Europe",
+      "top_cancer_cause": "Lung, Colorectal & Prostate Cancer",
+      "risk_factors": "Smoking history, obesity, post-menopausal hormonal factors",
+      "clinical_insight": "NHS centralized screening and fast-track 2-week cancer referral pathway prioritize early diagnostic triage across population centers.",
+      "screening_coverage": "Universal (NHS Cervical, Breast & Bowel Screening)",
       "rank": 26
     },
     {
@@ -220,6 +402,13 @@
       "rate_per_100k": 140.9,
       "total_deaths": 2644853,
       "deaths_formatted": "2,644,853",
+      "vs_global_pct": 4.8,
+      "vs_global_label": "+4.8% above global baseline",
+      "region": "East Asia",
+      "top_cancer_cause": "Lung, Stomach & Liver Cancer",
+      "risk_factors": "Hepatitis B endemic background, smoking, indoor/outdoor particulate matter",
+      "clinical_insight": "Accounts for >24% of global cancer mortality; dramatic recent reductions in stomach/liver cancer driven by HBV vaccination and H. pylori eradication.",
+      "screening_coverage": "Expanding (Targeted high-risk endoscopic screening programs)",
       "rank": 27
     },
     {
@@ -228,6 +417,13 @@
       "rate_per_100k": 140.5,
       "total_deaths": 264572,
       "deaths_formatted": "264,572",
+      "vs_global_pct": 4.5,
+      "vs_global_label": "+4.5% above global baseline",
+      "region": "Western Europe",
+      "top_cancer_cause": "Lung, Colorectal & Pancreatic Cancer",
+      "risk_factors": "High proportion of elderly population, historical tobacco exposure",
+      "clinical_insight": "Universal healthcare access and strict clinical guideline adherence keep age-standardized mortality low despite high absolute numbers.",
+      "screening_coverage": "Universal (Statutory health insurance screening protocols)",
       "rank": 28
     },
     {
@@ -236,6 +432,13 @@
       "rate_per_100k": 137.4,
       "total_deaths": 752833,
       "deaths_formatted": "752,833",
+      "vs_global_pct": 2.2,
+      "vs_global_label": "+2.2% above global baseline",
+      "region": "North America",
+      "top_cancer_cause": "Lung, Colorectal & Breast Cancer",
+      "risk_factors": "Historical tobacco peak, obesity & metabolic syndrome",
+      "clinical_insight": "Age-standardized mortality has dropped >30% since 1991 due to smoking cessation, low-dose CT screening, and precision immunotherapy access.",
+      "screening_coverage": "Very High (Widespread LDCT, Colonoscopy, Mammography)",
       "rank": 29
     },
     {
@@ -244,6 +447,13 @@
       "rate_per_100k": 126.1,
       "total_deaths": 52099,
       "deaths_formatted": "52,099",
+      "vs_global_pct": -6.2,
+      "vs_global_label": "-6.2% below global baseline",
+      "region": "Oceania",
+      "top_cancer_cause": "Prostate, Colorectal, Melanoma & Lung Cancer",
+      "risk_factors": "High UV solar radiation index (Melanoma), aging population",
+      "clinical_insight": "Pioneer in population-level HPV vaccination, projected to become the first nation to eliminate cervical cancer by 2035.",
+      "screening_coverage": "Very High (National Bowel, Breast & Cervical Screening Programs)",
       "rank": 30
     },
     {
@@ -252,6 +462,13 @@
       "rate_per_100k": 114.5,
       "total_deaths": 253773,
       "deaths_formatted": "253,773",
+      "vs_global_pct": -14.9,
+      "vs_global_label": "-14.9% below global baseline",
+      "region": "Latin America",
+      "top_cancer_cause": "Prostate, Breast & Lung Cancer",
+      "risk_factors": "Urbanization, dietary transition, regional healthcare disparities",
+      "clinical_insight": "Significant geographic disparity between developed Southeast centers (S\u00e3o Paulo) and underserved North/Northeast states.",
+      "screening_coverage": "Moderate (SUS public healthcare system screening)",
       "rank": 31
     },
     {
@@ -260,6 +477,13 @@
       "rate_per_100k": 113.5,
       "total_deaths": 431430,
       "deaths_formatted": "431,430",
+      "vs_global_pct": -15.6,
+      "vs_global_label": "-15.6% below global baseline",
+      "region": "East Asia",
+      "top_cancer_cause": "Lung, Colorectal & Stomach Cancer",
+      "risk_factors": "Super-aged demographic (>29% age 65+), dietary salt intake",
+      "clinical_insight": "World leader in 5-year stomach cancer survival (>65%) due to mandatory nationwide endoscopic screening and early mucosal dissection.",
+      "screening_coverage": "Universal (Nationwide annual health checks & endoscopy)",
       "rank": 32
     },
     {
@@ -268,6 +492,13 @@
       "rate_per_100k": 112.3,
       "total_deaths": 216447,
       "deaths_formatted": "216,447",
+      "vs_global_pct": -16.5,
+      "vs_global_label": "-16.5% below global baseline",
+      "region": "Southeast Asia",
+      "top_cancer_cause": "Trachea/Lung & Cervical/Breast Cancer",
+      "risk_factors": "High adult male smoking prevalence (~65%), HPV vaccination rollout",
+      "clinical_insight": "Standardized mortality is 19.4% below global average due to younger demographic pyramid, but diagnostic delay in secondary/tertiary facilities leads to late-stage presentation.",
+      "screening_coverage": "Moderate (BPJS-covered IVA/Pap Smear & Mammography expansion)",
       "rank": 33
     },
     {
@@ -276,6 +507,13 @@
       "rate_per_100k": 93.3,
       "total_deaths": 6779,
       "deaths_formatted": "6,779",
+      "vs_global_pct": -30.6,
+      "vs_global_label": "-30.6% below global baseline",
+      "region": "Southeast Asia",
+      "top_cancer_cause": "Colorectal, Lung & Breast Cancer",
+      "risk_factors": "Westernized dietary patterns, sedentary urban lifestyle, low parity",
+      "clinical_insight": "High 5-year survival rates on par with top OECD nations backed by universal health savings and tertiary oncology infrastructure.",
+      "screening_coverage": "Very High (Screen for Life national subsidies)",
       "rank": 34
     },
     {
@@ -284,6 +522,13 @@
       "rate_per_100k": 83.3,
       "total_deaths": 875510,
       "deaths_formatted": "875,510",
+      "vs_global_pct": -38.1,
+      "vs_global_label": "-38.1% below global baseline",
+      "region": "South Asia",
+      "top_cancer_cause": "Oral Cavity, Cervical & Breast Cancer",
+      "risk_factors": "Smokeless tobacco (gutka/khaini), betel quid chewing, HPV prevalence",
+      "clinical_insight": "Highest global burden of oral/lip cancers; standardized rate is comparatively lower due to younger age distribution, but fatality per case remains high.",
+      "screening_coverage": "Emerging (Community health worker visual oral & cervical screening)",
       "rank": 35
     }
   ],
@@ -292,144 +537,197 @@
       "cancer_type": "Testicular Cancer",
       "survival_rate": 95.2,
       "prognosis": "Very High",
-      "early_detection": "Self-exam & Ultrasound",
-      "primary_factor": "Chemosensitivity & early localized staging"
+      "stage_1_survival": "99.2%",
+      "stage_4_survival": "73.5%",
+      "early_detection": "Self-exam & High-resolution Ultrasound",
+      "primary_factor": "Exceptional sensitivity to cisplatin-based chemotherapy",
+      "clinical_takeaway": "Even with metastatic dissemination, curative intent remains achievable in >70% of advanced cases."
     },
     {
       "cancer_type": "Thyroid Cancer",
       "survival_rate": 91.8,
       "prognosis": "Very High",
-      "early_detection": "Palpation & Fine-needle biopsy",
-      "primary_factor": "Slow progression of papillary subtypes"
+      "stage_1_survival": "99.8%",
+      "stage_4_survival": "55.0%",
+      "early_detection": "Neck palpation & Fine-needle aspiration biopsy",
+      "primary_factor": "Indolent growth kinetics of papillary & follicular variants",
+      "clinical_takeaway": "Radioiodine ablation and surgical thyroidectomy yield near-normal life expectancy for localized subtypes."
     },
     {
       "cancer_type": "Prostate Cancer",
       "survival_rate": 88.5,
       "prognosis": "High",
-      "early_detection": "PSA screening & MRI",
-      "primary_factor": "Early diagnosis and hormonal therapy response"
+      "stage_1_survival": "99.0%",
+      "stage_4_survival": "32.0%",
+      "early_detection": "Serum PSA testing, Digital Rectal Exam, mpMRI",
+      "primary_factor": "Androgen deprivation therapy responsiveness and slow doubling time",
+      "clinical_takeaway": "Active surveillance is viable for low-risk Gleason scores without immediate radical intervention."
     },
     {
       "cancer_type": "Melanoma (Skin)",
       "survival_rate": 86.4,
       "prognosis": "High",
-      "early_detection": "Dermatological inspection",
-      "primary_factor": "High curability when excised at stage I/II"
+      "stage_1_survival": "98.5%",
+      "stage_4_survival": "31.9%",
+      "early_detection": "Dermatoscopic ABCDE criteria inspection & optical biopsy",
+      "primary_factor": "Breslow thickness at excision; high immunogenicity (anti-PD-1)",
+      "clinical_takeaway": "Excision at Breslow depth <1mm confers >95% cure rate, while checkpoint inhibitors revolutionized metastatic care."
     },
     {
       "cancer_type": "Breast Cancer",
       "survival_rate": 84.1,
       "prognosis": "High",
-      "early_detection": "Mammography screening",
-      "primary_factor": "Targeted therapies (HER2/hormone receptor)"
+      "stage_1_survival": "99.1%",
+      "stage_4_survival": "29.0%",
+      "early_detection": "Biennial digital mammography & breast ultrasound",
+      "primary_factor": "Molecular subtyping (ER/PR/HER2) and targeted monoclonal antibodies",
+      "clinical_takeaway": "Early detection prior to axillary lymph node involvement elevates 5-year survival beyond 98%."
     },
     {
       "cancer_type": "Cervical Cancer",
       "survival_rate": 66.7,
       "prognosis": "Moderate",
-      "early_detection": "Pap smear & HPV screening",
-      "primary_factor": "Preventable via HPV vaccination & early triage"
+      "stage_1_survival": "91.8%",
+      "stage_4_survival": "17.1%",
+      "early_detection": "High-risk HPV DNA co-testing & liquid-based cytology",
+      "primary_factor": "HPV viral etiology makes it almost entirely preventable with vaccination",
+      "clinical_takeaway": "Ablation of pre-cancerous CIN lesions stops progression into invasive squamous cell carcinoma."
     },
     {
       "cancer_type": "Colorectal Cancer",
       "survival_rate": 62.4,
       "prognosis": "Moderate",
-      "early_detection": "Colonoscopy & FOBT",
-      "primary_factor": "Polyp removal stops malignant transition"
+      "stage_1_survival": "90.6%",
+      "stage_4_survival": "14.7%",
+      "early_detection": "Screening colonoscopy (with polypectomy) & FIT stool tests",
+      "primary_factor": "Adenoma-to-carcinoma sequence spans 10-15 years, providing wide window",
+      "clinical_takeaway": "Endoscopic polypectomy prevents malignant transformation, halving long-term mortality."
     },
     {
       "cancer_type": "Non-Hodgkin Lymphoma",
       "survival_rate": 59.8,
       "prognosis": "Moderate",
-      "early_detection": "Lymph node biopsy",
-      "primary_factor": "Subtype heterogeneity & immunochemotherapy"
+      "stage_1_survival": "84.3%",
+      "stage_4_survival": "63.8%",
+      "early_detection": "Excisional lymph node biopsy & PET-CT staging",
+      "primary_factor": "B-cell vs T-cell lineage and R-CHOP immunochemotherapy",
+      "clinical_takeaway": "Diffuse large B-cell lymphoma (DLBCL) is curable in ~60-70% with standard anti-CD20 regimens."
     },
     {
       "cancer_type": "Leukemia",
       "survival_rate": 48.6,
       "prognosis": "Intermediate",
-      "early_detection": "Complete blood count",
-      "primary_factor": "Variable by acute vs chronic classification"
+      "stage_1_survival": "N/A (Systemic)",
+      "stage_4_survival": "N/A (Systemic)",
+      "early_detection": "Peripheral blood smear & bone marrow aspiration/cytogenetics",
+      "primary_factor": "Subtype stratification (ALL, AML, CLL, CML) & tyrosine kinase inhibitors",
+      "clinical_takeaway": "CML transformed from fatal to manageable chronic condition with targeted BCR-ABL TKIs (imatinib)."
     },
     {
       "cancer_type": "Stomach Cancer",
       "survival_rate": 28.5,
       "prognosis": "Low",
-      "early_detection": "Endoscopy (high in Japan/Korea)",
-      "primary_factor": "Often asymptomatic until late mucosal invasion"
+      "stage_1_survival": "70.1%",
+      "stage_4_survival": "5.7%",
+      "early_detection": "Upper gastrointestinal endoscopy with chromoendoscopy",
+      "primary_factor": "Often asymptomatic until late mucosal invasion; H. pylori eradication",
+      "clinical_takeaway": "Japan achieves >65% survival through population-level endoscopy, whereas Western late diagnosis yields <30%."
     },
     {
       "cancer_type": "Brain & CNS Cancer",
       "survival_rate": 22.1,
       "prognosis": "Low",
-      "early_detection": "Neurological MRI",
-      "primary_factor": "Blood-brain barrier drug delivery challenges"
+      "stage_1_survival": "68.2% (Low-grade)",
+      "stage_4_survival": "6.8% (Glioblastoma)",
+      "early_detection": "Contrast-enhanced brain MRI & stereotactic biopsy",
+      "primary_factor": "Blood-brain barrier restricts systemic delivery; infiltrative nature",
+      "clinical_takeaway": "Glioblastoma (Grade IV) median survival remains 14-16 months despite maximal surgical resection and radiation."
     },
     {
       "cancer_type": "Esophageal Cancer",
       "survival_rate": 18.2,
       "prognosis": "Very Low",
-      "early_detection": "Upper endoscopy",
-      "primary_factor": "Rapid lymphatic spread & late presentation"
+      "stage_1_survival": "46.7%",
+      "stage_4_survival": "4.8%",
+      "early_detection": "Upper endoscopy for chronic Barrett's esophagus surveillance",
+      "primary_factor": "Lack of serosal barrier permits rapid mediastinal lymphatic invasion",
+      "clinical_takeaway": "Trimodal therapy (neoadjuvant chemoradiation + esophagectomy) is required for locoregional cure."
     },
     {
       "cancer_type": "Lung Cancer",
       "survival_rate": 16.5,
       "prognosis": "Very Low",
-      "early_detection": "Low-dose CT scan",
-      "primary_factor": "Major global killer, 70%+ diagnosed at stage IV"
+      "stage_1_survival": "61.2%",
+      "stage_4_survival": "4.7%",
+      "early_detection": "Annual Low-Dose Computed Tomography (LDCT) in high-risk smokers",
+      "primary_factor": "70%+ cases diagnosed at stage III/IV due to asymptomatic lung parenchyma",
+      "clinical_takeaway": "LDCT screening shifts stage distribution to Stage I, increasing 5-year survival by over 4-fold."
     },
     {
       "cancer_type": "Liver Cancer",
       "survival_rate": 14.8,
       "prognosis": "Very Low",
-      "early_detection": "AFP + Ultrasound (high risk)",
-      "primary_factor": "Cirrhosis background and high recurrence"
+      "stage_1_survival": "34.5%",
+      "stage_4_survival": "2.8%",
+      "early_detection": "Abdominal ultrasound + serum Alpha-Fetoprotein (AFP) every 6 months",
+      "primary_factor": "Co-existing cirrhosis/hepatitis limits hepatic functional reserve for surgery",
+      "clinical_takeaway": "Early surveillance enables curative ablation or liver transplantation before portal vein thrombosis."
     },
     {
       "cancer_type": "Pancreatic Cancer",
       "survival_rate": 7.2,
       "prognosis": "Critical",
-      "early_detection": "Endoscopic ultrasound / CT",
-      "primary_factor": "Aggressive stroma & lack of early symptoms"
+      "stage_1_survival": "39.4%",
+      "stage_4_survival": "2.9%",
+      "early_detection": "Endoscopic Ultrasound (EUS) & high-resolution pancreas-protocol CT",
+      "primary_factor": "Dense desmoplastic stroma impairs chemotherapy drug perfusion",
+      "clinical_takeaway": "Only 15-20% of patients present with surgically resectable tumors at initial symptomatic presentation."
     }
   ],
   "income_tiers": [
     {
-      "tier": "High Income ($12.5k+)",
-      "countries_sample": "US, Germany, Japan, UK",
+      "tier": "High Income ($12.5k+ GDP/capita)",
+      "countries_sample": "United States, Germany, Japan, United Kingdom, Australia",
       "crude_death_rate": 248.5,
       "age_standardized_rate": 118.2,
       "aging_population_pct": 18.5,
-      "healthcare_access": "High",
-      "insight": "High crude rate due to aging population; declining standardized mortality due to modern screening & treatment."
+      "healthcare_access": "Universal / High-Resource",
+      "screening_coverage": "Comprehensive (>70% population screening)",
+      "dominant_cancers": "Colorectal, Prostate, Breast, Lung",
+      "insight": "High crude rate is driven by demographic aging (>18.5% over 65). However, age-standardized mortality is the lowest and falling steadily due to early screening, targeted biologics, and tobacco reduction."
     },
     {
       "tier": "Upper-Middle Income ($4.1k-$12.5k)",
-      "countries_sample": "China, Brazil, Russia, Bulgaria",
+      "countries_sample": "China, Brazil, Russia, Bulgaria, Serbia, Turkey",
       "crude_death_rate": 172.4,
       "age_standardized_rate": 142.6,
       "aging_population_pct": 11.2,
-      "healthcare_access": "Moderate",
-      "insight": "Highest age-standardized mortality due to high tobacco/alcohol prevalence and transitional healthcare access."
+      "healthcare_access": "Transitional / Tiered",
+      "screening_coverage": "Selective (35-55% coverage)",
+      "dominant_cancers": "Lung, Stomach, Liver, Colorectal",
+      "insight": "Highest age-standardized mortality globally. Driven by peak historical tobacco/alcohol consumption and expanding industrialization before complete nationwide screening saturation."
     },
     {
       "tier": "Lower-Middle Income ($1k-$4.1k)",
-      "countries_sample": "Indonesia, India, Egypt, Vietnam",
+      "countries_sample": "Indonesia, India, Egypt, Vietnam, Philippines",
       "crude_death_rate": 94.8,
       "age_standardized_rate": 108.4,
       "aging_population_pct": 6.8,
-      "healthcare_access": "Emerging",
-      "insight": "Lower crude mortality due to younger demographic pyramid; high proportion of preventable infection-linked cancers (cervical, liver)."
+      "healthcare_access": "Emerging Public Insurance (e.g. BPJS, Ayushman Bharat)",
+      "screening_coverage": "Emerging (<30% coverage)",
+      "dominant_cancers": "Cervical, Oral Cavity, Breast, Lung",
+      "insight": "Younger population pyramid buffers crude rates. High proportion of preventable infection-linked malignancies (HPV, HBV); expanding universal healthcare is accelerating diagnostic capacity."
     },
     {
-      "tier": "Low Income (<$1k)",
-      "countries_sample": "Afghanistan, Uganda, Mali, Chad",
+      "tier": "Low Income (<$1k GDP/capita)",
+      "countries_sample": "Afghanistan, Uganda, Mali, Chad, DR Congo",
       "crude_death_rate": 58.2,
       "age_standardized_rate": 112.5,
       "aging_population_pct": 3.4,
-      "healthcare_access": "Limited",
-      "insight": "Underreporting and lower life expectancy conceal true burden; diagnostic delays lead to poor 5-year survival."
+      "healthcare_access": "Severely Constrained (<1 oncologist per 500k)",
+      "screening_coverage": "Minimal (<10% coverage)",
+      "dominant_cancers": "Cervical, Liver, Kaposi Sarcoma",
+      "insight": "Substantial diagnostic underreporting and competing infectious mortality mask true burden. Lack of radiotherapy and late stage IV presentation result in extremely low 5-year survival."
     }
   ]
 }

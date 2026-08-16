@@ -4,3 +4,11 @@ out/
 *.tsbuildinfo
 .DS_Store
 .project-config.json
+
+# AI Assistant & IDE Configuration
+.agents/
+.gemini/
+gemini/
+.vscode/
+.idea/
+

@@ -2,6 +2,27 @@
 
 ---
 
+## 📌 [Version 2.1.0] — Brent Oil Econometrics & Olist Payment Narrative Synthesis
+- **Release Date:** August 17, 2026
+- **Git Commit:** `a9af7f2`
+- **Git Tag:** `v2.1.0-stable`
+- **Status:** Production Deployed (15/15 Static Pages)
+
+### ✨ Major Features & Deliverables:
+1. **Brent Crude Oil Market Dynamics & Geopolitical Econometrics (7th Case Study)**:
+   - 35.5-year macroeconomic dataset (9,011 trading days, 1987–2022).
+   - 4 macro regime classifications, 7 geopolitical crises modeled with $\pm \text{window}$ before/after metrics.
+   - Non-Gaussian fat-tail analysis (Kurtosis 45.43, VaR 95% at -3.57%, VaR 99% at -6.13%).
+   - Interactive SVG price timeline with decade filtering, moving average overlays (MA-30, MA-365), dynamic KPI cards, and crisis simulator (`BrentOilInteractiveShowcase.tsx`).
+2. **Olist Payment Behavior Analysis (Section 04 Narrative Repair)**:
+   - Synthesized complete 308-line (~25.5 KB) econometric narrative in `olist-payment-behavior-analytics.md`.
+   - Multi-payment sequential aggregation, 4-channel wallet share (Credit Card 78.4% GMV, Boleto 17.9% GMV), 3.33x installment AOV elasticity model ($r = 0.37$), and 10x checkout anomaly diagnosis.
+3. **End-to-End QA & Build Verification**:
+   - 36/36 unit tests passed across 5 test suites (`vitest run`).
+   - 100% static export prerendered into `out/` with zero TypeScript or runtime errors.
+
+---
+
 ## 📌 [Version 2.0.0] — Dual Theme Engine & Trust Blue Architecture
 - **Release Date:** August 16, 2026
 - **Git Commit:** `2556282`

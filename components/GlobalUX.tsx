@@ -4,9 +4,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const commands = [
   ["Go to work", "#work"],
-  ["Open skills", "#skills"],
-  ["Inspect playground", "#playground"],
   ["Read approach", "#method"],
+  ["Open skills", "#skills"],
+  ["Explore career path", "#path"],
+  ["Inspect playground", "#playground"],
+  ["Read opinions & essays", "/opinion/"],
   ["Contact Abimael", "#contact"],
 ] as const;
 
@@ -62,7 +64,11 @@ export function CommandPalette() {
   }, [open, restoreFocus]);
   const visible = commands.filter(([label]) => label.toLowerCase().includes(query.toLowerCase()));
   const go = (target: string) => {
-    window.location.hash = target;
+    if (target.startsWith("#")) {
+      window.location.hash = target;
+    } else {
+      window.location.href = target;
+    }
     setOpen(false);
     setQuery("");
   };

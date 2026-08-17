@@ -6,11 +6,12 @@ import { LogoBadge } from "./LogoBadge";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
-  ["Work", "#work"],
-  ["Method", "#method"],
-  ["Skills", "#skills"],
-  ["Path", "#path"],
-  ["Contact", "#contact"],
+  { label: "Work", href: "/#work" },
+  { label: "Method", href: "/#method" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Path", href: "/#path" },
+  { label: "Opinion", href: "/opinion/" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -29,8 +30,8 @@ export function SiteHeader() {
       </a>
 
       <nav className={`site-nav ${open ? "open" : ""}`} aria-label="Primary navigation">
-        {links.map(([label, href]) => (
-          <a onClick={() => setOpen(false)} href={`/${href}`} key={href}>
+        {links.map(({ label, href }) => (
+          <a onClick={() => setOpen(false)} href={href} key={href}>
             {label}
           </a>
         ))}

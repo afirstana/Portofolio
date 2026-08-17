@@ -2,6 +2,31 @@
 
 ---
 
+## 📌 [Version 2.2.0] — Dedicated OPINION Section with High-Res Editorial Artworks
+- **Release Date:** August 17, 2026
+- **Git Tag:** `v2.2.0-stable`
+- **Status:** Production Deployed (19/19 Static Pages)
+
+### ✨ Major Features & Innovations:
+1. **Dedicated Standalone OPINION Section (`/opinion` & `/opinion/[slug]`)**:
+   - Long-form thought leadership and systems essays.
+   - Real-time search and topic filtering (*Data Philosophy*, *E-Commerce & Fintech*, *Builder Pragmatism*).
+   - Article cards with visual concept thumbnails, reading times, publication dates, and Executive Thesis teasers.
+2. **Deep Reader Experience**:
+   - Full-width hero editorial concept artwork banners.
+   - **Executive Thesis (TL;DR Callout Box)** summarizing central argument upfront.
+   - Rich Markdown narrative supporting LaTeX formulas, comparison tables, code blocks, and blockquotes.
+   - Previous and Next Perspective pager for continuous reading.
+3. **3 Inaugural Thought Leadership Essays (100% International English)**:
+   - *Why Most Dashboards Fail to Drive Decisions*
+   - *The Vanity Metric Trap in E-Commerce & Growth Analytics*
+   - *Pragmatic Engineering: Why Simple Tools Beat Bloated Stacks*
+4. **Header Navigation Order Alignment**:
+   - Navigation links ordered: `WORK` ➔ `METHOD` ➔ `SKILLS` ➔ `PATH` ➔ `OPINION` ➔ `CONTACT`.
+   - Command Palette (`⌘K`) shortcut: `Read opinions & essays`.
+
+---
+
 ## 📌 [Version 2.1.0] — Brent Oil Econometrics & Olist Payment Narrative Synthesis
 - **Release Date:** August 17, 2026
 - **Git Commit:** `a9af7f2`

@@ -910,7 +910,7 @@ export function OlistPaymentDashboard() {
         {/* Table Pagination */}
         <div className="table-pagination">
           <span className="mono pagination-info">
-            Showing {(currentPage - 1) * pageSize + 1}–{Math.min(currentPage * pageSize, sortedTransactions.length)} of {formatNumber(sortedTransactions.length)} transactions
+            Showing {sortedTransactions.length === 0 ? 0 : (currentPage - 1) * pageSize + 1}–{Math.min(currentPage * pageSize, sortedTransactions.length)} of {formatNumber(sortedTransactions.length)} transactions
           </span>
           <div className="pagination-buttons">
             <button

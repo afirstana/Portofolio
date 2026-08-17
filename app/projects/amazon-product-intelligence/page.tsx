@@ -11,7 +11,6 @@ import { notFound } from "next/navigation";
 
 const slug = "amazon-product-intelligence";
 export const dynamicParams = false;
-export function generateStaticParams() { return [{}]; }
 export const metadata: Metadata = { title: "Amazon Product Intelligence", description: "A static, browser-only analysis dashboard built from a supplied Amazon product and review dataset.", alternates: { canonical: "/projects/amazon-product-intelligence/" }, openGraph: { title: "Amazon Product Intelligence — Abimael.Data", description: "A static, browser-only analysis dashboard built from a supplied Amazon product and review dataset.", url: "/projects/amazon-product-intelligence/", siteName: siteConfig.name, type: "article" }, twitter: { card: "summary", title: "Amazon Product Intelligence — Abimael.Data", description: "A static, browser-only analysis dashboard built from a supplied Amazon product and review dataset." } };
 
 export default function AmazonProductIntelligencePage() {

@@ -1,0 +1,4284 @@
+{
+  "metadata": {
+    "title": "Brent Crude Oil Prices 35.5-Year Econometric Dataset",
+    "start_date": "1987-05-20",
+    "end_date": "2022-11-14",
+    "total_trading_days": 9011,
+    "min_price": 9.1,
+    "min_date": "1998-12-10",
+    "max_price": 143.95,
+    "max_date": "2008-07-03",
+    "mean_price": 48.42,
+    "median_price": 38.57,
+    "std_price": 32.86
+  },
+  "risk_statistics": {
+    "daily_mean_return_pct": 0.05,
+    "daily_std_return_pct": 2.525,
+    "skewness": 0.312,
+    "kurtosis": 45.432,
+    "var_95_daily_pct": -3.57,
+    "var_99_daily_pct": -6.13,
+    "anomaly_days_count": 105
+  },
+  "decades": [
+    {
+      "period": "1987\u20131999",
+      "context": "Low & Stable Pre-Globalized Era",
+      "count": 3200,
+      "mean": 18.08,
+      "median": 17.9,
+      "min": 9.1,
+      "max": 41.45,
+      "std": 4.0,
+      "volatility_pct": 2.29
+    },
+    {
+      "period": "2000\u20132009",
+      "context": "Commodity Supercycle & Peak ($143.95)",
+      "count": 2551,
+      "mean": 49.46,
+      "median": 43.03,
+      "min": 16.51,
+      "max": 143.95,
+      "std": 25.78,
+      "volatility_pct": 2.51
+    },
+    {
+      "period": "2010\u20132019",
+      "context": "US Shale Oil Boom & 2014-16 Price Collapse",
+      "count": 2531,
+      "mean": 79.35,
+      "median": 74.86,
+      "min": 26.01,
+      "max": 128.14,
+      "std": 26.09,
+      "volatility_pct": 1.91
+    },
+    {
+      "period": "2020\u20132022",
+      "context": "COVID Crash ($9.10) & Russia-Ukraine Rebound",
+      "count": 729,
+      "mean": 70.6,
+      "median": 69.95,
+      "min": 9.12,
+      "max": 133.18,
+      "std": 27.04,
+      "volatility_pct": 4.59
+    }
+  ],
+  "yearly_summary": [
+    {
+      "year": 1987,
+      "avg_price": 18.53,
+      "min_price": 15.03,
+      "max_price": 20.95,
+      "count": 160,
+      "volatility": 1.56
+    },
+    {
+      "year": 1988,
+      "avg_price": 14.91,
+      "min_price": 11.2,
+      "max_price": 17.95,
+      "count": 255,
+      "volatility": 2.4
+    },
+    {
+      "year": 1989,
+      "avg_price": 18.23,
+      "min_price": 16.05,
+      "max_price": 22.25,
+      "count": 254,
+      "volatility": 1.69
+    },
+    {
+      "year": 1990,
+      "avg_price": 23.76,
+      "min_price": 14.68,
+      "max_price": 41.45,
+      "count": 256,
+      "volatility": 3.49
+    },
+    {
+      "year": 1991,
+      "avg_price": 20.04,
+      "min_price": 17.6,
+      "max_price": 30.28,
+      "count": 257,
+      "volatility": 3.38
+    },
+    {
+      "year": 1992,
+      "avg_price": 19.32,
+      "min_price": 17.05,
+      "max_price": 21.55,
+      "count": 257,
+      "volatility": 1.33
+    },
+    {
+      "year": 1993,
+      "avg_price": 17.01,
+      "min_price": 13.13,
+      "max_price": 19.6,
+      "count": 252,
+      "volatility": 1.38
+    },
+    {
+      "year": 1994,
+      "avg_price": 15.86,
+      "min_price": 13.0,
+      "max_price": 19.03,
+      "count": 252,
+      "volatility": 1.81
+    },
+    {
+      "year": 1995,
+      "avg_price": 17.02,
+      "min_price": 15.35,
+      "max_price": 19.38,
+      "count": 253,
+      "volatility": 1.29
+    },
+    {
+      "year": 1996,
+      "avg_price": 20.64,
+      "min_price": 16.23,
+      "max_price": 25.4,
+      "count": 254,
+      "volatility": 2.2
+    },
+    {
+      "year": 1997,
+      "avg_price": 19.11,
+      "min_price": 15.86,
+      "max_price": 24.83,
+      "count": 248,
+      "volatility": 1.78
+    },
+    {
+      "year": 1998,
+      "avg_price": 12.76,
+      "min_price": 9.1,
+      "max_price": 16.28,
+      "count": 253,
+      "volatility": 3.09
+    },
+    {
+      "year": 1999,
+      "avg_price": 17.9,
+      "min_price": 9.77,
+      "max_price": 26.46,
+      "count": 249,
+      "volatility": 2.45
+    },
+    {
+      "year": 2000,
+      "avg_price": 28.66,
+      "min_price": 21.05,
+      "max_price": 37.43,
+      "count": 253,
+      "volatility": 2.77
+    },
+    {
+      "year": 2001,
+      "avg_price": 24.46,
+      "min_price": 16.51,
+      "max_price": 30.68,
+      "count": 257,
+      "volatility": 2.96
+    },
+    {
+      "year": 2002,
+      "avg_price": 24.99,
+      "min_price": 18.17,
+      "max_price": 32.02,
+      "count": 255,
+      "volatility": 2.19
+    },
+    {
+      "year": 2003,
+      "avg_price": 28.85,
+      "min_price": 23.23,
+      "max_price": 34.94,
+      "count": 258,
+      "volatility": 2.21
+    },
+    {
+      "year": 2004,
+      "avg_price": 38.26,
+      "min_price": 29.02,
+      "max_price": 52.28,
+      "count": 261,
+      "volatility": 2.37
+    },
+    {
+      "year": 2005,
+      "avg_price": 54.57,
+      "min_price": 40.75,
+      "max_price": 67.26,
+      "count": 257,
+      "volatility": 1.98
+    },
+    {
+      "year": 2006,
+      "avg_price": 65.16,
+      "min_price": 55.82,
+      "max_price": 78.26,
+      "count": 255,
+      "volatility": 1.97
+    },
+    {
+      "year": 2007,
+      "avg_price": 72.44,
+      "min_price": 49.95,
+      "max_price": 95.92,
+      "count": 250,
+      "volatility": 1.75
+    },
+    {
+      "year": 2008,
+      "avg_price": 96.94,
+      "min_price": 33.73,
+      "max_price": 143.95,
+      "count": 253,
+      "volatility": 3.1
+    },
+    {
+      "year": 2009,
+      "avg_price": 61.74,
+      "min_price": 39.41,
+      "max_price": 78.68,
+      "count": 252,
+      "volatility": 3.29
+    },
+    {
+      "year": 2010,
+      "avg_price": 79.61,
+      "min_price": 67.18,
+      "max_price": 93.63,
+      "count": 252,
+      "volatility": 1.79
+    },
+    {
+      "year": 2011,
+      "avg_price": 111.26,
+      "min_price": 93.52,
+      "max_price": 126.64,
+      "count": 248,
+      "volatility": 1.77
+    },
+    {
+      "year": 2012,
+      "avg_price": 111.57,
+      "min_price": 88.69,
+      "max_price": 128.14,
+      "count": 249,
+      "volatility": 1.45
+    },
+    {
+      "year": 2013,
+      "avg_price": 108.56,
+      "min_price": 96.84,
+      "max_price": 118.9,
+      "count": 252,
+      "volatility": 1.11
+    },
+    {
+      "year": 2014,
+      "avg_price": 98.97,
+      "min_price": 55.27,
+      "max_price": 115.19,
+      "count": 254,
+      "volatility": 1.13
+    },
+    {
+      "year": 2015,
+      "avg_price": 52.32,
+      "min_price": 35.26,
+      "max_price": 66.33,
+      "count": 255,
+      "volatility": 2.56
+    },
+    {
+      "year": 2016,
+      "avg_price": 43.64,
+      "min_price": 26.01,
+      "max_price": 54.97,
+      "count": 255,
+      "volatility": 2.92
+    },
+    {
+      "year": 2017,
+      "avg_price": 54.12,
+      "min_price": 43.98,
+      "max_price": 66.8,
+      "count": 256,
+      "volatility": 1.63
+    },
+    {
+      "year": 2018,
+      "avg_price": 71.33,
+      "min_price": 50.57,
+      "max_price": 86.07,
+      "count": 252,
+      "volatility": 1.85
+    },
+    {
+      "year": 2019,
+      "avg_price": 64.32,
+      "min_price": 53.23,
+      "max_price": 74.94,
+      "count": 258,
+      "volatility": 2.09
+    },
+    {
+      "year": 2020,
+      "avg_price": 42.1,
+      "min_price": 9.12,
+      "max_price": 70.25,
+      "count": 256,
+      "volatility": 6.92
+    },
+    {
+      "year": 2021,
+      "avg_price": 70.86,
+      "min_price": 50.37,
+      "max_price": 85.76,
+      "count": 253,
+      "volatility": 2.12
+    },
+    {
+      "year": 2022,
+      "avg_price": 103.48,
+      "min_price": 78.25,
+      "max_price": 133.18,
+      "count": 220,
+      "volatility": 3.06
+    }
+  ],
+  "historical_crises": [
+    {
+      "date": "1990-08-02",
+      "name": "Gulf War (Kuwait Invasion)",
+      "tag": "Supply Shock",
+      "description": "Iraqi invasion of Kuwait triggered immediate oil supply shock and regional geopolitical tension.",
+      "window_days": 30,
+      "event_price": 22.25,
+      "avg_before": 17.38,
+      "avg_after": 27.75,
+      "pct_impact": 59.69
+    },
+    {
+      "date": "1997-10-01",
+      "name": "Asian Financial Crisis",
+      "tag": "Demand Shock",
+      "description": "Severe economic contraction across East Asian tiger economies suppressed global energy demand.",
+      "window_days": 60,
+      "event_price": 19.87,
+      "avg_before": 18.51,
+      "avg_after": 19.54,
+      "pct_impact": 5.61
+    },
+    {
+      "date": "2008-07-03",
+      "name": "Commodity Supercycle All-Time High ($143.95)",
+      "tag": "Price Spike",
+      "description": "All-time peak driven by rapid Chinese/Indian industrialization right before the Global Financial Crisis collapse.",
+      "window_days": 30,
+      "event_price": 143.95,
+      "avg_before": 133.28,
+      "avg_after": 130.91,
+      "pct_impact": -1.78
+    },
+    {
+      "date": "2014-06-20",
+      "name": "US Shale Boom & OPEC Market Share War",
+      "tag": "Structural Oversupply",
+      "description": "Unprecedented US horizontal fracking oversupply combined with OPEC refusal to cut production slashed prices by >70%.",
+      "window_days": 90,
+      "event_price": 114.55,
+      "avg_before": 109.02,
+      "avg_after": 103.8,
+      "pct_impact": -4.78
+    },
+    {
+      "date": "2020-03-11",
+      "name": "COVID-19 Pandemic Declaration & Price War",
+      "tag": "Demand Collapse",
+      "description": "Global transport lockdowns destroyed 30% of worldwide oil demand, compounded by Saudi-Russia production disputes.",
+      "window_days": 30,
+      "event_price": 34.45,
+      "avg_before": 53.03,
+      "avg_after": 24.0,
+      "pct_impact": -54.73
+    },
+    {
+      "date": "2020-04-21",
+      "name": "COVID Market Nadir ($9.10)",
+      "tag": "All-Time Low",
+      "description": "Historic physical storage exhaustion and futures dislocation marked the absolute 35-year low at $9.10/bbl.",
+      "window_days": 15,
+      "event_price": 9.12,
+      "avg_before": 20.83,
+      "avg_after": 18.18,
+      "pct_impact": -12.72
+    },
+    {
+      "date": "2022-02-24",
+      "name": "Russia-Ukraine War Invasion",
+      "tag": "Geopolitical Spike",
+      "description": "Russian military operations sparked severe Western sanctions and European energy supply deficit, surging price to $133.18.",
+      "window_days": 30,
+      "event_price": 101.29,
+      "avg_before": 95.22,
+      "avg_after": 116.58,
+      "pct_impact": 22.43
+    }
+  ],
+  "monthly_series": [
+    {
+      "date": "1987-05",
+      "price": 18.58,
+      "ma_30": 18.57,
+      "ma_365": 18.57,
+      "min": 18.45,
+      "max": 18.63,
+      "volatility": 0.68
+    },
+    {
+      "date": "1987-06",
+      "price": 18.86,
+      "ma_30": 18.69,
+      "ma_365": 18.69,
+      "min": 18.65,
+      "max": 19.15,
+      "volatility": 0.47
+    },
+    {
+      "date": "1987-07",
+      "price": 19.86,
+      "ma_30": 19.21,
+      "ma_365": 19.03,
+      "min": 18.98,
+      "max": 20.63,
+      "volatility": 0.78
+    },
+    {
+      "date": "1987-08",
+      "price": 18.98,
+      "ma_30": 19.72,
+      "ma_365": 19.29,
+      "min": 17.48,
+      "max": 20.95,
+      "volatility": 1.62
+    },
+    {
+      "date": "1987-09",
+      "price": 18.31,
+      "ma_30": 18.62,
+      "ma_365": 19.05,
+      "min": 17.6,
+      "max": 18.68,
+      "volatility": 1.61
+    },
+    {
+      "date": "1987-10",
+      "price": 18.76,
+      "ma_30": 18.48,
+      "ma_365": 18.95,
+      "min": 18.5,
+      "max": 19.13,
+      "volatility": 0.98
+    },
+    {
+      "date": "1987-11",
+      "price": 17.78,
+      "ma_30": 18.44,
+      "ma_365": 18.85,
+      "min": 17.18,
+      "max": 18.63,
+      "volatility": 1.02
+    },
+    {
+      "date": "1987-12",
+      "price": 17.05,
+      "ma_30": 17.59,
+      "ma_365": 18.64,
+      "min": 15.03,
+      "max": 18.0,
+      "volatility": 1.73
+    },
+    {
+      "date": "1988-01",
+      "price": 16.75,
+      "ma_30": 16.98,
+      "ma_365": 18.44,
+      "min": 15.95,
+      "max": 17.95,
+      "volatility": 3.16
+    },
+    {
+      "date": "1988-02",
+      "price": 15.73,
+      "ma_30": 16.47,
+      "ma_365": 18.21,
+      "min": 14.65,
+      "max": 16.5,
+      "volatility": 2.18
+    },
+    {
+      "date": "1988-03",
+      "price": 14.73,
+      "ma_30": 15.17,
+      "ma_365": 17.86,
+      "min": 13.8,
+      "max": 15.7,
+      "volatility": 1.81
+    },
+    {
+      "date": "1988-04",
+      "price": 16.6,
+      "ma_30": 15.36,
+      "ma_365": 17.66,
+      "min": 15.38,
+      "max": 17.45,
+      "volatility": 1.91
+    },
+    {
+      "date": "1988-05",
+      "price": 16.31,
+      "ma_30": 16.46,
+      "ma_365": 17.58,
+      "min": 15.95,
+      "max": 16.6,
+      "volatility": 1.63
+    },
+    {
+      "date": "1988-06",
+      "price": 15.54,
+      "ma_30": 16.18,
+      "ma_365": 17.46,
+      "min": 14.18,
+      "max": 16.45,
+      "volatility": 1.14
+    },
+    {
+      "date": "1988-07",
+      "price": 14.91,
+      "ma_30": 15.14,
+      "ma_365": 17.27,
+      "min": 13.95,
+      "max": 15.83,
+      "volatility": 2.13
+    },
+    {
+      "date": "1988-08",
+      "price": 14.89,
+      "ma_30": 15.02,
+      "ma_365": 17.12,
+      "min": 14.4,
+      "max": 15.6,
+      "volatility": 2.29
+    },
+    {
+      "date": "1988-09",
+      "price": 13.18,
+      "ma_30": 14.3,
+      "ma_365": 16.92,
+      "min": 11.93,
+      "max": 14.15,
+      "volatility": 1.85
+    },
+    {
+      "date": "1988-10",
+      "price": 12.41,
+      "ma_30": 12.83,
+      "ma_365": 16.65,
+      "min": 11.2,
+      "max": 13.55,
+      "volatility": 2.89
+    },
+    {
+      "date": "1988-11",
+      "price": 13.02,
+      "ma_30": 12.61,
+      "ma_365": 16.32,
+      "min": 12.05,
+      "max": 14.73,
+      "volatility": 3.34
+    },
+    {
+      "date": "1988-12",
+      "price": 15.31,
+      "ma_30": 13.81,
+      "ma_365": 16.02,
+      "min": 14.4,
+      "max": 16.25,
+      "volatility": 3.61
+    },
+    {
+      "date": "1989-01",
+      "price": 17.17,
+      "ma_30": 15.93,
+      "ma_365": 15.82,
+      "min": 16.38,
+      "max": 18.15,
+      "volatility": 2.16
+    },
+    {
+      "date": "1989-02",
+      "price": 16.89,
+      "ma_30": 16.99,
+      "ma_365": 15.75,
+      "min": 16.4,
+      "max": 17.55,
+      "volatility": 2.11
+    },
+    {
+      "date": "1989-03",
+      "price": 18.7,
+      "ma_30": 17.4,
+      "ma_365": 15.7,
+      "min": 17.25,
+      "max": 20.45,
+      "volatility": 1.59
+    },
+    {
+      "date": "1989-04",
+      "price": 20.32,
+      "ma_30": 19.19,
+      "ma_365": 15.76,
+      "min": 19.08,
+      "max": 22.25,
+      "volatility": 1.95
+    },
+    {
+      "date": "1989-05",
+      "price": 18.63,
+      "ma_30": 19.83,
+      "ma_365": 15.88,
+      "min": 17.4,
+      "max": 19.8,
+      "volatility": 2.66
+    },
+    {
+      "date": "1989-06",
+      "price": 17.67,
+      "ma_30": 18.29,
+      "ma_365": 15.94,
+      "min": 16.65,
+      "max": 18.55,
+      "volatility": 2.32
+    },
+    {
+      "date": "1989-07",
+      "price": 17.62,
+      "ma_30": 17.76,
+      "ma_365": 16.02,
+      "min": 16.28,
+      "max": 18.75,
+      "volatility": 1.65
+    },
+    {
+      "date": "1989-08",
+      "price": 16.77,
+      "ma_30": 17.16,
+      "ma_365": 16.14,
+      "min": 16.05,
+      "max": 17.2,
+      "volatility": 1.38
+    },
+    {
+      "date": "1989-09",
+      "price": 17.77,
+      "ma_30": 17.17,
+      "ma_365": 16.25,
+      "min": 17.33,
+      "max": 18.23,
+      "volatility": 0.9
+    },
+    {
+      "date": "1989-10",
+      "price": 18.91,
+      "ma_30": 18.16,
+      "ma_365": 16.35,
+      "min": 18.25,
+      "max": 19.6,
+      "volatility": 1.1
+    },
+    {
+      "date": "1989-11",
+      "price": 18.73,
+      "ma_30": 18.87,
+      "ma_365": 16.52,
+      "min": 18.15,
+      "max": 19.23,
+      "volatility": 1.1
+    },
+    {
+      "date": "1989-12",
+      "price": 19.84,
+      "ma_30": 18.96,
+      "ma_365": 16.76,
+      "min": 18.68,
+      "max": 21.05,
+      "volatility": 1.04
+    },
+    {
+      "date": "1990-01",
+      "price": 21.25,
+      "ma_30": 20.45,
+      "ma_365": 17.09,
+      "min": 20.18,
+      "max": 23.13,
+      "volatility": 2.29
+    },
+    {
+      "date": "1990-02",
+      "price": 19.81,
+      "ma_30": 20.73,
+      "ma_365": 17.44,
+      "min": 18.78,
+      "max": 20.73,
+      "volatility": 2.12
+    },
+    {
+      "date": "1990-03",
+      "price": 18.39,
+      "ma_30": 19.35,
+      "ma_365": 17.8,
+      "min": 17.75,
+      "max": 19.33,
+      "volatility": 1.22
+    },
+    {
+      "date": "1990-04",
+      "price": 16.61,
+      "ma_30": 17.84,
+      "ma_365": 18.08,
+      "min": 15.3,
+      "max": 18.2,
+      "volatility": 1.69
+    },
+    {
+      "date": "1990-05",
+      "price": 16.35,
+      "ma_30": 16.59,
+      "ma_365": 18.24,
+      "min": 15.3,
+      "max": 17.4,
+      "volatility": 2.33
+    },
+    {
+      "date": "1990-06",
+      "price": 15.1,
+      "ma_30": 15.88,
+      "ma_365": 18.23,
+      "min": 14.68,
+      "max": 15.73,
+      "volatility": 2.19
+    },
+    {
+      "date": "1990-07",
+      "price": 17.17,
+      "ma_30": 15.63,
+      "ma_365": 18.16,
+      "min": 14.98,
+      "max": 19.23,
+      "volatility": 2.13
+    },
+    {
+      "date": "1990-08",
+      "price": 27.17,
+      "ma_30": 20.94,
+      "ma_365": 18.46,
+      "min": 19.93,
+      "max": 32.35,
+      "volatility": 4.04
+    },
+    {
+      "date": "1990-09",
+      "price": 34.9,
+      "ma_30": 29.25,
+      "ma_365": 19.12,
+      "min": 30.08,
+      "max": 41.45,
+      "volatility": 4.58
+    },
+    {
+      "date": "1990-10",
+      "price": 36.02,
+      "ma_30": 35.87,
+      "ma_365": 20.14,
+      "min": 27.45,
+      "max": 41.15,
+      "volatility": 4.75
+    },
+    {
+      "date": "1990-11",
+      "price": 33.07,
+      "ma_30": 34.72,
+      "ma_365": 21.12,
+      "min": 30.1,
+      "max": 35.65,
+      "volatility": 5.31
+    },
+    {
+      "date": "1990-12",
+      "price": 28.27,
+      "ma_30": 31.44,
+      "ma_365": 21.87,
+      "min": 26.9,
+      "max": 31.5,
+      "volatility": 3.96
+    },
+    {
+      "date": "1991-01",
+      "price": 23.57,
+      "ma_30": 27.14,
+      "ma_365": 22.39,
+      "min": 19.1,
+      "max": 30.28,
+      "volatility": 6.68
+    },
+    {
+      "date": "1991-02",
+      "price": 19.54,
+      "ma_30": 22.25,
+      "ma_365": 22.62,
+      "min": 17.68,
+      "max": 21.23,
+      "volatility": 7.8
+    },
+    {
+      "date": "1991-03",
+      "price": 19.08,
+      "ma_30": 19.46,
+      "ma_365": 22.68,
+      "min": 18.0,
+      "max": 20.33,
+      "volatility": 3.56
+    },
+    {
+      "date": "1991-04",
+      "price": 19.18,
+      "ma_30": 18.89,
+      "ma_365": 22.67,
+      "min": 17.63,
+      "max": 20.23,
+      "volatility": 2.72
+    },
+    {
+      "date": "1991-05",
+      "price": 19.19,
+      "ma_30": 19.33,
+      "ma_365": 22.71,
+      "min": 18.58,
+      "max": 20.08,
+      "volatility": 1.44
+    },
+    {
+      "date": "1991-06",
+      "price": 18.17,
+      "ma_30": 18.81,
+      "ma_365": 22.59,
+      "min": 17.7,
+      "max": 19.0,
+      "volatility": 1.26
+    },
+    {
+      "date": "1991-07",
+      "price": 19.4,
+      "ma_30": 18.6,
+      "ma_365": 22.47,
+      "min": 18.48,
+      "max": 20.28,
+      "volatility": 1.23
+    },
+    {
+      "date": "1991-08",
+      "price": 19.77,
+      "ma_30": 19.53,
+      "ma_365": 22.5,
+      "min": 19.23,
+      "max": 20.98,
+      "volatility": 1.52
+    },
+    {
+      "date": "1991-09",
+      "price": 20.5,
+      "ma_30": 20.01,
+      "ma_365": 22.65,
+      "min": 19.85,
+      "max": 21.48,
+      "volatility": 1.95
+    },
+    {
+      "date": "1991-10",
+      "price": 22.21,
+      "ma_30": 21.16,
+      "ma_365": 22.95,
+      "min": 21.15,
+      "max": 23.0,
+      "volatility": 1.13
+    },
+    {
+      "date": "1991-11",
+      "price": 21.11,
+      "ma_30": 22.0,
+      "ma_365": 23.33,
+      "min": 19.65,
+      "max": 22.73,
+      "volatility": 1.37
+    },
+    {
+      "date": "1991-12",
+      "price": 18.41,
+      "ma_30": 20.16,
+      "ma_365": 23.55,
+      "min": 17.6,
+      "max": 19.6,
+      "volatility": 1.74
+    },
+    {
+      "date": "1992-01",
+      "price": 18.16,
+      "ma_30": 18.33,
+      "ma_365": 23.3,
+      "min": 17.18,
+      "max": 18.75,
+      "volatility": 2.25
+    },
+    {
+      "date": "1992-02",
+      "price": 18.05,
+      "ma_30": 18.19,
+      "ma_365": 22.61,
+      "min": 17.28,
+      "max": 18.95,
+      "volatility": 1.9
+    },
+    {
+      "date": "1992-03",
+      "price": 17.63,
+      "ma_30": 17.79,
+      "ma_365": 21.48,
+      "min": 17.05,
+      "max": 19.09,
+      "volatility": 1.56
+    },
+    {
+      "date": "1992-04",
+      "price": 18.92,
+      "ma_30": 18.11,
+      "ma_365": 20.54,
+      "min": 18.38,
+      "max": 19.65,
+      "volatility": 1.64
+    },
+    {
+      "date": "1992-05",
+      "price": 19.89,
+      "ma_30": 19.19,
+      "ma_365": 19.87,
+      "min": 19.28,
+      "max": 20.8,
+      "volatility": 1.3
+    },
+    {
+      "date": "1992-06",
+      "price": 21.16,
+      "ma_30": 20.33,
+      "ma_365": 19.52,
+      "min": 20.6,
+      "max": 21.55,
+      "volatility": 1.26
+    },
+    {
+      "date": "1992-07",
+      "price": 20.24,
+      "ma_30": 20.74,
+      "ma_365": 19.46,
+      "min": 19.7,
+      "max": 20.78,
+      "volatility": 1.27
+    },
+    {
+      "date": "1992-08",
+      "price": 19.74,
+      "ma_30": 20.11,
+      "ma_365": 19.51,
+      "min": 19.48,
+      "max": 20.33,
+      "volatility": 1.01
+    },
+    {
+      "date": "1992-09",
+      "price": 20.27,
+      "ma_30": 19.96,
+      "ma_365": 19.58,
+      "min": 19.88,
+      "max": 20.68,
+      "volatility": 0.69
+    },
+    {
+      "date": "1992-10",
+      "price": 20.26,
+      "ma_30": 20.32,
+      "ma_365": 19.63,
+      "min": 19.13,
+      "max": 20.83,
+      "volatility": 0.69
+    },
+    {
+      "date": "1992-11",
+      "price": 19.21,
+      "ma_30": 19.86,
+      "ma_365": 19.7,
+      "min": 18.93,
+      "max": 19.53,
+      "volatility": 0.93
+    },
+    {
+      "date": "1992-12",
+      "price": 18.14,
+      "ma_30": 18.86,
+      "ma_365": 19.69,
+      "min": 17.8,
+      "max": 18.65,
+      "volatility": 1.25
+    },
+    {
+      "date": "1993-01",
+      "price": 17.39,
+      "ma_30": 17.89,
+      "ma_365": 19.58,
+      "min": 16.7,
+      "max": 18.48,
+      "volatility": 1.25
+    },
+    {
+      "date": "1993-02",
+      "price": 18.47,
+      "ma_30": 17.78,
+      "ma_365": 19.47,
+      "min": 17.83,
+      "max": 18.88,
+      "volatility": 1.36
+    },
+    {
+      "date": "1993-03",
+      "price": 18.79,
+      "ma_30": 18.59,
+      "ma_365": 19.33,
+      "min": 18.18,
+      "max": 19.6,
+      "volatility": 1.3
+    },
+    {
+      "date": "1993-04",
+      "price": 18.67,
+      "ma_30": 18.71,
+      "ma_365": 19.12,
+      "min": 18.48,
+      "max": 18.98,
+      "volatility": 1.07
+    },
+    {
+      "date": "1993-05",
+      "price": 18.51,
+      "ma_30": 18.65,
+      "ma_365": 19.04,
+      "min": 18.05,
+      "max": 19.13,
+      "volatility": 0.85
+    },
+    {
+      "date": "1993-06",
+      "price": 17.65,
+      "ma_30": 18.24,
+      "ma_365": 19.03,
+      "min": 17.13,
+      "max": 18.48,
+      "volatility": 0.93
+    },
+    {
+      "date": "1993-07",
+      "price": 16.78,
+      "ma_30": 17.26,
+      "ma_365": 18.96,
+      "min": 16.48,
+      "max": 17.13,
+      "volatility": 1.21
+    },
+    {
+      "date": "1993-08",
+      "price": 16.7,
+      "ma_30": 16.75,
+      "ma_365": 18.89,
+      "min": 16.3,
+      "max": 17.05,
+      "volatility": 1.14
+    },
+    {
+      "date": "1993-09",
+      "price": 16.01,
+      "ma_30": 16.43,
+      "ma_365": 18.79,
+      "min": 15.35,
+      "max": 17.23,
+      "volatility": 1.2
+    },
+    {
+      "date": "1993-10",
+      "price": 16.61,
+      "ma_30": 16.35,
+      "ma_365": 18.63,
+      "min": 15.43,
+      "max": 17.15,
+      "volatility": 1.43
+    },
+    {
+      "date": "1993-11",
+      "price": 15.2,
+      "ma_30": 16.1,
+      "ma_365": 18.37,
+      "min": 14.05,
+      "max": 15.83,
+      "volatility": 1.37
+    },
+    {
+      "date": "1993-12",
+      "price": 13.73,
+      "ma_30": 14.69,
+      "ma_365": 17.99,
+      "min": 13.13,
+      "max": 14.78,
+      "volatility": 1.95
+    },
+    {
+      "date": "1994-01",
+      "price": 14.29,
+      "ma_30": 13.9,
+      "ma_365": 17.64,
+      "min": 13.43,
+      "max": 14.83,
+      "volatility": 2.44
+    },
+    {
+      "date": "1994-02",
+      "price": 13.8,
+      "ma_30": 14.19,
+      "ma_365": 17.33,
+      "min": 13.0,
+      "max": 15.48,
+      "volatility": 1.94
+    },
+    {
+      "date": "1994-03",
+      "price": 13.82,
+      "ma_30": 13.73,
+      "ma_365": 16.94,
+      "min": 13.13,
+      "max": 14.8,
+      "volatility": 1.79
+    },
+    {
+      "date": "1994-04",
+      "price": 15.23,
+      "ma_30": 14.23,
+      "ma_365": 16.61,
+      "min": 14.3,
+      "max": 16.38,
+      "volatility": 2.44
+    },
+    {
+      "date": "1994-05",
+      "price": 16.19,
+      "ma_30": 15.48,
+      "ma_365": 16.44,
+      "min": 15.83,
+      "max": 16.63,
+      "volatility": 2.13
+    },
+    {
+      "date": "1994-06",
+      "price": 16.76,
+      "ma_30": 16.29,
+      "ma_365": 16.34,
+      "min": 15.65,
+      "max": 17.63,
+      "volatility": 1.52
+    },
+    {
+      "date": "1994-07",
+      "price": 17.6,
+      "ma_30": 17.09,
+      "ma_365": 16.32,
+      "min": 16.78,
+      "max": 18.48,
+      "volatility": 1.6
+    },
+    {
+      "date": "1994-08",
+      "price": 16.89,
+      "ma_30": 17.56,
+      "ma_365": 16.26,
+      "min": 15.25,
+      "max": 19.03,
+      "volatility": 1.96
+    },
+    {
+      "date": "1994-09",
+      "price": 15.9,
+      "ma_30": 16.34,
+      "ma_365": 16.1,
+      "min": 15.25,
+      "max": 16.73,
+      "volatility": 1.79
+    },
+    {
+      "date": "1994-10",
+      "price": 16.49,
+      "ma_30": 16.1,
+      "ma_365": 15.95,
+      "min": 15.58,
+      "max": 17.18,
+      "volatility": 1.4
+    },
+    {
+      "date": "1994-11",
+      "price": 17.19,
+      "ma_30": 16.81,
+      "ma_365": 15.88,
+      "min": 16.45,
+      "max": 18.0,
+      "volatility": 1.49
+    },
+    {
+      "date": "1994-12",
+      "price": 15.93,
+      "ma_30": 16.72,
+      "ma_365": 15.83,
+      "min": 15.48,
+      "max": 16.98,
+      "volatility": 1.6
+    },
+    {
+      "date": "1995-01",
+      "price": 16.55,
+      "ma_30": 16.15,
+      "ma_365": 15.8,
+      "min": 15.88,
+      "max": 17.23,
+      "volatility": 1.45
+    },
+    {
+      "date": "1995-02",
+      "price": 17.11,
+      "ma_30": 16.75,
+      "ma_365": 15.82,
+      "min": 16.85,
+      "max": 17.43,
+      "volatility": 1.34
+    },
+    {
+      "date": "1995-03",
+      "price": 17.01,
+      "ma_30": 16.96,
+      "ma_365": 15.86,
+      "min": 16.3,
+      "max": 18.05,
+      "volatility": 1.08
+    },
+    {
+      "date": "1995-04",
+      "price": 18.65,
+      "ma_30": 17.51,
+      "ma_365": 15.95,
+      "min": 17.88,
+      "max": 19.35,
+      "volatility": 1.27
+    },
+    {
+      "date": "1995-05",
+      "price": 18.35,
+      "ma_30": 18.54,
+      "ma_365": 16.15,
+      "min": 17.43,
+      "max": 19.38,
+      "volatility": 1.75
+    },
+    {
+      "date": "1995-06",
+      "price": 17.31,
+      "ma_30": 18.06,
+      "ma_365": 16.39,
+      "min": 16.4,
+      "max": 18.23,
+      "volatility": 1.53
+    },
+    {
+      "date": "1995-07",
+      "price": 15.85,
+      "ma_30": 16.75,
+      "ma_365": 16.52,
+      "min": 15.35,
+      "max": 16.35,
+      "volatility": 1.53
+    },
+    {
+      "date": "1995-08",
+      "price": 16.1,
+      "ma_30": 15.95,
+      "ma_365": 16.65,
+      "min": 15.78,
+      "max": 16.5,
+      "volatility": 1.2
+    },
+    {
+      "date": "1995-09",
+      "price": 16.7,
+      "ma_30": 16.32,
+      "ma_365": 16.79,
+      "min": 16.15,
+      "max": 17.23,
+      "volatility": 1.06
+    },
+    {
+      "date": "1995-10",
+      "price": 16.11,
+      "ma_30": 16.44,
+      "ma_365": 16.84,
+      "min": 15.75,
+      "max": 16.58,
+      "volatility": 1.2
+    },
+    {
+      "date": "1995-11",
+      "price": 16.86,
+      "ma_30": 16.38,
+      "ma_365": 16.85,
+      "min": 16.53,
+      "max": 17.3,
+      "volatility": 1.01
+    },
+    {
+      "date": "1995-12",
+      "price": 17.93,
+      "ma_30": 17.13,
+      "ma_365": 16.86,
+      "min": 17.18,
+      "max": 18.78,
+      "volatility": 0.95
+    },
+    {
+      "date": "1996-01",
+      "price": 17.85,
+      "ma_30": 18.06,
+      "ma_365": 16.89,
+      "min": 16.23,
+      "max": 19.68,
+      "volatility": 1.46
+    },
+    {
+      "date": "1996-02",
+      "price": 18.0,
+      "ma_30": 17.64,
+      "ma_365": 16.96,
+      "min": 16.78,
+      "max": 19.28,
+      "volatility": 1.76
+    },
+    {
+      "date": "1996-03",
+      "price": 19.85,
+      "ma_30": 18.54,
+      "ma_365": 17.12,
+      "min": 18.4,
+      "max": 21.68,
+      "volatility": 1.74
+    },
+    {
+      "date": "1996-04",
+      "price": 20.9,
+      "ma_30": 20.39,
+      "ma_365": 17.35,
+      "min": 19.33,
+      "max": 23.9,
+      "volatility": 2.83
+    },
+    {
+      "date": "1996-05",
+      "price": 19.15,
+      "ma_30": 20.24,
+      "ma_365": 17.52,
+      "min": 18.05,
+      "max": 20.08,
+      "volatility": 3.25
+    },
+    {
+      "date": "1996-06",
+      "price": 18.46,
+      "ma_30": 18.89,
+      "ma_365": 17.67,
+      "min": 17.83,
+      "max": 19.38,
+      "volatility": 2.22
+    },
+    {
+      "date": "1996-07",
+      "price": 19.57,
+      "ma_30": 19.0,
+      "ma_365": 17.81,
+      "min": 18.9,
+      "max": 20.3,
+      "volatility": 1.84
+    },
+    {
+      "date": "1996-08",
+      "price": 20.51,
+      "ma_30": 19.76,
+      "ma_365": 17.99,
+      "min": 18.84,
+      "max": 21.58,
+      "volatility": 1.74
+    },
+    {
+      "date": "1996-09",
+      "price": 22.63,
+      "ma_30": 21.24,
+      "ma_365": 18.23,
+      "min": 21.7,
+      "max": 24.15,
+      "volatility": 2.13
+    },
+    {
+      "date": "1996-10",
+      "price": 24.16,
+      "ma_30": 23.17,
+      "ma_365": 18.53,
+      "min": 22.8,
+      "max": 25.4,
+      "volatility": 2.47
+    },
+    {
+      "date": "1996-11",
+      "price": 22.76,
+      "ma_30": 23.58,
+      "ma_365": 18.85,
+      "min": 21.75,
+      "max": 23.86,
+      "volatility": 2.03
+    },
+    {
+      "date": "1996-12",
+      "price": 23.78,
+      "ma_30": 23.24,
+      "ma_365": 19.22,
+      "min": 22.65,
+      "max": 24.56,
+      "volatility": 1.95
+    },
+    {
+      "date": "1997-01",
+      "price": 23.54,
+      "ma_30": 23.76,
+      "ma_365": 19.67,
+      "min": 22.56,
+      "max": 24.83,
+      "volatility": 1.78
+    },
+    {
+      "date": "1997-02",
+      "price": 20.85,
+      "ma_30": 22.74,
+      "ma_365": 20.0,
+      "min": 19.44,
+      "max": 22.91,
+      "volatility": 1.68
+    },
+    {
+      "date": "1997-03",
+      "price": 19.13,
+      "ma_30": 20.39,
+      "ma_365": 20.17,
+      "min": 18.53,
+      "max": 20.0,
+      "volatility": 1.88
+    },
+    {
+      "date": "1997-04",
+      "price": 17.56,
+      "ma_30": 18.53,
+      "ma_365": 20.28,
+      "min": 16.92,
+      "max": 18.27,
+      "volatility": 1.73
+    },
+    {
+      "date": "1997-05",
+      "price": 19.02,
+      "ma_30": 18.05,
+      "ma_365": 20.36,
+      "min": 17.7,
+      "max": 20.15,
+      "volatility": 1.65
+    },
+    {
+      "date": "1997-06",
+      "price": 17.58,
+      "ma_30": 18.55,
+      "ma_365": 20.38,
+      "min": 16.69,
+      "max": 19.17,
+      "volatility": 1.97
+    },
+    {
+      "date": "1997-07",
+      "price": 18.46,
+      "ma_30": 17.92,
+      "ma_365": 20.39,
+      "min": 17.79,
+      "max": 19.02,
+      "volatility": 1.93
+    },
+    {
+      "date": "1997-08",
+      "price": 18.6,
+      "ma_30": 18.57,
+      "ma_365": 20.43,
+      "min": 17.58,
+      "max": 19.64,
+      "volatility": 1.67
+    },
+    {
+      "date": "1997-09",
+      "price": 18.46,
+      "ma_30": 18.42,
+      "ma_365": 20.34,
+      "min": 17.92,
+      "max": 19.96,
+      "volatility": 1.47
+    },
+    {
+      "date": "1997-10",
+      "price": 19.87,
+      "ma_30": 19.16,
+      "ma_365": 20.27,
+      "min": 18.86,
+      "max": 21.29,
+      "volatility": 1.77
+    },
+    {
+      "date": "1997-11",
+      "price": 19.17,
+      "ma_30": 19.56,
+      "ma_365": 20.29,
+      "min": 18.5,
+      "max": 20.24,
+      "volatility": 1.92
+    },
+    {
+      "date": "1997-12",
+      "price": 17.18,
+      "ma_30": 18.56,
+      "ma_365": 20.26,
+      "min": 15.86,
+      "max": 18.04,
+      "volatility": 1.86
+    },
+    {
+      "date": "1998-01",
+      "price": 15.19,
+      "ma_30": 16.48,
+      "ma_365": 20.05,
+      "min": 14.26,
+      "max": 16.28,
+      "volatility": 1.74
+    },
+    {
+      "date": "1998-02",
+      "price": 14.07,
+      "ma_30": 14.97,
+      "ma_365": 19.73,
+      "min": 13.08,
+      "max": 15.28,
+      "volatility": 2.5
+    },
+    {
+      "date": "1998-03",
+      "price": 13.1,
+      "ma_30": 13.6,
+      "ma_365": 19.19,
+      "min": 11.05,
+      "max": 15.18,
+      "volatility": 3.16
+    },
+    {
+      "date": "1998-04",
+      "price": 13.53,
+      "ma_30": 13.27,
+      "ma_365": 18.59,
+      "min": 12.79,
+      "max": 14.09,
+      "volatility": 4.64
+    },
+    {
+      "date": "1998-05",
+      "price": 14.36,
+      "ma_30": 13.86,
+      "ma_365": 18.11,
+      "min": 13.81,
+      "max": 14.87,
+      "volatility": 2.72
+    },
+    {
+      "date": "1998-06",
+      "price": 12.21,
+      "ma_30": 13.64,
+      "ma_365": 17.53,
+      "min": 10.77,
+      "max": 13.95,
+      "volatility": 2.95
+    },
+    {
+      "date": "1998-07",
+      "price": 12.08,
+      "ma_30": 12.05,
+      "ma_365": 16.81,
+      "min": 11.56,
+      "max": 12.74,
+      "volatility": 3.16
+    },
+    {
+      "date": "1998-08",
+      "price": 11.91,
+      "ma_30": 12.05,
+      "ma_365": 16.28,
+      "min": 11.16,
+      "max": 12.43,
+      "volatility": 2.38
+    },
+    {
+      "date": "1998-09",
+      "price": 13.34,
+      "ma_30": 12.32,
+      "ma_365": 15.91,
+      "min": 12.05,
+      "max": 14.84,
+      "volatility": 2.28
+    },
+    {
+      "date": "1998-10",
+      "price": 12.7,
+      "ma_30": 13.33,
+      "ma_365": 15.65,
+      "min": 11.29,
+      "max": 14.46,
+      "volatility": 2.6
+    },
+    {
+      "date": "1998-11",
+      "price": 11.04,
+      "ma_30": 12.16,
+      "ma_365": 15.24,
+      "min": 9.91,
+      "max": 12.43,
+      "volatility": 2.8
+    },
+    {
+      "date": "1998-12",
+      "price": 9.82,
+      "ma_30": 10.55,
+      "ma_365": 14.8,
+      "min": 9.1,
+      "max": 10.87,
+      "volatility": 3.29
+    },
+    {
+      "date": "1999-01",
+      "price": 11.11,
+      "ma_30": 10.32,
+      "ma_365": 14.35,
+      "min": 10.3,
+      "max": 12.07,
+      "volatility": 4.27
+    },
+    {
+      "date": "1999-02",
+      "price": 10.27,
+      "ma_30": 10.75,
+      "ma_365": 13.93,
+      "min": 9.77,
+      "max": 10.84,
+      "volatility": 3.08
+    },
+    {
+      "date": "1999-03",
+      "price": 12.51,
+      "ma_30": 10.94,
+      "ma_365": 13.49,
+      "min": 10.41,
+      "max": 15.02,
+      "volatility": 2.47
+    },
+    {
+      "date": "1999-04",
+      "price": 15.29,
+      "ma_30": 13.47,
+      "ma_365": 13.16,
+      "min": 13.72,
+      "max": 16.53,
+      "volatility": 2.54
+    },
+    {
+      "date": "1999-05",
+      "price": 15.23,
+      "ma_30": 15.36,
+      "ma_365": 12.98,
+      "min": 14.42,
+      "max": 16.98,
+      "volatility": 2.45
+    },
+    {
+      "date": "1999-06",
+      "price": 15.86,
+      "ma_30": 15.37,
+      "ma_365": 12.88,
+      "min": 14.22,
+      "max": 16.97,
+      "volatility": 2.45
+    },
+    {
+      "date": "1999-07",
+      "price": 19.08,
+      "ma_30": 16.96,
+      "ma_365": 13.02,
+      "min": 17.25,
+      "max": 19.97,
+      "volatility": 2.1
+    },
+    {
+      "date": "1999-08",
+      "price": 20.22,
+      "ma_30": 19.35,
+      "ma_365": 13.35,
+      "min": 19.21,
+      "max": 21.11,
+      "volatility": 2.08
+    },
+    {
+      "date": "1999-09",
+      "price": 22.54,
+      "ma_30": 20.99,
+      "ma_365": 13.84,
+      "min": 20.66,
+      "max": 23.66,
+      "volatility": 1.85
+    },
+    {
+      "date": "1999-10",
+      "price": 22.0,
+      "ma_30": 22.44,
+      "ma_365": 14.36,
+      "min": 20.78,
+      "max": 23.3,
+      "volatility": 2.3
+    },
+    {
+      "date": "1999-11",
+      "price": 24.58,
+      "ma_30": 22.76,
+      "ma_365": 14.89,
+      "min": 21.32,
+      "max": 25.94,
+      "volatility": 2.6
+    },
+    {
+      "date": "1999-12",
+      "price": 25.47,
+      "ma_30": 24.94,
+      "ma_365": 15.64,
+      "min": 24.2,
+      "max": 26.46,
+      "volatility": 2.36
+    },
+    {
+      "date": "2000-01",
+      "price": 25.51,
+      "ma_30": 25.24,
+      "ma_365": 16.34,
+      "min": 22.77,
+      "max": 27.24,
+      "volatility": 2.33
+    },
+    {
+      "date": "2000-02",
+      "price": 27.78,
+      "ma_30": 26.44,
+      "ma_365": 17.18,
+      "min": 26.93,
+      "max": 29.01,
+      "volatility": 1.7
+    },
+    {
+      "date": "2000-03",
+      "price": 27.49,
+      "ma_30": 28.16,
+      "ma_365": 18.09,
+      "min": 23.77,
+      "max": 31.93,
+      "volatility": 2.25
+    },
+    {
+      "date": "2000-04",
+      "price": 22.76,
+      "ma_30": 25.7,
+      "ma_365": 18.75,
+      "min": 21.05,
+      "max": 24.62,
+      "volatility": 3.1
+    },
+    {
+      "date": "2000-05",
+      "price": 27.74,
+      "ma_30": 24.45,
+      "ma_365": 19.5,
+      "min": 24.73,
+      "max": 30.09,
+      "volatility": 2.61
+    },
+    {
+      "date": "2000-06",
+      "price": 29.8,
+      "ma_30": 28.36,
+      "ma_365": 20.62,
+      "min": 27.69,
+      "max": 31.58,
+      "volatility": 2.13
+    },
+    {
+      "date": "2000-07",
+      "price": 28.68,
+      "ma_30": 29.88,
+      "ma_365": 21.75,
+      "min": 25.3,
+      "max": 32.15,
+      "volatility": 2.64
+    },
+    {
+      "date": "2000-08",
+      "price": 30.2,
+      "ma_30": 28.57,
+      "ma_365": 22.81,
+      "min": 25.24,
+      "max": 35.08,
+      "volatility": 2.77
+    },
+    {
+      "date": "2000-09",
+      "price": 33.14,
+      "ma_30": 32.02,
+      "ma_365": 24.03,
+      "min": 28.42,
+      "max": 37.43,
+      "volatility": 3.27
+    },
+    {
+      "date": "2000-10",
+      "price": 30.96,
+      "ma_30": 31.97,
+      "ma_365": 24.97,
+      "min": 29.19,
+      "max": 33.5,
+      "volatility": 3.59
+    },
+    {
+      "date": "2000-11",
+      "price": 32.55,
+      "ma_30": 31.43,
+      "ma_365": 25.96,
+      "min": 30.81,
+      "max": 34.23,
+      "volatility": 2.67
+    },
+    {
+      "date": "2000-12",
+      "price": 25.66,
+      "ma_30": 30.79,
+      "ma_365": 26.71,
+      "min": 22.23,
+      "max": 31.59,
+      "volatility": 2.58
+    },
+    {
+      "date": "2001-01",
+      "price": 25.62,
+      "ma_30": 25.75,
+      "ma_365": 27.01,
+      "min": 23.43,
+      "max": 27.69,
+      "volatility": 3.12
+    },
+    {
+      "date": "2001-02",
+      "price": 27.5,
+      "ma_30": 26.55,
+      "ma_365": 27.38,
+      "min": 25.16,
+      "max": 30.68,
+      "volatility": 2.9
+    },
+    {
+      "date": "2001-03",
+      "price": 24.5,
+      "ma_30": 26.29,
+      "ma_365": 27.56,
+      "min": 23.19,
+      "max": 26.37,
+      "volatility": 2.35
+    },
+    {
+      "date": "2001-04",
+      "price": 25.66,
+      "ma_30": 24.68,
+      "ma_365": 27.7,
+      "min": 23.31,
+      "max": 27.21,
+      "volatility": 2.21
+    },
+    {
+      "date": "2001-05",
+      "price": 28.31,
+      "ma_30": 26.56,
+      "ma_365": 27.83,
+      "min": 26.82,
+      "max": 29.8,
+      "volatility": 1.97
+    },
+    {
+      "date": "2001-06",
+      "price": 27.85,
+      "ma_30": 28.38,
+      "ma_365": 28.03,
+      "min": 25.68,
+      "max": 29.57,
+      "volatility": 1.55
+    },
+    {
+      "date": "2001-07",
+      "price": 24.61,
+      "ma_30": 26.63,
+      "ma_365": 28.0,
+      "min": 23.1,
+      "max": 26.55,
+      "volatility": 2.11
+    },
+    {
+      "date": "2001-08",
+      "price": 25.68,
+      "ma_30": 24.93,
+      "ma_365": 27.79,
+      "min": 24.23,
+      "max": 26.8,
+      "volatility": 2.13
+    },
+    {
+      "date": "2001-09",
+      "price": 25.62,
+      "ma_30": 26.06,
+      "ma_365": 27.86,
+      "min": 20.13,
+      "max": 29.22,
+      "volatility": 2.55
+    },
+    {
+      "date": "2001-10",
+      "price": 20.54,
+      "ma_30": 23.5,
+      "ma_365": 27.7,
+      "min": 19.21,
+      "max": 21.46,
+      "volatility": 4.27
+    },
+    {
+      "date": "2001-11",
+      "price": 18.8,
+      "ma_30": 19.86,
+      "ma_365": 27.12,
+      "min": 16.51,
+      "max": 20.72,
+      "volatility": 3.79
+    },
+    {
+      "date": "2001-12",
+      "price": 18.71,
+      "ma_30": 18.78,
+      "ma_365": 26.48,
+      "min": 17.61,
+      "max": 20.0,
+      "volatility": 4.8
+    },
+    {
+      "date": "2002-01",
+      "price": 19.42,
+      "ma_30": 19.12,
+      "ma_365": 25.99,
+      "min": 18.17,
+      "max": 21.2,
+      "volatility": 2.77
+    },
+    {
+      "date": "2002-02",
+      "price": 20.28,
+      "ma_30": 19.57,
+      "ma_365": 25.23,
+      "min": 19.42,
+      "max": 21.75,
+      "volatility": 2.69
+    },
+    {
+      "date": "2002-03",
+      "price": 23.7,
+      "ma_30": 21.23,
+      "ma_365": 24.69,
+      "min": 21.59,
+      "max": 25.34,
+      "volatility": 2.84
+    },
+    {
+      "date": "2002-04",
+      "price": 25.73,
+      "ma_30": 24.42,
+      "ma_365": 24.31,
+      "min": 23.25,
+      "max": 26.98,
+      "volatility": 2.56
+    },
+    {
+      "date": "2002-05",
+      "price": 25.35,
+      "ma_30": 25.73,
+      "ma_365": 24.01,
+      "min": 23.52,
+      "max": 27.17,
+      "volatility": 2.48
+    },
+    {
+      "date": "2002-06",
+      "price": 24.08,
+      "ma_30": 24.78,
+      "ma_365": 23.98,
+      "min": 22.37,
+      "max": 25.39,
+      "volatility": 2.38
+    },
+    {
+      "date": "2002-07",
+      "price": 25.74,
+      "ma_30": 24.82,
+      "ma_365": 23.88,
+      "min": 24.9,
+      "max": 26.72,
+      "volatility": 1.87
+    },
+    {
+      "date": "2002-08",
+      "price": 26.65,
+      "ma_30": 25.9,
+      "ma_365": 23.88,
+      "min": 25.17,
+      "max": 27.89,
+      "volatility": 1.49
+    },
+    {
+      "date": "2002-09",
+      "price": 28.4,
+      "ma_30": 27.28,
+      "ma_365": 24.06,
+      "min": 26.58,
+      "max": 29.47,
+      "volatility": 1.57
+    },
+    {
+      "date": "2002-10",
+      "price": 27.54,
+      "ma_30": 28.34,
+      "ma_365": 24.15,
+      "min": 25.29,
+      "max": 29.42,
+      "volatility": 1.59
+    },
+    {
+      "date": "2002-11",
+      "price": 24.34,
+      "ma_30": 26.2,
+      "ma_365": 23.97,
+      "min": 22.82,
+      "max": 25.78,
+      "volatility": 1.84
+    },
+    {
+      "date": "2002-12",
+      "price": 28.33,
+      "ma_30": 25.42,
+      "ma_365": 23.95,
+      "min": 25.67,
+      "max": 32.02,
+      "volatility": 1.83
+    },
+    {
+      "date": "2003-01",
+      "price": 31.18,
+      "ma_30": 29.39,
+      "ma_365": 24.27,
+      "min": 29.3,
+      "max": 32.29,
+      "volatility": 2.26
+    },
+    {
+      "date": "2003-02",
+      "price": 32.77,
+      "ma_30": 31.64,
+      "ma_365": 24.59,
+      "min": 30.95,
+      "max": 34.09,
+      "volatility": 1.8
+    },
+    {
+      "date": "2003-03",
+      "price": 30.61,
+      "ma_30": 32.57,
+      "ma_365": 25.11,
+      "min": 25.59,
+      "max": 34.94,
+      "volatility": 2.03
+    },
+    {
+      "date": "2003-04",
+      "price": 25.07,
+      "ma_30": 28.39,
+      "ma_365": 25.52,
+      "min": 23.23,
+      "max": 27.94,
+      "volatility": 3.23
+    },
+    {
+      "date": "2003-05",
+      "price": 25.86,
+      "ma_30": 25.12,
+      "ma_365": 25.9,
+      "min": 23.59,
+      "max": 27.58,
+      "volatility": 2.13
+    },
+    {
+      "date": "2003-06",
+      "price": 27.65,
+      "ma_30": 26.67,
+      "ma_365": 26.37,
+      "min": 26.21,
+      "max": 28.97,
+      "volatility": 1.85
+    },
+    {
+      "date": "2003-07",
+      "price": 28.35,
+      "ma_30": 27.83,
+      "ma_365": 26.88,
+      "min": 27.23,
+      "max": 29.37,
+      "volatility": 2.16
+    },
+    {
+      "date": "2003-08",
+      "price": 29.89,
+      "ma_30": 28.89,
+      "ma_365": 27.33,
+      "min": 28.96,
+      "max": 30.59,
+      "volatility": 2.0
+    },
+    {
+      "date": "2003-09",
+      "price": 27.11,
+      "ma_30": 28.84,
+      "ma_365": 27.54,
+      "min": 25.51,
+      "max": 29.64,
+      "volatility": 1.86
+    },
+    {
+      "date": "2003-10",
+      "price": 29.61,
+      "ma_30": 28.18,
+      "ma_365": 27.7,
+      "min": 27.47,
+      "max": 31.45,
+      "volatility": 1.98
+    },
+    {
+      "date": "2003-11",
+      "price": 28.75,
+      "ma_30": 29.19,
+      "ma_365": 27.98,
+      "min": 27.32,
+      "max": 30.13,
+      "volatility": 1.93
+    },
+    {
+      "date": "2003-12",
+      "price": 29.81,
+      "ma_30": 29.14,
+      "ma_365": 28.21,
+      "min": 28.17,
+      "max": 31.03,
+      "volatility": 2.35
+    },
+    {
+      "date": "2004-01",
+      "price": 31.28,
+      "ma_30": 30.38,
+      "ma_365": 28.48,
+      "min": 29.47,
+      "max": 32.55,
+      "volatility": 3.0
+    },
+    {
+      "date": "2004-02",
+      "price": 30.86,
+      "ma_30": 30.84,
+      "ma_365": 28.66,
+      "min": 29.02,
+      "max": 32.94,
+      "volatility": 2.31
+    },
+    {
+      "date": "2004-03",
+      "price": 33.63,
+      "ma_30": 32.13,
+      "ma_365": 28.91,
+      "min": 32.04,
+      "max": 34.95,
+      "volatility": 1.82
+    },
+    {
+      "date": "2004-04",
+      "price": 33.59,
+      "ma_30": 33.39,
+      "ma_365": 29.37,
+      "min": 31.17,
+      "max": 35.23,
+      "volatility": 2.22
+    },
+    {
+      "date": "2004-05",
+      "price": 37.57,
+      "ma_30": 35.03,
+      "ma_365": 29.96,
+      "min": 34.97,
+      "max": 39.22,
+      "volatility": 2.02
+    },
+    {
+      "date": "2004-06",
+      "price": 35.18,
+      "ma_30": 36.84,
+      "ma_365": 30.34,
+      "min": 32.61,
+      "max": 39.05,
+      "volatility": 2.32
+    },
+    {
+      "date": "2004-07",
+      "price": 38.22,
+      "ma_30": 35.9,
+      "ma_365": 30.58,
+      "min": 35.36,
+      "max": 41.47,
+      "volatility": 2.33
+    },
+    {
+      "date": "2004-08",
+      "price": 42.74,
+      "ma_30": 40.07,
+      "ma_365": 31.11,
+      "min": 39.8,
+      "max": 45.46,
+      "volatility": 1.66
+    },
+    {
+      "date": "2004-09",
+      "price": 43.2,
+      "ma_30": 42.36,
+      "ma_365": 32.07,
+      "min": 39.91,
+      "max": 47.76,
+      "volatility": 2.13
+    },
+    {
+      "date": "2004-10",
+      "price": 49.78,
+      "ma_30": 45.65,
+      "ma_365": 33.36,
+      "min": 46.86,
+      "max": 52.28,
+      "volatility": 2.16
+    },
+    {
+      "date": "2004-11",
+      "price": 43.11,
+      "ma_30": 47.4,
+      "ma_365": 34.5,
+      "min": 39.32,
+      "max": 46.84,
+      "volatility": 2.08
+    },
+    {
+      "date": "2004-12",
+      "price": 39.6,
+      "ma_30": 41.63,
+      "ma_365": 35.28,
+      "min": 36.77,
+      "max": 43.06,
+      "volatility": 3.12
+    },
+    {
+      "date": "2005-01",
+      "price": 44.51,
+      "ma_30": 41.4,
+      "ma_365": 36.03,
+      "min": 40.75,
+      "max": 46.51,
+      "volatility": 3.27
+    },
+    {
+      "date": "2005-02",
+      "price": 45.48,
+      "ma_30": 44.26,
+      "ma_365": 36.93,
+      "min": 42.49,
+      "max": 50.13,
+      "volatility": 2.09
+    },
+    {
+      "date": "2005-03",
+      "price": 53.1,
+      "ma_30": 48.56,
+      "ma_365": 38.18,
+      "min": 50.47,
+      "max": 56.03,
+      "volatility": 1.7
+    },
+    {
+      "date": "2005-04",
+      "price": 51.88,
+      "ma_30": 52.74,
+      "ma_365": 39.57,
+      "min": 48.58,
+      "max": 55.92,
+      "volatility": 2.38
+    },
+    {
+      "date": "2005-05",
+      "price": 48.65,
+      "ma_30": 50.61,
+      "ma_365": 40.79,
+      "min": 46.42,
+      "max": 50.89,
+      "volatility": 2.07
+    },
+    {
+      "date": "2005-06",
+      "price": 54.35,
+      "ma_30": 50.37,
+      "ma_365": 42.01,
+      "min": 50.46,
+      "max": 58.5,
+      "volatility": 1.68
+    },
+    {
+      "date": "2005-07",
+      "price": 57.52,
+      "ma_30": 55.6,
+      "ma_365": 43.53,
+      "min": 55.59,
+      "max": 59.77,
+      "volatility": 2.07
+    },
+    {
+      "date": "2005-08",
+      "price": 63.98,
+      "ma_30": 59.67,
+      "ma_365": 45.19,
+      "min": 60.04,
+      "max": 67.26,
+      "volatility": 1.98
+    },
+    {
+      "date": "2005-09",
+      "price": 62.91,
+      "ma_30": 63.87,
+      "ma_365": 47.08,
+      "min": 60.48,
+      "max": 66.79,
+      "volatility": 2.05
+    },
+    {
+      "date": "2005-10",
+      "price": 58.54,
+      "ma_30": 61.38,
+      "ma_365": 48.52,
+      "min": 56.94,
+      "max": 61.64,
+      "volatility": 2.12
+    },
+    {
+      "date": "2005-11",
+      "price": 55.24,
+      "ma_30": 57.86,
+      "ma_365": 49.75,
+      "min": 52.84,
+      "max": 60.48,
+      "volatility": 1.91
+    },
+    {
+      "date": "2005-12",
+      "price": 56.86,
+      "ma_30": 55.52,
+      "ma_365": 50.86,
+      "min": 53.65,
+      "max": 59.67,
+      "volatility": 1.66
+    },
+    {
+      "date": "2006-01",
+      "price": 62.99,
+      "ma_30": 58.83,
+      "ma_365": 51.92,
+      "min": 61.25,
+      "max": 65.14,
+      "volatility": 1.77
+    },
+    {
+      "date": "2006-02",
+      "price": 60.21,
+      "ma_30": 62.07,
+      "ma_365": 53.05,
+      "min": 56.78,
+      "max": 65.64,
+      "volatility": 1.91
+    },
+    {
+      "date": "2006-03",
+      "price": 62.06,
+      "ma_30": 60.68,
+      "ma_365": 53.84,
+      "min": 58.42,
+      "max": 66.06,
+      "volatility": 1.93
+    },
+    {
+      "date": "2006-04",
+      "price": 70.26,
+      "ma_30": 64.28,
+      "ma_365": 54.89,
+      "min": 65.93,
+      "max": 73.96,
+      "volatility": 1.75
+    },
+    {
+      "date": "2006-05",
+      "price": 69.78,
+      "ma_30": 70.05,
+      "ma_365": 56.58,
+      "min": 66.52,
+      "max": 74.45,
+      "volatility": 1.81
+    },
+    {
+      "date": "2006-06",
+      "price": 68.56,
+      "ma_30": 68.81,
+      "ma_365": 58.24,
+      "min": 65.01,
+      "max": 73.2,
+      "volatility": 2.08
+    },
+    {
+      "date": "2006-07",
+      "price": 73.67,
+      "ma_30": 70.53,
+      "ma_365": 59.82,
+      "min": 71.62,
+      "max": 76.13,
+      "volatility": 1.8
+    },
+    {
+      "date": "2006-08",
+      "price": 73.23,
+      "ma_30": 74.1,
+      "ma_365": 61.29,
+      "min": 67.01,
+      "max": 78.26,
+      "volatility": 1.76
+    },
+    {
+      "date": "2006-09",
+      "price": 61.96,
+      "ma_30": 69.22,
+      "ma_365": 62.17,
+      "min": 57.6,
+      "max": 70.49,
+      "volatility": 2.07
+    },
+    {
+      "date": "2006-10",
+      "price": 57.81,
+      "ma_30": 60.29,
+      "ma_365": 62.7,
+      "min": 55.82,
+      "max": 60.13,
+      "volatility": 2.48
+    },
+    {
+      "date": "2006-11",
+      "price": 58.76,
+      "ma_30": 57.87,
+      "ma_365": 63.11,
+      "min": 56.26,
+      "max": 64.36,
+      "volatility": 2.19
+    },
+    {
+      "date": "2006-12",
+      "price": 62.47,
+      "ma_30": 60.34,
+      "ma_365": 63.37,
+      "min": 58.96,
+      "max": 64.74,
+      "volatility": 1.92
+    },
+    {
+      "date": "2007-01",
+      "price": 53.68,
+      "ma_30": 58.98,
+      "ma_365": 63.21,
+      "min": 49.95,
+      "max": 58.49,
+      "volatility": 1.69
+    },
+    {
+      "date": "2007-02",
+      "price": 57.56,
+      "ma_30": 55.21,
+      "ma_365": 62.72,
+      "min": 54.25,
+      "max": 60.38,
+      "volatility": 2.03
+    },
+    {
+      "date": "2007-03",
+      "price": 62.05,
+      "ma_30": 58.72,
+      "ma_365": 62.62,
+      "min": 59.68,
+      "max": 68.47,
+      "volatility": 1.96
+    },
+    {
+      "date": "2007-04",
+      "price": 67.49,
+      "ma_30": 63.98,
+      "ma_365": 63.02,
+      "min": 65.09,
+      "max": 69.15,
+      "volatility": 1.56
+    },
+    {
+      "date": "2007-05",
+      "price": 67.21,
+      "ma_30": 66.69,
+      "ma_365": 63.67,
+      "min": 62.7,
+      "max": 71.96,
+      "volatility": 1.54
+    },
+    {
+      "date": "2007-06",
+      "price": 71.05,
+      "ma_30": 68.8,
+      "ma_365": 64.35,
+      "min": 68.56,
+      "max": 72.36,
+      "volatility": 1.62
+    },
+    {
+      "date": "2007-07",
+      "price": 76.93,
+      "ma_30": 73.1,
+      "ma_365": 65.02,
+      "min": 72.9,
+      "max": 79.09,
+      "volatility": 1.33
+    },
+    {
+      "date": "2007-08",
+      "price": 70.76,
+      "ma_30": 74.6,
+      "ma_365": 65.85,
+      "min": 67.73,
+      "max": 77.11,
+      "volatility": 1.61
+    },
+    {
+      "date": "2007-09",
+      "price": 77.17,
+      "ma_30": 72.56,
+      "ma_365": 66.4,
+      "min": 74.22,
+      "max": 80.97,
+      "volatility": 1.71
+    },
+    {
+      "date": "2007-10",
+      "price": 82.34,
+      "ma_30": 78.01,
+      "ma_365": 66.88,
+      "min": 76.87,
+      "max": 89.87,
+      "volatility": 1.71
+    },
+    {
+      "date": "2007-11",
+      "price": 92.41,
+      "ma_30": 86.51,
+      "ma_365": 68.07,
+      "min": 88.71,
+      "max": 95.33,
+      "volatility": 1.88
+    },
+    {
+      "date": "2007-12",
+      "price": 90.93,
+      "ma_30": 91.28,
+      "ma_365": 69.24,
+      "min": 87.33,
+      "max": 95.92,
+      "volatility": 1.84
+    },
+    {
+      "date": "2008-01",
+      "price": 92.18,
+      "ma_30": 92.13,
+      "ma_365": 70.25,
+      "min": 87.06,
+      "max": 98.45,
+      "volatility": 2.05
+    },
+    {
+      "date": "2008-02",
+      "price": 94.99,
+      "ma_30": 92.2,
+      "ma_365": 71.37,
+      "min": 88.55,
+      "max": 100.9,
+      "volatility": 1.82
+    },
+    {
+      "date": "2008-03",
+      "price": 103.64,
+      "ma_30": 98.13,
+      "ma_365": 73.48,
+      "min": 98.6,
+      "max": 109.18,
+      "volatility": 1.62
+    },
+    {
+      "date": "2008-04",
+      "price": 109.07,
+      "ma_30": 104.39,
+      "ma_365": 76.19,
+      "min": 98.69,
+      "max": 116.62,
+      "volatility": 1.95
+    },
+    {
+      "date": "2008-05",
+      "price": 122.8,
+      "ma_30": 113.53,
+      "ma_365": 79.56,
+      "min": 107.3,
+      "max": 129.72,
+      "volatility": 1.89
+    },
+    {
+      "date": "2008-06",
+      "price": 132.32,
+      "ma_30": 125.86,
+      "ma_365": 83.43,
+      "min": 121.72,
+      "max": 139.38,
+      "volatility": 2.18
+    },
+    {
+      "date": "2008-07",
+      "price": 132.72,
+      "ma_30": 134.0,
+      "ma_365": 88.16,
+      "min": 122.46,
+      "max": 143.95,
+      "volatility": 2.43
+    },
+    {
+      "date": "2008-08",
+      "price": 113.24,
+      "ma_30": 125.23,
+      "ma_365": 91.91,
+      "min": 108.72,
+      "max": 124.16,
+      "volatility": 2.32
+    },
+    {
+      "date": "2008-09",
+      "price": 97.23,
+      "ma_30": 107.99,
+      "ma_365": 94.32,
+      "min": 85.85,
+      "max": 104.94,
+      "volatility": 2.93
+    },
+    {
+      "date": "2008-10",
+      "price": 71.58,
+      "ma_30": 89.69,
+      "ma_365": 95.47,
+      "min": 58.87,
+      "max": 92.19,
+      "volatility": 3.6
+    },
+    {
+      "date": "2008-11",
+      "price": 52.45,
+      "ma_30": 65.32,
+      "ma_365": 95.02,
+      "min": 44.91,
+      "max": 62.78,
+      "volatility": 4.1
+    },
+    {
+      "date": "2008-12",
+      "price": 39.95,
+      "ma_30": 48.54,
+      "ma_365": 93.5,
+      "min": 33.73,
+      "max": 47.58,
+      "volatility": 4.95
+    },
+    {
+      "date": "2009-01",
+      "price": 43.44,
+      "ma_30": 41.22,
+      "ma_365": 91.48,
+      "min": 39.9,
+      "max": 48.89,
+      "volatility": 6.38
+    },
+    {
+      "date": "2009-02",
+      "price": 43.32,
+      "ma_30": 42.79,
+      "ma_365": 90.0,
+      "min": 39.41,
+      "max": 47.23,
+      "volatility": 5.51
+    },
+    {
+      "date": "2009-03",
+      "price": 46.54,
+      "ma_30": 43.95,
+      "ma_365": 88.17,
+      "min": 42.19,
+      "max": 51.89,
+      "volatility": 4.59
+    },
+    {
+      "date": "2009-04",
+      "price": 50.18,
+      "ma_30": 48.16,
+      "ma_365": 86.17,
+      "min": 45.92,
+      "max": 52.33,
+      "volatility": 3.74
+    },
+    {
+      "date": "2009-05",
+      "price": 57.3,
+      "ma_30": 52.08,
+      "ma_365": 84.01,
+      "min": 51.75,
+      "max": 64.98,
+      "volatility": 2.68
+    },
+    {
+      "date": "2009-06",
+      "price": 68.61,
+      "ma_30": 61.35,
+      "ma_365": 82.42,
+      "min": 66.13,
+      "max": 71.71,
+      "volatility": 1.99
+    },
+    {
+      "date": "2009-07",
+      "price": 64.44,
+      "ma_30": 66.29,
+      "ma_365": 80.86,
+      "min": 58.25,
+      "max": 70.08,
+      "volatility": 2.51
+    },
+    {
+      "date": "2009-08",
+      "price": 72.51,
+      "ma_30": 68.02,
+      "ma_365": 79.22,
+      "min": 68.65,
+      "max": 74.61,
+      "volatility": 2.52
+    },
+    {
+      "date": "2009-09",
+      "price": 67.65,
+      "ma_30": 70.54,
+      "ma_365": 77.29,
+      "min": 64.6,
+      "max": 71.56,
+      "volatility": 2.69
+    },
+    {
+      "date": "2009-10",
+      "price": 72.77,
+      "ma_30": 68.97,
+      "ma_365": 74.75,
+      "min": 65.26,
+      "max": 78.36,
+      "volatility": 2.34
+    },
+    {
+      "date": "2009-11",
+      "price": 76.66,
+      "ma_30": 74.38,
+      "ma_365": 71.91,
+      "min": 74.81,
+      "max": 78.64,
+      "volatility": 1.89
+    },
+    {
+      "date": "2009-12",
+      "price": 74.46,
+      "ma_30": 75.85,
+      "ma_365": 68.53,
+      "min": 70.07,
+      "max": 78.68,
+      "volatility": 2.05
+    },
+    {
+      "date": "2010-01",
+      "price": 76.17,
+      "ma_30": 75.54,
+      "ma_365": 65.59,
+      "min": 70.65,
+      "max": 80.57,
+      "volatility": 1.69
+    },
+    {
+      "date": "2010-02",
+      "price": 73.75,
+      "ma_30": 74.79,
+      "ma_365": 63.61,
+      "min": 69.62,
+      "max": 77.0,
+      "volatility": 1.88
+    },
+    {
+      "date": "2010-03",
+      "price": 78.83,
+      "ma_30": 75.77,
+      "ma_365": 62.52,
+      "min": 76.07,
+      "max": 80.37,
+      "volatility": 1.98
+    },
+    {
+      "date": "2010-04",
+      "price": 84.82,
+      "ma_30": 80.86,
+      "ma_365": 63.1,
+      "min": 82.63,
+      "max": 86.9,
+      "volatility": 1.71
+    },
+    {
+      "date": "2010-05",
+      "price": 75.95,
+      "ma_30": 82.38,
+      "ma_365": 64.79,
+      "min": 67.18,
+      "max": 88.09,
+      "volatility": 2.2
+    },
+    {
+      "date": "2010-06",
+      "price": 74.76,
+      "ma_30": 75.25,
+      "ma_365": 66.65,
+      "min": 71.09,
+      "max": 78.53,
+      "volatility": 2.46
+    },
+    {
+      "date": "2010-07",
+      "price": 75.58,
+      "ma_30": 74.83,
+      "ma_365": 68.57,
+      "min": 71.73,
+      "max": 78.6,
+      "volatility": 1.89
+    },
+    {
+      "date": "2010-08",
+      "price": 77.04,
+      "ma_30": 77.07,
+      "ma_365": 70.59,
+      "min": 70.61,
+      "max": 83.76,
+      "volatility": 2.06
+    },
+    {
+      "date": "2010-09",
+      "price": 77.84,
+      "ma_30": 76.56,
+      "ma_365": 72.27,
+      "min": 74.93,
+      "max": 80.77,
+      "volatility": 1.92
+    },
+    {
+      "date": "2010-10",
+      "price": 82.66,
+      "ma_30": 79.7,
+      "ma_365": 73.97,
+      "min": 80.75,
+      "max": 85.01,
+      "volatility": 1.41
+    },
+    {
+      "date": "2010-11",
+      "price": 85.27,
+      "ma_30": 83.44,
+      "ma_365": 75.34,
+      "min": 82.34,
+      "max": 88.08,
+      "volatility": 1.23
+    },
+    {
+      "date": "2010-12",
+      "price": 91.45,
+      "ma_30": 87.07,
+      "ma_365": 76.58,
+      "min": 88.56,
+      "max": 93.63,
+      "volatility": 1.16
+    },
+    {
+      "date": "2011-01",
+      "price": 96.52,
+      "ma_30": 92.94,
+      "ma_365": 78.15,
+      "min": 93.52,
+      "max": 98.97,
+      "volatility": 1.1
+    },
+    {
+      "date": "2011-02",
+      "price": 103.72,
+      "ma_30": 98.06,
+      "ma_365": 79.64,
+      "min": 99.25,
+      "max": 113.91,
+      "volatility": 1.26
+    },
+    {
+      "date": "2011-03",
+      "price": 114.64,
+      "ma_30": 107.83,
+      "ma_365": 82.1,
+      "min": 110.96,
+      "max": 116.94,
+      "volatility": 1.84
+    },
+    {
+      "date": "2011-04",
+      "price": 123.26,
+      "ma_30": 117.03,
+      "ma_365": 84.65,
+      "min": 118.63,
+      "max": 126.59,
+      "volatility": 1.57
+    },
+    {
+      "date": "2011-05",
+      "price": 114.99,
+      "ma_30": 119.95,
+      "ma_365": 86.95,
+      "min": 109.39,
+      "max": 126.64,
+      "volatility": 2.17
+    },
+    {
+      "date": "2011-06",
+      "price": 113.83,
+      "ma_30": 115.32,
+      "ma_365": 89.29,
+      "min": 104.57,
+      "max": 120.49,
+      "volatility": 2.13
+    },
+    {
+      "date": "2011-07",
+      "price": 116.97,
+      "ma_30": 114.35,
+      "ma_365": 91.51,
+      "min": 109.82,
+      "max": 118.99,
+      "volatility": 1.98
+    },
+    {
+      "date": "2011-08",
+      "price": 110.22,
+      "ma_30": 113.88,
+      "ma_365": 93.73,
+      "min": 103.06,
+      "max": 116.48,
+      "volatility": 1.66
+    },
+    {
+      "date": "2011-09",
+      "price": 112.83,
+      "ma_30": 112.15,
+      "ma_365": 95.68,
+      "min": 105.42,
+      "max": 117.99,
+      "volatility": 1.83
+    },
+    {
+      "date": "2011-10",
+      "price": 109.55,
+      "ma_30": 110.88,
+      "ma_365": 97.17,
+      "min": 101.84,
+      "max": 114.33,
+      "volatility": 1.84
+    },
+    {
+      "date": "2011-11",
+      "price": 110.77,
+      "ma_30": 110.53,
+      "ma_365": 99.22,
+      "min": 105.98,
+      "max": 115.61,
+      "volatility": 1.69
+    },
+    {
+      "date": "2011-12",
+      "price": 107.87,
+      "ma_30": 109.75,
+      "ma_365": 101.15,
+      "min": 104.0,
+      "max": 110.18,
+      "volatility": 1.54
+    },
+    {
+      "date": "2012-01",
+      "price": 110.69,
+      "ma_30": 109.03,
+      "ma_365": 102.96,
+      "min": 108.38,
+      "max": 113.59,
+      "volatility": 1.49
+    },
+    {
+      "date": "2012-02",
+      "price": 119.33,
+      "ma_30": 112.58,
+      "ma_365": 104.98,
+      "min": 110.96,
+      "max": 126.46,
+      "volatility": 1.22
+    },
+    {
+      "date": "2012-03",
+      "price": 125.45,
+      "ma_30": 121.71,
+      "ma_365": 107.64,
+      "min": 122.49,
+      "max": 128.14,
+      "volatility": 1.21
+    },
+    {
+      "date": "2012-04",
+      "price": 119.42,
+      "ma_30": 123.68,
+      "ma_365": 109.87,
+      "min": 115.18,
+      "max": 124.44,
+      "volatility": 1.2
+    },
+    {
+      "date": "2012-05",
+      "price": 110.34,
+      "ma_30": 117.11,
+      "ma_365": 111.46,
+      "min": 103.85,
+      "max": 119.57,
+      "volatility": 1.24
+    },
+    {
+      "date": "2012-06",
+      "price": 95.16,
+      "ma_30": 105.39,
+      "ma_365": 112.19,
+      "min": 88.69,
+      "max": 101.14,
+      "volatility": 1.69
+    },
+    {
+      "date": "2012-07",
+      "price": 102.62,
+      "ma_30": 97.56,
+      "ma_365": 112.29,
+      "min": 95.28,
+      "max": 107.79,
+      "volatility": 2.1
+    },
+    {
+      "date": "2012-08",
+      "price": 113.36,
+      "ma_30": 106.39,
+      "ma_365": 112.64,
+      "min": 106.78,
+      "max": 117.45,
+      "volatility": 1.47
+    },
+    {
+      "date": "2012-09",
+      "price": 112.86,
+      "ma_30": 113.57,
+      "ma_365": 112.66,
+      "min": 108.49,
+      "max": 117.48,
+      "volatility": 1.19
+    },
+    {
+      "date": "2012-10",
+      "price": 111.71,
+      "ma_30": 112.61,
+      "ma_365": 112.15,
+      "min": 107.53,
+      "max": 116.18,
+      "volatility": 1.54
+    },
+    {
+      "date": "2012-11",
+      "price": 109.06,
+      "ma_30": 110.35,
+      "ma_365": 111.77,
+      "min": 105.59,
+      "max": 110.84,
+      "volatility": 1.36
+    },
+    {
+      "date": "2012-12",
+      "price": 109.49,
+      "ma_30": 109.25,
+      "ma_365": 111.51,
+      "min": 107.16,
+      "max": 111.27,
+      "volatility": 1.34
+    },
+    {
+      "date": "2013-01",
+      "price": 112.96,
+      "ma_30": 110.67,
+      "ma_365": 111.28,
+      "min": 110.3,
+      "max": 115.55,
+      "volatility": 0.99
+    },
+    {
+      "date": "2013-02",
+      "price": 116.05,
+      "ma_30": 114.09,
+      "ma_365": 111.49,
+      "min": 112.2,
+      "max": 118.9,
+      "volatility": 0.8
+    },
+    {
+      "date": "2013-03",
+      "price": 108.47,
+      "ma_30": 113.38,
+      "ma_365": 111.44,
+      "min": 106.41,
+      "max": 110.42,
+      "volatility": 0.82
+    },
+    {
+      "date": "2013-04",
+      "price": 102.25,
+      "ma_30": 106.79,
+      "ma_365": 111.21,
+      "min": 96.84,
+      "max": 109.66,
+      "volatility": 1.09
+    },
+    {
+      "date": "2013-05",
+      "price": 102.56,
+      "ma_30": 102.18,
+      "ma_365": 110.65,
+      "min": 98.34,
+      "max": 105.18,
+      "volatility": 1.56
+    },
+    {
+      "date": "2013-06",
+      "price": 102.92,
+      "ma_30": 102.73,
+      "ma_365": 110.33,
+      "min": 99.8,
+      "max": 105.8,
+      "volatility": 1.47
+    },
+    {
+      "date": "2013-07",
+      "price": 107.93,
+      "ma_30": 104.58,
+      "ma_365": 110.02,
+      "min": 103.19,
+      "max": 109.71,
+      "volatility": 1.21
+    },
+    {
+      "date": "2013-08",
+      "price": 111.28,
+      "ma_30": 108.66,
+      "ma_365": 109.42,
+      "min": 107.32,
+      "max": 116.91,
+      "volatility": 0.8
+    },
+    {
+      "date": "2013-09",
+      "price": 111.6,
+      "ma_30": 112.0,
+      "ma_365": 108.73,
+      "min": 107.68,
+      "max": 117.15,
+      "volatility": 1.07
+    },
+    {
+      "date": "2013-10",
+      "price": 109.08,
+      "ma_30": 110.57,
+      "ma_365": 108.23,
+      "min": 105.7,
+      "max": 111.63,
+      "volatility": 1.16
+    },
+    {
+      "date": "2013-11",
+      "price": 107.79,
+      "ma_30": 108.08,
+      "ma_365": 108.25,
+      "min": 103.08,
+      "max": 112.04,
+      "volatility": 1.09
+    },
+    {
+      "date": "2013-12",
+      "price": 110.76,
+      "ma_30": 109.18,
+      "ma_365": 109.03,
+      "min": 108.08,
+      "max": 113.27,
+      "volatility": 0.99
+    },
+    {
+      "date": "2014-01",
+      "price": 108.12,
+      "ma_30": 109.55,
+      "ma_365": 109.28,
+      "min": 106.44,
+      "max": 109.69,
+      "volatility": 0.94
+    },
+    {
+      "date": "2014-02",
+      "price": 108.9,
+      "ma_30": 108.53,
+      "ma_365": 109.0,
+      "min": 106.55,
+      "max": 110.37,
+      "volatility": 0.83
+    },
+    {
+      "date": "2014-03",
+      "price": 107.48,
+      "ma_30": 108.68,
+      "ma_365": 108.77,
+      "min": 105.73,
+      "max": 111.26,
+      "volatility": 0.9
+    },
+    {
+      "date": "2014-04",
+      "price": 107.76,
+      "ma_30": 107.19,
+      "ma_365": 108.52,
+      "min": 103.37,
+      "max": 109.89,
+      "volatility": 0.95
+    },
+    {
+      "date": "2014-05",
+      "price": 109.54,
+      "ma_30": 108.51,
+      "ma_365": 108.51,
+      "min": 108.17,
+      "max": 111.32,
+      "volatility": 0.78
+    },
+    {
+      "date": "2014-06",
+      "price": 111.8,
+      "ma_30": 110.14,
+      "ma_365": 108.53,
+      "min": 108.43,
+      "max": 115.19,
+      "volatility": 0.7
+    },
+    {
+      "date": "2014-07",
+      "price": 106.77,
+      "ma_30": 110.22,
+      "ma_365": 108.3,
+      "min": 104.73,
+      "max": 110.84,
+      "volatility": 0.76
+    },
+    {
+      "date": "2014-08",
+      "price": 101.61,
+      "ma_30": 105.2,
+      "ma_365": 107.74,
+      "min": 99.37,
+      "max": 104.17,
+      "volatility": 0.75
+    },
+    {
+      "date": "2014-09",
+      "price": 97.09,
+      "ma_30": 100.39,
+      "ma_365": 107.31,
+      "min": 94.53,
+      "max": 101.21,
+      "volatility": 0.81
+    },
+    {
+      "date": "2014-10",
+      "price": 87.43,
+      "ma_30": 93.65,
+      "ma_365": 106.72,
+      "min": 84.02,
+      "max": 94.57,
+      "volatility": 1.04
+    },
+    {
+      "date": "2014-11",
+      "price": 79.44,
+      "ma_30": 85.07,
+      "ma_365": 105.61,
+      "min": 71.89,
+      "max": 84.9,
+      "volatility": 1.39
+    },
+    {
+      "date": "2014-12",
+      "price": 62.33,
+      "ma_30": 74.1,
+      "ma_365": 103.72,
+      "min": 55.27,
+      "max": 71.13,
+      "volatility": 1.89
+    },
+    {
+      "date": "2015-01",
+      "price": 47.76,
+      "ma_30": 57.47,
+      "ma_365": 100.59,
+      "min": 45.13,
+      "max": 55.38,
+      "volatility": 2.14
+    },
+    {
+      "date": "2015-02",
+      "price": 58.1,
+      "ma_30": 51.39,
+      "ma_365": 97.29,
+      "min": 51.74,
+      "max": 61.89,
+      "volatility": 3.08
+    },
+    {
+      "date": "2015-03",
+      "price": 55.89,
+      "ma_30": 57.24,
+      "ma_365": 94.27,
+      "min": 52.0,
+      "max": 61.18,
+      "volatility": 2.88
+    },
+    {
+      "date": "2015-04",
+      "price": 59.52,
+      "ma_30": 56.5,
+      "ma_365": 91.21,
+      "min": 55.73,
+      "max": 63.97,
+      "volatility": 2.31
+    },
+    {
+      "date": "2015-05",
+      "price": 64.08,
+      "ma_30": 61.35,
+      "ma_365": 88.63,
+      "min": 60.12,
+      "max": 66.33,
+      "volatility": 1.82
+    },
+    {
+      "date": "2015-06",
+      "price": 61.48,
+      "ma_30": 63.09,
+      "ma_365": 85.91,
+      "min": 59.03,
+      "max": 64.68,
+      "volatility": 2.14
+    },
+    {
+      "date": "2015-07",
+      "price": 56.56,
+      "ma_30": 59.79,
+      "ma_365": 82.87,
+      "min": 53.29,
+      "max": 61.73,
+      "volatility": 2.15
+    },
+    {
+      "date": "2015-08",
+      "price": 46.52,
+      "ma_30": 53.25,
+      "ma_365": 79.5,
+      "min": 41.59,
+      "max": 49.49,
+      "volatility": 2.08
+    },
+    {
+      "date": "2015-09",
+      "price": 47.62,
+      "ma_30": 47.35,
+      "ma_365": 76.04,
+      "min": 45.87,
+      "max": 50.41,
+      "volatility": 3.35
+    },
+    {
+      "date": "2015-10",
+      "price": 48.43,
+      "ma_30": 47.94,
+      "ma_365": 72.4,
+      "min": 45.54,
+      "max": 52.13,
+      "volatility": 2.99
+    },
+    {
+      "date": "2015-11",
+      "price": 44.27,
+      "ma_30": 46.98,
+      "ma_365": 68.65,
+      "min": 40.28,
+      "max": 48.0,
+      "volatility": 2.3
+    },
+    {
+      "date": "2015-12",
+      "price": 38.01,
+      "ma_30": 42.18,
+      "ma_365": 64.55,
+      "min": 35.26,
+      "max": 42.97,
+      "volatility": 2.28
+    },
+    {
+      "date": "2016-01",
+      "price": 30.7,
+      "ma_30": 35.56,
+      "ma_365": 60.45,
+      "min": 26.01,
+      "max": 36.28,
+      "volatility": 2.74
+    },
+    {
+      "date": "2016-02",
+      "price": 32.18,
+      "ma_30": 31.27,
+      "ma_365": 56.65,
+      "min": 28.82,
+      "max": 35.92,
+      "volatility": 4.14
+    },
+    {
+      "date": "2016-03",
+      "price": 38.21,
+      "ma_30": 34.45,
+      "ma_365": 53.26,
+      "min": 35.73,
+      "max": 40.54,
+      "volatility": 4.05
+    },
+    {
+      "date": "2016-04",
+      "price": 41.58,
+      "ma_30": 38.79,
+      "ma_365": 50.52,
+      "min": 35.88,
+      "max": 45.64,
+      "volatility": 3.01
+    },
+    {
+      "date": "2016-05",
+      "price": 46.74,
+      "ma_30": 43.23,
+      "ma_365": 48.74,
+      "min": 42.43,
+      "max": 49.52,
+      "volatility": 2.86
+    },
+    {
+      "date": "2016-06",
+      "price": 48.25,
+      "ma_30": 47.65,
+      "ma_365": 48.19,
+      "min": 45.07,
+      "max": 50.73,
+      "volatility": 2.28
+    },
+    {
+      "date": "2016-07",
+      "price": 44.95,
+      "ma_30": 47.22,
+      "ma_365": 47.96,
+      "min": 40.76,
+      "max": 48.02,
+      "volatility": 2.55
+    },
+    {
+      "date": "2016-08",
+      "price": 45.84,
+      "ma_30": 44.59,
+      "ma_365": 47.12,
+      "min": 40.0,
+      "max": 49.66,
+      "volatility": 2.4
+    },
+    {
+      "date": "2016-09",
+      "price": 46.57,
+      "ma_30": 46.58,
+      "ma_365": 46.55,
+      "min": 44.95,
+      "max": 49.23,
+      "volatility": 2.52
+    },
+    {
+      "date": "2016-10",
+      "price": 49.52,
+      "ma_30": 47.82,
+      "ma_365": 45.71,
+      "min": 46.2,
+      "max": 51.85,
+      "volatility": 2.27
+    },
+    {
+      "date": "2016-11",
+      "price": 44.73,
+      "ma_30": 47.29,
+      "ma_365": 44.75,
+      "min": 41.61,
+      "max": 47.95,
+      "volatility": 2.16
+    },
+    {
+      "date": "2016-12",
+      "price": 53.31,
+      "ma_30": 47.86,
+      "ma_365": 44.16,
+      "min": 51.6,
+      "max": 54.97,
+      "volatility": 3.05
+    },
+    {
+      "date": "2017-01",
+      "price": 54.58,
+      "ma_30": 53.35,
+      "ma_365": 44.26,
+      "min": 53.18,
+      "max": 55.9,
+      "volatility": 2.28
+    },
+    {
+      "date": "2017-02",
+      "price": 54.87,
+      "ma_30": 54.7,
+      "ma_365": 44.72,
+      "min": 53.36,
+      "max": 56.34,
+      "volatility": 1.53
+    },
+    {
+      "date": "2017-03",
+      "price": 51.59,
+      "ma_30": 53.79,
+      "ma_365": 45.03,
+      "min": 49.56,
+      "max": 55.72,
+      "volatility": 1.87
+    },
+    {
+      "date": "2017-04",
+      "price": 52.31,
+      "ma_30": 51.98,
+      "ma_365": 45.31,
+      "min": 49.37,
+      "max": 55.05,
+      "volatility": 1.55
+    },
+    {
+      "date": "2017-05",
+      "price": 50.33,
+      "ma_30": 50.97,
+      "ma_365": 45.78,
+      "min": 46.61,
+      "max": 53.35,
+      "volatility": 1.67
+    },
+    {
+      "date": "2017-06",
+      "price": 46.37,
+      "ma_30": 49.26,
+      "ma_365": 46.62,
+      "min": 43.98,
+      "max": 50.41,
+      "volatility": 1.99
+    },
+    {
+      "date": "2017-07",
+      "price": 48.48,
+      "ma_30": 46.96,
+      "ma_365": 47.56,
+      "min": 46.47,
+      "max": 52.0,
+      "volatility": 2.1
+    },
+    {
+      "date": "2017-08",
+      "price": 51.7,
+      "ma_30": 49.74,
+      "ma_365": 48.47,
+      "min": 49.9,
+      "max": 52.88,
+      "volatility": 1.71
+    },
+    {
+      "date": "2017-09",
+      "price": 56.15,
+      "ma_30": 52.91,
+      "ma_365": 49.32,
+      "min": 52.6,
+      "max": 59.77,
+      "volatility": 1.28
+    },
+    {
+      "date": "2017-10",
+      "price": 57.51,
+      "ma_30": 56.41,
+      "ma_365": 50.05,
+      "min": 55.29,
+      "max": 61.35,
+      "volatility": 1.44
+    },
+    {
+      "date": "2017-11",
+      "price": 62.71,
+      "ma_30": 59.69,
+      "ma_365": 50.79,
+      "min": 60.79,
+      "max": 64.49,
+      "volatility": 1.41
+    },
+    {
+      "date": "2017-12",
+      "price": 64.37,
+      "ma_30": 62.99,
+      "ma_365": 51.73,
+      "min": 62.25,
+      "max": 66.8,
+      "volatility": 1.39
+    },
+    {
+      "date": "2018-01",
+      "price": 69.08,
+      "ma_30": 66.1,
+      "ma_365": 53.03,
+      "min": 66.65,
+      "max": 71.08,
+      "volatility": 1.19
+    },
+    {
+      "date": "2018-02",
+      "price": 65.32,
+      "ma_30": 67.68,
+      "ma_365": 54.19,
+      "min": 61.94,
+      "max": 68.6,
+      "volatility": 1.24
+    },
+    {
+      "date": "2018-03",
+      "price": 66.02,
+      "ma_30": 65.45,
+      "ma_365": 55.18,
+      "min": 63.61,
+      "max": 69.03,
+      "volatility": 1.47
+    },
+    {
+      "date": "2018-04",
+      "price": 72.11,
+      "ma_30": 67.77,
+      "ma_365": 56.37,
+      "min": 66.04,
+      "max": 75.92,
+      "volatility": 1.74
+    },
+    {
+      "date": "2018-05",
+      "price": 76.98,
+      "ma_30": 73.81,
+      "ma_365": 57.95,
+      "min": 73.14,
+      "max": 80.42,
+      "volatility": 1.9
+    },
+    {
+      "date": "2018-06",
+      "price": 74.4,
+      "ma_30": 76.04,
+      "ma_365": 59.22,
+      "min": 72.02,
+      "max": 77.44,
+      "volatility": 1.88
+    },
+    {
+      "date": "2018-07",
+      "price": 74.25,
+      "ma_30": 74.72,
+      "ma_365": 60.4,
+      "min": 70.52,
+      "max": 77.8,
+      "volatility": 1.99
+    },
+    {
+      "date": "2018-08",
+      "price": 72.53,
+      "ma_30": 73.09,
+      "ma_365": 61.56,
+      "min": 68.38,
+      "max": 77.05,
+      "volatility": 1.71
+    },
+    {
+      "date": "2018-09",
+      "price": 78.89,
+      "ma_30": 74.61,
+      "ma_365": 62.96,
+      "min": 75.55,
+      "max": 82.72,
+      "volatility": 1.31
+    },
+    {
+      "date": "2018-10",
+      "price": 81.03,
+      "ma_30": 80.47,
+      "ma_365": 64.78,
+      "min": 74.84,
+      "max": 86.07,
+      "volatility": 1.34
+    },
+    {
+      "date": "2018-11",
+      "price": 64.75,
+      "ma_30": 75.28,
+      "ma_365": 66.25,
+      "min": 57.69,
+      "max": 72.68,
+      "volatility": 1.78
+    },
+    {
+      "date": "2018-12",
+      "price": 57.36,
+      "ma_30": 63.18,
+      "ma_365": 67.0,
+      "min": 50.57,
+      "max": 61.71,
+      "volatility": 2.75
+    },
+    {
+      "date": "2019-01",
+      "price": 59.41,
+      "ma_30": 57.75,
+      "ma_365": 67.39,
+      "min": 53.23,
+      "max": 62.46,
+      "volatility": 2.98
+    },
+    {
+      "date": "2019-02",
+      "price": 63.96,
+      "ma_30": 60.72,
+      "ma_365": 67.95,
+      "min": 61.01,
+      "max": 66.91,
+      "volatility": 1.93
+    },
+    {
+      "date": "2019-03",
+      "price": 66.14,
+      "ma_30": 64.55,
+      "ma_365": 68.45,
+      "min": 63.71,
+      "max": 68.35,
+      "volatility": 1.45
+    },
+    {
+      "date": "2019-04",
+      "price": 71.23,
+      "ma_30": 67.93,
+      "ma_365": 69.05,
+      "min": 69.08,
+      "max": 74.94,
+      "volatility": 1.38
+    },
+    {
+      "date": "2019-05",
+      "price": 71.32,
+      "ma_30": 71.36,
+      "ma_365": 69.59,
+      "min": 66.78,
+      "max": 74.7,
+      "volatility": 1.83
+    },
+    {
+      "date": "2019-06",
+      "price": 64.22,
+      "ma_30": 68.6,
+      "ma_365": 69.7,
+      "min": 61.66,
+      "max": 67.52,
+      "volatility": 2.16
+    },
+    {
+      "date": "2019-07",
+      "price": 63.92,
+      "ma_30": 64.73,
+      "ma_365": 69.48,
+      "min": 60.7,
+      "max": 67.64,
+      "volatility": 2.13
+    },
+    {
+      "date": "2019-08",
+      "price": 59.04,
+      "ma_30": 61.95,
+      "ma_365": 69.23,
+      "min": 55.03,
+      "max": 62.9,
+      "volatility": 2.34
+    },
+    {
+      "date": "2019-09",
+      "price": 62.83,
+      "ma_30": 60.45,
+      "ma_365": 68.83,
+      "min": 57.93,
+      "max": 68.42,
+      "volatility": 3.0
+    },
+    {
+      "date": "2019-10",
+      "price": 59.71,
+      "ma_30": 61.47,
+      "ma_365": 68.04,
+      "min": 57.92,
+      "max": 62.06,
+      "volatility": 2.89
+    },
+    {
+      "date": "2019-11",
+      "price": 63.21,
+      "ma_30": 60.97,
+      "ma_365": 67.16,
+      "min": 60.17,
+      "max": 65.03,
+      "volatility": 1.66
+    },
+    {
+      "date": "2019-12",
+      "price": 67.31,
+      "ma_30": 64.46,
+      "ma_365": 66.6,
+      "min": 62.95,
+      "max": 69.7,
+      "volatility": 1.35
+    },
+    {
+      "date": "2020-01",
+      "price": 63.82,
+      "ma_30": 66.87,
+      "ma_365": 66.24,
+      "min": 57.72,
+      "max": 70.25,
+      "volatility": 1.56
+    },
+    {
+      "date": "2020-02",
+      "price": 55.7,
+      "ma_30": 60.55,
+      "ma_365": 65.28,
+      "min": 51.31,
+      "max": 59.72,
+      "volatility": 2.15
+    },
+    {
+      "date": "2020-03",
+      "price": 32.47,
+      "ma_30": 49.3,
+      "ma_365": 63.25,
+      "min": 19.07,
+      "max": 52.52,
+      "volatility": 5.35
+    },
+    {
+      "date": "2020-04",
+      "price": 18.38,
+      "ma_30": 27.35,
+      "ma_365": 60.22,
+      "min": 9.12,
+      "max": 25.22,
+      "volatility": 13.87
+    },
+    {
+      "date": "2020-05",
+      "price": 29.38,
+      "ma_30": 21.3,
+      "ma_365": 58.09,
+      "min": 18.49,
+      "max": 34.78,
+      "volatility": 16.65
+    },
+    {
+      "date": "2020-06",
+      "price": 40.27,
+      "ma_30": 32.71,
+      "ma_365": 56.93,
+      "min": 36.74,
+      "max": 43.2,
+      "volatility": 6.32
+    },
+    {
+      "date": "2020-07",
+      "price": 43.24,
+      "ma_30": 41.38,
+      "ma_365": 55.74,
+      "min": 42.18,
+      "max": 44.31,
+      "volatility": 2.58
+    },
+    {
+      "date": "2020-08",
+      "price": 44.74,
+      "ma_30": 43.68,
+      "ma_365": 54.5,
+      "min": 43.68,
+      "max": 46.01,
+      "volatility": 1.45
+    },
+    {
+      "date": "2020-09",
+      "price": 40.91,
+      "ma_30": 43.29,
+      "ma_365": 53.01,
+      "min": 38.53,
+      "max": 45.72,
+      "volatility": 2.3
+    },
+    {
+      "date": "2020-10",
+      "price": 40.19,
+      "ma_30": 40.89,
+      "ma_365": 51.13,
+      "min": 36.33,
+      "max": 42.0,
+      "volatility": 2.67
+    },
+    {
+      "date": "2020-11",
+      "price": 42.69,
+      "ma_30": 40.53,
+      "ma_365": 49.56,
+      "min": 37.78,
+      "max": 47.3,
+      "volatility": 2.82
+    },
+    {
+      "date": "2020-12",
+      "price": 49.99,
+      "ma_30": 45.41,
+      "ma_365": 48.53,
+      "min": 47.03,
+      "max": 52.17,
+      "volatility": 2.03
+    },
+    {
+      "date": "2021-01",
+      "price": 54.77,
+      "ma_30": 51.55,
+      "ma_365": 48.03,
+      "min": 50.37,
+      "max": 55.98,
+      "volatility": 1.71
+    },
+    {
+      "date": "2021-02",
+      "price": 62.28,
+      "ma_30": 56.64,
+      "ma_365": 47.9,
+      "min": 56.42,
+      "max": 66.85,
+      "volatility": 1.44
+    },
+    {
+      "date": "2021-03",
+      "price": 65.41,
+      "ma_30": 63.75,
+      "ma_365": 48.11,
+      "min": 59.96,
+      "max": 69.95,
+      "volatility": 2.19
+    },
+    {
+      "date": "2021-04",
+      "price": 64.81,
+      "ma_30": 64.7,
+      "ma_365": 48.31,
+      "min": 61.47,
+      "max": 68.26,
+      "volatility": 3.03
+    },
+    {
+      "date": "2021-05",
+      "price": 68.53,
+      "ma_30": 66.12,
+      "ma_365": 48.47,
+      "min": 65.18,
+      "max": 69.71,
+      "volatility": 1.87
+    },
+    {
+      "date": "2021-06",
+      "price": 73.16,
+      "ma_30": 69.69,
+      "ma_365": 48.63,
+      "min": 70.03,
+      "max": 76.94,
+      "volatility": 1.45
+    },
+    {
+      "date": "2021-07",
+      "price": 75.17,
+      "ma_30": 74.18,
+      "ma_365": 49.43,
+      "min": 69.33,
+      "max": 78.34,
+      "volatility": 1.56
+    },
+    {
+      "date": "2021-08",
+      "price": 70.75,
+      "ma_30": 73.51,
+      "ma_365": 50.63,
+      "min": 65.51,
+      "max": 73.91,
+      "volatility": 2.33
+    },
+    {
+      "date": "2021-09",
+      "price": 74.49,
+      "ma_30": 71.89,
+      "ma_365": 53.23,
+      "min": 71.32,
+      "max": 78.85,
+      "volatility": 2.03
+    },
+    {
+      "date": "2021-10",
+      "price": 83.54,
+      "ma_30": 77.73,
+      "ma_365": 56.71,
+      "min": 79.4,
+      "max": 85.76,
+      "volatility": 1.34
+    },
+    {
+      "date": "2021-11",
+      "price": 81.05,
+      "ma_30": 82.96,
+      "ma_365": 59.6,
+      "min": 70.86,
+      "max": 84.52,
+      "volatility": 1.62
+    },
+    {
+      "date": "2021-12",
+      "price": 74.17,
+      "ma_30": 78.07,
+      "ma_365": 61.64,
+      "min": 69.53,
+      "max": 78.63,
+      "volatility": 2.93
+    },
+    {
+      "date": "2022-01",
+      "price": 86.51,
+      "ma_30": 78.19,
+      "ma_365": 63.73,
+      "min": 78.25,
+      "max": 92.35,
+      "volatility": 2.24
+    },
+    {
+      "date": "2022-02",
+      "price": 97.13,
+      "ma_30": 89.7,
+      "ma_365": 66.47,
+      "min": 90.24,
+      "max": 103.08,
+      "volatility": 1.73
+    },
+    {
+      "date": "2022-03",
+      "price": 117.25,
+      "ma_30": 105.29,
+      "ma_365": 70.51,
+      "min": 104.61,
+      "max": 133.18,
+      "volatility": 4.05
+    },
+    {
+      "date": "2022-04",
+      "price": 104.58,
+      "ma_30": 112.15,
+      "ma_365": 74.58,
+      "min": 97.92,
+      "max": 110.83,
+      "volatility": 4.67
+    },
+    {
+      "date": "2022-05",
+      "price": 113.34,
+      "ma_30": 107.91,
+      "ma_365": 78.05,
+      "min": 102.61,
+      "max": 125.53,
+      "volatility": 3.48
+    },
+    {
+      "date": "2022-06",
+      "price": 122.71,
+      "ma_30": 117.42,
+      "ma_365": 82.06,
+      "min": 114.5,
+      "max": 129.2,
+      "volatility": 2.42
+    },
+    {
+      "date": "2022-07",
+      "price": 111.93,
+      "ma_30": 118.59,
+      "ma_365": 85.56,
+      "min": 106.77,
+      "max": 121.8,
+      "volatility": 2.81
+    },
+    {
+      "date": "2022-08",
+      "price": 100.45,
+      "ma_30": 108.15,
+      "ma_365": 88.05,
+      "min": 95.06,
+      "max": 107.19,
+      "volatility": 3.11
+    },
+    {
+      "date": "2022-09",
+      "price": 89.76,
+      "ma_30": 96.89,
+      "ma_365": 89.82,
+      "min": 82.55,
+      "max": 94.22,
+      "volatility": 2.75
+    },
+    {
+      "date": "2022-10",
+      "price": 93.33,
+      "ma_30": 91.5,
+      "ma_365": 91.28,
+      "min": 89.46,
+      "max": 98.88,
+      "volatility": 2.64
+    },
+    {
+      "date": "2022-11",
+      "price": 96.0,
+      "ma_30": 93.22,
+      "ma_365": 92.36,
+      "min": 93.05,
+      "max": 99.87,
+      "volatility": 2.12
+    }
+  ]
+}

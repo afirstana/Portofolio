@@ -9,6 +9,7 @@ import { OlistGeoShowcase } from "@/components/OlistGeoShowcase";
 import { OlistRfmShowcase } from "@/components/OlistRfmShowcase";
 import { OlistPaymentInteractiveShowcase } from "@/components/OlistPaymentInteractiveShowcase";
 import { CertificateInteractiveShowcase } from "@/components/CertificateInteractiveShowcase";
+import { BrentOilInteractiveShowcase } from "@/components/BrentOilInteractiveShowcase";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -18,7 +19,9 @@ export const dynamicParams = false;
 type RouteProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return getProjects().map((project) => ({ slug: project.slug }));
+  return getProjects()
+    .filter((p) => p.slug !== "amazon-product-intelligence" && p.slug !== "olist-payment-behavior-analytics")
+    .map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: RouteProps): Promise<Metadata> {
@@ -60,6 +63,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   const isOlist = project.slug === "olist-e-commerce-logistics-analysis";
   const isOlistPayment = project.slug === "olist-payment-behavior-analytics";
   const isCertificate = project.slug === "certificate-generator-desktop-app";
+  const isBrentOil = project.slug === "brent-oil-market-dynamics";
 
   return (
     <main className="site-shell">
@@ -103,6 +107,9 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone Interactive Certificate Canvas & Batch Simulator */}
             {isCertificate && <CertificateInteractiveShowcase />}
+
+            {/* Standalone 35-Year Brent Oil Econometrics & Crisis Shock Showcase */}
+            {isBrentOil && <BrentOilInteractiveShowcase />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

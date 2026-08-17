@@ -10,9 +10,10 @@ const root = process.cwd();
 describe("Project Explorer sneak peek", () => {
   it("keeps content-backed preview metadata for every authored project", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(6);
+    expect(projects).toHaveLength(7);
     expect(projects.every((project) => project.preview.eyebrow && project.preview.metrics.length === 3 && project.preview.takeaway)).toBe(true);
     expect(getProjects().find((project) => project.slug === "amazon-product-intelligence")?.preview.metrics).toContainEqual({ label: "ROC–AUC", value: "0.8369" });
+    expect(getProjects().find((project) => project.slug === "brent-oil-market-dynamics")?.preview.metrics).toContainEqual({ label: "Timeline Span", value: "35.5 Yrs (9.0k Days)" });
   });
 
   it("provides equivalent hover, keyboard-focus, and mobile touch selectors", () => {

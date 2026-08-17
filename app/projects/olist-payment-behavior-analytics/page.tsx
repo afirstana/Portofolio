@@ -13,9 +13,6 @@ import { notFound } from "next/navigation";
 const slug = "olist-payment-behavior-analytics";
 
 export const dynamicParams = false;
-export function generateStaticParams() {
-  return [{}];
-}
 
 export const metadata: Metadata = {
   title: "Olist Payment & Installment Behavior Analysis — Abimael.Data",

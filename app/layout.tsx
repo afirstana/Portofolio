@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);document.body&&document.body.setAttribute("data-theme",t);}else if(window.matchMedia("(prefers-color-scheme: light)").matches){document.documentElement.setAttribute("data-theme","light");document.body&&document.body.setAttribute("data-theme","light");}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);document.body&&document.body.setAttribute("data-theme",t);}else{document.documentElement.setAttribute("data-theme","dark");document.body&&document.body.setAttribute("data-theme","dark");}}catch(e){}})();`,
           }}
         />
       </head>

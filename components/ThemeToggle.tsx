@@ -14,11 +14,9 @@ export function ThemeToggle() {
       document.documentElement.setAttribute("data-theme", stored);
       document.body.setAttribute("data-theme", stored);
     } else {
-      const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-      const initial = prefersLight ? "light" : "dark";
-      setTheme(initial);
-      document.documentElement.setAttribute("data-theme", initial);
-      document.body.setAttribute("data-theme", initial);
+      setTheme("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.body.setAttribute("data-theme", "dark");
     }
   }, []);
 

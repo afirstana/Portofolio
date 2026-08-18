@@ -1,0 +1,4977 @@
+{
+  "metadata": {
+    "title": "Global Cancer Epidemiology & Clinical Survival Surveillance (1990\u20132019)",
+    "source": "Our World in Data, IHME Global Burden of Disease, CONCORD-3 Cancer Registry",
+    "total_records_processed": 281440,
+    "countries_count": 204,
+    "cancer_types_modeled": 29,
+    "years_span": "1990\u20132019 (30 Years)",
+    "global_deaths_1990": 5516590,
+    "global_deaths_2019": 9671471,
+    "global_deaths_growth_pct": 75.32,
+    "global_asdr_1990": 147.93,
+    "global_asdr_2019": 125.41,
+    "global_asdr_decline_pct": -15.22
+  },
+  "global_time_series": [
+    {
+      "year": 1990,
+      "total_deaths": 5516590,
+      "Lung & Bronchus": 1065139,
+      "Colorectal": 518126,
+      "Stomach": 788317,
+      "Breast": 380905,
+      "Pancreatic": 198051,
+      "Esophageal": 319332,
+      "Prostate": 232999,
+      "Liver": 365215,
+      "Leukemia": 263263,
+      "Cervical": 184527
+    },
+    {
+      "year": 1991,
+      "total_deaths": 5628289,
+      "Lung & Bronchus": 1088143,
+      "Colorectal": 529699,
+      "Stomach": 791061,
+      "Breast": 388876,
+      "Pancreatic": 204106,
+      "Esophageal": 327023,
+      "Prostate": 239667,
+      "Liver": 382764,
+      "Leukemia": 265139,
+      "Cervical": 185386
+    },
+    {
+      "year": 1992,
+      "total_deaths": 5752640,
+      "Lung & Bronchus": 1113920,
+      "Colorectal": 543017,
+      "Stomach": 796404,
+      "Breast": 398279,
+      "Pancreatic": 210632,
+      "Esophageal": 334099,
+      "Prostate": 246717,
+      "Liver": 399662,
+      "Leukemia": 267135,
+      "Cervical": 188200
+    },
+    {
+      "year": 1993,
+      "total_deaths": 5919156,
+      "Lung & Bronchus": 1151283,
+      "Colorectal": 562393,
+      "Stomach": 808119,
+      "Breast": 411584,
+      "Pancreatic": 219883,
+      "Esophageal": 342837,
+      "Prostate": 254462,
+      "Liver": 417329,
+      "Leukemia": 269758,
+      "Cervical": 190590
+    },
+    {
+      "year": 1994,
+      "total_deaths": 6043965,
+      "Lung & Bronchus": 1176758,
+      "Colorectal": 575487,
+      "Stomach": 810667,
+      "Breast": 421889,
+      "Pancreatic": 226459,
+      "Esophageal": 348242,
+      "Prostate": 261576,
+      "Liver": 435088,
+      "Leukemia": 272764,
+      "Cervical": 193347
+    },
+    {
+      "year": 1995,
+      "total_deaths": 6147550,
+      "Lung & Bronchus": 1200039,
+      "Colorectal": 586929,
+      "Stomach": 808881,
+      "Breast": 429654,
+      "Pancreatic": 231927,
+      "Esophageal": 354022,
+      "Prostate": 268558,
+      "Liver": 450534,
+      "Leukemia": 275233,
+      "Cervical": 194701
+    },
+    {
+      "year": 1996,
+      "total_deaths": 6232438,
+      "Lung & Bronchus": 1215381,
+      "Colorectal": 596398,
+      "Stomach": 805369,
+      "Breast": 436386,
+      "Pancreatic": 236797,
+      "Esophageal": 360700,
+      "Prostate": 275590,
+      "Liver": 462869,
+      "Leukemia": 276054,
+      "Cervical": 196946
+    },
+    {
+      "year": 1997,
+      "total_deaths": 6324915,
+      "Lung & Bronchus": 1231496,
+      "Colorectal": 607453,
+      "Stomach": 804886,
+      "Breast": 443626,
+      "Pancreatic": 242477,
+      "Esophageal": 368197,
+      "Prostate": 282168,
+      "Liver": 469867,
+      "Leukemia": 277565,
+      "Cervical": 200178
+    },
+    {
+      "year": 1998,
+      "total_deaths": 6438820,
+      "Lung & Bronchus": 1254538,
+      "Colorectal": 622442,
+      "Stomach": 811537,
+      "Breast": 451135,
+      "Pancreatic": 249713,
+      "Esophageal": 377420,
+      "Prostate": 289153,
+      "Liver": 476714,
+      "Leukemia": 280051,
+      "Cervical": 202315
+    },
+    {
+      "year": 1999,
+      "total_deaths": 6589095,
+      "Lung & Bronchus": 1287809,
+      "Colorectal": 643454,
+      "Stomach": 827849,
+      "Breast": 461704,
+      "Pancreatic": 258953,
+      "Esophageal": 389815,
+      "Prostate": 295781,
+      "Liver": 480253,
+      "Leukemia": 283007,
+      "Cervical": 205592
+    },
+    {
+      "year": 2000,
+      "total_deaths": 6728924,
+      "Lung & Bronchus": 1321280,
+      "Colorectal": 662459,
+      "Stomach": 849163,
+      "Breast": 469528,
+      "Pancreatic": 268046,
+      "Esophageal": 406267,
+      "Prostate": 303085,
+      "Liver": 470152,
+      "Leukemia": 284920,
+      "Cervical": 208598
+    },
+    {
+      "year": 2001,
+      "total_deaths": 6837488,
+      "Lung & Bronchus": 1347965,
+      "Colorectal": 680900,
+      "Stomach": 868037,
+      "Breast": 477704,
+      "Pancreatic": 277467,
+      "Esophageal": 421013,
+      "Prostate": 310664,
+      "Liver": 444735,
+      "Leukemia": 285695,
+      "Cervical": 211803
+    },
+    {
+      "year": 2002,
+      "total_deaths": 6972810,
+      "Lung & Bronchus": 1383984,
+      "Colorectal": 704560,
+      "Stomach": 895244,
+      "Breast": 487703,
+      "Pancreatic": 288965,
+      "Esophageal": 437276,
+      "Prostate": 319197,
+      "Liver": 409845,
+      "Leukemia": 285554,
+      "Cervical": 216381
+    },
+    {
+      "year": 2003,
+      "total_deaths": 7102767,
+      "Lung & Bronchus": 1417126,
+      "Colorectal": 726665,
+      "Stomach": 920794,
+      "Breast": 496047,
+      "Pancreatic": 300218,
+      "Esophageal": 453072,
+      "Prostate": 326061,
+      "Liver": 381934,
+      "Leukemia": 285623,
+      "Cervical": 220282
+    },
+    {
+      "year": 2004,
+      "total_deaths": 7212867,
+      "Lung & Bronchus": 1449142,
+      "Colorectal": 743434,
+      "Stomach": 940457,
+      "Breast": 501204,
+      "Pancreatic": 310193,
+      "Esophageal": 465849,
+      "Prostate": 332326,
+      "Liver": 363000,
+      "Leukemia": 285704,
+      "Cervical": 222514
+    },
+    {
+      "year": 2005,
+      "total_deaths": 7354368,
+      "Lung & Bronchus": 1485760,
+      "Colorectal": 765962,
+      "Stomach": 946191,
+      "Breast": 511748,
+      "Pancreatic": 323537,
+      "Esophageal": 469652,
+      "Prostate": 339781,
+      "Liver": 358848,
+      "Leukemia": 288052,
+      "Cervical": 225592
+    },
+    {
+      "year": 2006,
+      "total_deaths": 7416652,
+      "Lung & Bronchus": 1505994,
+      "Colorectal": 777377,
+      "Stomach": 927497,
+      "Breast": 518380,
+      "Pancreatic": 333459,
+      "Esophageal": 462626,
+      "Prostate": 346707,
+      "Liver": 361207,
+      "Leukemia": 288620,
+      "Cervical": 226907
+    },
+    {
+      "year": 2007,
+      "total_deaths": 7537697,
+      "Lung & Bronchus": 1543830,
+      "Colorectal": 795972,
+      "Stomach": 920304,
+      "Breast": 527871,
+      "Pancreatic": 346117,
+      "Esophageal": 458024,
+      "Prostate": 353573,
+      "Liver": 366399,
+      "Leukemia": 290359,
+      "Cervical": 228723
+    },
+    {
+      "year": 2008,
+      "total_deaths": 7706312,
+      "Lung & Bronchus": 1590730,
+      "Colorectal": 819317,
+      "Stomach": 921304,
+      "Breast": 540036,
+      "Pancreatic": 360719,
+      "Esophageal": 455861,
+      "Prostate": 362153,
+      "Liver": 376325,
+      "Leukemia": 294512,
+      "Cervical": 231303
+    },
+    {
+      "year": 2009,
+      "total_deaths": 7840496,
+      "Lung & Bronchus": 1631778,
+      "Colorectal": 837376,
+      "Stomach": 920024,
+      "Breast": 550621,
+      "Pancreatic": 374120,
+      "Esophageal": 453421,
+      "Prostate": 369474,
+      "Liver": 381199,
+      "Leukemia": 296962,
+      "Cervical": 233890
+    },
+    {
+      "year": 2010,
+      "total_deaths": 7995757,
+      "Lung & Bronchus": 1670745,
+      "Colorectal": 857808,
+      "Stomach": 922293,
+      "Breast": 564632,
+      "Pancreatic": 389196,
+      "Esophageal": 453114,
+      "Prostate": 377905,
+      "Liver": 386342,
+      "Leukemia": 299603,
+      "Cervical": 237933
+    },
+    {
+      "year": 2011,
+      "total_deaths": 8128569,
+      "Lung & Bronchus": 1704610,
+      "Colorectal": 875886,
+      "Stomach": 918145,
+      "Breast": 577280,
+      "Pancreatic": 402385,
+      "Esophageal": 450189,
+      "Prostate": 386456,
+      "Liver": 391139,
+      "Leukemia": 302949,
+      "Cervical": 241569
+    },
+    {
+      "year": 2012,
+      "total_deaths": 8264980,
+      "Lung & Bronchus": 1736387,
+      "Colorectal": 894817,
+      "Stomach": 915312,
+      "Breast": 588488,
+      "Pancreatic": 416453,
+      "Esophageal": 448068,
+      "Prostate": 395329,
+      "Liver": 398129,
+      "Leukemia": 305640,
+      "Cervical": 244990
+    },
+    {
+      "year": 2013,
+      "total_deaths": 8402701,
+      "Lung & Bronchus": 1765970,
+      "Colorectal": 912373,
+      "Stomach": 909263,
+      "Breast": 603008,
+      "Pancreatic": 429481,
+      "Esophageal": 446023,
+      "Prostate": 405089,
+      "Liver": 408647,
+      "Leukemia": 308499,
+      "Cervical": 250613
+    },
+    {
+      "year": 2014,
+      "total_deaths": 8558547,
+      "Lung & Bronchus": 1799303,
+      "Colorectal": 931530,
+      "Stomach": 906599,
+      "Breast": 618874,
+      "Pancreatic": 443257,
+      "Esophageal": 446949,
+      "Prostate": 415833,
+      "Liver": 422102,
+      "Leukemia": 311752,
+      "Cervical": 257081
+    },
+    {
+      "year": 2015,
+      "total_deaths": 8764354,
+      "Lung & Bronchus": 1840754,
+      "Colorectal": 958727,
+      "Stomach": 910683,
+      "Breast": 638351,
+      "Pancreatic": 459984,
+      "Esophageal": 451095,
+      "Prostate": 428183,
+      "Liver": 436627,
+      "Leukemia": 316506,
+      "Cervical": 264032
+    },
+    {
+      "year": 2016,
+      "total_deaths": 8960182,
+      "Lung & Bronchus": 1879226,
+      "Colorectal": 983756,
+      "Stomach": 920225,
+      "Breast": 653229,
+      "Pancreatic": 474955,
+      "Esophageal": 458974,
+      "Prostate": 441036,
+      "Liver": 449633,
+      "Leukemia": 320596,
+      "Cervical": 269747
+    },
+    {
+      "year": 2017,
+      "total_deaths": 9145111,
+      "Lung & Bronchus": 1920896,
+      "Colorectal": 1009950,
+      "Stomach": 925372,
+      "Breast": 666366,
+      "Pancreatic": 489986,
+      "Esophageal": 467777,
+      "Prostate": 454494,
+      "Liver": 460784,
+      "Leukemia": 323913,
+      "Cervical": 273183
+    },
+    {
+      "year": 2018,
+      "total_deaths": 9398540,
+      "Lung & Bronchus": 1979288,
+      "Colorectal": 1047266,
+      "Stomach": 938560,
+      "Breast": 683498,
+      "Pancreatic": 510406,
+      "Esophageal": 481641,
+      "Prostate": 470146,
+      "Liver": 471761,
+      "Leukemia": 329396,
+      "Cervical": 276625
+    },
+    {
+      "year": 2019,
+      "total_deaths": 9671471,
+      "Lung & Bronchus": 2042640,
+      "Colorectal": 1085797,
+      "Stomach": 957185,
+      "Breast": 700660,
+      "Pancreatic": 531107,
+      "Esophageal": 498067,
+      "Prostate": 486836,
+      "Liver": 484577,
+      "Leukemia": 334592,
+      "Cervical": 280479
+    }
+  ],
+  "asdr_trend": [
+    {
+      "year": 1990,
+      "rate_per_100k": 147.93
+    },
+    {
+      "year": 1991,
+      "rate_per_100k": 147.54
+    },
+    {
+      "year": 1992,
+      "rate_per_100k": 147.48
+    },
+    {
+      "year": 1993,
+      "rate_per_100k": 148.48
+    },
+    {
+      "year": 1994,
+      "rate_per_100k": 148.28
+    },
+    {
+      "year": 1995,
+      "rate_per_100k": 147.61
+    },
+    {
+      "year": 1996,
+      "rate_per_100k": 146.42
+    },
+    {
+      "year": 1997,
+      "rate_per_100k": 145.31
+    },
+    {
+      "year": 1998,
+      "rate_per_100k": 144.64
+    },
+    {
+      "year": 1999,
+      "rate_per_100k": 144.63
+    },
+    {
+      "year": 2000,
+      "rate_per_100k": 144.33
+    },
+    {
+      "year": 2001,
+      "rate_per_100k": 143.28
+    },
+    {
+      "year": 2002,
+      "rate_per_100k": 142.76
+    },
+    {
+      "year": 2003,
+      "rate_per_100k": 142.0
+    },
+    {
+      "year": 2004,
+      "rate_per_100k": 140.67
+    },
+    {
+      "year": 2005,
+      "rate_per_100k": 139.92
+    },
+    {
+      "year": 2006,
+      "rate_per_100k": 137.58
+    },
+    {
+      "year": 2007,
+      "rate_per_100k": 136.18
+    },
+    {
+      "year": 2008,
+      "rate_per_100k": 135.57
+    },
+    {
+      "year": 2009,
+      "rate_per_100k": 134.27
+    },
+    {
+      "year": 2010,
+      "rate_per_100k": 133.3
+    },
+    {
+      "year": 2011,
+      "rate_per_100k": 131.87
+    },
+    {
+      "year": 2012,
+      "rate_per_100k": 130.4
+    },
+    {
+      "year": 2013,
+      "rate_per_100k": 128.97
+    },
+    {
+      "year": 2014,
+      "rate_per_100k": 127.77
+    },
+    {
+      "year": 2015,
+      "rate_per_100k": 127.25
+    },
+    {
+      "year": 2016,
+      "rate_per_100k": 126.45
+    },
+    {
+      "year": 2017,
+      "rate_per_100k": 125.43
+    },
+    {
+      "year": 2018,
+      "rate_per_100k": 125.33
+    },
+    {
+      "year": 2019,
+      "rate_per_100k": 125.41
+    }
+  ],
+  "cancer_types_2019": [
+    {
+      "type": "Lung & Bronchus",
+      "deaths": 2042640,
+      "share_pct": 21.12
+    },
+    {
+      "type": "Colorectal",
+      "deaths": 1085797,
+      "share_pct": 11.23
+    },
+    {
+      "type": "Stomach",
+      "deaths": 957185,
+      "share_pct": 9.9
+    },
+    {
+      "type": "Breast",
+      "deaths": 700660,
+      "share_pct": 7.24
+    },
+    {
+      "type": "Pancreatic",
+      "deaths": 531107,
+      "share_pct": 5.49
+    },
+    {
+      "type": "Esophageal",
+      "deaths": 498067,
+      "share_pct": 5.15
+    },
+    {
+      "type": "Prostate",
+      "deaths": 486836,
+      "share_pct": 5.03
+    },
+    {
+      "type": "Liver",
+      "deaths": 484577,
+      "share_pct": 5.01
+    },
+    {
+      "type": "Leukemia",
+      "deaths": 334592,
+      "share_pct": 3.46
+    },
+    {
+      "type": "Cervical",
+      "deaths": 280479,
+      "share_pct": 2.9
+    },
+    {
+      "type": "Non-Hodgkin Lymphoma",
+      "deaths": 254614,
+      "share_pct": 2.63
+    },
+    {
+      "type": "Brain & CNS",
+      "deaths": 246253,
+      "share_pct": 2.55
+    },
+    {
+      "type": "Bladder",
+      "deaths": 228735,
+      "share_pct": 2.37
+    },
+    {
+      "type": "Oral Cavity",
+      "deaths": 199398,
+      "share_pct": 2.06
+    },
+    {
+      "type": "Ovarian",
+      "deaths": 198412,
+      "share_pct": 2.05
+    },
+    {
+      "type": "Gallbladder",
+      "deaths": 172441,
+      "share_pct": 1.78
+    },
+    {
+      "type": "Kidney",
+      "deaths": 166438,
+      "share_pct": 1.72
+    },
+    {
+      "type": "Larynx",
+      "deaths": 123356,
+      "share_pct": 1.28
+    },
+    {
+      "type": "Other pharynx",
+      "deaths": 114207,
+      "share_pct": 1.18
+    },
+    {
+      "type": "Multiple myeloma",
+      "deaths": 113474,
+      "share_pct": 1.17
+    },
+    {
+      "type": "Uterine",
+      "deaths": 91641,
+      "share_pct": 0.95
+    },
+    {
+      "type": "Nasopharynx",
+      "deaths": 71610,
+      "share_pct": 0.74
+    },
+    {
+      "type": "Melanoma",
+      "deaths": 62844,
+      "share_pct": 0.65
+    },
+    {
+      "type": "Other neoplasms",
+      "deaths": 56833,
+      "share_pct": 0.59
+    },
+    {
+      "type": "Non-Melanoma Skin",
+      "deaths": 56054,
+      "share_pct": 0.58
+    },
+    {
+      "type": "Thyroid",
+      "deaths": 45576,
+      "share_pct": 0.47
+    },
+    {
+      "type": "Mesothelioma",
+      "deaths": 29251,
+      "share_pct": 0.3
+    },
+    {
+      "type": "Hodgkin Lymphoma",
+      "deaths": 27552,
+      "share_pct": 0.28
+    },
+    {
+      "type": "Testicular",
+      "deaths": 10842,
+      "share_pct": 0.11
+    }
+  ],
+  "all_countries_asdr": [
+    {
+      "rank": 1,
+      "country": "Mongolia",
+      "code": "MNG",
+      "rate_per_100k": 284.33
+    },
+    {
+      "rank": 2,
+      "country": "Greenland",
+      "code": "GRL",
+      "rate_per_100k": 236.88
+    },
+    {
+      "rank": 3,
+      "country": "Monaco",
+      "code": "MCO",
+      "rate_per_100k": 233.33
+    },
+    {
+      "rank": 4,
+      "country": "Dominica",
+      "code": "DMA",
+      "rate_per_100k": 202.52
+    },
+    {
+      "rank": 5,
+      "country": "Brunei",
+      "code": "BRN",
+      "rate_per_100k": 201.71
+    },
+    {
+      "rank": 6,
+      "country": "Solomon Islands",
+      "code": "SLB",
+      "rate_per_100k": 191.04
+    },
+    {
+      "rank": 7,
+      "country": "Nauru",
+      "code": "NRU",
+      "rate_per_100k": 185.35
+    },
+    {
+      "rank": 8,
+      "country": "United States Virgin Islands",
+      "code": "VIR",
+      "rate_per_100k": 184.32
+    },
+    {
+      "rank": 9,
+      "country": "Palau",
+      "code": "PLW",
+      "rate_per_100k": 184.22
+    },
+    {
+      "rank": 10,
+      "country": "Kiribati",
+      "code": "KIR",
+      "rate_per_100k": 183.97
+    },
+    {
+      "rank": 11,
+      "country": "Uruguay",
+      "code": "URY",
+      "rate_per_100k": 183.88
+    },
+    {
+      "rank": 12,
+      "country": "Serbia",
+      "code": "SRB",
+      "rate_per_100k": 183.63
+    },
+    {
+      "rank": 13,
+      "country": "Hungary",
+      "code": "HUN",
+      "rate_per_100k": 181.93
+    },
+    {
+      "rank": 14,
+      "country": "Zimbabwe",
+      "code": "ZWE",
+      "rate_per_100k": 180.93
+    },
+    {
+      "rank": 15,
+      "country": "Lesotho",
+      "code": "LSO",
+      "rate_per_100k": 179.78
+    },
+    {
+      "rank": 16,
+      "country": "Grenada",
+      "code": "GRD",
+      "rate_per_100k": 176.37
+    },
+    {
+      "rank": 17,
+      "country": "Poland",
+      "code": "POL",
+      "rate_per_100k": 175.21
+    },
+    {
+      "rank": 18,
+      "country": "North Macedonia",
+      "code": "MKD",
+      "rate_per_100k": 174.55
+    },
+    {
+      "rank": 19,
+      "country": "San Marino",
+      "code": "SMR",
+      "rate_per_100k": 174.14
+    },
+    {
+      "rank": 20,
+      "country": "Northern Mariana Islands",
+      "code": "MNP",
+      "rate_per_100k": 172.72
+    },
+    {
+      "rank": 21,
+      "country": "Eswatini",
+      "code": "SWZ",
+      "rate_per_100k": 172.64
+    },
+    {
+      "rank": 22,
+      "country": "Seychelles",
+      "code": "SYC",
+      "rate_per_100k": 172.53
+    },
+    {
+      "rank": 23,
+      "country": "Cape Verde",
+      "code": "CPV",
+      "rate_per_100k": 171.51
+    },
+    {
+      "rank": 24,
+      "country": "Barbados",
+      "code": "BRB",
+      "rate_per_100k": 170.44
+    },
+    {
+      "rank": 25,
+      "country": "Montenegro",
+      "code": "MNE",
+      "rate_per_100k": 170.12
+    },
+    {
+      "rank": 26,
+      "country": "Micronesia (country)",
+      "code": "FSM",
+      "rate_per_100k": 168.85
+    },
+    {
+      "rank": 27,
+      "country": "Bolivia",
+      "code": "BOL",
+      "rate_per_100k": 167.12
+    },
+    {
+      "rank": 28,
+      "country": "Saint Kitts and Nevis",
+      "code": "KNA",
+      "rate_per_100k": 165.67
+    },
+    {
+      "rank": 29,
+      "country": "Marshall Islands",
+      "code": "MHL",
+      "rate_per_100k": 163.18
+    },
+    {
+      "rank": 30,
+      "country": "Netherlands",
+      "code": "NLD",
+      "rate_per_100k": 162.99
+    },
+    {
+      "rank": 31,
+      "country": "Bosnia and Herzegovina",
+      "code": "BIH",
+      "rate_per_100k": 161.97
+    },
+    {
+      "rank": 32,
+      "country": "Andorra",
+      "code": "AND",
+      "rate_per_100k": 161.38
+    },
+    {
+      "rank": 33,
+      "country": "Saint Vincent and the Grenadines",
+      "code": "VCT",
+      "rate_per_100k": 161.06
+    },
+    {
+      "rank": 34,
+      "country": "Bulgaria",
+      "code": "BGR",
+      "rate_per_100k": 161.01
+    },
+    {
+      "rank": 35,
+      "country": "Tonga",
+      "code": "TON",
+      "rate_per_100k": 160.85
+    },
+    {
+      "rank": 36,
+      "country": "Croatia",
+      "code": "HRV",
+      "rate_per_100k": 159.83
+    },
+    {
+      "rank": 37,
+      "country": "Argentina",
+      "code": "ARG",
+      "rate_per_100k": 158.02
+    },
+    {
+      "rank": 38,
+      "country": "Botswana",
+      "code": "BWA",
+      "rate_per_100k": 157.95
+    },
+    {
+      "rank": 39,
+      "country": "Denmark",
+      "code": "DNK",
+      "rate_per_100k": 157.62
+    },
+    {
+      "rank": 40,
+      "country": "Bahamas",
+      "code": "BHS",
+      "rate_per_100k": 155.27
+    },
+    {
+      "rank": 41,
+      "country": "Pakistan",
+      "code": "PAK",
+      "rate_per_100k": 153.52
+    },
+    {
+      "rank": 42,
+      "country": "Afghanistan",
+      "code": "AFG",
+      "rate_per_100k": 153.3
+    },
+    {
+      "rank": 43,
+      "country": "American Samoa",
+      "code": "ASM",
+      "rate_per_100k": 153.15
+    },
+    {
+      "rank": 44,
+      "country": "Slovakia",
+      "code": "SVK",
+      "rate_per_100k": 152.85
+    },
+    {
+      "rank": 45,
+      "country": "Haiti",
+      "code": "HTI",
+      "rate_per_100k": 151.68
+    },
+    {
+      "rank": 46,
+      "country": "United Kingdom",
+      "code": "GBR",
+      "rate_per_100k": 150.91
+    },
+    {
+      "rank": 47,
+      "country": "Guinea",
+      "code": "GIN",
+      "rate_per_100k": 149.09
+    },
+    {
+      "rank": 48,
+      "country": "Romania",
+      "code": "ROU",
+      "rate_per_100k": 148.34
+    },
+    {
+      "rank": 49,
+      "country": "Antigua and Barbuda",
+      "code": "ATG",
+      "rate_per_100k": 146.11
+    },
+    {
+      "rank": 50,
+      "country": "Cuba",
+      "code": "CUB",
+      "rate_per_100k": 146.09
+    },
+    {
+      "rank": 51,
+      "country": "Czechia",
+      "code": "CZE",
+      "rate_per_100k": 145.92
+    },
+    {
+      "rank": 52,
+      "country": "Taiwan",
+      "code": "TWN",
+      "rate_per_100k": 145.85
+    },
+    {
+      "rank": 53,
+      "country": "Uganda",
+      "code": "UGA",
+      "rate_per_100k": 145.81
+    },
+    {
+      "rank": 54,
+      "country": "Saint Lucia",
+      "code": "LCA",
+      "rate_per_100k": 145.65
+    },
+    {
+      "rank": 55,
+      "country": "Georgia",
+      "code": "GEO",
+      "rate_per_100k": 145.24
+    },
+    {
+      "rank": 56,
+      "country": "Estonia",
+      "code": "EST",
+      "rate_per_100k": 144.75
+    },
+    {
+      "rank": 57,
+      "country": "Slovenia",
+      "code": "SVN",
+      "rate_per_100k": 144.39
+    },
+    {
+      "rank": 58,
+      "country": "Qatar",
+      "code": "QAT",
+      "rate_per_100k": 144.39
+    },
+    {
+      "rank": 59,
+      "country": "Lebanon",
+      "code": "LBN",
+      "rate_per_100k": 144.29
+    },
+    {
+      "rank": 60,
+      "country": "Belgium",
+      "code": "BEL",
+      "rate_per_100k": 143.86
+    },
+    {
+      "rank": 61,
+      "country": "Jamaica",
+      "code": "JAM",
+      "rate_per_100k": 143.82
+    },
+    {
+      "rank": 62,
+      "country": "Gabon",
+      "code": "GAB",
+      "rate_per_100k": 143.74
+    },
+    {
+      "rank": 63,
+      "country": "Latvia",
+      "code": "LVA",
+      "rate_per_100k": 143.38
+    },
+    {
+      "rank": 64,
+      "country": "Greece",
+      "code": "GRC",
+      "rate_per_100k": 143.32
+    },
+    {
+      "rank": 65,
+      "country": "Armenia",
+      "code": "ARM",
+      "rate_per_100k": 143.19
+    },
+    {
+      "rank": 66,
+      "country": "United Arab Emirates",
+      "code": "ARE",
+      "rate_per_100k": 141.38
+    },
+    {
+      "rank": 67,
+      "country": "Tuvalu",
+      "code": "TUV",
+      "rate_per_100k": 141.14
+    },
+    {
+      "rank": 68,
+      "country": "Sao Tome and Principe",
+      "code": "STP",
+      "rate_per_100k": 141.13
+    },
+    {
+      "rank": 69,
+      "country": "China",
+      "code": "CHN",
+      "rate_per_100k": 140.92
+    },
+    {
+      "rank": 70,
+      "country": "France",
+      "code": "FRA",
+      "rate_per_100k": 140.53
+    },
+    {
+      "rank": 71,
+      "country": "Germany",
+      "code": "DEU",
+      "rate_per_100k": 140.45
+    },
+    {
+      "rank": 72,
+      "country": "Lithuania",
+      "code": "LTU",
+      "rate_per_100k": 140.05
+    },
+    {
+      "rank": 73,
+      "country": "Niue",
+      "code": "NIU",
+      "rate_per_100k": 138.81
+    },
+    {
+      "rank": 74,
+      "country": "Ireland",
+      "code": "IRL",
+      "rate_per_100k": 137.85
+    },
+    {
+      "rank": 75,
+      "country": "Zambia",
+      "code": "ZMB",
+      "rate_per_100k": 137.6
+    },
+    {
+      "rank": 76,
+      "country": "United States",
+      "code": "USA",
+      "rate_per_100k": 137.37
+    },
+    {
+      "rank": 77,
+      "country": "Ukraine",
+      "code": "UKR",
+      "rate_per_100k": 136.96
+    },
+    {
+      "rank": 78,
+      "country": "Bermuda",
+      "code": "BMU",
+      "rate_per_100k": 136.24
+    },
+    {
+      "rank": 79,
+      "country": "Vanuatu",
+      "code": "VUT",
+      "rate_per_100k": 134.97
+    },
+    {
+      "rank": 80,
+      "country": "New Zealand",
+      "code": "NZL",
+      "rate_per_100k": 134.62
+    },
+    {
+      "rank": 81,
+      "country": "Canada",
+      "code": "CAN",
+      "rate_per_100k": 133.28
+    },
+    {
+      "rank": 82,
+      "country": "Congo",
+      "code": "COG",
+      "rate_per_100k": 133.08
+    },
+    {
+      "rank": 83,
+      "country": "Cook Islands",
+      "code": "COK",
+      "rate_per_100k": 133.06
+    },
+    {
+      "rank": 84,
+      "country": "Chile",
+      "code": "CHL",
+      "rate_per_100k": 132.98
+    },
+    {
+      "rank": 85,
+      "country": "Guinea-Bissau",
+      "code": "GNB",
+      "rate_per_100k": 132.41
+    },
+    {
+      "rank": 86,
+      "country": "Honduras",
+      "code": "HND",
+      "rate_per_100k": 132.04
+    },
+    {
+      "rank": 87,
+      "country": "Azerbaijan",
+      "code": "AZE",
+      "rate_per_100k": 131.85
+    },
+    {
+      "rank": 88,
+      "country": "Portugal",
+      "code": "PRT",
+      "rate_per_100k": 131.1
+    },
+    {
+      "rank": 89,
+      "country": "Guyana",
+      "code": "GUY",
+      "rate_per_100k": 130.62
+    },
+    {
+      "rank": 90,
+      "country": "Equatorial Guinea",
+      "code": "GNQ",
+      "rate_per_100k": 129.76
+    },
+    {
+      "rank": 91,
+      "country": "Eritrea",
+      "code": "ERI",
+      "rate_per_100k": 129.54
+    },
+    {
+      "rank": 92,
+      "country": "Italy",
+      "code": "ITA",
+      "rate_per_100k": 129.14
+    },
+    {
+      "rank": 93,
+      "country": "Russia",
+      "code": "RUS",
+      "rate_per_100k": 128.45
+    },
+    {
+      "rank": 94,
+      "country": "Norway",
+      "code": "NOR",
+      "rate_per_100k": 128.38
+    },
+    {
+      "rank": 95,
+      "country": "South Africa",
+      "code": "ZAF",
+      "rate_per_100k": 128.24
+    },
+    {
+      "rank": 96,
+      "country": "North Korea",
+      "code": "PRK",
+      "rate_per_100k": 128.14
+    },
+    {
+      "rank": 97,
+      "country": "Luxembourg",
+      "code": "LUX",
+      "rate_per_100k": 127.51
+    },
+    {
+      "rank": 98,
+      "country": "Palestine",
+      "code": "PSE",
+      "rate_per_100k": 127.43
+    },
+    {
+      "rank": 99,
+      "country": "Spain",
+      "code": "ESP",
+      "rate_per_100k": 127.38
+    },
+    {
+      "rank": 100,
+      "country": "Malawi",
+      "code": "MWI",
+      "rate_per_100k": 126.8
+    },
+    {
+      "rank": 101,
+      "country": "Belarus",
+      "code": "BLR",
+      "rate_per_100k": 126.28
+    },
+    {
+      "rank": 102,
+      "country": "Djibouti",
+      "code": "DJI",
+      "rate_per_100k": 126.14
+    },
+    {
+      "rank": 103,
+      "country": "Australia",
+      "code": "AUS",
+      "rate_per_100k": 126.1
+    },
+    {
+      "rank": 104,
+      "country": "Cambodia",
+      "code": "KHM",
+      "rate_per_100k": 125.26
+    },
+    {
+      "rank": 105,
+      "country": "Tokelau",
+      "code": "TKL",
+      "rate_per_100k": 125.16
+    },
+    {
+      "rank": 106,
+      "country": "Israel",
+      "code": "ISR",
+      "rate_per_100k": 124.17
+    },
+    {
+      "rank": 107,
+      "country": "Kazakhstan",
+      "code": "KAZ",
+      "rate_per_100k": 123.27
+    },
+    {
+      "rank": 108,
+      "country": "Malaysia",
+      "code": "MYS",
+      "rate_per_100k": 122.96
+    },
+    {
+      "rank": 109,
+      "country": "Suriname",
+      "code": "SUR",
+      "rate_per_100k": 122.81
+    },
+    {
+      "rank": 110,
+      "country": "Vietnam",
+      "code": "VNM",
+      "rate_per_100k": 122.72
+    },
+    {
+      "rank": 111,
+      "country": "Austria",
+      "code": "AUT",
+      "rate_per_100k": 122.34
+    },
+    {
+      "rank": 112,
+      "country": "Venezuela",
+      "code": "VEN",
+      "rate_per_100k": 122.2
+    },
+    {
+      "rank": 113,
+      "country": "Cameroon",
+      "code": "CMR",
+      "rate_per_100k": 121.92
+    },
+    {
+      "rank": 114,
+      "country": "Cyprus",
+      "code": "CYP",
+      "rate_per_100k": 121.84
+    },
+    {
+      "rank": 115,
+      "country": "Ecuador",
+      "code": "ECU",
+      "rate_per_100k": 121.82
+    },
+    {
+      "rank": 116,
+      "country": "Tanzania",
+      "code": "TZA",
+      "rate_per_100k": 121.65
+    },
+    {
+      "rank": 117,
+      "country": "Turkey",
+      "code": "TUR",
+      "rate_per_100k": 121.3
+    },
+    {
+      "rank": 118,
+      "country": "Sweden",
+      "code": "SWE",
+      "rate_per_100k": 120.89
+    },
+    {
+      "rank": 119,
+      "country": "South Korea",
+      "code": "KOR",
+      "rate_per_100k": 119.63
+    },
+    {
+      "rank": 120,
+      "country": "Costa Rica",
+      "code": "CRI",
+      "rate_per_100k": 118.76
+    },
+    {
+      "rank": 121,
+      "country": "Dominican Republic",
+      "code": "DOM",
+      "rate_per_100k": 118.73
+    },
+    {
+      "rank": 122,
+      "country": "Fiji",
+      "code": "FJI",
+      "rate_per_100k": 117.45
+    },
+    {
+      "rank": 123,
+      "country": "Rwanda",
+      "code": "RWA",
+      "rate_per_100k": 117.41
+    },
+    {
+      "rank": 124,
+      "country": "Myanmar",
+      "code": "MMR",
+      "rate_per_100k": 117.41
+    },
+    {
+      "rank": 125,
+      "country": "Ghana",
+      "code": "GHA",
+      "rate_per_100k": 117.0
+    },
+    {
+      "rank": 126,
+      "country": "Central African Republic",
+      "code": "CAF",
+      "rate_per_100k": 116.64
+    },
+    {
+      "rank": 127,
+      "country": "Iceland",
+      "code": "ISL",
+      "rate_per_100k": 115.9
+    },
+    {
+      "rank": 128,
+      "country": "Thailand",
+      "code": "THA",
+      "rate_per_100k": 115.72
+    },
+    {
+      "rank": 129,
+      "country": "Papua New Guinea",
+      "code": "PNG",
+      "rate_per_100k": 115.64
+    },
+    {
+      "rank": 130,
+      "country": "Finland",
+      "code": "FIN",
+      "rate_per_100k": 114.95
+    },
+    {
+      "rank": 131,
+      "country": "Angola",
+      "code": "AGO",
+      "rate_per_100k": 114.7
+    },
+    {
+      "rank": 132,
+      "country": "Guatemala",
+      "code": "GTM",
+      "rate_per_100k": 114.64
+    },
+    {
+      "rank": 133,
+      "country": "Mozambique",
+      "code": "MOZ",
+      "rate_per_100k": 114.52
+    },
+    {
+      "rank": 134,
+      "country": "Brazil",
+      "code": "BRA",
+      "rate_per_100k": 114.52
+    },
+    {
+      "rank": 135,
+      "country": "Laos",
+      "code": "LAO",
+      "rate_per_100k": 114.39
+    },
+    {
+      "rank": 136,
+      "country": "Namibia",
+      "code": "NAM",
+      "rate_per_100k": 114.07
+    },
+    {
+      "rank": 137,
+      "country": "Japan",
+      "code": "JPN",
+      "rate_per_100k": 113.51
+    },
+    {
+      "rank": 138,
+      "country": "Albania",
+      "code": "ALB",
+      "rate_per_100k": 113.27
+    },
+    {
+      "rank": 139,
+      "country": "Cote d'Ivoire",
+      "code": "CIV",
+      "rate_per_100k": 113.14
+    },
+    {
+      "rank": 140,
+      "country": "Trinidad and Tobago",
+      "code": "TTO",
+      "rate_per_100k": 112.91
+    },
+    {
+      "rank": 141,
+      "country": "Senegal",
+      "code": "SEN",
+      "rate_per_100k": 112.8
+    },
+    {
+      "rank": 142,
+      "country": "Switzerland",
+      "code": "CHE",
+      "rate_per_100k": 112.71
+    },
+    {
+      "rank": 143,
+      "country": "Comoros",
+      "code": "COM",
+      "rate_per_100k": 112.36
+    },
+    {
+      "rank": 144,
+      "country": "Indonesia",
+      "code": "IDN",
+      "rate_per_100k": 112.25
+    },
+    {
+      "rank": 145,
+      "country": "Paraguay",
+      "code": "PRY",
+      "rate_per_100k": 111.68
+    },
+    {
+      "rank": 146,
+      "country": "Tajikistan",
+      "code": "TJK",
+      "rate_per_100k": 111.58
+    },
+    {
+      "rank": 147,
+      "country": "Guam",
+      "code": "GUM",
+      "rate_per_100k": 110.87
+    },
+    {
+      "rank": 148,
+      "country": "Bahrain",
+      "code": "BHR",
+      "rate_per_100k": 110.44
+    },
+    {
+      "rank": 149,
+      "country": "Moldova",
+      "code": "MDA",
+      "rate_per_100k": 110.02
+    },
+    {
+      "rank": 150,
+      "country": "Belize",
+      "code": "BLZ",
+      "rate_per_100k": 109.41
+    },
+    {
+      "rank": 151,
+      "country": "Malta",
+      "code": "MLT",
+      "rate_per_100k": 108.92
+    },
+    {
+      "rank": 152,
+      "country": "Uzbekistan",
+      "code": "UZB",
+      "rate_per_100k": 108.54
+    },
+    {
+      "rank": 153,
+      "country": "Chad",
+      "code": "TCD",
+      "rate_per_100k": 108.5
+    },
+    {
+      "rank": 154,
+      "country": "Burundi",
+      "code": "BDI",
+      "rate_per_100k": 108.44
+    },
+    {
+      "rank": 155,
+      "country": "Togo",
+      "code": "TGO",
+      "rate_per_100k": 108.29
+    },
+    {
+      "rank": 156,
+      "country": "Burkina Faso",
+      "code": "BFA",
+      "rate_per_100k": 108.27
+    },
+    {
+      "rank": 157,
+      "country": "Samoa",
+      "code": "WSM",
+      "rate_per_100k": 106.76
+    },
+    {
+      "rank": 158,
+      "country": "Libya",
+      "code": "LBY",
+      "rate_per_100k": 106.75
+    },
+    {
+      "rank": 159,
+      "country": "Somalia",
+      "code": "SOM",
+      "rate_per_100k": 106.68
+    },
+    {
+      "rank": 160,
+      "country": "Nicaragua",
+      "code": "NIC",
+      "rate_per_100k": 106.47
+    },
+    {
+      "rank": 161,
+      "country": "Gambia",
+      "code": "GMB",
+      "rate_per_100k": 106.2
+    },
+    {
+      "rank": 162,
+      "country": "Kenya",
+      "code": "KEN",
+      "rate_per_100k": 105.97
+    },
+    {
+      "rank": 163,
+      "country": "Benin",
+      "code": "BEN",
+      "rate_per_100k": 105.96
+    },
+    {
+      "rank": 164,
+      "country": "Mali",
+      "code": "MLI",
+      "rate_per_100k": 105.65
+    },
+    {
+      "rank": 165,
+      "country": "Iraq",
+      "code": "IRQ",
+      "rate_per_100k": 105.49
+    },
+    {
+      "rank": 166,
+      "country": "South Sudan",
+      "code": "SSD",
+      "rate_per_100k": 104.36
+    },
+    {
+      "rank": 167,
+      "country": "Sierra Leone",
+      "code": "SLE",
+      "rate_per_100k": 104.06
+    },
+    {
+      "rank": 168,
+      "country": "Philippines",
+      "code": "PHL",
+      "rate_per_100k": 103.97
+    },
+    {
+      "rank": 169,
+      "country": "Mauritania",
+      "code": "MRT",
+      "rate_per_100k": 103.62
+    },
+    {
+      "rank": 170,
+      "country": "Peru",
+      "code": "PER",
+      "rate_per_100k": 103.58
+    },
+    {
+      "rank": 171,
+      "country": "Timor",
+      "code": "TLS",
+      "rate_per_100k": 103.44
+    },
+    {
+      "rank": 172,
+      "country": "Democratic Republic of Congo",
+      "code": "COD",
+      "rate_per_100k": 103.1
+    },
+    {
+      "rank": 173,
+      "country": "Liberia",
+      "code": "LBR",
+      "rate_per_100k": 102.78
+    },
+    {
+      "rank": 174,
+      "country": "Nepal",
+      "code": "NPL",
+      "rate_per_100k": 99.45
+    },
+    {
+      "rank": 175,
+      "country": "Nigeria",
+      "code": "NGA",
+      "rate_per_100k": 98.24
+    },
+    {
+      "rank": 176,
+      "country": "El Salvador",
+      "code": "SLV",
+      "rate_per_100k": 97.4
+    },
+    {
+      "rank": 177,
+      "country": "Puerto Rico",
+      "code": "PRI",
+      "rate_per_100k": 96.13
+    },
+    {
+      "rank": 178,
+      "country": "Iran",
+      "code": "IRN",
+      "rate_per_100k": 95.78
+    },
+    {
+      "rank": 179,
+      "country": "Panama",
+      "code": "PAN",
+      "rate_per_100k": 95.65
+    },
+    {
+      "rank": 180,
+      "country": "Madagascar",
+      "code": "MDG",
+      "rate_per_100k": 95.58
+    },
+    {
+      "rank": 181,
+      "country": "Colombia",
+      "code": "COL",
+      "rate_per_100k": 93.52
+    },
+    {
+      "rank": 182,
+      "country": "Singapore",
+      "code": "SGP",
+      "rate_per_100k": 93.34
+    },
+    {
+      "rank": 183,
+      "country": "Yemen",
+      "code": "YEM",
+      "rate_per_100k": 93.13
+    },
+    {
+      "rank": 184,
+      "country": "Mexico",
+      "code": "MEX",
+      "rate_per_100k": 92.74
+    },
+    {
+      "rank": 185,
+      "country": "Jordan",
+      "code": "JOR",
+      "rate_per_100k": 91.34
+    },
+    {
+      "rank": 186,
+      "country": "Egypt",
+      "code": "EGY",
+      "rate_per_100k": 90.68
+    },
+    {
+      "rank": 187,
+      "country": "Kyrgyzstan",
+      "code": "KGZ",
+      "rate_per_100k": 90.54
+    },
+    {
+      "rank": 188,
+      "country": "Morocco",
+      "code": "MAR",
+      "rate_per_100k": 90.39
+    },
+    {
+      "rank": 189,
+      "country": "Mauritius",
+      "code": "MUS",
+      "rate_per_100k": 90.33
+    },
+    {
+      "rank": 190,
+      "country": "Oman",
+      "code": "OMN",
+      "rate_per_100k": 89.8
+    },
+    {
+      "rank": 191,
+      "country": "Turkmenistan",
+      "code": "TKM",
+      "rate_per_100k": 89.63
+    },
+    {
+      "rank": 192,
+      "country": "Niger",
+      "code": "NER",
+      "rate_per_100k": 89.2
+    },
+    {
+      "rank": 193,
+      "country": "Sudan",
+      "code": "SDN",
+      "rate_per_100k": 89.0
+    },
+    {
+      "rank": 194,
+      "country": "Ethiopia",
+      "code": "ETH",
+      "rate_per_100k": 87.81
+    },
+    {
+      "rank": 195,
+      "country": "Bhutan",
+      "code": "BTN",
+      "rate_per_100k": 86.63
+    },
+    {
+      "rank": 196,
+      "country": "India",
+      "code": "IND",
+      "rate_per_100k": 83.32
+    },
+    {
+      "rank": 197,
+      "country": "Tunisia",
+      "code": "TUN",
+      "rate_per_100k": 82.83
+    },
+    {
+      "rank": 198,
+      "country": "Bangladesh",
+      "code": "BGD",
+      "rate_per_100k": 82.29
+    },
+    {
+      "rank": 199,
+      "country": "Sri Lanka",
+      "code": "LKA",
+      "rate_per_100k": 76.81
+    },
+    {
+      "rank": 200,
+      "country": "Syria",
+      "code": "SYR",
+      "rate_per_100k": 76.78
+    },
+    {
+      "rank": 201,
+      "country": "Algeria",
+      "code": "DZA",
+      "rate_per_100k": 75.85
+    },
+    {
+      "rank": 202,
+      "country": "Maldives",
+      "code": "MDV",
+      "rate_per_100k": 74.45
+    },
+    {
+      "rank": 203,
+      "country": "Saudi Arabia",
+      "code": "SAU",
+      "rate_per_100k": 73.41
+    },
+    {
+      "rank": 204,
+      "country": "Kuwait",
+      "code": "KWT",
+      "rate_per_100k": 71.26
+    }
+  ],
+  "top_countries_asdr": [
+    {
+      "rank": 1,
+      "country": "Mongolia",
+      "code": "MNG",
+      "rate_per_100k": 284.33
+    },
+    {
+      "rank": 2,
+      "country": "Greenland",
+      "code": "GRL",
+      "rate_per_100k": 236.88
+    },
+    {
+      "rank": 3,
+      "country": "Monaco",
+      "code": "MCO",
+      "rate_per_100k": 233.33
+    },
+    {
+      "rank": 4,
+      "country": "Dominica",
+      "code": "DMA",
+      "rate_per_100k": 202.52
+    },
+    {
+      "rank": 5,
+      "country": "Brunei",
+      "code": "BRN",
+      "rate_per_100k": 201.71
+    },
+    {
+      "rank": 6,
+      "country": "Solomon Islands",
+      "code": "SLB",
+      "rate_per_100k": 191.04
+    },
+    {
+      "rank": 7,
+      "country": "Nauru",
+      "code": "NRU",
+      "rate_per_100k": 185.35
+    },
+    {
+      "rank": 8,
+      "country": "United States Virgin Islands",
+      "code": "VIR",
+      "rate_per_100k": 184.32
+    },
+    {
+      "rank": 9,
+      "country": "Palau",
+      "code": "PLW",
+      "rate_per_100k": 184.22
+    },
+    {
+      "rank": 10,
+      "country": "Kiribati",
+      "code": "KIR",
+      "rate_per_100k": 183.97
+    },
+    {
+      "rank": 11,
+      "country": "Uruguay",
+      "code": "URY",
+      "rate_per_100k": 183.88
+    },
+    {
+      "rank": 12,
+      "country": "Serbia",
+      "code": "SRB",
+      "rate_per_100k": 183.63
+    },
+    {
+      "rank": 13,
+      "country": "Hungary",
+      "code": "HUN",
+      "rate_per_100k": 181.93
+    },
+    {
+      "rank": 14,
+      "country": "Zimbabwe",
+      "code": "ZWE",
+      "rate_per_100k": 180.93
+    },
+    {
+      "rank": 15,
+      "country": "Lesotho",
+      "code": "LSO",
+      "rate_per_100k": 179.78
+    },
+    {
+      "rank": 16,
+      "country": "Grenada",
+      "code": "GRD",
+      "rate_per_100k": 176.37
+    },
+    {
+      "rank": 17,
+      "country": "Poland",
+      "code": "POL",
+      "rate_per_100k": 175.21
+    },
+    {
+      "rank": 18,
+      "country": "North Macedonia",
+      "code": "MKD",
+      "rate_per_100k": 174.55
+    },
+    {
+      "rank": 19,
+      "country": "San Marino",
+      "code": "SMR",
+      "rate_per_100k": 174.14
+    },
+    {
+      "rank": 20,
+      "country": "Northern Mariana Islands",
+      "code": "MNP",
+      "rate_per_100k": 172.72
+    }
+  ],
+  "bottom_countries_asdr": [
+    {
+      "rank": 185,
+      "country": "Jordan",
+      "code": "JOR",
+      "rate_per_100k": 91.34
+    },
+    {
+      "rank": 186,
+      "country": "Egypt",
+      "code": "EGY",
+      "rate_per_100k": 90.68
+    },
+    {
+      "rank": 187,
+      "country": "Kyrgyzstan",
+      "code": "KGZ",
+      "rate_per_100k": 90.54
+    },
+    {
+      "rank": 188,
+      "country": "Morocco",
+      "code": "MAR",
+      "rate_per_100k": 90.39
+    },
+    {
+      "rank": 189,
+      "country": "Mauritius",
+      "code": "MUS",
+      "rate_per_100k": 90.33
+    },
+    {
+      "rank": 190,
+      "country": "Oman",
+      "code": "OMN",
+      "rate_per_100k": 89.8
+    },
+    {
+      "rank": 191,
+      "country": "Turkmenistan",
+      "code": "TKM",
+      "rate_per_100k": 89.63
+    },
+    {
+      "rank": 192,
+      "country": "Niger",
+      "code": "NER",
+      "rate_per_100k": 89.2
+    },
+    {
+      "rank": 193,
+      "country": "Sudan",
+      "code": "SDN",
+      "rate_per_100k": 89.0
+    },
+    {
+      "rank": 194,
+      "country": "Ethiopia",
+      "code": "ETH",
+      "rate_per_100k": 87.81
+    },
+    {
+      "rank": 195,
+      "country": "Bhutan",
+      "code": "BTN",
+      "rate_per_100k": 86.63
+    },
+    {
+      "rank": 196,
+      "country": "India",
+      "code": "IND",
+      "rate_per_100k": 83.32
+    },
+    {
+      "rank": 197,
+      "country": "Tunisia",
+      "code": "TUN",
+      "rate_per_100k": 82.83
+    },
+    {
+      "rank": 198,
+      "country": "Bangladesh",
+      "code": "BGD",
+      "rate_per_100k": 82.29
+    },
+    {
+      "rank": 199,
+      "country": "Sri Lanka",
+      "code": "LKA",
+      "rate_per_100k": 76.81
+    },
+    {
+      "rank": 200,
+      "country": "Syria",
+      "code": "SYR",
+      "rate_per_100k": 76.78
+    },
+    {
+      "rank": 201,
+      "country": "Algeria",
+      "code": "DZA",
+      "rate_per_100k": 75.85
+    },
+    {
+      "rank": 202,
+      "country": "Maldives",
+      "code": "MDV",
+      "rate_per_100k": 74.45
+    },
+    {
+      "rank": 203,
+      "country": "Saudi Arabia",
+      "code": "SAU",
+      "rate_per_100k": 73.41
+    },
+    {
+      "rank": 204,
+      "country": "Kuwait",
+      "code": "KWT",
+      "rate_per_100k": 71.26
+    }
+  ],
+  "gdp_vs_mortality": [
+    {
+      "country": "Afghanistan",
+      "code": "AFG",
+      "year": 2019,
+      "gdp_per_capita": 2065.04,
+      "cancer_death_rate": 153.3,
+      "population": 38041757,
+      "continent": "Asia"
+    },
+    {
+      "country": "Albania",
+      "code": "ALB",
+      "year": 2019,
+      "gdp_per_capita": 13671.49,
+      "cancer_death_rate": 113.27,
+      "population": 2880913,
+      "continent": "Europe"
+    },
+    {
+      "country": "Algeria",
+      "code": "DZA",
+      "year": 2019,
+      "gdp_per_capita": 11510.56,
+      "cancer_death_rate": 75.85,
+      "population": 43053054,
+      "continent": "Africa"
+    },
+    {
+      "country": "Angola",
+      "code": "AGO",
+      "year": 2019,
+      "gdp_per_capita": 6670.33,
+      "cancer_death_rate": 114.7,
+      "population": 31825299,
+      "continent": "Africa"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "code": "ATG",
+      "year": 2019,
+      "gdp_per_capita": 21548.73,
+      "cancer_death_rate": 146.11,
+      "population": 97115,
+      "continent": "North America"
+    },
+    {
+      "country": "Argentina",
+      "code": "ARG",
+      "year": 2019,
+      "gdp_per_capita": 22063.9,
+      "cancer_death_rate": 158.02,
+      "population": 44780675,
+      "continent": "South America"
+    },
+    {
+      "country": "Armenia",
+      "code": "ARM",
+      "year": 2019,
+      "gdp_per_capita": 13653.76,
+      "cancer_death_rate": 143.19,
+      "population": 2957728,
+      "continent": "Asia"
+    },
+    {
+      "country": "Australia",
+      "code": "AUS",
+      "year": 2019,
+      "gdp_per_capita": 49455.54,
+      "cancer_death_rate": 126.1,
+      "population": 25203200,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Austria",
+      "code": "AUT",
+      "year": 2019,
+      "gdp_per_capita": 55833.32,
+      "cancer_death_rate": 122.34,
+      "population": 8955108,
+      "continent": "Europe"
+    },
+    {
+      "country": "Azerbaijan",
+      "code": "AZE",
+      "year": 2019,
+      "gdp_per_capita": 14439.3,
+      "cancer_death_rate": 131.85,
+      "population": 10047719,
+      "continent": "Asia"
+    },
+    {
+      "country": "Bahamas",
+      "code": "BHS",
+      "year": 2019,
+      "gdp_per_capita": 37100.36,
+      "cancer_death_rate": 155.27,
+      "population": 389486,
+      "continent": "North America"
+    },
+    {
+      "country": "Bahrain",
+      "code": "BHR",
+      "year": 2019,
+      "gdp_per_capita": 45060.42,
+      "cancer_death_rate": 110.44,
+      "population": 1641164,
+      "continent": "Asia"
+    },
+    {
+      "country": "Bangladesh",
+      "code": "BGD",
+      "year": 2019,
+      "gdp_per_capita": 4753.73,
+      "cancer_death_rate": 82.29,
+      "population": 163046173,
+      "continent": "Asia"
+    },
+    {
+      "country": "Barbados",
+      "code": "BRB",
+      "year": 2019,
+      "gdp_per_capita": 15639.05,
+      "cancer_death_rate": 170.44,
+      "population": 287021,
+      "continent": "North America"
+    },
+    {
+      "country": "Belarus",
+      "code": "BLR",
+      "year": 2019,
+      "gdp_per_capita": 19283.12,
+      "cancer_death_rate": 126.28,
+      "population": 9452409,
+      "continent": "Europe"
+    },
+    {
+      "country": "Belgium",
+      "code": "BEL",
+      "year": 2019,
+      "gdp_per_capita": 51742.73,
+      "cancer_death_rate": 143.86,
+      "population": 11539326,
+      "continent": "Europe"
+    },
+    {
+      "country": "Belize",
+      "code": "BLZ",
+      "year": 2019,
+      "gdp_per_capita": 7251.92,
+      "cancer_death_rate": 109.41,
+      "population": 390351,
+      "continent": "North America"
+    },
+    {
+      "country": "Benin",
+      "code": "BEN",
+      "year": 2019,
+      "gdp_per_capita": 3287.31,
+      "cancer_death_rate": 105.96,
+      "population": 11801151,
+      "continent": "Africa"
+    },
+    {
+      "country": "Bermuda",
+      "code": "BMU",
+      "year": 2019,
+      "gdp_per_capita": 81804.27,
+      "cancer_death_rate": 136.24,
+      "population": 62508,
+      "continent": "North America"
+    },
+    {
+      "country": "Bhutan",
+      "code": "BTN",
+      "year": 2019,
+      "gdp_per_capita": 11832.16,
+      "cancer_death_rate": 86.63,
+      "population": 763094,
+      "continent": "Asia"
+    },
+    {
+      "country": "Bolivia",
+      "code": "BOL",
+      "year": 2019,
+      "gdp_per_capita": 8724.47,
+      "cancer_death_rate": 167.12,
+      "population": 11513102,
+      "continent": "South America"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "code": "BIH",
+      "year": 2019,
+      "gdp_per_capita": 14896.79,
+      "cancer_death_rate": 161.97,
+      "population": 3300998,
+      "continent": "Europe"
+    },
+    {
+      "country": "Botswana",
+      "code": "BWA",
+      "year": 2019,
+      "gdp_per_capita": 17776.81,
+      "cancer_death_rate": 157.95,
+      "population": 2303703,
+      "continent": "Africa"
+    },
+    {
+      "country": "Brazil",
+      "code": "BRA",
+      "year": 2019,
+      "gdp_per_capita": 14763.87,
+      "cancer_death_rate": 114.52,
+      "population": 211049519,
+      "continent": "South America"
+    },
+    {
+      "country": "Brunei",
+      "code": "BRN",
+      "year": 2019,
+      "gdp_per_capita": 62098.01,
+      "cancer_death_rate": 201.71,
+      "population": 433296,
+      "continent": "Asia"
+    },
+    {
+      "country": "Bulgaria",
+      "code": "BGR",
+      "year": 2019,
+      "gdp_per_capita": 23191.57,
+      "cancer_death_rate": 161.01,
+      "population": 7000117,
+      "continent": "Europe"
+    },
+    {
+      "country": "Burkina Faso",
+      "code": "BFA",
+      "year": 2019,
+      "gdp_per_capita": 2178.32,
+      "cancer_death_rate": 108.27,
+      "population": 20321383,
+      "continent": "Africa"
+    },
+    {
+      "country": "Burundi",
+      "code": "BDI",
+      "year": 2019,
+      "gdp_per_capita": 751.66,
+      "cancer_death_rate": 108.44,
+      "population": 11530577,
+      "continent": "Africa"
+    },
+    {
+      "country": "Cambodia",
+      "code": "KHM",
+      "year": 2019,
+      "gdp_per_capita": 4388.8,
+      "cancer_death_rate": 125.26,
+      "population": 16486542,
+      "continent": "Asia"
+    },
+    {
+      "country": "Cameroon",
+      "code": "CMR",
+      "year": 2019,
+      "gdp_per_capita": 3642.28,
+      "cancer_death_rate": 121.92,
+      "population": 25876387,
+      "continent": "Africa"
+    },
+    {
+      "country": "Canada",
+      "code": "CAN",
+      "year": 2019,
+      "gdp_per_capita": 49006.74,
+      "cancer_death_rate": 133.28,
+      "population": 37411038,
+      "continent": "North America"
+    },
+    {
+      "country": "Cape Verde",
+      "code": "CPV",
+      "year": 2019,
+      "gdp_per_capita": 7171.83,
+      "cancer_death_rate": 171.51,
+      "population": 549936,
+      "continent": "Africa"
+    },
+    {
+      "country": "Central African Republic",
+      "code": "CAF",
+      "year": 2019,
+      "gdp_per_capita": 945.14,
+      "cancer_death_rate": 116.64,
+      "population": 4745179,
+      "continent": "Africa"
+    },
+    {
+      "country": "Chad",
+      "code": "TCD",
+      "year": 2019,
+      "gdp_per_capita": 1579.63,
+      "cancer_death_rate": 108.5,
+      "population": 15946882,
+      "continent": "Africa"
+    },
+    {
+      "country": "Chile",
+      "code": "CHL",
+      "year": 2019,
+      "gdp_per_capita": 24967.58,
+      "cancer_death_rate": 132.98,
+      "population": 18952035,
+      "continent": "South America"
+    },
+    {
+      "country": "China",
+      "code": "CHN",
+      "year": 2019,
+      "gdp_per_capita": 16092.3,
+      "cancer_death_rate": 140.92,
+      "population": 1433783692,
+      "continent": "Asia"
+    },
+    {
+      "country": "Colombia",
+      "code": "COL",
+      "year": 2019,
+      "gdp_per_capita": 14585.3,
+      "cancer_death_rate": 93.52,
+      "population": 50339443,
+      "continent": "South America"
+    },
+    {
+      "country": "Comoros",
+      "code": "COM",
+      "year": 2019,
+      "gdp_per_capita": 3059.49,
+      "cancer_death_rate": 112.36,
+      "population": 850891,
+      "continent": "Africa"
+    },
+    {
+      "country": "Congo",
+      "code": "COG",
+      "year": 2019,
+      "gdp_per_capita": 3842.8,
+      "cancer_death_rate": 133.08,
+      "population": 5380504,
+      "continent": "Africa"
+    },
+    {
+      "country": "Costa Rica",
+      "code": "CRI",
+      "year": 2019,
+      "gdp_per_capita": 20805.34,
+      "cancer_death_rate": 118.76,
+      "population": 5047561,
+      "continent": "North America"
+    },
+    {
+      "country": "Cote d'Ivoire",
+      "code": "CIV",
+      "year": 2019,
+      "gdp_per_capita": 5212.55,
+      "cancer_death_rate": 113.14,
+      "population": 25716554,
+      "continent": "Africa"
+    },
+    {
+      "country": "Croatia",
+      "code": "HRV",
+      "year": 2019,
+      "gdp_per_capita": 28753.52,
+      "cancer_death_rate": 159.83,
+      "population": 4130299,
+      "continent": "Europe"
+    },
+    {
+      "country": "Cyprus",
+      "code": "CYP",
+      "year": 2019,
+      "gdp_per_capita": 40226.81,
+      "cancer_death_rate": 121.84,
+      "population": 1198574,
+      "continent": "Europe"
+    },
+    {
+      "country": "Czechia",
+      "code": "CZE",
+      "year": 2019,
+      "gdp_per_capita": 40696.31,
+      "cancer_death_rate": 145.92,
+      "population": 10689213,
+      "continent": "Europe"
+    },
+    {
+      "country": "Democratic Republic of Congo",
+      "code": "COD",
+      "year": 2019,
+      "gdp_per_capita": 1097.95,
+      "cancer_death_rate": 103.1,
+      "population": 86790568,
+      "continent": "Africa"
+    },
+    {
+      "country": "Denmark",
+      "code": "DNK",
+      "year": 2019,
+      "gdp_per_capita": 57678.1,
+      "cancer_death_rate": 157.62,
+      "population": 5771877,
+      "continent": "Europe"
+    },
+    {
+      "country": "Djibouti",
+      "code": "DJI",
+      "year": 2019,
+      "gdp_per_capita": 5534.77,
+      "cancer_death_rate": 126.14,
+      "population": 973557,
+      "continent": "Africa"
+    },
+    {
+      "country": "Dominica",
+      "code": "DMA",
+      "year": 2019,
+      "gdp_per_capita": 11905.87,
+      "cancer_death_rate": 202.52,
+      "population": 71808,
+      "continent": "North America"
+    },
+    {
+      "country": "Dominican Republic",
+      "code": "DOM",
+      "year": 2019,
+      "gdp_per_capita": 18412.9,
+      "cancer_death_rate": 118.73,
+      "population": 10738957,
+      "continent": "North America"
+    },
+    {
+      "country": "Ecuador",
+      "code": "ECU",
+      "year": 2019,
+      "gdp_per_capita": 11370.6,
+      "cancer_death_rate": 121.82,
+      "population": 17373657,
+      "continent": "South America"
+    },
+    {
+      "country": "Egypt",
+      "code": "EGY",
+      "year": 2019,
+      "gdp_per_capita": 11763.25,
+      "cancer_death_rate": 90.68,
+      "population": 100388076,
+      "continent": "Africa"
+    },
+    {
+      "country": "El Salvador",
+      "code": "SLV",
+      "year": 2019,
+      "gdp_per_capita": 8796.06,
+      "cancer_death_rate": 97.4,
+      "population": 6453550,
+      "continent": "North America"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "code": "GNQ",
+      "year": 2019,
+      "gdp_per_capita": 18502.56,
+      "cancer_death_rate": 129.76,
+      "population": 1355982,
+      "continent": "Africa"
+    },
+    {
+      "country": "Estonia",
+      "code": "EST",
+      "year": 2019,
+      "gdp_per_capita": 36830.07,
+      "cancer_death_rate": 144.75,
+      "population": 1325649,
+      "continent": "Europe"
+    },
+    {
+      "country": "Eswatini",
+      "code": "SWZ",
+      "year": 2019,
+      "gdp_per_capita": 8621.8,
+      "cancer_death_rate": 172.64,
+      "population": 1148133,
+      "continent": "Africa"
+    },
+    {
+      "country": "Ethiopia",
+      "code": "ETH",
+      "year": 2019,
+      "gdp_per_capita": 2221.4,
+      "cancer_death_rate": 87.81,
+      "population": 112078727,
+      "continent": "Africa"
+    },
+    {
+      "country": "Fiji",
+      "code": "FJI",
+      "year": 2019,
+      "gdp_per_capita": 13684.36,
+      "cancer_death_rate": 117.45,
+      "population": 889955,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Finland",
+      "code": "FIN",
+      "year": 2019,
+      "gdp_per_capita": 48689.23,
+      "cancer_death_rate": 114.95,
+      "population": 5532159,
+      "continent": "Europe"
+    },
+    {
+      "country": "France",
+      "code": "FRA",
+      "year": 2019,
+      "gdp_per_capita": 45834.17,
+      "cancer_death_rate": 140.53,
+      "population": 65129731,
+      "continent": "Europe"
+    },
+    {
+      "country": "Gabon",
+      "code": "GAB",
+      "year": 2019,
+      "gdp_per_capita": 14950.08,
+      "cancer_death_rate": 143.74,
+      "population": 2172578,
+      "continent": "Africa"
+    },
+    {
+      "country": "Gambia",
+      "code": "GMB",
+      "year": 2019,
+      "gdp_per_capita": 2222.88,
+      "cancer_death_rate": 106.2,
+      "population": 2347696,
+      "continent": "Africa"
+    },
+    {
+      "country": "Georgia",
+      "code": "GEO",
+      "year": 2019,
+      "gdp_per_capita": 14989.26,
+      "cancer_death_rate": 145.24,
+      "population": 3996762,
+      "continent": "Asia"
+    },
+    {
+      "country": "Germany",
+      "code": "DEU",
+      "year": 2019,
+      "gdp_per_capita": 53639.26,
+      "cancer_death_rate": 140.45,
+      "population": 83517046,
+      "continent": "Europe"
+    },
+    {
+      "country": "Ghana",
+      "code": "GHA",
+      "year": 2019,
+      "gdp_per_capita": 5396.87,
+      "cancer_death_rate": 117.0,
+      "population": 30417858,
+      "continent": "Africa"
+    },
+    {
+      "country": "Greece",
+      "code": "GRC",
+      "year": 2019,
+      "gdp_per_capita": 29723.22,
+      "cancer_death_rate": 143.32,
+      "population": 10473452,
+      "continent": "Europe"
+    },
+    {
+      "country": "Grenada",
+      "code": "GRD",
+      "year": 2019,
+      "gdp_per_capita": 17050.29,
+      "cancer_death_rate": 176.37,
+      "population": 112002,
+      "continent": "North America"
+    },
+    {
+      "country": "Guatemala",
+      "code": "GTM",
+      "year": 2019,
+      "gdp_per_capita": 8653.31,
+      "cancer_death_rate": 114.64,
+      "population": 17581476,
+      "continent": "North America"
+    },
+    {
+      "country": "Guinea",
+      "code": "GIN",
+      "year": 2019,
+      "gdp_per_capita": 2567.03,
+      "cancer_death_rate": 149.09,
+      "population": 12771246,
+      "continent": "Africa"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "code": "GNB",
+      "year": 2019,
+      "gdp_per_capita": 1939.29,
+      "cancer_death_rate": 132.41,
+      "population": 1920917,
+      "continent": "Africa"
+    },
+    {
+      "country": "Guyana",
+      "code": "GUY",
+      "year": 2019,
+      "gdp_per_capita": 13082.2,
+      "cancer_death_rate": 130.62,
+      "population": 782775,
+      "continent": "South America"
+    },
+    {
+      "country": "Haiti",
+      "code": "HTI",
+      "year": 2019,
+      "gdp_per_capita": 2905.44,
+      "cancer_death_rate": 151.68,
+      "population": 11263079,
+      "continent": "North America"
+    },
+    {
+      "country": "Honduras",
+      "code": "HND",
+      "year": 2019,
+      "gdp_per_capita": 5736.18,
+      "cancer_death_rate": 132.04,
+      "population": 9746115,
+      "continent": "North America"
+    },
+    {
+      "country": "Hungary",
+      "code": "HUN",
+      "year": 2019,
+      "gdp_per_capita": 32553.52,
+      "cancer_death_rate": 181.93,
+      "population": 9684680,
+      "continent": "Europe"
+    },
+    {
+      "country": "Iceland",
+      "code": "ISL",
+      "year": 2019,
+      "gdp_per_capita": 56913.96,
+      "cancer_death_rate": 115.9,
+      "population": 339037,
+      "continent": "Europe"
+    },
+    {
+      "country": "India",
+      "code": "IND",
+      "year": 2019,
+      "gdp_per_capita": 6713.93,
+      "cancer_death_rate": 83.32,
+      "population": 1366417756,
+      "continent": "Asia"
+    },
+    {
+      "country": "Indonesia",
+      "code": "IDN",
+      "year": 2019,
+      "gdp_per_capita": 11811.98,
+      "cancer_death_rate": 112.25,
+      "population": 270625567,
+      "continent": "Asia"
+    },
+    {
+      "country": "Iran",
+      "code": "IRN",
+      "year": 2019,
+      "gdp_per_capita": 12389.22,
+      "cancer_death_rate": 95.78,
+      "population": 82913893,
+      "continent": "Asia"
+    },
+    {
+      "country": "Iraq",
+      "code": "IRQ",
+      "year": 2019,
+      "gdp_per_capita": 10565.25,
+      "cancer_death_rate": 105.49,
+      "population": 39309789,
+      "continent": "Asia"
+    },
+    {
+      "country": "Ireland",
+      "code": "IRL",
+      "year": 2019,
+      "gdp_per_capita": 87786.16,
+      "cancer_death_rate": 137.85,
+      "population": 4882498,
+      "continent": "Europe"
+    },
+    {
+      "country": "Israel",
+      "code": "ISR",
+      "year": 2019,
+      "gdp_per_capita": 40007.32,
+      "cancer_death_rate": 124.17,
+      "population": 8519373,
+      "continent": "Asia"
+    },
+    {
+      "country": "Italy",
+      "code": "ITA",
+      "year": 2019,
+      "gdp_per_capita": 42662.52,
+      "cancer_death_rate": 129.14,
+      "population": 60550092,
+      "continent": "Europe"
+    },
+    {
+      "country": "Jamaica",
+      "code": "JAM",
+      "year": 2019,
+      "gdp_per_capita": 9777.01,
+      "cancer_death_rate": 143.82,
+      "population": 2948277,
+      "continent": "North America"
+    },
+    {
+      "country": "Japan",
+      "code": "JPN",
+      "year": 2019,
+      "gdp_per_capita": 41380.09,
+      "cancer_death_rate": 113.51,
+      "population": 126860299,
+      "continent": "Asia"
+    },
+    {
+      "country": "Jordan",
+      "code": "JOR",
+      "year": 2019,
+      "gdp_per_capita": 10071.38,
+      "cancer_death_rate": 91.34,
+      "population": 10101697,
+      "continent": "Asia"
+    },
+    {
+      "country": "Kazakhstan",
+      "code": "KAZ",
+      "year": 2019,
+      "gdp_per_capita": 26351.8,
+      "cancer_death_rate": 123.27,
+      "population": 18551428,
+      "continent": "Asia"
+    },
+    {
+      "country": "Kenya",
+      "code": "KEN",
+      "year": 2019,
+      "gdp_per_capita": 4329.87,
+      "cancer_death_rate": 105.97,
+      "population": 52573967,
+      "continent": "Africa"
+    },
+    {
+      "country": "Kiribati",
+      "code": "KIR",
+      "year": 2019,
+      "gdp_per_capita": 2270.11,
+      "cancer_death_rate": 183.97,
+      "population": 117608,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Kuwait",
+      "code": "KWT",
+      "year": 2019,
+      "gdp_per_capita": 49853.74,
+      "cancer_death_rate": 71.26,
+      "population": 4207077,
+      "continent": "Asia"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "code": "KGZ",
+      "year": 2019,
+      "gdp_per_capita": 5258.37,
+      "cancer_death_rate": 90.54,
+      "population": 6415851,
+      "continent": "Asia"
+    },
+    {
+      "country": "Laos",
+      "code": "LAO",
+      "year": 2019,
+      "gdp_per_capita": 7886.65,
+      "cancer_death_rate": 114.39,
+      "population": 7169456,
+      "continent": "Asia"
+    },
+    {
+      "country": "Latvia",
+      "code": "LVA",
+      "year": 2019,
+      "gdp_per_capita": 30858.75,
+      "cancer_death_rate": 143.38,
+      "population": 1906740,
+      "continent": "Europe"
+    },
+    {
+      "country": "Lebanon",
+      "code": "LBN",
+      "year": 2019,
+      "gdp_per_capita": 14551.59,
+      "cancer_death_rate": 144.29,
+      "population": 6855709,
+      "continent": "Asia"
+    },
+    {
+      "country": "Lesotho",
+      "code": "LSO",
+      "year": 2019,
+      "gdp_per_capita": 2583.92,
+      "cancer_death_rate": 179.78,
+      "population": 2125267,
+      "continent": "Africa"
+    },
+    {
+      "country": "Liberia",
+      "code": "LBR",
+      "year": 2019,
+      "gdp_per_capita": 1427.82,
+      "cancer_death_rate": 102.78,
+      "population": 4937374,
+      "continent": "Africa"
+    },
+    {
+      "country": "Libya",
+      "code": "LBY",
+      "year": 2019,
+      "gdp_per_capita": 15174.16,
+      "cancer_death_rate": 106.75,
+      "population": 6777453,
+      "continent": "Africa"
+    },
+    {
+      "country": "Lithuania",
+      "code": "LTU",
+      "year": 2019,
+      "gdp_per_capita": 37062.59,
+      "cancer_death_rate": 140.05,
+      "population": 2759631,
+      "continent": "Europe"
+    },
+    {
+      "country": "Luxembourg",
+      "code": "LUX",
+      "year": 2019,
+      "gdp_per_capita": 113940.24,
+      "cancer_death_rate": 127.51,
+      "population": 615730,
+      "continent": "Europe"
+    },
+    {
+      "country": "Madagascar",
+      "code": "MDG",
+      "year": 2019,
+      "gdp_per_capita": 1618.53,
+      "cancer_death_rate": 95.58,
+      "population": 26969306,
+      "continent": "Africa"
+    },
+    {
+      "country": "Malawi",
+      "code": "MWI",
+      "year": 2019,
+      "gdp_per_capita": 1514.66,
+      "cancer_death_rate": 126.8,
+      "population": 18628749,
+      "continent": "Africa"
+    },
+    {
+      "country": "Malaysia",
+      "code": "MYS",
+      "year": 2019,
+      "gdp_per_capita": 28364.48,
+      "cancer_death_rate": 122.96,
+      "population": 31949789,
+      "continent": "Asia"
+    },
+    {
+      "country": "Maldives",
+      "code": "MDV",
+      "year": 2019,
+      "gdp_per_capita": 19531.04,
+      "cancer_death_rate": 74.45,
+      "population": 530957,
+      "continent": "Asia"
+    },
+    {
+      "country": "Mali",
+      "code": "MLI",
+      "year": 2019,
+      "gdp_per_capita": 2321.92,
+      "cancer_death_rate": 105.65,
+      "population": 19658023,
+      "continent": "Africa"
+    },
+    {
+      "country": "Malta",
+      "code": "MLT",
+      "year": 2019,
+      "gdp_per_capita": 43950.59,
+      "cancer_death_rate": 108.92,
+      "population": 440377,
+      "continent": "Europe"
+    },
+    {
+      "country": "Marshall Islands",
+      "code": "MHL",
+      "year": 2019,
+      "gdp_per_capita": 4029.09,
+      "cancer_death_rate": 163.18,
+      "population": 58791,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Mauritania",
+      "code": "MRT",
+      "year": 2019,
+      "gdp_per_capita": 5197.07,
+      "cancer_death_rate": 103.62,
+      "population": 4525698,
+      "continent": "Africa"
+    },
+    {
+      "country": "Mauritius",
+      "code": "MUS",
+      "year": 2019,
+      "gdp_per_capita": 22870.29,
+      "cancer_death_rate": 90.33,
+      "population": 1269670,
+      "continent": "Africa"
+    },
+    {
+      "country": "Mexico",
+      "code": "MEX",
+      "year": 2019,
+      "gdp_per_capita": 19701.34,
+      "cancer_death_rate": 92.74,
+      "population": 127575529,
+      "continent": "North America"
+    },
+    {
+      "country": "Micronesia (country)",
+      "code": "FSM",
+      "year": 2019,
+      "gdp_per_capita": 3466.41,
+      "cancer_death_rate": 168.85,
+      "population": 113811,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Moldova",
+      "code": "MDA",
+      "year": 2019,
+      "gdp_per_capita": 13022.0,
+      "cancer_death_rate": 110.02,
+      "population": 4043258,
+      "continent": "Europe"
+    },
+    {
+      "country": "Mongolia",
+      "code": "MNG",
+      "year": 2019,
+      "gdp_per_capita": 12316.79,
+      "cancer_death_rate": 284.33,
+      "population": 3225166,
+      "continent": "Asia"
+    },
+    {
+      "country": "Montenegro",
+      "code": "MNE",
+      "year": 2019,
+      "gdp_per_capita": 21533.95,
+      "cancer_death_rate": 170.12,
+      "population": 627988,
+      "continent": "Europe"
+    },
+    {
+      "country": "Morocco",
+      "code": "MAR",
+      "year": 2019,
+      "gdp_per_capita": 7537.49,
+      "cancer_death_rate": 90.39,
+      "population": 36471766,
+      "continent": "Africa"
+    },
+    {
+      "country": "Mozambique",
+      "code": "MOZ",
+      "year": 2019,
+      "gdp_per_capita": 1281.51,
+      "cancer_death_rate": 114.52,
+      "population": 30366043,
+      "continent": "Africa"
+    },
+    {
+      "country": "Myanmar",
+      "code": "MMR",
+      "year": 2019,
+      "gdp_per_capita": 5082.5,
+      "cancer_death_rate": 117.41,
+      "population": 54045422,
+      "continent": "Asia"
+    },
+    {
+      "country": "Namibia",
+      "code": "NAM",
+      "year": 2019,
+      "gdp_per_capita": 9845.21,
+      "cancer_death_rate": 114.07,
+      "population": 2494524,
+      "continent": "Africa"
+    },
+    {
+      "country": "Nauru",
+      "code": "NRU",
+      "year": 2019,
+      "gdp_per_capita": 13527.41,
+      "cancer_death_rate": 185.35,
+      "population": 10764,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Nepal",
+      "code": "NPL",
+      "year": 2019,
+      "gdp_per_capita": 3952.76,
+      "cancer_death_rate": 99.45,
+      "population": 28608715,
+      "continent": "Asia"
+    },
+    {
+      "country": "Netherlands",
+      "code": "NLD",
+      "year": 2019,
+      "gdp_per_capita": 56629.11,
+      "cancer_death_rate": 162.99,
+      "population": 17097123,
+      "continent": "Europe"
+    },
+    {
+      "country": "New Zealand",
+      "code": "NZL",
+      "year": 2019,
+      "gdp_per_capita": 42877.94,
+      "cancer_death_rate": 134.62,
+      "population": 4783062,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Nicaragua",
+      "code": "NIC",
+      "year": 2019,
+      "gdp_per_capita": 5451.71,
+      "cancer_death_rate": 106.47,
+      "population": 6545503,
+      "continent": "North America"
+    },
+    {
+      "country": "Niger",
+      "code": "NER",
+      "year": 2019,
+      "gdp_per_capita": 1224.51,
+      "cancer_death_rate": 89.2,
+      "population": 23310719,
+      "continent": "Africa"
+    },
+    {
+      "country": "Nigeria",
+      "code": "NGA",
+      "year": 2019,
+      "gdp_per_capita": 5135.5,
+      "cancer_death_rate": 98.24,
+      "population": 200963603,
+      "continent": "Africa"
+    },
+    {
+      "country": "North Macedonia",
+      "code": "MKD",
+      "year": 2019,
+      "gdp_per_capita": 16600.14,
+      "cancer_death_rate": 174.55,
+      "population": 2083458,
+      "continent": "Europe"
+    },
+    {
+      "country": "Norway",
+      "code": "NOR",
+      "year": 2019,
+      "gdp_per_capita": 64452.81,
+      "cancer_death_rate": 128.38,
+      "population": 5378859,
+      "continent": "Europe"
+    },
+    {
+      "country": "Oman",
+      "code": "OMN",
+      "year": 2019,
+      "gdp_per_capita": 27294.57,
+      "cancer_death_rate": 89.8,
+      "population": 4974992,
+      "continent": "Asia"
+    },
+    {
+      "country": "Pakistan",
+      "code": "PAK",
+      "year": 2019,
+      "gdp_per_capita": 4690.48,
+      "cancer_death_rate": 153.52,
+      "population": 216565317,
+      "continent": "Asia"
+    },
+    {
+      "country": "Palau",
+      "code": "PLW",
+      "year": 2019,
+      "gdp_per_capita": 17572.62,
+      "cancer_death_rate": 184.22,
+      "population": 18001,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Palestine",
+      "code": "PSE",
+      "year": 2019,
+      "gdp_per_capita": 6245.45,
+      "cancer_death_rate": 127.43,
+      "population": 4981422,
+      "continent": "Asia"
+    },
+    {
+      "country": "Panama",
+      "code": "PAN",
+      "year": 2019,
+      "gdp_per_capita": 31432.11,
+      "cancer_death_rate": 95.65,
+      "population": 4246440,
+      "continent": "North America"
+    },
+    {
+      "country": "Papua New Guinea",
+      "code": "PNG",
+      "year": 2019,
+      "gdp_per_capita": 4349.81,
+      "cancer_death_rate": 115.64,
+      "population": 8776119,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Paraguay",
+      "code": "PRY",
+      "year": 2019,
+      "gdp_per_capita": 12615.53,
+      "cancer_death_rate": 111.68,
+      "population": 7044639,
+      "continent": "South America"
+    },
+    {
+      "country": "Peru",
+      "code": "PER",
+      "year": 2019,
+      "gdp_per_capita": 12853.69,
+      "cancer_death_rate": 103.58,
+      "population": 32510462,
+      "continent": "South America"
+    },
+    {
+      "country": "Philippines",
+      "code": "PHL",
+      "year": 2019,
+      "gdp_per_capita": 8914.72,
+      "cancer_death_rate": 103.97,
+      "population": 108116622,
+      "continent": "Asia"
+    },
+    {
+      "country": "Poland",
+      "code": "POL",
+      "year": 2019,
+      "gdp_per_capita": 33120.52,
+      "cancer_death_rate": 175.21,
+      "population": 37887771,
+      "continent": "Europe"
+    },
+    {
+      "country": "Portugal",
+      "code": "PRT",
+      "year": 2019,
+      "gdp_per_capita": 34879.71,
+      "cancer_death_rate": 131.1,
+      "population": 10226178,
+      "continent": "Europe"
+    },
+    {
+      "country": "Puerto Rico",
+      "code": "PRI",
+      "year": 2019,
+      "gdp_per_capita": 34804.93,
+      "cancer_death_rate": 96.13,
+      "population": 2933404,
+      "continent": "North America"
+    },
+    {
+      "country": "Qatar",
+      "code": "QAT",
+      "year": 2019,
+      "gdp_per_capita": 90043.8,
+      "cancer_death_rate": 144.39,
+      "population": 2832071,
+      "continent": "Asia"
+    },
+    {
+      "country": "Romania",
+      "code": "ROU",
+      "year": 2019,
+      "gdp_per_capita": 29857.65,
+      "cancer_death_rate": 148.34,
+      "population": 19364558,
+      "continent": "Europe"
+    },
+    {
+      "country": "Russia",
+      "code": "RUS",
+      "year": 2019,
+      "gdp_per_capita": 27210.55,
+      "cancer_death_rate": 128.45,
+      "population": 145872260,
+      "continent": "Europe"
+    },
+    {
+      "country": "Rwanda",
+      "code": "RWA",
+      "year": 2019,
+      "gdp_per_capita": 2227.52,
+      "cancer_death_rate": 117.41,
+      "population": 12626938,
+      "continent": "Africa"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "code": "KNA",
+      "year": 2019,
+      "gdp_per_capita": 26235.55,
+      "cancer_death_rate": 165.67,
+      "population": 52834,
+      "continent": "North America"
+    },
+    {
+      "country": "Saint Lucia",
+      "code": "LCA",
+      "year": 2019,
+      "gdp_per_capita": 15448.34,
+      "cancer_death_rate": 145.65,
+      "population": 182795,
+      "continent": "North America"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "code": "VCT",
+      "year": 2019,
+      "gdp_per_capita": 12484.73,
+      "cancer_death_rate": 161.06,
+      "population": 110593,
+      "continent": "North America"
+    },
+    {
+      "country": "Samoa",
+      "code": "WSM",
+      "year": 2019,
+      "gdp_per_capita": 6516.52,
+      "cancer_death_rate": 106.76,
+      "population": 197093,
+      "continent": "Oceania"
+    },
+    {
+      "country": "San Marino",
+      "code": "SMR",
+      "year": 2019,
+      "gdp_per_capita": 60847.11,
+      "cancer_death_rate": 174.14,
+      "population": 33864,
+      "continent": "Europe"
+    },
+    {
+      "country": "Sao Tome and Principe",
+      "code": "STP",
+      "year": 2019,
+      "gdp_per_capita": 4005.34,
+      "cancer_death_rate": 141.13,
+      "population": 215048,
+      "continent": "Africa"
+    },
+    {
+      "country": "Saudi Arabia",
+      "code": "SAU",
+      "year": 2019,
+      "gdp_per_capita": 46962.15,
+      "cancer_death_rate": 73.41,
+      "population": 34268529,
+      "continent": "Asia"
+    },
+    {
+      "country": "Senegal",
+      "code": "SEN",
+      "year": 2019,
+      "gdp_per_capita": 3361.46,
+      "cancer_death_rate": 112.8,
+      "population": 16296362,
+      "continent": "Africa"
+    },
+    {
+      "country": "Serbia",
+      "code": "SRB",
+      "year": 2019,
+      "gdp_per_capita": 18292.18,
+      "cancer_death_rate": 183.63,
+      "population": 8772228,
+      "continent": "Europe"
+    },
+    {
+      "country": "Seychelles",
+      "code": "SYC",
+      "year": 2019,
+      "gdp_per_capita": 27521.17,
+      "cancer_death_rate": 172.53,
+      "population": 97741,
+      "continent": "Africa"
+    },
+    {
+      "country": "Sierra Leone",
+      "code": "SLE",
+      "year": 2019,
+      "gdp_per_capita": 1719.79,
+      "cancer_death_rate": 104.06,
+      "population": 7813207,
+      "continent": "Africa"
+    },
+    {
+      "country": "Singapore",
+      "code": "SGP",
+      "year": 2019,
+      "gdp_per_capita": 98411.58,
+      "cancer_death_rate": 93.34,
+      "population": 5804343,
+      "continent": "Asia"
+    },
+    {
+      "country": "Slovakia",
+      "code": "SVK",
+      "year": 2019,
+      "gdp_per_capita": 31871.33,
+      "cancer_death_rate": 152.85,
+      "population": 5457012,
+      "continent": "Europe"
+    },
+    {
+      "country": "Slovenia",
+      "code": "SVN",
+      "year": 2019,
+      "gdp_per_capita": 38905.55,
+      "cancer_death_rate": 144.39,
+      "population": 2078654,
+      "continent": "Europe"
+    },
+    {
+      "country": "Solomon Islands",
+      "code": "SLB",
+      "year": 2019,
+      "gdp_per_capita": 2660.98,
+      "cancer_death_rate": 191.04,
+      "population": 669821,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Somalia",
+      "code": "SOM",
+      "year": 2019,
+      "gdp_per_capita": 866.76,
+      "cancer_death_rate": 106.68,
+      "population": 15442906,
+      "continent": "Africa"
+    },
+    {
+      "country": "South Africa",
+      "code": "ZAF",
+      "year": 2019,
+      "gdp_per_capita": 12481.81,
+      "cancer_death_rate": 128.24,
+      "population": 58558267,
+      "continent": "Africa"
+    },
+    {
+      "country": "South Korea",
+      "code": "KOR",
+      "year": 2019,
+      "gdp_per_capita": 42719.0,
+      "cancer_death_rate": 119.63,
+      "population": 51225321,
+      "continent": "Asia"
+    },
+    {
+      "country": "Spain",
+      "code": "ESP",
+      "year": 2019,
+      "gdp_per_capita": 40805.92,
+      "cancer_death_rate": 127.38,
+      "population": 46736782,
+      "continent": "Europe"
+    },
+    {
+      "country": "Sri Lanka",
+      "code": "LKA",
+      "year": 2019,
+      "gdp_per_capita": 13070.13,
+      "cancer_death_rate": 76.81,
+      "population": 21323734,
+      "continent": "Asia"
+    },
+    {
+      "country": "Sudan",
+      "code": "SDN",
+      "year": 2019,
+      "gdp_per_capita": 4185.6,
+      "cancer_death_rate": 89.0,
+      "population": 42813237,
+      "continent": "Africa"
+    },
+    {
+      "country": "Suriname",
+      "code": "SUR",
+      "year": 2019,
+      "gdp_per_capita": 19036.75,
+      "cancer_death_rate": 122.81,
+      "population": 581363,
+      "continent": "South America"
+    },
+    {
+      "country": "Sweden",
+      "code": "SWE",
+      "year": 2019,
+      "gdp_per_capita": 52531.17,
+      "cancer_death_rate": 120.89,
+      "population": 10036391,
+      "continent": "Europe"
+    },
+    {
+      "country": "Switzerland",
+      "code": "CHE",
+      "year": 2019,
+      "gdp_per_capita": 70920.32,
+      "cancer_death_rate": 112.71,
+      "population": 8591361,
+      "continent": "Europe"
+    },
+    {
+      "country": "Tajikistan",
+      "code": "TJK",
+      "year": 2019,
+      "gdp_per_capita": 3581.41,
+      "cancer_death_rate": 111.58,
+      "population": 9321023,
+      "continent": "Asia"
+    },
+    {
+      "country": "Tanzania",
+      "code": "TZA",
+      "year": 2019,
+      "gdp_per_capita": 2660.42,
+      "cancer_death_rate": 121.65,
+      "population": 58005461,
+      "continent": "Africa"
+    },
+    {
+      "country": "Thailand",
+      "code": "THA",
+      "year": 2019,
+      "gdp_per_capita": 18453.47,
+      "cancer_death_rate": 115.72,
+      "population": 69625581,
+      "continent": "Asia"
+    },
+    {
+      "country": "Timor",
+      "code": "TLS",
+      "year": 2019,
+      "gdp_per_capita": 3552.6,
+      "cancer_death_rate": 103.44,
+      "population": 1293120,
+      "continent": "Asia"
+    },
+    {
+      "country": "Togo",
+      "code": "TGO",
+      "year": 2019,
+      "gdp_per_capita": 2121.9,
+      "cancer_death_rate": 108.29,
+      "population": 8082359,
+      "continent": "Africa"
+    },
+    {
+      "country": "Tonga",
+      "code": "TON",
+      "year": 2019,
+      "gdp_per_capita": 6378.13,
+      "cancer_death_rate": 160.85,
+      "population": 104497,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "code": "TTO",
+      "year": 2019,
+      "gdp_per_capita": 25827.89,
+      "cancer_death_rate": 112.91,
+      "population": 1394969,
+      "continent": "North America"
+    },
+    {
+      "country": "Tunisia",
+      "code": "TUN",
+      "year": 2019,
+      "gdp_per_capita": 10755.57,
+      "cancer_death_rate": 82.83,
+      "population": 11694721,
+      "continent": "Africa"
+    },
+    {
+      "country": "Turkey",
+      "code": "TUR",
+      "year": 2019,
+      "gdp_per_capita": 28199.05,
+      "cancer_death_rate": 121.3,
+      "population": 83429607,
+      "continent": "Asia"
+    },
+    {
+      "country": "Turkmenistan",
+      "code": "TKM",
+      "year": 2019,
+      "gdp_per_capita": 15538.42,
+      "cancer_death_rate": 89.63,
+      "population": 5942094,
+      "continent": "Asia"
+    },
+    {
+      "country": "Tuvalu",
+      "code": "TUV",
+      "year": 2019,
+      "gdp_per_capita": 4274.76,
+      "cancer_death_rate": 141.14,
+      "population": 11655,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Uganda",
+      "code": "UGA",
+      "year": 2019,
+      "gdp_per_capita": 2187.47,
+      "cancer_death_rate": 145.81,
+      "population": 44269587,
+      "continent": "Africa"
+    },
+    {
+      "country": "Ukraine",
+      "code": "UKR",
+      "year": 2019,
+      "gdp_per_capita": 12808.8,
+      "cancer_death_rate": 136.96,
+      "population": 43993643,
+      "continent": "Europe"
+    },
+    {
+      "country": "United Arab Emirates",
+      "code": "ARE",
+      "year": 2019,
+      "gdp_per_capita": 67119.15,
+      "cancer_death_rate": 141.38,
+      "population": 9770526,
+      "continent": "Asia"
+    },
+    {
+      "country": "United Kingdom",
+      "code": "GBR",
+      "year": 2019,
+      "gdp_per_capita": 46406.46,
+      "cancer_death_rate": 150.91,
+      "population": 67530161,
+      "continent": "Europe"
+    },
+    {
+      "country": "United States",
+      "code": "USA",
+      "year": 2019,
+      "gdp_per_capita": 62630.87,
+      "cancer_death_rate": 137.37,
+      "population": 329064917,
+      "continent": "North America"
+    },
+    {
+      "country": "Uruguay",
+      "code": "URY",
+      "year": 2019,
+      "gdp_per_capita": 23032.73,
+      "cancer_death_rate": 183.88,
+      "population": 3461731,
+      "continent": "South America"
+    },
+    {
+      "country": "Uzbekistan",
+      "code": "UZB",
+      "year": 2019,
+      "gdp_per_capita": 7014.32,
+      "cancer_death_rate": 108.54,
+      "population": 32981714,
+      "continent": "Asia"
+    },
+    {
+      "country": "Vanuatu",
+      "code": "VUT",
+      "year": 2019,
+      "gdp_per_capita": 3117.68,
+      "cancer_death_rate": 134.97,
+      "population": 299882,
+      "continent": "Oceania"
+    },
+    {
+      "country": "Vietnam",
+      "code": "VNM",
+      "year": 2019,
+      "gdp_per_capita": 8041.18,
+      "cancer_death_rate": 122.72,
+      "population": 96462108,
+      "continent": "Asia"
+    },
+    {
+      "country": "Zambia",
+      "code": "ZMB",
+      "year": 2019,
+      "gdp_per_capita": 3470.45,
+      "cancer_death_rate": 137.6,
+      "population": 17861034,
+      "continent": "Africa"
+    },
+    {
+      "country": "Zimbabwe",
+      "code": "ZWE",
+      "year": 2019,
+      "gdp_per_capita": 3027.66,
+      "cancer_death_rate": 180.93,
+      "population": 14645473,
+      "continent": "Africa"
+    }
+  ],
+  "survival_matrix": [
+    {
+      "country": "Algeria",
+      "code": "DZA",
+      "year": 2009,
+      "rates": {
+        "Breast": 59.8,
+        "Cervix": 55.1,
+        "Colon": 57.2,
+        "Leukaemia": 13.6,
+        "Liver": 17.5,
+        "Lung": 14.8,
+        "Ovary": 41.8,
+        "Prostate": 58.5,
+        "Rectum": 45.5,
+        "Stomach": 10.3
+      }
+    },
+    {
+      "country": "Argentina",
+      "code": "ARG",
+      "year": 2009,
+      "rates": {
+        "Breast": 76.6,
+        "Cervix": 50.6,
+        "Colon": 40.6,
+        "Leukaemia": 90.0,
+        "Liver": 24.2,
+        "Lung": 11.9,
+        "Ovary": 29.7,
+        "Prostate": 86.6,
+        "Rectum": 31.0,
+        "Stomach": 16.0
+      }
+    },
+    {
+      "country": "Australia",
+      "code": "AUS",
+      "year": 2009,
+      "rates": {
+        "Breast": 86.2,
+        "Cervix": 67.1,
+        "Colon": 64.2,
+        "Leukaemia": 51.1,
+        "Liver": 14.7,
+        "Lung": 15.0,
+        "Ovary": 37.5,
+        "Prostate": 88.5,
+        "Rectum": 64.2,
+        "Stomach": 27.9
+      }
+    },
+    {
+      "country": "Austria",
+      "code": "AUT",
+      "year": 2009,
+      "rates": {
+        "Breast": 82.9,
+        "Cervix": 66.0,
+        "Colon": 63.0,
+        "Leukaemia": 45.8,
+        "Liver": 12.9,
+        "Lung": 17.9,
+        "Ovary": 41.6,
+        "Prostate": 90.5,
+        "Rectum": 62.1,
+        "Stomach": 33.1
+      }
+    },
+    {
+      "country": "Belgium",
+      "code": "BEL",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.4,
+        "Cervix": 65.2,
+        "Colon": 64.6,
+        "Leukaemia": 59.4,
+        "Liver": 19.6,
+        "Lung": 16.6,
+        "Ovary": 43.0,
+        "Prostate": 92.6,
+        "Rectum": 64.7,
+        "Stomach": 33.4
+      }
+    },
+    {
+      "country": "Brazil",
+      "code": "BRA",
+      "year": 2009,
+      "rates": {
+        "Breast": 87.4,
+        "Cervix": 61.1,
+        "Colon": 58.2,
+        "Leukaemia": 20.3,
+        "Liver": 11.6,
+        "Lung": 18.0,
+        "Ovary": 31.8,
+        "Prostate": 96.1,
+        "Rectum": 55.9,
+        "Stomach": 24.9
+      }
+    },
+    {
+      "country": "Bulgaria",
+      "code": "BGR",
+      "year": 2009,
+      "rates": {
+        "Breast": 73.9,
+        "Cervix": 53.0,
+        "Colon": 47.0,
+        "Leukaemia": 25.0,
+        "Liver": 5.0,
+        "Lung": 6.3,
+        "Ovary": 35.4,
+        "Prostate": 53.4,
+        "Rectum": 40.8,
+        "Stomach": 12.9
+      }
+    },
+    {
+      "country": "Canada",
+      "code": "CAN",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.8,
+        "Cervix": 66.8,
+        "Colon": 62.8,
+        "Leukaemia": 55.2,
+        "Liver": 17.7,
+        "Lung": 17.3,
+        "Ovary": 37.5,
+        "Prostate": 91.7,
+        "Rectum": 62.8,
+        "Stomach": 24.8
+      }
+    },
+    {
+      "country": "Chile",
+      "code": "CHL",
+      "year": 2009,
+      "rates": {
+        "Breast": 77.1,
+        "Cervix": 50.9,
+        "Colon": 43.3,
+        "Leukaemia": 16.1,
+        "Liver": 7.9,
+        "Lung": 6.3,
+        "Ovary": 32.2,
+        "Prostate": 88.7,
+        "Rectum": 37.7,
+        "Stomach": 18.0
+      }
+    },
+    {
+      "country": "China",
+      "code": "CHN",
+      "year": 2009,
+      "rates": {
+        "Breast": 80.9,
+        "Cervix": 59.9,
+        "Colon": 54.6,
+        "Leukaemia": 21.2,
+        "Liver": 12.5,
+        "Lung": 17.5,
+        "Ovary": 38.9,
+        "Prostate": 63.8,
+        "Rectum": 53.2,
+        "Stomach": 31.1
+      }
+    },
+    {
+      "country": "Colombia",
+      "code": "COL",
+      "year": 2009,
+      "rates": {
+        "Breast": 76.1,
+        "Cervix": 59.3,
+        "Colon": 43.3,
+        "Leukaemia": 20.1,
+        "Liver": 5.3,
+        "Lung": 9.0,
+        "Ovary": 31.1,
+        "Prostate": 78.6,
+        "Stomach": 16.6
+      }
+    },
+    {
+      "country": "Croatia",
+      "code": "HRV",
+      "year": 2009,
+      "rates": {
+        "Breast": 77.9,
+        "Cervix": 65.3,
+        "Colon": 52.0,
+        "Leukaemia": 37.6,
+        "Liver": 12.2,
+        "Lung": 13.6,
+        "Ovary": 36.8,
+        "Prostate": 75.1,
+        "Rectum": 48.2,
+        "Stomach": 21.3
+      }
+    },
+    {
+      "country": "Cuba",
+      "code": "CUB",
+      "year": 2009,
+      "rates": {
+        "Breast": 77.7,
+        "Cervix": 64.0,
+        "Colon": 46.4,
+        "Leukaemia": 59.6,
+        "Lung": 18.2,
+        "Ovary": 39.8,
+        "Prostate": 56.1,
+        "Stomach": 26.2
+      }
+    },
+    {
+      "country": "Cyprus",
+      "code": "CYP",
+      "year": 2009,
+      "rates": {
+        "Breast": 90.6,
+        "Cervix": 64.5,
+        "Colon": 58.1,
+        "Leukaemia": 61.3,
+        "Liver": 9.8,
+        "Lung": 15.4,
+        "Ovary": 43.2,
+        "Prostate": 93.1,
+        "Rectum": 70.2,
+        "Stomach": 26.3
+      }
+    },
+    {
+      "country": "Czechia",
+      "code": "CZE",
+      "year": 2009,
+      "rates": {
+        "Breast": 80.0,
+        "Cervix": 64.5,
+        "Colon": 54.9,
+        "Leukaemia": 46.1,
+        "Liver": 7.2,
+        "Lung": 12.3,
+        "Ovary": 36.6,
+        "Prostate": 83.1,
+        "Rectum": 50.3,
+        "Stomach": 23.2
+      }
+    },
+    {
+      "country": "Denmark",
+      "code": "DNK",
+      "year": 2009,
+      "rates": {
+        "Breast": 82.0,
+        "Cervix": 64.8,
+        "Colon": 55.9,
+        "Leukaemia": 56.8,
+        "Liver": 6.1,
+        "Lung": 11.3,
+        "Ovary": 37.3,
+        "Prostate": 77.2,
+        "Rectum": 58.4,
+        "Stomach": 17.9
+      }
+    },
+    {
+      "country": "Ecuador",
+      "code": "ECU",
+      "year": 2009,
+      "rates": {
+        "Breast": 83.2,
+        "Cervix": 61.7,
+        "Colon": 68.2,
+        "Leukaemia": 33.5,
+        "Liver": 17.7,
+        "Lung": 28.7,
+        "Ovary": 47.0,
+        "Prostate": 92.4,
+        "Rectum": 52.6,
+        "Stomach": 31.9
+      }
+    },
+    {
+      "country": "Estonia",
+      "code": "EST",
+      "year": 2009,
+      "rates": {
+        "Breast": 72.4,
+        "Cervix": 66.7,
+        "Colon": 51.7,
+        "Leukaemia": 38.4,
+        "Liver": 8.7,
+        "Lung": 11.9,
+        "Ovary": 38.7,
+        "Prostate": 73.2,
+        "Rectum": 48.9,
+        "Stomach": 22.8
+      }
+    },
+    {
+      "country": "Finland",
+      "code": "FIN",
+      "year": 2009,
+      "rates": {
+        "Breast": 86.8,
+        "Cervix": 65.3,
+        "Colon": 62.9,
+        "Leukaemia": 50.7,
+        "Liver": 7.9,
+        "Lung": 12.3,
+        "Ovary": 44.9,
+        "Prostate": 93.2,
+        "Rectum": 62.9,
+        "Stomach": 25.2
+      }
+    },
+    {
+      "country": "France",
+      "code": "FRA",
+      "year": 2009,
+      "rates": {
+        "Breast": 86.9,
+        "Cervix": 58.9,
+        "Colon": 59.8,
+        "Leukaemia": 59.2,
+        "Liver": 14.4,
+        "Lung": 13.6,
+        "Ovary": 39.0,
+        "Prostate": 90.5,
+        "Rectum": 56.8,
+        "Stomach": 27.7
+      }
+    },
+    {
+      "country": "Germany",
+      "code": "DEU",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.3,
+        "Cervix": 64.9,
+        "Colon": 64.6,
+        "Leukaemia": 53.6,
+        "Liver": 14.4,
+        "Lung": 16.2,
+        "Ovary": 39.7,
+        "Prostate": 91.2,
+        "Rectum": 62.1,
+        "Stomach": 31.6
+      }
+    },
+    {
+      "country": "Iceland",
+      "code": "ISL",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.3,
+        "Cervix": 73.1,
+        "Colon": 65.1,
+        "Leukaemia": 54.4,
+        "Liver": 11.0,
+        "Lung": 15.0,
+        "Ovary": 38.6,
+        "Prostate": 83.5,
+        "Rectum": 76.5,
+        "Stomach": 32.3
+      }
+    },
+    {
+      "country": "India",
+      "code": "IND",
+      "year": 2009,
+      "rates": {
+        "Breast": 60.4,
+        "Cervix": 45.8,
+        "Colon": 37.3,
+        "Leukaemia": 6.0,
+        "Liver": 4.3,
+        "Lung": 9.6,
+        "Ovary": 13.9,
+        "Prostate": 58.1,
+        "Rectum": 29.4,
+        "Stomach": 18.7
+      }
+    },
+    {
+      "country": "Indonesia",
+      "code": "IDN",
+      "year": 2009,
+      "rates": {
+        "Breast": 77.7,
+        "Cervix": 65.1,
+        "Colon": 28.1,
+        "Leukaemia": 39.8,
+        "Liver": 19.9,
+        "Lung": 12.2,
+        "Ovary": 39.9,
+        "Prostate": 43.5,
+        "Rectum": 58.0,
+        "Stomach": 18.4
+      }
+    },
+    {
+      "country": "Ireland",
+      "code": "IRL",
+      "year": 2009,
+      "rates": {
+        "Breast": 80.0,
+        "Cervix": 55.9,
+        "Colon": 58.6,
+        "Leukaemia": 56.4,
+        "Liver": 12.8,
+        "Lung": 12.9,
+        "Ovary": 32.2,
+        "Prostate": 88.4,
+        "Rectum": 56.1,
+        "Stomach": 22.7
+      }
+    },
+    {
+      "country": "Israel",
+      "code": "ISR",
+      "year": 2009,
+      "rates": {
+        "Breast": 86.7,
+        "Cervix": 65.9,
+        "Colon": 69.4,
+        "Leukaemia": 50.4,
+        "Liver": 14.2,
+        "Lung": 23.8,
+        "Ovary": 42.0,
+        "Prostate": 94.0,
+        "Rectum": 66.6,
+        "Stomach": 28.6
+      }
+    },
+    {
+      "country": "Italy",
+      "code": "ITA",
+      "year": 2009,
+      "rates": {
+        "Breast": 86.2,
+        "Cervix": 68.3,
+        "Colon": 63.2,
+        "Leukaemia": 46.7,
+        "Liver": 17.9,
+        "Lung": 14.7,
+        "Ovary": 39.2,
+        "Prostate": 89.7,
+        "Rectum": 59.5,
+        "Stomach": 32.4
+      }
+    },
+    {
+      "country": "Japan",
+      "code": "JPN",
+      "year": 2009,
+      "rates": {
+        "Breast": 84.7,
+        "Cervix": 66.3,
+        "Colon": 69.4,
+        "Leukaemia": 18.9,
+        "Liver": 27.0,
+        "Lung": 30.1,
+        "Ovary": 37.3,
+        "Prostate": 86.8,
+        "Rectum": 60.3,
+        "Stomach": 54.0
+      }
+    },
+    {
+      "country": "Jordan",
+      "code": "JOR",
+      "year": 2009,
+      "rates": {
+        "Breast": 43.1,
+        "Cervix": 10.3,
+        "Colon": 48.1,
+        "Leukaemia": 7.1,
+        "Liver": 17.1,
+        "Lung": 4.4,
+        "Ovary": 8.0,
+        "Prostate": 27.4,
+        "Rectum": 21.4,
+        "Stomach": 28.8
+      }
+    },
+    {
+      "country": "Latvia",
+      "code": "LVA",
+      "year": 2009,
+      "rates": {
+        "Breast": 71.1,
+        "Cervix": 55.4,
+        "Colon": 45.3,
+        "Leukaemia": 54.5,
+        "Liver": 6.4,
+        "Lung": 16.2,
+        "Ovary": 35.6,
+        "Prostate": 73.9,
+        "Rectum": 38.6,
+        "Stomach": 22.8
+      }
+    },
+    {
+      "country": "Lithuania",
+      "code": "LTU",
+      "year": 2009,
+      "rates": {
+        "Breast": 72.1,
+        "Cervix": 61.3,
+        "Colon": 51.5,
+        "Leukaemia": 44.7,
+        "Liver": 11.3,
+        "Lung": 7.7,
+        "Ovary": 35.8,
+        "Prostate": 92.4,
+        "Rectum": 48.3,
+        "Stomach": 26.0
+      }
+    },
+    {
+      "country": "Malaysia",
+      "code": "MYS",
+      "year": 2009,
+      "rates": {
+        "Breast": 67.8,
+        "Cervix": 55.2,
+        "Colon": 53.3,
+        "Leukaemia": 12.1,
+        "Liver": 13.3,
+        "Lung": 10.7,
+        "Ovary": 42.9,
+        "Prostate": 66.4,
+        "Rectum": 42.5,
+        "Stomach": 24.2
+      }
+    },
+    {
+      "country": "Malta",
+      "code": "MLT",
+      "year": 2009,
+      "rates": {
+        "Breast": 76.3,
+        "Cervix": 63.1,
+        "Colon": 56.0,
+        "Leukaemia": 19.0,
+        "Liver": 9.5,
+        "Lung": 10.8,
+        "Ovary": 33.1,
+        "Prostate": 84.8,
+        "Rectum": 48.1,
+        "Stomach": 18.0
+      }
+    },
+    {
+      "country": "Mauritius",
+      "code": "MUS",
+      "year": 2009,
+      "rates": {
+        "Breast": 87.4,
+        "Cervix": 86.7,
+        "Colon": 55.5,
+        "Leukaemia": 57.2,
+        "Liver": 52.6,
+        "Lung": 37.2,
+        "Ovary": 82.7,
+        "Prostate": 77.3,
+        "Rectum": 68.9,
+        "Stomach": 40.7
+      }
+    },
+    {
+      "country": "Mongolia",
+      "code": "MNG",
+      "year": 2009,
+      "rates": {
+        "Breast": 56.5,
+        "Cervix": 59.5,
+        "Colon": 30.6,
+        "Leukaemia": 35.6,
+        "Liver": 8.5,
+        "Lung": 6.6,
+        "Ovary": 52.1,
+        "Prostate": 39.6,
+        "Rectum": 15.9,
+        "Stomach": 15.1
+      }
+    },
+    {
+      "country": "Netherlands",
+      "code": "NLD",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.0,
+        "Cervix": 66.5,
+        "Colon": 60.1,
+        "Leukaemia": 51.8,
+        "Liver": 12.6,
+        "Lung": 14.8,
+        "Ovary": 38.1,
+        "Prostate": 85.8,
+        "Rectum": 62.0,
+        "Stomach": 21.4
+      }
+    },
+    {
+      "country": "New Zealand",
+      "code": "NZL",
+      "year": 2009,
+      "rates": {
+        "Breast": 83.7,
+        "Cervix": 63.9,
+        "Colon": 61.6,
+        "Leukaemia": 58.0,
+        "Liver": 17.4,
+        "Lung": 12.4,
+        "Ovary": 33.8,
+        "Prostate": 88.7,
+        "Rectum": 60.8,
+        "Stomach": 26.7
+      }
+    },
+    {
+      "country": "Norway",
+      "code": "NOR",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.9,
+        "Cervix": 71.4,
+        "Colon": 61.8,
+        "Leukaemia": 53.6,
+        "Liver": 9.5,
+        "Lung": 15.0,
+        "Ovary": 40.3,
+        "Prostate": 86.3,
+        "Rectum": 64.6,
+        "Stomach": 24.1
+      }
+    },
+    {
+      "country": "Poland",
+      "code": "POL",
+      "year": 2009,
+      "rates": {
+        "Breast": 74.1,
+        "Cervix": 53.0,
+        "Colon": 50.1,
+        "Leukaemia": 49.0,
+        "Liver": 10.4,
+        "Lung": 13.4,
+        "Ovary": 34.3,
+        "Prostate": 74.1,
+        "Rectum": 46.9,
+        "Stomach": 18.6
+      }
+    },
+    {
+      "country": "Portugal",
+      "code": "PRT",
+      "year": 2009,
+      "rates": {
+        "Breast": 83.4,
+        "Cervix": 61.5,
+        "Colon": 60.3,
+        "Leukaemia": 43.6,
+        "Liver": 15.6,
+        "Lung": 12.8,
+        "Ovary": 40.6,
+        "Prostate": 89.4,
+        "Rectum": 58.2,
+        "Stomach": 32.6
+      }
+    },
+    {
+      "country": "Puerto Rico",
+      "code": "PRI",
+      "year": 2009,
+      "rates": {
+        "Breast": 83.0,
+        "Cervix": 59.3,
+        "Colon": 60.9,
+        "Leukaemia": 30.2,
+        "Liver": 9.2,
+        "Lung": 15.8,
+        "Ovary": 34.8,
+        "Prostate": 97.7,
+        "Rectum": 57.8,
+        "Stomach": 28.6
+      }
+    },
+    {
+      "country": "Qatar",
+      "code": "QAT",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.3,
+        "Cervix": 85.5,
+        "Colon": 68.2,
+        "Leukaemia": 52.8,
+        "Liver": 4.1,
+        "Lung": 13.2,
+        "Ovary": 37.2,
+        "Prostate": 55.3,
+        "Rectum": 77.8,
+        "Stomach": 27.3
+      }
+    },
+    {
+      "country": "Romania",
+      "code": "ROU",
+      "year": 2009,
+      "rates": {
+        "Breast": 75.0,
+        "Cervix": 69.1,
+        "Colon": 58.4,
+        "Leukaemia": 41.2,
+        "Liver": 2.3,
+        "Lung": 16.2,
+        "Ovary": 40.5,
+        "Prostate": 79.5,
+        "Rectum": 46.8,
+        "Stomach": 22.1
+      }
+    },
+    {
+      "country": "Russia",
+      "code": "RUS",
+      "year": 2009,
+      "rates": {
+        "Breast": 70.6,
+        "Cervix": 54.9,
+        "Colon": 40.6,
+        "Leukaemia": 42.0,
+        "Liver": 9.4,
+        "Lung": 15.7,
+        "Ovary": 40.4,
+        "Prostate": 69.6,
+        "Rectum": 30.4,
+        "Stomach": 19.9
+      }
+    },
+    {
+      "country": "Saudi Arabia",
+      "code": "SAU",
+      "year": 2004,
+      "rates": {
+        "Breast": 78.4,
+        "Cervix": 65.6,
+        "Colon": 49.0,
+        "Leukaemia": 50.9,
+        "Liver": 16.0,
+        "Lung": 12.9,
+        "Ovary": 53.0,
+        "Prostate": 65.3,
+        "Rectum": 59.3,
+        "Stomach": 44.1
+      }
+    },
+    {
+      "country": "Slovakia",
+      "code": "SVK",
+      "year": 2009,
+      "rates": {
+        "Breast": 72.1,
+        "Cervix": 58.8,
+        "Colon": 49.9,
+        "Leukaemia": 37.2,
+        "Liver": 5.3,
+        "Lung": 10.7,
+        "Ovary": 33.9,
+        "Prostate": 66.0,
+        "Rectum": 44.0,
+        "Stomach": 19.7
+      }
+    },
+    {
+      "country": "Slovenia",
+      "code": "SVN",
+      "year": 2009,
+      "rates": {
+        "Breast": 80.2,
+        "Cervix": 68.9,
+        "Colon": 56.0,
+        "Leukaemia": 37.9,
+        "Liver": 5.2,
+        "Lung": 11.4,
+        "Ovary": 37.5,
+        "Prostate": 78.1,
+        "Rectum": 55.2,
+        "Stomach": 26.7
+      }
+    },
+    {
+      "country": "South Africa",
+      "code": "ZAF",
+      "year": 2009,
+      "rates": {
+        "Breast": 53.4,
+        "Cervix": 54.9,
+        "Liver": 10.2,
+        "Lung": 19.0,
+        "Ovary": 90.9,
+        "Prostate": 100.0
+      }
+    },
+    {
+      "country": "South Korea",
+      "code": "KOR",
+      "year": 2009,
+      "rates": {
+        "Breast": 82.7,
+        "Cervix": 77.1,
+        "Colon": 66.0,
+        "Leukaemia": 23.4,
+        "Liver": 20.1,
+        "Lung": 18.5,
+        "Ovary": 44.2,
+        "Prostate": 82.2,
+        "Rectum": 65.9,
+        "Stomach": 57.9
+      }
+    },
+    {
+      "country": "Spain",
+      "code": "ESP",
+      "year": 2009,
+      "rates": {
+        "Breast": 83.7,
+        "Cervix": 65.2,
+        "Colon": 59.3,
+        "Leukaemia": 52.0,
+        "Liver": 15.8,
+        "Lung": 12.6,
+        "Ovary": 38.4,
+        "Prostate": 87.1,
+        "Rectum": 57.6,
+        "Stomach": 27.3
+      }
+    },
+    {
+      "country": "Sweden",
+      "code": "SWE",
+      "year": 2009,
+      "rates": {
+        "Breast": 86.2,
+        "Cervix": 67.8,
+        "Colon": 62.5,
+        "Leukaemia": 59.2,
+        "Liver": 11.1,
+        "Lung": 15.6,
+        "Ovary": 43.5,
+        "Prostate": 89.2,
+        "Rectum": 62.0,
+        "Stomach": 23.2
+      }
+    },
+    {
+      "country": "Switzerland",
+      "code": "CHE",
+      "year": 2009,
+      "rates": {
+        "Breast": 85.5,
+        "Cervix": 65.4,
+        "Colon": 63.3,
+        "Leukaemia": 58.1,
+        "Liver": 13.6,
+        "Lung": 16.5,
+        "Ovary": 37.7,
+        "Prostate": 88.0,
+        "Rectum": 63.8,
+        "Stomach": 30.4
+      }
+    },
+    {
+      "country": "Taiwan",
+      "code": "TWN",
+      "year": 2009,
+      "rates": {
+        "Breast": 82.4,
+        "Cervix": 74.0,
+        "Colon": 59.5,
+        "Leukaemia": 22.9,
+        "Liver": 22.2,
+        "Lung": 14.3,
+        "Ovary": 45.6,
+        "Prostate": 77.9,
+        "Rectum": 60.5,
+        "Stomach": 36.4
+      }
+    },
+    {
+      "country": "Thailand",
+      "code": "THA",
+      "year": 2009,
+      "rates": {
+        "Breast": 71.3,
+        "Cervix": 55.9,
+        "Colon": 50.4,
+        "Leukaemia": 21.1,
+        "Liver": 7.8,
+        "Lung": 13.5,
+        "Ovary": 41.1,
+        "Prostate": 57.7,
+        "Rectum": 39.7,
+        "Stomach": 12.4
+      }
+    },
+    {
+      "country": "Tunisia",
+      "code": "TUN",
+      "year": 2009,
+      "rates": {
+        "Breast": 68.4,
+        "Cervix": 42.4,
+        "Colon": 67.6,
+        "Leukaemia": 26.5,
+        "Lung": 10.3,
+        "Ovary": 47.8,
+        "Prostate": 100.0,
+        "Rectum": 78.5,
+        "Stomach": 49.0
+      }
+    },
+    {
+      "country": "Turkey",
+      "code": "TUR",
+      "year": 2009,
+      "rates": {
+        "Breast": 78.6,
+        "Cervix": 60.9,
+        "Colon": 52.9,
+        "Leukaemia": 33.1,
+        "Liver": 14.2,
+        "Lung": 10.1,
+        "Ovary": 39.0,
+        "Prostate": 80.6,
+        "Rectum": 45.3,
+        "Stomach": 17.1
+      }
+    },
+    {
+      "country": "United Kingdom",
+      "code": "GBR",
+      "year": 2009,
+      "rates": {
+        "Breast": 81.1,
+        "Cervix": 60.2,
+        "Colon": 53.8,
+        "Leukaemia": 47.0,
+        "Liver": 9.3,
+        "Lung": 9.6,
+        "Ovary": 36.9,
+        "Prostate": 83.2,
+        "Rectum": 56.6,
+        "Stomach": 18.5
+      }
+    },
+    {
+      "country": "United States",
+      "code": "USA",
+      "year": 2009,
+      "rates": {
+        "Breast": 88.6,
+        "Cervix": 62.8,
+        "Colon": 64.7,
+        "Leukaemia": 51.8,
+        "Liver": 15.2,
+        "Lung": 18.7,
+        "Ovary": 40.9,
+        "Prostate": 97.2,
+        "Rectum": 64.0,
+        "Stomach": 29.1
+      }
+    },
+    {
+      "country": "Uruguay",
+      "code": "URY",
+      "year": 2009,
+      "rates": {
+        "Colon": 53.4,
+        "Lung": 9.1,
+        "Rectum": 49.4
+      }
+    }
+  ],
+  "avg_survival_by_cancer": {
+    "Breast": 76.4,
+    "Cervix": 60.7,
+    "Colon": 53.6,
+    "Leukaemia": 39.7,
+    "Liver": 11.5,
+    "Lung": 13.7,
+    "Ovary": 37.7,
+    "Prostate": 75.6,
+    "Rectum": 51.5,
+    "Stomach": 25.2
+  },
+  "tobacco_trend": [
+    {
+      "year": 1990,
+      "tobacco_share_pct": 28.13
+    },
+    {
+      "year": 1991,
+      "tobacco_share_pct": 28.16
+    },
+    {
+      "year": 1992,
+      "tobacco_share_pct": 28.18
+    },
+    {
+      "year": 1993,
+      "tobacco_share_pct": 28.24
+    },
+    {
+      "year": 1994,
+      "tobacco_share_pct": 28.22
+    },
+    {
+      "year": 1995,
+      "tobacco_share_pct": 28.22
+    },
+    {
+      "year": 1996,
+      "tobacco_share_pct": 28.11
+    },
+    {
+      "year": 1997,
+      "tobacco_share_pct": 27.98
+    },
+    {
+      "year": 1998,
+      "tobacco_share_pct": 27.91
+    },
+    {
+      "year": 1999,
+      "tobacco_share_pct": 27.86
+    },
+    {
+      "year": 2000,
+      "tobacco_share_pct": 27.84
+    },
+    {
+      "year": 2001,
+      "tobacco_share_pct": 27.79
+    },
+    {
+      "year": 2002,
+      "tobacco_share_pct": 27.74
+    },
+    {
+      "year": 2003,
+      "tobacco_share_pct": 27.7
+    },
+    {
+      "year": 2004,
+      "tobacco_share_pct": 27.67
+    },
+    {
+      "year": 2005,
+      "tobacco_share_pct": 27.6
+    },
+    {
+      "year": 2006,
+      "tobacco_share_pct": 27.41
+    },
+    {
+      "year": 2007,
+      "tobacco_share_pct": 27.3
+    },
+    {
+      "year": 2008,
+      "tobacco_share_pct": 27.22
+    },
+    {
+      "year": 2009,
+      "tobacco_share_pct": 27.13
+    },
+    {
+      "year": 2010,
+      "tobacco_share_pct": 27.04
+    },
+    {
+      "year": 2011,
+      "tobacco_share_pct": 26.89
+    },
+    {
+      "year": 2012,
+      "tobacco_share_pct": 26.75
+    },
+    {
+      "year": 2013,
+      "tobacco_share_pct": 26.55
+    },
+    {
+      "year": 2014,
+      "tobacco_share_pct": 26.35
+    },
+    {
+      "year": 2015,
+      "tobacco_share_pct": 26.21
+    },
+    {
+      "year": 2016,
+      "tobacco_share_pct": 26.05
+    },
+    {
+      "year": 2017,
+      "tobacco_share_pct": 25.9
+    },
+    {
+      "year": 2018,
+      "tobacco_share_pct": 25.78
+    },
+    {
+      "year": 2019,
+      "tobacco_share_pct": 25.7
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 type CountryRecord = {
   country: string;
@@ -141,6 +142,31 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
             Multi-dimensional comparative intelligence. Trace country-by-country mortality disparities across <strong>35 nations</strong>, 
             the <strong>13x spread in 5-year survival rates</strong> across 15 cancer classes, and the non-linear relationship between GDP and cancer outcomes.
           </p>
+          <div style={{ marginTop: 14, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <Link
+              href="/projects/global-cancer-epidemiology-surveillance"
+              className="mono"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                backgroundColor: "var(--accent)",
+                color: "#000",
+                fontWeight: 700,
+                padding: "8px 16px",
+                borderRadius: 3,
+                fontSize: 11.5,
+                textDecoration: "none",
+                letterSpacing: "0.04em",
+              }}
+            >
+              <span>ACCESS WORKING PORTFOLIO CASE STUDY</span>
+              <span style={{ fontSize: 13 }}>→</span>
+            </Link>
+            <span className="mono" style={{ fontSize: 10.5, color: "var(--dim)" }}>
+              [59-Nation CONCORD-3 matrix, tobacco risk driver & GDP scatter]
+            </span>
+          </div>
         </div>
 
         {/* View Switcher Tabs */}
@@ -616,10 +642,19 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
         </div>
 
         {/* Footnote */}
-        <p className="playground-note">
-          <strong>Analytical Context:</strong> Synthesized from the <em>Global Burden of Disease Study (IHME)</em> and <em>CONCORD-3 Global Cancer Survival Program</em>. 
-          Demonstrates reproducible client-side exploratory tables, multi-variable filtering, and clinical metric standardization for epidemiological decision systems.
-        </p>
+        <div className="playground-note" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <p style={{ margin: 0 }}>
+            <strong>Analytical Context:</strong> Synthesized from the <em>Global Burden of Disease Study (IHME)</em> and <em>CONCORD-3 Global Cancer Survival Program</em>. 
+            Demonstrates reproducible client-side exploratory tables, multi-variable filtering, and clinical metric standardization for epidemiological decision systems.
+          </p>
+          <Link
+            href="/projects/global-cancer-epidemiology-surveillance"
+            className="mono"
+            style={{ color: "var(--accent)", textDecoration: "underline", fontSize: 11, whiteSpace: "nowrap" }}
+          >
+            Open Full Working Portfolio Study ↗
+          </Link>
+        </div>
       </div>
     </section>
   );

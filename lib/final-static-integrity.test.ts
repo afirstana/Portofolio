@@ -19,14 +19,15 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
       .filter((p) => p.slug !== "amazon-product-intelligence" && p.slug !== "olist-payment-behavior-analytics")
       .map((project) => ({ slug: project.slug }));
 
-    // Exactly 5 dynamic routes
-    expect(dynamicSlugs).toHaveLength(5);
+    // Exactly 6 dynamic routes
+    expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).toEqual([
       "ml-product-mapping-system",
       "revenue-reconciliation-automation",
       "olist-e-commerce-logistics-analysis",
       "certificate-generator-desktop-app",
       "brent-oil-market-dynamics",
+      "global-cancer-epidemiology-surveillance",
     ]);
   });
 
@@ -47,9 +48,9 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(paymentSource).toContain("export const dynamicParams = false;");
   });
 
-  it("verifies all 7 project static HTML and index.txt files exist in out/projects/", () => {
+  it("verifies all 8 project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(7);
+    expect(projects).toHaveLength(8);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

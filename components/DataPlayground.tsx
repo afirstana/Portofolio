@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useRef } from "react";
+import Link from "next/link";
 
 export type PlaygroundRow = {
   year: string;
@@ -122,6 +123,31 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
             Real panel dataset (1990–2019) from <strong>Our World in Data</strong> & <strong>IHME Global Burden of Disease</strong>. 
             Inspect 30-year epidemiological trajectories, longitudinal shifts, and mortality distribution across major cancer classifications.
           </p>
+          <div style={{ marginTop: 14, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <Link
+              href="/projects/global-cancer-epidemiology-surveillance"
+              className="mono"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                backgroundColor: "var(--accent)",
+                color: "#000",
+                fontWeight: 700,
+                padding: "8px 16px",
+                borderRadius: 3,
+                fontSize: 11.5,
+                textDecoration: "none",
+                letterSpacing: "0.04em",
+              }}
+            >
+              <span>VIEW FULL 281.4k SURVEILLANCE CASE STUDY</span>
+              <span style={{ fontSize: 13 }}>→</span>
+            </Link>
+            <span className="mono" style={{ fontSize: 10.5, color: "var(--dim)" }}>
+              [204-Country rankings, 29-cancer mix, tobacco driver & GDP scatter]
+            </span>
+          </div>
         </div>
 
         {/* Toolbar & Category Filters */}
@@ -351,10 +377,19 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
         </div>
 
         {/* Data Provenance & Methodology Note */}
-        <p className="playground-note">
-          <strong>Data Provenance:</strong> Source records from the <em>Global Burden of Disease Study (IHME / Our World in Data)</em>. 
-          Processed locally into static-first JSON with zero external API latency, demonstrating transparent analytical exploration and reproducible aggregation.
-        </p>
+        <div className="playground-note" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <p style={{ margin: 0 }}>
+            <strong>Data Provenance:</strong> Source records from the <em>Global Burden of Disease Study (IHME / Our World in Data)</em>. 
+            Processed locally into static-first JSON with zero external API latency, demonstrating transparent analytical exploration and reproducible aggregation.
+          </p>
+          <Link
+            href="/projects/global-cancer-epidemiology-surveillance"
+            className="mono"
+            style={{ color: "var(--accent)", textDecoration: "underline", fontSize: 11, whiteSpace: "nowrap" }}
+          >
+            Open Full Working Portfolio Study ↗
+          </Link>
+        </div>
       </div>
     </section>
   );

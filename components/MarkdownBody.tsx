@@ -1,7 +1,51 @@
 import React from "react";
 
+function parseMathToCleanUnicode(raw: string): string {
+  return raw
+    .replace(/\\text\{([^\}]+)\}/g, "$1")
+    .replace(/\\mathrm\{([^\}]+)\}/g, "$1")
+    .replace(/\\mathbf\{([^\}]+)\}/g, "$1")
+    .replace(/\\ln/g, "ln")
+    .replace(/\\log/g, "log")
+    .replace(/\\times/g, " × ")
+    .replace(/\\cdot/g, " · ")
+    .replace(/\\approx/g, " ≈ ")
+    .replace(/\\neq/g, " ≠ ")
+    .replace(/\\le/g, " ≤ ")
+    .replace(/\\ge/g, " ≥ ")
+    .replace(/\\pm/g, " ± ")
+    .replace(/\\sum_\{i=1\}\^\{([^\}]+)\}/g, "∑(i=1..$1)")
+    .replace(/\\sum_\{([^\}]+)\}/g, "∑($1)")
+    .replace(/\\sum/g, "∑")
+    .replace(/\\beta_0/g, "β₀")
+    .replace(/\\beta_1/g, "β₁")
+    .replace(/\\beta/g, "β")
+    .replace(/\\alpha/g, "α")
+    .replace(/\\epsilon/g, "ε")
+    .replace(/\\sigma/g, "σ")
+    .replace(/\\mu/g, "μ")
+    .replace(/\\left\(/g, "(")
+    .replace(/\\right\)/g, ")")
+    .replace(/\\left\[/g, "[")
+    .replace(/\\right\]/g, "]")
+    .replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "($1 / $2)")
+    .replace(/\{,\}/g, ",")
+    .replace(/_i\b/g, "ᵢ")
+    .replace(/_0\b/g, "₀")
+    .replace(/_1\b/g, "₁")
+    .replace(/_2\b/g, "₂")
+    .replace(/_k\b/g, "ₖ")
+    .replace(/_K\b/g, "ₖ")
+    .replace(/\^2\b/g, "²")
+    .replace(/\^3\b/g, "³")
+    .replace(/\^K\b/g, "ᴷ")
+    .replace(/[{}]/g, "")
+    .replace(/\\/g, "")
+    .trim();
+}
+
 function formatInline(text: string): React.ReactNode[] {
-  // Split by inline code, bold, links
+  // Split by inline code, bold, links, math
   const parts: React.ReactNode[] = [];
   const regex = /(\*\*.*?\*\*|`.*?`|\$[^\$]+?\$|\[.*?\]\(.*?\))/g;
   let lastIdx = 0;
@@ -33,7 +77,24 @@ function formatInline(text: string): React.ReactNode[] {
         </code>
       );
     } else if (token.startsWith("$") && token.endsWith("$")) {
-      parts.push(<span key={match.index} className="mono" style={{ color: "var(--accent)", backgroundColor: "var(--accent-subtle)", padding: "1px 6px", borderRadius: 2, fontSize: 11 }}>{token.slice(1, -1)}</span>);
+      const cleanInline = parseMathToCleanUnicode(token.slice(1, -1));
+      parts.push(
+        <span
+          key={match.index}
+          className="mono"
+          style={{
+            color: "var(--accent)",
+            backgroundColor: "var(--accent-subtle)",
+            padding: "1px 6px",
+            borderRadius: 3,
+            border: "1px solid var(--line)",
+            fontSize: 11.5,
+            fontWeight: 600,
+          }}
+        >
+          {cleanInline}
+        </span>
+      );
     } else if (token.startsWith("[") && token.includes("](")) {
       const labelMatch = token.match(/\[(.*?)\]\((.*?)\)/);
       if (labelMatch) {
@@ -102,23 +163,48 @@ export function MarkdownBody({ source }: { source: string }) {
     // Math block ($$...$$)
     if (line.trim().startsWith("$$")) {
       const mathContent = line.trim().replace(/^\$\$|\$\$$/g, "");
+      const cleanMath = parseMathToCleanUnicode(mathContent);
+
       nodes.push(
         <div
           key={`math-${i}`}
           style={{
+            margin: "24px 0",
+            padding: "16px 20px",
             backgroundColor: "var(--surface-secondary)",
-            border: "1px solid var(--accent)",
-            padding: "14px 20px",
-            margin: "20px 0",
-            borderRadius: 3,
-            color: "var(--accent)",
-            fontFamily: "'Courier New', monospace",
-            fontSize: 13,
-            textAlign: "center",
-            letterSpacing: "0.02em",
+            border: "1px solid var(--line)",
+            borderLeft: "3px solid var(--accent)",
+            borderRadius: 4,
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
           }}
         >
-          {mathContent}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span className="mono" style={{ fontSize: "9px", color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              Mathematical Model • Formulation
+            </span>
+            <span className="mono" style={{ fontSize: "9px", color: "var(--dim)" }}>
+              [EPIDEMIOLOGICAL EQUATION]
+            </span>
+          </div>
+          <div
+            style={{
+              padding: "14px 18px",
+              backgroundColor: "#08080a",
+              border: "1px solid var(--line)",
+              borderRadius: 3,
+              fontFamily: "'Courier New', monospace",
+              fontSize: "15px",
+              fontWeight: 700,
+              color: "#ffffff",
+              textAlign: "center",
+              letterSpacing: "0.04em",
+              overflowX: "auto",
+            }}
+          >
+            {cleanMath}
+          </div>
         </div>
       );
       i++;

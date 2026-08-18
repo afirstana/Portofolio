@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MarkdownBody } from "@/components/MarkdownBody";
+import { OpinionParadoxInteractive } from "@/components/OpinionParadoxInteractive";
 import { getAdjacentOpinions, getOpinionBySlug, getOpinions } from "@/lib/opinions";
 import { siteConfig } from "@/lib/site";
 
@@ -97,6 +98,11 @@ export default async function OpinionArticlePage({ params }: RouteProps) {
           </div>
           <p className="thesis-content">"{article.thesis}"</p>
         </div>
+
+        {/* Standalone Interactive Simulation Widget (Epidemiological Paradox) */}
+        {article.slug === "the-epidemiological-paradox-cancer-aging-vs-survival" && (
+          <OpinionParadoxInteractive />
+        )}
 
         {/* Deep Markdown Narrative */}
         <div className="opinion-body-container">

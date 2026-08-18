@@ -10,6 +10,11 @@ import { OlistRfmShowcase } from "@/components/OlistRfmShowcase";
 import { OlistPaymentInteractiveShowcase } from "@/components/OlistPaymentInteractiveShowcase";
 import { CertificateInteractiveShowcase } from "@/components/CertificateInteractiveShowcase";
 import { BrentOilInteractiveShowcase } from "@/components/BrentOilInteractiveShowcase";
+import { CancerEpidemiologyDashboard } from "@/components/CancerEpidemiologyDashboard";
+import { CancerTrendAsdrShowcase } from "@/components/CancerTrendAsdrShowcase";
+import { CancerSiteMixShowcase } from "@/components/CancerSiteMixShowcase";
+import { CancerGdpScatterShowcase } from "@/components/CancerGdpScatterShowcase";
+import { CancerTobaccoRiskShowcase } from "@/components/CancerTobaccoRiskShowcase";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -64,6 +69,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   const isOlistPayment = project.slug === "olist-payment-behavior-analytics";
   const isCertificate = project.slug === "certificate-generator-desktop-app";
   const isBrentOil = project.slug === "brent-oil-market-dynamics";
+  const isCancer = project.slug === "global-cancer-epidemiology-surveillance";
 
   return (
     <main className="site-shell">
@@ -110,6 +116,21 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone 35-Year Brent Oil Econometrics & Crisis Shock Showcase */}
             {isBrentOil && <BrentOilInteractiveShowcase />}
+
+            {/* Standalone Global Cancer Epidemiology & Clinical Survival Dashboard */}
+            {isCancer && <CancerEpidemiologyDashboard />}
+
+            {/* Standalone 03. 30-Year Longitudinal Trend & ASDR Trajectory Showcase */}
+            {isCancer && <CancerTrendAsdrShowcase />}
+
+            {/* Standalone 04. Malignancy Site Mix & Taxonomy Spectrum Showcase */}
+            {isCancer && <CancerSiteMixShowcase />}
+
+            {/* Standalone 2D GDP vs Cancer Mortality Elasticity Showcase */}
+            {isCancer && <CancerGdpScatterShowcase />}
+
+            {/* Standalone Tobacco Risk & Smoking Attribution Showcase */}
+            {isCancer && <CancerTobaccoRiskShowcase />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

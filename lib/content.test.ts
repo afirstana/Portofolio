@@ -4,11 +4,12 @@ import { getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(7);
+    expect(projects).toHaveLength(8);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length === 3 && project.preview.takeaway)).toBe(true);
     expect(projects.some((project) => project.slug === "olist-payment-behavior-analytics")).toBe(true);
     expect(projects.some((project) => project.slug === "brent-oil-market-dynamics")).toBe(true);
+    expect(projects.some((project) => project.slug === "global-cancer-epidemiology-surveillance")).toBe(true);
   });
 
   it("keeps project detail metadata available at build time", () => {
@@ -63,14 +64,31 @@ describe("local Markdown content", () => {
     expect(project?.body).toContain("8. Methodological Limitations & Commodity Forecasting Guardrails");
   });
 
+  it("loads comprehensive markdown narrative for global cancer epidemiology surveillance", () => {
+    const project = getProjectBySlug("global-cancer-epidemiology-surveillance");
+    expect(project).toBeDefined();
+    expect(project?.tools).toContain("Python");
+    expect(project?.preview.metrics).toHaveLength(3);
+    expect(project?.body.length).toBeGreaterThan(1000);
+    expect(project?.body).toContain("1. Executive Summary & Macro Problem Scope");
+    expect(project?.body).toContain("2. Multi-File Panel Ingestion & Data Hygiene Protocol");
+    expect(project?.body).toContain("3. Thirty-Year Longitudinal Trends & Age-Standardized Trajectories");
+    expect(project?.body).toContain("4. Cross-National Disparities & Eastern European Mortality Clustering");
+    expect(project?.body).toContain("5. Cancer Site Mortality Composition & Etiology Breakdown");
+    expect(project?.body).toContain("6. Socio-Economic Elasticity: GDP per Capita vs Cancer Mortality Scatter Analysis");
+    expect(project?.body).toContain("7. 5-Year Clinical Survival Heterogeneity Matrix");
+    expect(project?.body).toContain("8. Epidemiological Limitations & Registry Reporting Biases");
+  });
+
   it("filters out dedicated route folders from dynamic project static params", () => {
     const dynamicSlugs = getProjects()
       .filter((p) => p.slug !== "amazon-product-intelligence" && p.slug !== "olist-payment-behavior-analytics")
       .map((project) => ({ slug: project.slug }));
 
-    expect(dynamicSlugs).toHaveLength(5);
+    expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("amazon-product-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("olist-payment-behavior-analytics");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("brent-oil-market-dynamics");
+    expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
   });
 });

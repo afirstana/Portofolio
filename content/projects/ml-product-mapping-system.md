@@ -20,7 +20,7 @@ skills:
   - "Active learning"
   - "Data quality"
   - "System architecture"
-order: 4
+order: 6
 system:
   - label: "01. Fast Dense Retrieval"
     value: "PyTorch Bi-Encoder (384-d dense embeddings) retrieves Top 30 candidate Master SKUs in ~3ms"

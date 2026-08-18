@@ -12,6 +12,8 @@ import { OlistInstallmentAnomalyShowcase } from "@/components/OlistInstallmentAn
 import { OlistCategoryFinancingShowcase } from "@/components/OlistCategoryFinancingShowcase";
 import { CertificateInteractiveShowcase } from "@/components/CertificateInteractiveShowcase";
 import { BrentOilInteractiveShowcase } from "@/components/BrentOilInteractiveShowcase";
+import { BrentOilRegimesShowcase } from "@/components/BrentOilRegimesShowcase";
+import { BrentOilRiskShowcase } from "@/components/BrentOilRiskShowcase";
 import { CancerEpidemiologyDashboard } from "@/components/CancerEpidemiologyDashboard";
 import { CancerTrendAsdrShowcase } from "@/components/CancerTrendAsdrShowcase";
 import { CancerSiteMixShowcase } from "@/components/CancerSiteMixShowcase";
@@ -125,6 +127,12 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone 35-Year Brent Oil Econometrics & Crisis Shock Showcase */}
             {isBrentOil && <BrentOilInteractiveShowcase />}
+
+            {/* Standalone 03. Four Decades of Market Regimes Showcase */}
+            {isBrentOil && <BrentOilRegimesShowcase />}
+
+            {/* Standalone Non-Gaussian Fat-Tail Risk & VaR (95/99) Econometric Showcase */}
+            {isBrentOil && <BrentOilRiskShowcase />}
 
             {/* Standalone Global Cancer Epidemiology & Clinical Survival Dashboard */}
             {isCancer && <CancerEpidemiologyDashboard />}

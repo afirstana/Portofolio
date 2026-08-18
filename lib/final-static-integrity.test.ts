@@ -24,10 +24,10 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(dynamicSlugs.map((s) => s.slug)).toEqual([
       "global-cancer-epidemiology-surveillance",
       "olist-e-commerce-logistics-analysis",
+      "brent-oil-market-dynamics",
       "ml-product-mapping-system",
       "revenue-reconciliation-automation",
       "certificate-generator-desktop-app",
-      "brent-oil-market-dynamics",
     ]);
   });
 
@@ -102,23 +102,23 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(html).toContain("01. Overview");
     expect(html).toContain("Marketplace conversion and basket size growth");
 
-    // Check 02. Interactive Dashboard
-    expect(html).toContain("02. Interactive Dashboard");
+    // Check 06. Interactive Dashboard Console
+    expect(html).toContain("06. Interactive Console");
     expect(html).toContain("Payment &amp; Installment Behavior Console");
     expect(html).toContain("TOTAL PAYMENT VALUE");
     expect(html).toContain("CREDIT CARD REVENUE SHARE");
     expect(html).toContain("AVG CREDIT CARD INSTALLMENTS");
     expect(html).toContain("INSTALLMENT VS ORDER VALUE");
 
-    // Check 03. Data Preparation Pipeline
-    expect(html).toContain("03. Data Preparation Pipeline");
+    // Check 07. Data Preparation Pipeline
+    expect(html).toContain("07. Data Preparation Pipeline");
     expect(html).toContain("01. Transaction Aggregation");
     expect(html).toContain("02. Payment Channel Distribution");
     expect(html).toContain("03. Installment Elasticity Model");
     expect(html).toContain("04. Category Sensitivity Matrix");
 
-    // Check 04. Technical Markdown Narrative sections
-    expect(html).toContain("04. Detailed Analysis &amp; Recommendations");
+    // Check 08. Technical Markdown Narrative sections
+    expect(html).toContain("08. Detailed Analysis &amp; Recommendations");
     expect(html).toContain("1. Executive Summary &amp; Problem Scope");
     expect(html).toContain("2. Relational Schema &amp; Data Preparation Pipeline");
     expect(html).toContain("3. Empirical Finding 1: Payment Method Distribution &amp; Wallet Share");

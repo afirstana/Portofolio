@@ -18,7 +18,7 @@ skills:
   - "Geopolitical risk modeling"
   - "Statistical hypothesis testing"
   - "Interactive data visualization"
-order: 7
+order: 4
 system:
   - label: "01. Multi-Format Ingestion"
     value: "Standardizes 9,011 daily trading rows, resolving mixed date encodings (%d-%b-%y and %b %d, %Y) with zero data loss"
@@ -65,15 +65,18 @@ evidence:
 
 ## 1. Executive Summary & Macro Problem Scope
 
+> [!IMPORTANT]
 > **Macro Analytical Baseline**: 9,011 daily trading observations spanning **May 20, 1987 through November 14, 2022 (35.5 years)**. Across global financial markets, Brent Crude Oil serves as the premier international pricing benchmark for over 60% of world physical crude trade.
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    35.5-YEAR BRENT CRUDE BENCHMARK                      │
-│   9,011 Trading Days  │  Min: $9.10 (Dec 1998/Apr 2020)  │  Max: $143.95│
-│   Mean: $48.42/bbl    │  Daily Volatility: 2.53%         │  Kurtosis: 45.4│
-└─────────────────────────────────────────────────────────────────────────┘
-```
+#### 35.5-Year Benchmark Telemetry Matrix (1987–2022)
+
+| Benchmark Dimension | Metric Value | Baseline Reference / Range | Econometric Significance |
+| :--- | :---: | :---: | :--- |
+| **Total Trading Observations** | **9,011 Days** | 35.5 Continuous Years | Comprehensive multi-decade macroeconomic sample |
+| **All-Time Historical Range** | **$9.10 ➔ $143.95** | 15.8x Dynamic Price Spread | Extreme non-stationary commodity price regime shifts |
+| **35.5-Year Long-Term Mean** | **$48.42 / bbl** | Median: $38.57 / bbl | Right-skewed by 2008 supercycle & 2022 energy shocks |
+| **Daily Volatility ($\sigma$)** | **2.525%** | Annualized: ~40.1% | 2.5x higher volatility than major equity benchmarks |
+| **Fat-Tail Kurtosis** | **45.43** | Gaussian Benchmark: 3.00 | **+1,414% Excess Kurtosis** (Extreme crash tail risk) |
 
 Commodity trading desks, energy policymakers, and airline/industrial CFOs face severe operational risks when managing oil price exposure:
 1. **Extreme Regime Non-Stationarity**: Over 35 years, oil traded as low as **$9.10/barrel** during the Asian Financial Crisis and COVID-19 demand collapse, and as high as **$143.95/barrel** during the 2008 Commodity Supercycle.
@@ -87,34 +90,38 @@ This study delivers an end-to-end econometric investigation of the 35.5-year his
 ## 2. Dataset Hygiene & Multi-Format Date Normalization Pipeline
 
 ### 2.1 Ingestion Challenge: Dual-Format Date Encodings
-The primary dataset (`BrentOilPrices.csv`) aggregates 9,011 trading days sourced across two legacy collection systems, resulting in mixed timestamp formats within a single column:
-- **Legacy Epoch Format** (pre-2020 records): Encoded as `%d-%b-%y` (e.g., `20-May-87`, `03-Jul-08`).
-- **Modern Scraped Format** (2020–2022 records): Encoded as `%b %d, %Y` (e.g., `Nov 08, 2022`, `Apr 22, 2020`).
+The primary dataset (`BrentOilPrices.csv`) aggregates **9,011 daily trading sessions** sourced across two distinct historical data collection eras, producing non-contiguous date formatting anomalies within a single timestamp column:
+- **Legacy 2-Digit Epoch Format** (pre-2020 observations): Encoded as `%d-%b-%y` (e.g. `20-May-87`, `03-Jul-08`).
+- **Modern 4-Digit Scraped Format** (2020–2022 observations): Encoded as `%b %d, %Y` (e.g. `Nov 08, 2022`, `Apr 22, 2020`).
 
-Because format transitions occurred non-contiguously (including alternating formats during the volatile April 2020 window), a naive static cutoff failed. A vectorized dual-pattern parser was engineered:
+Because format transitions occurred dynamically (including alternating encodings during the extreme April 2020 market crash), a naive fixed-index slice caused parse failures. A robust multi-pattern parsing engine was implemented:
 
 ```python
-def parse_date(d):
-    for fmt in ('%d-%b-%y', '%b %d, %Y'):
+import pandas as pd
+from typing import Union
+
+def parse_brent_date(date_str: str) -> pd.Timestamp:
+    """Robust dual-format date parser for legacy 2-digit and modern 4-digit timestamps."""
+    formats = ('%d-%b-%y', '%b %d, %Y')
+    for fmt in formats:
         try:
-            return pd.to_datetime(d, format=fmt)
-        except ValueError:
+            return pd.to_datetime(date_str, format=fmt)
+        except (ValueError, TypeError):
             continue
-    return pd.to_datetime(d)
+    return pd.to_datetime(date_str)
 ```
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     DATA PIPELINE & QUALITY CHECKS                      │
-│  Raw CSV (9,011 rows) ──► Dual-Format Regex Parser ──► Datetime Index   │
-│                       ──► Zero Missing Dates       ──► Chrono Sorting   │
-│                       ──► Trading Calendar Window  ──► Feature Engine   │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+#### Pipeline Ingestion & Transformation Architecture
+
+| Pipeline Layer | Operational ETL Operation | Quality Assurance Metric | Output Deliverable |
+| :--- | :--- | :---: | :--- |
+| **01. Ingestion & Regex Detection** | Ingests 9,011 raw CSV rows; scans and resolves dual datetime patterns (`%d-%b-%y` vs `%b %d, %Y`). | **0 Format Errors** | Standardized ISO-8601 Datetime Index (`YYYY-MM-DD`). |
+| **02. Chronological Ordering** | Enforces monotonic ascending sort; aligns trading dates against London ICE exchange trading calendars. | **100% Monotonicity** | Contiguous 35.5-year daily time-series sequence. |
+| **03. Feature Engineering** | Computes logarithmic/daily returns ($R_t$), rolling windows ($\text{MA}_{30}$, $\text{MA}_{90}$, $\text{MA}_{365}$), and rolling volatility. | **0 Missing Values** | Multi-decade econometric modeling matrix. |
 
 ### 2.2 Calendar Granularity & Trading Day Conventions
-- **Trading Day Calendar**: Annual trading observations range from 220 to 258 days/year, reflecting weekend closures and London/ICE exchange holidays.
-- **Data Integrity Verification**: 0 missing values, 0 duplicate timestamps, and 100% monotonicity verified post-normalization.
+- **Trading Day Calendar**: Annual trading observations range from **220 to 258 days/year**, strictly reflecting exchange weekend closures and London/ICE statutory holidays.
+- **Data Integrity Verification**: 0 missing records, 0 duplicate timestamps, and 100% temporal continuity verified across all 9,011 trading days.
 
 ---
 
@@ -125,26 +132,9 @@ Grouping 35.5 years into distinct economic eras reveals profound macroeconomic r
 | Market Regime Era | Historical Trading Days | Mean Price (USD) | Median Price (USD) | Price Range (Min – Max) | Return Volatility (%) | Dominant Macroeconomic Driver |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | **1987–1999: Pre-Globalized Stability** | 3,200 | **$18.08** | $17.90 | $9.10 – $41.45 | 2.29% | Low, steady baseline; stable post-OPEC quota agreements; Gulf War spike. |
-| **2000–2009: Commodity Supercycle** | 2,551 | **$49.46** | $43.03 | $16.51 – **$143.95** | 2.51% | Rapid industrialization of BRICS (China/India); peak oil speculation. |
+| **2000–2009: Commodity Supercycle** | 2,551 | **$49.46** | $43.03 | $16.51 – $143.95 | 2.51% | Rapid industrialization of BRICS (China & India); peak oil speculation. |
 | **2010–2019: US Shale Oil Boom** | 2,531 | **$79.35** | $74.86 | $26.01 – $128.14 | 1.91% | US horizontal drilling explosion; OPEC market share price war (2014–16). |
-| **2020–2022: Pandemic Crash & War** | 729 | **$70.60** | $69.95 | **$9.12** – $133.18 | **3.78%** | COVID-19 demand collapse followed by European energy crisis post-invasion. |
-
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    35-YEAR REGIME TRAJECTORY (USD/BBL)                  │
-│                                                                         │
-│  $160│                                        ▲ $143.95 (Jul 2008)      │
-│  $140│                                       ██                         │
-│  $120│                                      ████       ▲ $133.18 (2022) │
-│  $100│                                    ████████   ████               │
-│   $80│                                   ██████████████████             │
-│   $60│                                  ████████████████████            │
-│   $40│   ████ 1990                     ██████████████████████           │
-│   $20│██████████████████████████████████████████████████████████        │
-│    $0└──────────────────────────────────────────────▼ $9.10 (2020)─────►│
-│      1987      1992      1997      2002      2007      2012      2022   │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+| **2020–2022: Pandemic Crash & War** | 729 | **$70.60** | $69.95 | $9.12 – $133.18 | **3.78%** | COVID-19 demand collapse followed by European energy crisis post-invasion. |
 
 ---
 
@@ -180,26 +170,7 @@ Daily percentage returns $R_t = \frac{P_t - P_{t-1}}{P_{t-1}} \times 100$ were c
 
 $$\text{Mean Return} = +0.050\% \quad \big| \quad \text{Std Dev} = 2.525\% \quad \big| \quad \text{Skewness} = +0.312 \quad \big| \quad \textbf{Kurtosis} = \mathbf{45.432}$$
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     FAT-TAIL DISTRIBUTION BEHAVIOR                      │
-│                                                                         │
-│   Density                                                               │
-│     ▲                                                                   │
-│     │                      ▲ Gaussian (Kurtosis = 3.0)                  │
-│     │                     ███                                           │
-│     │                    █████                                          │
-│     │                   ███████                                         │
-│     │                  █████████                                        │
-│     │                 ███████████                                       │
-│     │           ░░░░░░███████████░░░░░░ ◄ Brent Empirical (Kurtosis 45)│
-│    0└───────────┴──────────┼──────────┴───────────────────────────────► │
-│               -6.13%     Mean       +6.0%                               │
-│              (VaR 99)                                                   │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-The observed kurtosis of **45.43** dwarfs the Gaussian benchmark of **3.0**, indicating extreme leptokurtic behavior ("fat tails"). In practical risk terms, multi-standard-deviation tail events happen an order of magnitude more often than standard risk engines assume.
+The observed kurtosis of **45.43** dwarfs the Gaussian benchmark of **3.0**, indicating extreme leptokurtic behavior (*fat tails*). In practical risk terms, multi-standard-deviation tail events happen an order of magnitude more often than standard risk engines assume.
 
 ### 5.2 Value-at-Risk (VaR) Calibration
 
@@ -233,17 +204,10 @@ Long-range univariate ARIMA models ($p,1,q$) degrade quickly on multi-month hori
 
 To empower energy risk controllers and procurement managers, an enterprise dashboard model was designed:
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│               POWER BI ENTERPRISE COMMODITY DATA MODEL                  │
-│                                                                         │
-│   ┌───────────────────────────┐         ┌───────────────────────────┐   │
-│   │        DateTable          │ 1     * │         BrentOil          │   │
-│   │   (Calendar 1987-2022)    ├─────────┤   (9,011 Trading Days)    │   │
-│   │   Mark as Date Table      │         │   Price, Returns, Volume  │   │
-│   └───────────────────────────┘         └───────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+| Relational Table | Cardinality | Key Fields & Granularity | Role in Analytical Architecture |
+| :--- | :---: | :--- | :--- |
+| **DateTable** | 1 (Primary) | `Date`, `Year`, `Month`, `Decade`, `TradingDayFlag` | Master calendar dimension supporting time intelligence DAX functions |
+| **BrentOilPrices** | * (Fact) | `Date`, `Price`, `DailyReturn`, `MA30`, `MA365`, `Volatility` | Core transactional fact table containing 9,011 trading sessions |
 
 ### Core DAX Measures Specification
 ```dax
@@ -270,3 +234,29 @@ RETURN DIVIDE(CurrentAvg - PriorAvg, PriorAvg)
 1. **Univariate Price Scope**: The primary series records daily closing prices without intraday high/low spreads or physical trading volumes.
 2. **Inflation Adjustment**: Historical prices are presented in nominal USD; adjusted for constant 2022 dollars, the 2008 peak of $\$143.95$ exceeds $\$195.00/\text{barrel}$.
 3. **Observational Event Windows**: The event-driven methodology isolates a fixed $\pm 30\text{--}90\text{ day}$ window; macroeconomic spillover effects (e.g. secondary inflation) extend beyond empirical observation windows.
+
+---
+
+## 9. Business Impact & Institutional Decision Value
+
+| Institutional Stakeholder | Operational Risk Exposure | Econometric Analytical Deliverable | Concrete Decision Impact |
+| :--- | :--- | :--- | :--- |
+| **Commodity Trading Desks & Hedge Funds** | Catastrophic drawdowns from unexpected tail crashes. | Non-Gaussian Fat-Tail & Empirical VaR (95%/99%) Engine | Calibrates asymmetric OTM put option hedging models against real empirical fat tails ($-6.13\%$) rather than bankrupting Gaussian assumptions ($-3.5\%$). |
+| **Airline & Industrial CFOs** | Unbudgeted jet fuel & logistics cost surges during geopolitical crises. | Quantitative Event-Driven Shock Simulator ($\pm 30\text{d}$) | Replaces fixed-price forward spot contracts with collar hedges before geopolitical shock escalation windows (+25% to +80% spikes). |
+| **Energy Policy Planners & Central Banks** | Macroeconomic inflationary shocks & strategic reserve drain. | 4-Decade Macro Regime & Structural Volatility Matrix | Establishes empirical release triggers for Strategic Petroleum Reserves (SPR) based on rolling 30-day volatility clustering thresholds ($>4.5\%$). |
+
+---
+
+## 10. Lessons Learned & Econometric Takeaways
+
+> [!TIP]
+> **Key Econometric Takeaways from 35.5 Years of Daily Trading Data**:
+>
+> 1. **Gaussian Normality Is a Dangerous Fiction in Energy Markets**:
+>    With an empirical kurtosis of **45.43** (vs 3.0 Gaussian norm), Brent daily returns produce 105 extreme $3\sigma$ anomaly days—more than **4.38 times** what standard risk models predict. Risk controllers who rely on standard normal distributions systematically underestimate catastrophic liquidation risk.
+>
+> 2. **Shock Asymmetry (Supply Spikes vs Structural Bear Grinds)**:
+>    Geopolitical supply threats (1990 Gulf War $+79.9\%$, 2022 Ukraine War $+25.2\%$) transmit violently into prices within fewer than 14 trading sessions. Conversely, structural oversupply regimes (2014–2016 US Shale Boom) grind down prices over 18 to 24 months. Hedging strategies must differentiate between acute geopolitical disruption and secular supply gluts.
+>
+> 3. **The Limits of Univariate Price Forecasting**:
+>    Because crude oil prices are governed by non-stationary macroeconomic game theory (OPEC+ quota discipline, geopolitical sanctions, refinery crack spreads), long-horizon deterministic ARIMA models degrade rapidly. Enterprise intelligence systems must prioritize **rolling volatility regimes, tail-risk capital guardrails, and scenario-based stress testing**.

@@ -7,10 +7,14 @@ export function PaymentCaseStudyToc({ hasEvidence = false }: { hasEvidence?: boo
 
   const items = [
     { id: "overview", label: "01. Overview" },
-    { id: "interactive-dashboard", label: "02. Live Dashboard" },
-    { id: "system", label: "03. Data Pipeline" },
-    { id: "narrative", label: "04. Empirical Analysis" },
-    ...(hasEvidence ? [{ id: "evidence", label: "05. Visual Evidence" }] : []),
+    { id: "flowchart", label: "02. Flowchart" },
+    { id: "payment-mix", label: "03. Payment Mix" },
+    { id: "anomaly", label: "04. 10x Anomaly" },
+    { id: "categories", label: "05. Category Matrix" },
+    { id: "interactive-dashboard", label: "06. Console" },
+    { id: "narrative", label: "07. Analysis" },
+    { id: "impact", label: "08. Impact" },
+    { id: "lessons", label: "09. Lessons" },
   ];
 
   useEffect(() => {

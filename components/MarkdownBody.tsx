@@ -5,10 +5,22 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\text\{([^\}]+)\}/g, "$1")
     .replace(/\\mathrm\{([^\}]+)\}/g, "$1")
     .replace(/\\mathbf\{([^\}]+)\}/g, "$1")
+    .replace(/\\operatorname\{([^\}]+)\}/g, "$1")
+    .replace(/\\operatorname/g, "")
     .replace(/\\left\s*[\(\[\{]/g, "(")
     .replace(/\\right\s*[\)\]\}]/g, ")")
     .replace(/\\left/g, "")
     .replace(/\\right/g, "")
+    .replace(/\\arg\\max/g, "argmax")
+    .replace(/\\argmax/g, "argmax")
+    .replace(/\\max_\{([^\}]+)\}/g, "max[$1]")
+    .replace(/\\min_\{([^\}]+)\}/g, "min[$1]")
+    .replace(/\\max/g, "max")
+    .replace(/\\min/g, "min")
+    .replace(/\\qquad/g, "    ")
+    .replace(/\\quad\s*and\s*\\quad/g, "   and   ")
+    .replace(/\\quad\s*\\text\{and\}\s*\\quad/g, "   and   ")
+    .replace(/\\quad/g, "  •  ")
     .replace(/\\sqrt\{([^\}]+)\}/g, "√($1)")
     .replace(/\\sqrt/g, "√")
     .replace(/\\Delta\s*\\phi/g, "Δϕ")
@@ -20,6 +32,8 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\lambda_1/g, "λ₁")
     .replace(/\\lambda_2/g, "λ₂")
     .replace(/\\lambda/g, "λ")
+    .replace(/\\rho_\{([^\\\}]+)\}/g, "ρ($1)")
+    .replace(/\\rho/g, "ρ")
     .replace(/\\arcsin/g, "arcsin")
     .replace(/\\sin\^2/g, "sin²")
     .replace(/\\cos/g, "cos")
@@ -41,6 +55,8 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\beta/g, "β")
     .replace(/\\alpha/g, "α")
     .replace(/\\epsilon/g, "ε")
+    .replace(/\\sigma_X/g, "σ_X")
+    .replace(/\\sigma_Y/g, "σ_Y")
     .replace(/\\sigma/g, "σ")
     .replace(/\\mu/g, "μ")
     .replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "($1 / $2)")
@@ -396,16 +412,15 @@ export function MarkdownBody({ source }: { source: string }) {
         <h4
           key={`h4-${i}`}
           style={{
-            fontSize: 13,
+            fontSize: "14px",
             color: "var(--ink-heading)",
-            fontFamily: "'Courier New', monospace",
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
+            fontWeight: 700,
             marginTop: 22,
             marginBottom: 8,
+            letterSpacing: "-0.01em",
           }}
         >
-          {heading}
+          {formatInline(heading)}
         </h4>
       );
       i++;

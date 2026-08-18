@@ -8,6 +8,8 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 import { OlistGeoShowcase } from "@/components/OlistGeoShowcase";
 import { OlistRfmShowcase } from "@/components/OlistRfmShowcase";
 import { OlistPaymentInteractiveShowcase } from "@/components/OlistPaymentInteractiveShowcase";
+import { OlistInstallmentAnomalyShowcase } from "@/components/OlistInstallmentAnomalyShowcase";
+import { OlistCategoryFinancingShowcase } from "@/components/OlistCategoryFinancingShowcase";
 import { CertificateInteractiveShowcase } from "@/components/CertificateInteractiveShowcase";
 import { BrentOilInteractiveShowcase } from "@/components/BrentOilInteractiveShowcase";
 import { CancerEpidemiologyDashboard } from "@/components/CancerEpidemiologyDashboard";
@@ -111,6 +113,12 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone Payment Method & Installment Elasticity Showcase */}
             {isOlistPayment && <OlistPaymentInteractiveShowcase />}
+
+            {/* Standalone 10x Installment Anomaly Diagnostic Showcase */}
+            {isOlistPayment && <OlistInstallmentAnomalyShowcase />}
+
+            {/* Standalone Category Financing Sensitivity Matrix Showcase */}
+            {isOlistPayment && <OlistCategoryFinancingShowcase />}
 
             {/* Standalone Interactive Certificate Canvas & Batch Simulator */}
             {isCertificate && <CertificateInteractiveShowcase />}

@@ -3,6 +3,10 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { PaymentCaseStudyToc } from "@/components/PaymentCaseStudyToc";
 import { OlistPaymentDashboard } from "@/components/OlistPaymentDashboard";
+import { OlistPaymentInteractiveShowcase } from "@/components/OlistPaymentInteractiveShowcase";
+import { OlistInstallmentAnomalyShowcase } from "@/components/OlistInstallmentAnomalyShowcase";
+import { OlistCategoryFinancingShowcase } from "@/components/OlistCategoryFinancingShowcase";
+import { OlistPipelineFlowchart } from "@/components/OlistPipelineFlowchart";
 import { SystemDiagram } from "@/components/SystemDiagram";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { VisualEvidence } from "@/components/VisualEvidence";
@@ -80,11 +84,35 @@ export default function OlistPaymentAnalyticsPage() {
             </div>
           </section>
 
-          {/* 02. Interactive Dashboard Stage */}
+          {/* 02. Data Ingestion & Transformation Flowchart Architecture */}
+          <section id="flowchart" className="case-stage">
+            <p className="mono case-label">02. Flowchart Architecture</p>
+            <OlistPipelineFlowchart />
+          </section>
+
+          {/* 03. Standalone Interactive Pie & Telemetry Terminal */}
+          <section id="payment-mix" className="case-stage">
+            <p className="mono case-label">03. Interactive Payment Mix</p>
+            <OlistPaymentInteractiveShowcase />
+          </section>
+
+          {/* 04. Diagnostic Investigation: The 10x Installment Spike Anomaly Terminal */}
+          <section id="anomaly" className="case-stage">
+            <p className="mono case-label">04. 10x Checkout Anomaly</p>
+            <OlistInstallmentAnomalyShowcase />
+          </section>
+
+          {/* 05. Category Financing Sensitivity Matrix Terminal */}
+          <section id="categories" className="case-stage">
+            <p className="mono case-label">05. Category Sensitivity Matrix</p>
+            <OlistCategoryFinancingShowcase />
+          </section>
+
+          {/* 06. Comprehensive Interactive Dashboard Console */}
           <section id="interactive-dashboard" className="case-stage payment-dashboard-stage">
             <div className="dashboard-stage-header">
               <div>
-                <p className="mono case-label">02. Interactive Dashboard</p>
+                <p className="mono case-label">06. Interactive Console</p>
                 <h2>Payment & Installment Behavior Console</h2>
               </div>
               <p className="dashboard-stage-sub">
@@ -94,19 +122,35 @@ export default function OlistPaymentAnalyticsPage() {
             <OlistPaymentDashboard />
           </section>
 
-          {/* 03. Relational System Architecture */}
+          {/* 07. Relational System Architecture */}
           <section id="system" className="case-stage" aria-label="Data preparation and system architecture">
-            <p className="mono case-label">03. Data Preparation Pipeline</p>
+            <p className="mono case-label">07. Data Preparation Pipeline</p>
             <SystemDiagram nodes={project.system} />
           </section>
 
-          {/* 04. Technical Markdown Narrative */}
+          {/* 08. Technical Markdown Narrative */}
           <section id="narrative" className="case-stage payment-narrative-stage">
-            <p className="mono case-label">04. Detailed Analysis & Recommendations</p>
+            <p className="mono case-label">08. Detailed Analysis & Recommendations</p>
             {project.body && <MarkdownBody source={project.body} />}
           </section>
 
-          {/* 05. Visual Evidence */}
+          {/* 09. Impact */}
+          <section className="case-stage" id="impact">
+            <p className="mono case-label">09. Impact</p>
+            <p>{project.impact}</p>
+          </section>
+
+          {/* 10. Lessons Learned */}
+          <section className="case-stage" id="lessons">
+            <p className="mono case-label">10. Lessons Learned</p>
+            <ul className="lesson-list">
+              {project.lessons.map((lesson) => (
+                <li key={lesson}>{lesson}</li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 11. Visual Evidence */}
           <VisualEvidence projectSlug={project.slug} evidence={project.evidence} />
         </div>
 

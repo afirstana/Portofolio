@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 type PaymentMethod = {
+  id: string;
   method: string;
   share_volume: number;
   share_gmv: number;
@@ -12,10 +13,12 @@ type PaymentMethod = {
   avg_installments: number;
   color: string;
   insight: string;
+  behavioral_role: string;
 };
 
 const PAYMENT_METHODS: PaymentMethod[] = [
   {
+    id: "credit_card",
     method: "Credit Card",
     share_volume: 73.9,
     share_gmv: 78.4,
@@ -24,9 +27,11 @@ const PAYMENT_METHODS: PaymentMethod[] = [
     avg_ticket: "R$ 163.32",
     avg_installments: 3.51,
     color: "var(--accent)",
-    insight: "The primary marketplace engine. Dominates 78.4% of total GMV and acts as the sole vehicle for installment financing across Brazil."
+    insight: "The primary marketplace growth engine. Generates 78.4% of platform GMV and serves as the sole rail supporting multi-month installment financing across Brazil.",
+    behavioral_role: "High-Ticket Conversion & Installment Financing Rail"
   },
   {
+    id: "boleto",
     method: "Boleto Bancário",
     share_volume: 19.0,
     share_gmv: 17.9,
@@ -35,9 +40,11 @@ const PAYMENT_METHODS: PaymentMethod[] = [
     avg_ticket: "R$ 145.03",
     avg_installments: 1.0,
     color: "#f59e0b",
-    insight: "Essential cash-based and unbanked consumer lifeline. Fixed 1x settlement for price-sensitive buyers avoiding interest."
+    insight: "Essential cash-based and unbanked consumer lifeline (19.0% volume). Sells fixed 1x cash settlement for price-sensitive shoppers avoiding credit debt.",
+    behavioral_role: "Unbanked Demographics & Cash-Preferred Buyers"
   },
   {
+    id: "voucher",
     method: "Voucher",
     share_volume: 5.6,
     share_gmv: 2.4,
@@ -46,9 +53,11 @@ const PAYMENT_METHODS: PaymentMethod[] = [
     avg_ticket: "R$ 65.70",
     avg_installments: 1.0,
     color: "#38bdf8",
-    insight: "Promotional credit and refund balances. Frequently used as a secondary split-payment method alongside credit cards."
+    insight: "Promotional credits, cashbacks, and refund balances. Frequently used as a secondary co-payment split alongside credit cards on high-ticket checkouts.",
+    behavioral_role: "Loyalty Cashback & Split Co-Payment Rail"
   },
   {
+    id: "debit_card",
     method: "Debit Card",
     share_volume: 1.5,
     share_gmv: 1.4,
@@ -57,7 +66,8 @@ const PAYMENT_METHODS: PaymentMethod[] = [
     avg_ticket: "R$ 142.57",
     avg_installments: 1.0,
     color: "#10b981",
-    insight: "Low-adoption direct settlement channel due to historical Brazilian banking authentication friction."
+    insight: "Historically constrained in Brazilian e-commerce (1.5% volume) due to 3D-Secure authentication friction prior to the nationwide rollout of Pix instant payment rails.",
+    behavioral_role: "Direct Account Settlement (Pre-Pix Era)"
   }
 ];
 
@@ -82,7 +92,57 @@ const CATEGORY_SENSITIVITY = [
 
 export function OlistPaymentInteractiveShowcase() {
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>(PAYMENT_METHODS[0]);
+  const [hoveredMethod, setHoveredMethod] = useState<PaymentMethod | null>(null);
+  const [pieMetric, setPieMetric] = useState<"gmv" | "volume">("gmv");
   const [activeTab, setActiveTab] = useState<"methods" | "elasticity" | "categories">("methods");
+
+  const activeMethod = hoveredMethod || selectedMethod;
+
+  // Donut Arc calculation for SVG Pie / Donut
+  const donutArcs = useMemo(() => {
+    let currentAngle = -Math.PI / 2;
+    const totalVal = PAYMENT_METHODS.reduce((sum, pm) => sum + (pieMetric === "gmv" ? pm.share_gmv : pm.share_volume), 0);
+
+    return PAYMENT_METHODS.map((pm) => {
+      const share = pieMetric === "gmv" ? pm.share_gmv : pm.share_volume;
+      const sliceAngle = (share / totalVal) * 2 * Math.PI;
+      const startAngle = currentAngle;
+      const endAngle = currentAngle + sliceAngle;
+      const midAngle = (startAngle + endAngle) / 2;
+      currentAngle = endAngle;
+
+      const rOuter = 88;
+      const rInner = 54;
+      const cx = 110;
+      const cy = 110;
+
+      const x1 = cx + rOuter * Math.cos(startAngle);
+      const y1 = cy + rOuter * Math.sin(startAngle);
+      const x2 = cx + rOuter * Math.cos(endAngle);
+      const y2 = cy + rOuter * Math.sin(endAngle);
+
+      const x3 = cx + rInner * Math.cos(endAngle);
+      const y3 = cy + rInner * Math.sin(endAngle);
+      const x4 = cx + rInner * Math.cos(startAngle);
+      const y4 = cy + rInner * Math.sin(startAngle);
+
+      const largeArc = sliceAngle > Math.PI ? 1 : 0;
+      const pathData = `M ${x1} ${y1} A ${rOuter} ${rOuter} 0 ${largeArc} 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 ${largeArc} 0 ${x4} ${y4} Z`;
+
+      // Offset for hover pop-out effect
+      const hoverOffset = 5;
+      const offsetX = Math.cos(midAngle) * hoverOffset;
+      const offsetY = Math.sin(midAngle) * hoverOffset;
+
+      return {
+        ...pm,
+        share,
+        pathData,
+        offsetX,
+        offsetY,
+      };
+    });
+  }, [pieMetric]);
 
   return (
     <section
@@ -92,141 +152,310 @@ export function OlistPaymentInteractiveShowcase() {
         backgroundColor: "var(--panel)",
         border: "1px solid var(--line)",
         borderRadius: 4,
-        padding: "22px 20px",
+        padding: "24px 20px",
       }}
       aria-label="Olist Payment & Installment Behavior Analytics Terminal"
     >
       {/* Terminal Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, borderBottom: "1px solid var(--line)", paddingBottom: 14, marginBottom: 18 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, borderBottom: "1px solid var(--line)", paddingBottom: 16, marginBottom: 20 }}>
         <div>
-          <span className="mono" style={{ color: "var(--accent)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+          <span className="mono" style={{ color: "var(--accent)", fontSize: 9.5, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 700 }}>
             FINTECH & BEHAVIORAL ECONOMICS • OLIST BRAZIL (103.9K TRANSACTIONS)
           </span>
-          <h2 style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", margin: "3px 0 0" }}>
+          <h2 style={{ fontSize: "clamp(20px, 2.2vw, 26px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", margin: "4px 0 0", fontWeight: 700 }}>
             Payment Method Mix & Installment Elasticity Engine
           </h2>
         </div>
 
         {/* View Switcher Buttons */}
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <button
             type="button"
             onClick={() => setActiveTab("methods")}
             style={{
-              fontFamily: "'Courier New', monospace",
-              fontSize: 10,
-              padding: "7px 12px",
+              fontFamily: "monospace",
+              fontSize: 11,
+              padding: "7px 14px",
               backgroundColor: activeTab === "methods" ? "var(--accent-subtle)" : "var(--surface-secondary)",
-              color: activeTab === "methods" ? "var(--ink-heading)" : "var(--dim)",
+              color: activeTab === "methods" ? "var(--accent)" : "var(--ink)",
               border: activeTab === "methods" ? "1px solid var(--accent)" : "1px solid var(--line)",
-              borderRadius: 2,
+              borderRadius: 3,
               cursor: "pointer",
+              fontWeight: activeTab === "methods" ? 700 : 500,
+              transition: "all 0.15s ease",
             }}
           >
-            01. PAYMENT MIX (4 CHANNELS)
+            01. Interactive Pie / Mix
           </button>
           <button
             type="button"
             onClick={() => setActiveTab("elasticity")}
             style={{
-              fontFamily: "'Courier New', monospace",
-              fontSize: 10,
-              padding: "7px 12px",
+              fontFamily: "monospace",
+              fontSize: 11,
+              padding: "7px 14px",
               backgroundColor: activeTab === "elasticity" ? "var(--accent-subtle)" : "var(--surface-secondary)",
-              color: activeTab === "elasticity" ? "var(--ink-heading)" : "var(--dim)",
+              color: activeTab === "elasticity" ? "var(--accent)" : "var(--ink)",
               border: activeTab === "elasticity" ? "1px solid var(--accent)" : "1px solid var(--line)",
-              borderRadius: 2,
+              borderRadius: 3,
               cursor: "pointer",
+              fontWeight: activeTab === "elasticity" ? 700 : 500,
+              transition: "all 0.15s ease",
             }}
           >
-            02. INSTALLMENT VS AOV (3.3x SURGE)
+            02. Installment vs AOV (3.3x)
           </button>
           <button
             type="button"
             onClick={() => setActiveTab("categories")}
             style={{
-              fontFamily: "'Courier New', monospace",
-              fontSize: 10,
-              padding: "7px 12px",
+              fontFamily: "monospace",
+              fontSize: 11,
+              padding: "7px 14px",
               backgroundColor: activeTab === "categories" ? "var(--accent-subtle)" : "var(--surface-secondary)",
-              color: activeTab === "categories" ? "var(--ink-heading)" : "var(--dim)",
+              color: activeTab === "categories" ? "var(--accent)" : "var(--ink)",
               border: activeTab === "categories" ? "1px solid var(--accent)" : "1px solid var(--line)",
-              borderRadius: 2,
+              borderRadius: 3,
               cursor: "pointer",
+              fontWeight: activeTab === "categories" ? 700 : 500,
+              transition: "all 0.15s ease",
             }}
           >
-            03. CATEGORY SENSITIVITY
+            03. Category Financing Sensitivity
           </button>
         </div>
       </div>
 
       {/* ========================================================================= */}
-      {/* TAB 1: PAYMENT METHOD DISTRIBUTION & TELEMETRY                           */}
+      {/* TAB 1: INTERACTIVE PIE / DONUT CHART & FLOATING TELEMETRY                 */}
       {/* ========================================================================= */}
       {activeTab === "methods" && (
         <div>
           {/* Executive Summary Bar */}
-          <div style={{ backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px 16px", borderRadius: 3, marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-            <span style={{ color: "var(--ink)", fontSize: 13 }}>
-              💳 <strong>Credit Cards drive 78.4% of total GMV</strong> (R$ 12.54M), while <strong>Boleto Bancário</strong> acts as the essential #2 non-credit cash channel (17.9% GMV).
+          <div
+            style={{
+              backgroundColor: "var(--surface-secondary)",
+              border: "1px solid var(--line)",
+              borderLeft: "3px solid var(--accent)",
+              padding: "12px 18px",
+              borderRadius: 3,
+              marginBottom: 20,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 12,
+            }}
+          >
+            <span style={{ color: "var(--ink)", fontSize: 13, lineHeight: 1.5 }}>
+              💳 <strong>Credit Cards drive 78.4% of total marketplace GMV</strong> (R$ 12.54M), while <strong>Boleto Bancário</strong> acts as the vital cash-based alternative (17.9% GMV). Hover over any pie slice to inspect live floating telemetry.
             </span>
-            <span className="mono" style={{ fontSize: 9, color: "var(--accent)", border: "1px solid var(--accent)", padding: "2px 6px", borderRadius: 2 }}>
+            <span className="mono" style={{ fontSize: 9.5, color: "var(--accent)", border: "1px solid var(--accent)", padding: "3px 8px", borderRadius: 2, whiteSpace: "nowrap" }}>
               N = 103,886 PAYMENTS (R$ 16.01M GMV)
             </span>
           </div>
 
-          {/* 4 Clean Payment Method Cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12, marginBottom: 16 }}>
-            {PAYMENT_METHODS.map((pm) => {
-              const isSelected = selectedMethod.method === pm.method;
-              return (
-                <div
-                  key={pm.method}
-                  onClick={() => setSelectedMethod(pm)}
-                  onMouseEnter={() => setSelectedMethod(pm)}
-                  style={{
-                    padding: "16px 14px",
-                    backgroundColor: isSelected ? "var(--accent-subtle)" : "var(--surface-secondary)",
-                    border: isSelected ? `2px solid ${pm.color}` : "1px solid var(--line)",
-                    borderRadius: 3,
-                    cursor: "pointer",
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                    <span className="mono" style={{ fontSize: 9, color: pm.color, border: `1px solid ${pm.color}`, padding: "1px 5px", borderRadius: 2 }}>
-                      {pm.share_gmv}% GMV
-                    </span>
-                    <strong style={{ fontSize: 14, color: "var(--ink-heading)", fontFamily: "monospace" }}>{pm.total_gmv}</strong>
-                  </div>
-
-                  <strong style={{ fontSize: 14, color: isSelected ? "var(--ink-heading)" : "var(--ink)", display: "block", margin: "6px 0 2px" }}>
-                    {pm.method}
-                  </strong>
-                  <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>
-                    {pm.order_count} ({pm.share_volume}%) • Avg {pm.avg_ticket}
-                  </span>
+          {/* Side-by-Side: Interactive SVG Donut & Floating Telemetry Panel */}
+          <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1.3fr", gap: 20, alignItems: "start", marginBottom: 20 }}>
+            {/* Left Box: SVG Pie / Donut Chart */}
+            <div
+              style={{
+                backgroundColor: "var(--surface-secondary)",
+                border: "1px solid var(--line)",
+                borderRadius: 4,
+                padding: "18px 20px",
+                textAlign: "center",
+                position: "relative",
+              }}
+            >
+              {/* Pie Metric Switcher */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+                <span className="mono" style={{ color: "var(--accent)", fontSize: 9.5, fontWeight: 700 }}>
+                  INTERACTIVE PIE DISTRIBUTION
+                </span>
+                <div style={{ display: "flex", gap: 6 }}>
+                  <button
+                    onClick={() => setPieMetric("gmv")}
+                    style={{
+                      fontFamily: "monospace",
+                      fontSize: 10,
+                      padding: "4px 8px",
+                      borderRadius: 2,
+                      cursor: "pointer",
+                      border: pieMetric === "gmv" ? "1px solid var(--accent)" : "1px solid var(--line)",
+                      backgroundColor: pieMetric === "gmv" ? "var(--accent-subtle)" : "transparent",
+                      color: pieMetric === "gmv" ? "var(--accent)" : "var(--dim)",
+                      fontWeight: pieMetric === "gmv" ? 700 : 400,
+                    }}
+                  >
+                    GMV Share (%)
+                  </button>
+                  <button
+                    onClick={() => setPieMetric("volume")}
+                    style={{
+                      fontFamily: "monospace",
+                      fontSize: 10,
+                      padding: "4px 8px",
+                      borderRadius: 2,
+                      cursor: "pointer",
+                      border: pieMetric === "volume" ? "1px solid var(--accent)" : "1px solid var(--line)",
+                      backgroundColor: pieMetric === "volume" ? "var(--accent-subtle)" : "transparent",
+                      color: pieMetric === "volume" ? "var(--accent)" : "var(--dim)",
+                      fontWeight: pieMetric === "volume" ? 700 : 400,
+                    }}
+                  >
+                    Volume Share (%)
+                  </button>
                 </div>
-              );
-            })}
-          </div>
+              </div>
 
-          {/* 1-Box Deep Method Dossier */}
-          <div style={{ backgroundColor: "var(--surface-secondary)", border: `1px solid ${selectedMethod.color}`, padding: "14px 18px", borderRadius: 3, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
-            <div>
-              <span className="mono" style={{ color: selectedMethod.color, fontSize: 9 }}>
-                CHANNEL ARCHITECTURE • {selectedMethod.method.toUpperCase()}
-              </span>
-              <p style={{ margin: "4px 0 0", color: "var(--ink)", fontSize: 12, lineHeight: 1.5 }}>
-                {selectedMethod.insight}
-              </p>
+              {/* SVG Donut Canvas */}
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", margin: "10px 0" }}>
+                <svg viewBox="0 0 220 220" style={{ width: "220px", height: "220px", overflow: "visible" }}>
+                  {donutArcs.map((slice) => {
+                    const isHovered = activeMethod.id === slice.id;
+                    return (
+                      <path
+                        key={slice.id}
+                        d={slice.pathData}
+                        fill={slice.color}
+                        transform={isHovered ? `translate(${slice.offsetX.toFixed(2)}, ${slice.offsetY.toFixed(2)})` : "translate(0, 0)"}
+                        style={{
+                          cursor: "pointer",
+                          transition: "transform 0.18s ease, filter 0.18s ease, opacity 0.18s ease",
+                          opacity: isHovered ? 1 : 0.82,
+                          filter: isHovered ? "drop-shadow(0 4px 10px rgba(0,0,0,0.5))" : "none",
+                        }}
+                        onMouseEnter={() => {
+                          setHoveredMethod(slice);
+                          setSelectedMethod(slice);
+                        }}
+                        onMouseLeave={() => setHoveredMethod(null)}
+                        onClick={() => setSelectedMethod(slice)}
+                      />
+                    );
+                  })}
+
+                  {/* Center Donut Hole Text */}
+                  <g style={{ pointerEvents: "none" }}>
+                    <circle cx="110" cy="110" r="48" fill="var(--panel)" />
+                    <text x="110" y="102" textAnchor="middle" fill="var(--dim)" fontSize="9" fontFamily="monospace">
+                      {activeMethod.method.toUpperCase()}
+                    </text>
+                    <text x="110" y="122" textAnchor="middle" fill={activeMethod.color} fontSize="17" fontWeight="bold" fontFamily="monospace">
+                      {pieMetric === "gmv" ? `${activeMethod.share_gmv}%` : `${activeMethod.share_volume}%`}
+                    </text>
+                  </g>
+                </svg>
+              </div>
+
+              {/* Legend Badges */}
+              <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
+                {PAYMENT_METHODS.map((pm) => {
+                  const isSelected = activeMethod.id === pm.id;
+                  return (
+                    <div
+                      key={pm.id}
+                      onMouseEnter={() => {
+                        setHoveredMethod(pm);
+                        setSelectedMethod(pm);
+                      }}
+                      onMouseLeave={() => setHoveredMethod(null)}
+                      onClick={() => setSelectedMethod(pm)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 6,
+                        cursor: "pointer",
+                        padding: "3px 8px",
+                        borderRadius: 3,
+                        backgroundColor: isSelected ? "var(--accent-subtle)" : "transparent",
+                        border: isSelected ? `1px solid ${pm.color}` : "1px solid transparent",
+                        transition: "all 0.15s ease",
+                      }}
+                    >
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: pm.color, display: "inline-block" }} />
+                      <span style={{ fontSize: 11, fontFamily: "monospace", color: isSelected ? "var(--ink-heading)" : "var(--dim)" }}>
+                        {pm.method} ({pieMetric === "gmv" ? `${pm.share_gmv}%` : `${pm.share_volume}%`})
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            <div style={{ textAlign: "right", minWidth: 150 }}>
-              <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>AVG INSTALLMENTS</span>
-              <strong style={{ fontSize: 16, color: selectedMethod.color, fontFamily: "monospace" }}>
-                {selectedMethod.avg_installments.toFixed(2)}x
-              </strong>
+            {/* Right Box: Floating Interactive Detail HUD Panel */}
+            <div
+              style={{
+                backgroundColor: "var(--surface-secondary)",
+                border: `1px solid ${activeMethod.color}`,
+                borderRadius: 4,
+                padding: "20px 22px",
+                transition: "all 0.2s ease",
+              }}
+            >
+              {/* Top Banner: Method Name & Behavioral Role */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12, borderBottom: "1px solid var(--line)", paddingBottom: 10 }}>
+                <div>
+                  <span className="mono" style={{ color: activeMethod.color, fontSize: 9.5, letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 700 }}>
+                    CHANNEL TELEMETRY HUD
+                  </span>
+                  <h4 style={{ fontSize: 18, color: "var(--ink-heading)", margin: "4px 0 0", fontWeight: 700 }}>
+                    {activeMethod.method}
+                  </h4>
+                </div>
+                <span
+                  style={{
+                    fontSize: 9.5,
+                    fontFamily: "monospace",
+                    color: activeMethod.color,
+                    border: `1px solid ${activeMethod.color}`,
+                    padding: "2px 8px",
+                    borderRadius: 2,
+                    backgroundColor: "rgba(255, 255, 255, 0.03)",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {activeMethod.behavioral_role}
+                </span>
+              </div>
+
+              {/* 4 Metric Highlights Grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
+                <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", borderRadius: 3, padding: "10px 12px" }}>
+                  <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>TOTAL GMV VALUE</span>
+                  <strong style={{ fontSize: 16, color: activeMethod.color, fontFamily: "monospace" }}>{activeMethod.total_gmv}</strong>
+                  <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>{activeMethod.share_gmv}% of total GMV</span>
+                </div>
+
+                <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", borderRadius: 3, padding: "10px 12px" }}>
+                  <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>TOTAL TRANSACTIONS</span>
+                  <strong style={{ fontSize: 16, color: "var(--ink-heading)", fontFamily: "monospace" }}>{activeMethod.order_count}</strong>
+                  <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>{activeMethod.share_volume}% volume share</span>
+                </div>
+
+                <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", borderRadius: 3, padding: "10px 12px" }}>
+                  <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>AVERAGE TICKET (AOV)</span>
+                  <strong style={{ fontSize: 15, color: "var(--ink-heading)", fontFamily: "monospace" }}>{activeMethod.avg_ticket}</strong>
+                  <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>per transaction</span>
+                </div>
+
+                <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", borderRadius: 3, padding: "10px 12px" }}>
+                  <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>AVG INSTALLMENT TENOR</span>
+                  <strong style={{ fontSize: 15, color: activeMethod.color, fontFamily: "monospace" }}>{activeMethod.avg_installments.toFixed(2)}x</strong>
+                  <span className="mono" style={{ fontSize: 9, color: "var(--dim)", display: "block" }}>months duration</span>
+                </div>
+              </div>
+
+              {/* Behavioral & Strategic Interpretation Callout */}
+              <div style={{ backgroundColor: "var(--panel)", border: "1px solid var(--line)", borderRadius: 3, padding: "12px 14px" }}>
+                <span className="mono" style={{ fontSize: 8.5, color: activeMethod.color, display: "block", marginBottom: 4, fontWeight: 700 }}>
+                  STRATEGIC BEHAVIORAL INSIGHT:
+                </span>
+                <p style={{ margin: 0, color: "var(--ink)", fontSize: 12.5, lineHeight: 1.55 }}>
+                  {activeMethod.insight}
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -59,21 +59,40 @@ function formatInline(text: string): React.ReactNode[] {
     if (token.startsWith("**") && token.endsWith("**")) {
       parts.push(<strong key={match.index} style={{ color: "var(--ink-heading)", fontWeight: 700 }}>{token.slice(2, -2)}</strong>);
     } else if (token.startsWith("`") && token.endsWith("`")) {
+      const codeText = token.slice(1, -1);
+      const isPositiveDelta = codeText.startsWith("+") || codeText.includes("▲");
+      const isNegativeDelta = (codeText.startsWith("-") && codeText.includes("%")) || codeText.includes("▼");
+
+      let badgeBg = "rgba(255, 255, 255, 0.05)";
+      let badgeColor = "var(--ink)";
+      let badgeBorder = "rgba(255, 255, 255, 0.08)";
+
+      if (isNegativeDelta) {
+        badgeBg = "rgba(16, 185, 129, 0.12)";
+        badgeColor = "#10b981";
+        badgeBorder = "rgba(16, 185, 129, 0.25)";
+      } else if (isPositiveDelta) {
+        badgeBg = "rgba(244, 63, 94, 0.12)";
+        badgeColor = "#f43f5e";
+        badgeBorder = "rgba(244, 63, 94, 0.25)";
+      }
+
       parts.push(
         <code
           key={match.index}
           style={{
             fontFamily: "'Courier New', monospace",
-            fontSize: "0.85em",
-            color: "var(--accent)",
-            backgroundColor: "var(--accent-subtle)",
-            padding: "2px 6px",
+            fontSize: "0.86em",
+            color: badgeColor,
+            backgroundColor: badgeBg,
+            padding: "2px 7px",
             borderRadius: "3px",
-            border: "1px solid var(--line)",
-            letterSpacing: "0.02em",
+            border: `1px solid ${badgeBorder}`,
+            letterSpacing: "0.01em",
+            fontWeight: isPositiveDelta || isNegativeDelta ? 600 : 400,
           }}
         >
-          {token.slice(1, -1)}
+          {codeText}
         </code>
       );
     } else if (token.startsWith("$") && token.endsWith("$")) {
@@ -83,9 +102,9 @@ function formatInline(text: string): React.ReactNode[] {
           key={match.index}
           className="mono"
           style={{
-            color: "var(--accent)",
-            backgroundColor: "var(--accent-subtle)",
-            padding: "1px 6px",
+            color: "var(--ink-heading)",
+            backgroundColor: "rgba(255, 255, 255, 0.05)",
+            padding: "2px 7px",
             borderRadius: 3,
             border: "1px solid var(--line)",
             fontSize: 11.5,
@@ -147,7 +166,7 @@ export function MarkdownBody({ source }: { source: string }) {
             backgroundColor: "var(--surface-secondary)",
             border: "1px solid var(--line)",
             padding: "16px 20px",
-            borderRadius: 3,
+            borderRadius: 4,
             overflowX: "auto",
             margin: "24px 0",
             font: "11px/1.6 'Courier New', monospace",
@@ -173,25 +192,24 @@ export function MarkdownBody({ source }: { source: string }) {
             padding: "16px 20px",
             backgroundColor: "var(--surface-secondary)",
             border: "1px solid var(--line)",
-            borderLeft: "3px solid var(--accent)",
             borderRadius: 4,
             display: "flex",
             flexDirection: "column",
-            gap: "8px",
+            gap: "10px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span className="mono" style={{ fontSize: "9px", color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Mathematical Model • Formulation
+            <span className="mono" style={{ fontSize: "9.5px", color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              Mathematical Model • Econometric Formulation
             </span>
-            <span className="mono" style={{ fontSize: "9px", color: "var(--dim)" }}>
-              [EPIDEMIOLOGICAL EQUATION]
+            <span className="mono" style={{ fontSize: "9px", color: "var(--dim)", background: "rgba(255,255,255,0.03)", padding: "2px 6px", borderRadius: 2, border: "1px solid var(--line)" }}>
+              EPIDEMIOLOGICAL SPECIFICATION
             </span>
           </div>
           <div
             style={{
-              padding: "14px 18px",
-              backgroundColor: "#08080a",
+              padding: "16px 20px",
+              backgroundColor: "#0a0a0d",
               border: "1px solid var(--line)",
               borderRadius: 3,
               fontFamily: "'Courier New', monospace",
@@ -224,13 +242,13 @@ export function MarkdownBody({ source }: { source: string }) {
           style={{
             border: "1px solid var(--line)",
             borderLeft: "3px solid var(--accent)",
-            padding: "14px 18px",
-            margin: "20px 0",
-            backgroundColor: "var(--accent-subtle)",
-            borderRadius: 3,
+            padding: "16px 20px",
+            margin: "22px 0",
+            backgroundColor: "var(--surface-secondary)",
+            borderRadius: 4,
             color: "var(--ink)",
             fontSize: 13,
-            lineHeight: 1.6,
+            lineHeight: 1.65,
           }}
         >
           {quoteLines.map((qText, qIdx) => (
@@ -262,24 +280,25 @@ export function MarkdownBody({ source }: { source: string }) {
             style={{
               margin: "24px 0",
               border: "1px solid var(--line)",
-              borderRadius: 3,
+              borderRadius: 4,
               backgroundColor: "var(--panel)",
               overflowX: "auto",
             }}
           >
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
               <thead>
-                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--surface-secondary)" }}>
+                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
                   {headerRow.map((th, thIdx) => (
                     <th
                       key={thIdx}
                       style={{
-                        padding: "10px 14px",
-                        textAlign: "left",
-                        color: "var(--accent)",
-                        font: "9px 'Courier New', monospace",
+                        padding: "11px 16px",
+                        textAlign: thIdx === 0 ? "left" : thIdx === headerRow.length - 1 ? "left" : "left",
+                        color: "var(--ink-heading)",
+                        font: "10px/1.2 monospace",
                         textTransform: "uppercase",
                         letterSpacing: "0.06em",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {th}
@@ -289,9 +308,15 @@ export function MarkdownBody({ source }: { source: string }) {
               </thead>
               <tbody>
                 {dataRows.map((row, rIdx) => (
-                  <tr key={rIdx} style={{ borderBottom: "1px solid var(--line)" }}>
+                  <tr
+                    key={rIdx}
+                    style={{
+                      borderBottom: rIdx === dataRows.length - 1 ? "none" : "1px solid var(--line)",
+                      backgroundColor: rIdx % 2 === 0 ? "rgba(255, 255, 255, 0.012)" : "transparent",
+                    }}
+                  >
                     {row.map((cell, cIdx) => (
-                      <td key={cIdx} style={{ padding: "10px 14px", color: "var(--ink)", lineHeight: 1.45 }}>
+                      <td key={cIdx} style={{ padding: "11px 16px", color: "var(--ink)", lineHeight: 1.5 }}>
                         {formatInline(cell)}
                       </td>
                     ))}

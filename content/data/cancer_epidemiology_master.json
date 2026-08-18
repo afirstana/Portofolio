@@ -4973,5 +4973,479 @@
       "year": 2019,
       "tobacco_share_pct": 25.7
     }
+  ],
+  "tobacco_comparison_longitudinal": [
+    {
+      "year": 1990,
+      "total_cancer_deaths": 5516590,
+      "tobacco_cancer_deaths": 1551817,
+      "lung_cancer_deaths": 1065139,
+      "non_tobacco_cancer_deaths": 3964773,
+      "tobacco_share_pct": 28.13,
+      "total_indexed_1990": 100.0,
+      "tobacco_indexed_1990": 100.0,
+      "lung_indexed_1990": 100.0
+    },
+    {
+      "year": 1991,
+      "total_cancer_deaths": 5628289,
+      "tobacco_cancer_deaths": 1584926,
+      "lung_cancer_deaths": 1088143,
+      "non_tobacco_cancer_deaths": 4043363,
+      "tobacco_share_pct": 28.16,
+      "total_indexed_1990": 102.0,
+      "tobacco_indexed_1990": 102.1,
+      "lung_indexed_1990": 102.2
+    },
+    {
+      "year": 1992,
+      "total_cancer_deaths": 5752640,
+      "tobacco_cancer_deaths": 1621094,
+      "lung_cancer_deaths": 1113920,
+      "non_tobacco_cancer_deaths": 4131546,
+      "tobacco_share_pct": 28.18,
+      "total_indexed_1990": 104.3,
+      "tobacco_indexed_1990": 104.5,
+      "lung_indexed_1990": 104.6
+    },
+    {
+      "year": 1993,
+      "total_cancer_deaths": 5919156,
+      "tobacco_cancer_deaths": 1671570,
+      "lung_cancer_deaths": 1151283,
+      "non_tobacco_cancer_deaths": 4247586,
+      "tobacco_share_pct": 28.24,
+      "total_indexed_1990": 107.3,
+      "tobacco_indexed_1990": 107.7,
+      "lung_indexed_1990": 108.1
+    },
+    {
+      "year": 1994,
+      "total_cancer_deaths": 6043965,
+      "tobacco_cancer_deaths": 1705607,
+      "lung_cancer_deaths": 1176758,
+      "non_tobacco_cancer_deaths": 4338358,
+      "tobacco_share_pct": 28.22,
+      "total_indexed_1990": 109.6,
+      "tobacco_indexed_1990": 109.9,
+      "lung_indexed_1990": 110.5
+    },
+    {
+      "year": 1995,
+      "total_cancer_deaths": 6147550,
+      "tobacco_cancer_deaths": 1734839,
+      "lung_cancer_deaths": 1200039,
+      "non_tobacco_cancer_deaths": 4412711,
+      "tobacco_share_pct": 28.22,
+      "total_indexed_1990": 111.4,
+      "tobacco_indexed_1990": 111.8,
+      "lung_indexed_1990": 112.7
+    },
+    {
+      "year": 1996,
+      "total_cancer_deaths": 6232438,
+      "tobacco_cancer_deaths": 1751938,
+      "lung_cancer_deaths": 1215381,
+      "non_tobacco_cancer_deaths": 4480500,
+      "tobacco_share_pct": 28.11,
+      "total_indexed_1990": 113.0,
+      "tobacco_indexed_1990": 112.9,
+      "lung_indexed_1990": 114.1
+    },
+    {
+      "year": 1997,
+      "total_cancer_deaths": 6324915,
+      "tobacco_cancer_deaths": 1769711,
+      "lung_cancer_deaths": 1231496,
+      "non_tobacco_cancer_deaths": 4555204,
+      "tobacco_share_pct": 27.98,
+      "total_indexed_1990": 114.7,
+      "tobacco_indexed_1990": 114.1,
+      "lung_indexed_1990": 115.6
+    },
+    {
+      "year": 1998,
+      "total_cancer_deaths": 6438820,
+      "tobacco_cancer_deaths": 1797075,
+      "lung_cancer_deaths": 1254538,
+      "non_tobacco_cancer_deaths": 4641745,
+      "tobacco_share_pct": 27.91,
+      "total_indexed_1990": 116.7,
+      "tobacco_indexed_1990": 115.8,
+      "lung_indexed_1990": 117.8
+    },
+    {
+      "year": 1999,
+      "total_cancer_deaths": 6589095,
+      "tobacco_cancer_deaths": 1835722,
+      "lung_cancer_deaths": 1287809,
+      "non_tobacco_cancer_deaths": 4753373,
+      "tobacco_share_pct": 27.86,
+      "total_indexed_1990": 119.4,
+      "tobacco_indexed_1990": 118.3,
+      "lung_indexed_1990": 120.9
+    },
+    {
+      "year": 2000,
+      "total_cancer_deaths": 6728924,
+      "tobacco_cancer_deaths": 1873332,
+      "lung_cancer_deaths": 1321280,
+      "non_tobacco_cancer_deaths": 4855592,
+      "tobacco_share_pct": 27.84,
+      "total_indexed_1990": 122.0,
+      "tobacco_indexed_1990": 120.7,
+      "lung_indexed_1990": 124.0
+    },
+    {
+      "year": 2001,
+      "total_cancer_deaths": 6837488,
+      "tobacco_cancer_deaths": 1900138,
+      "lung_cancer_deaths": 1347965,
+      "non_tobacco_cancer_deaths": 4937350,
+      "tobacco_share_pct": 27.79,
+      "total_indexed_1990": 123.9,
+      "tobacco_indexed_1990": 122.5,
+      "lung_indexed_1990": 126.6
+    },
+    {
+      "year": 2002,
+      "total_cancer_deaths": 6972810,
+      "tobacco_cancer_deaths": 1934257,
+      "lung_cancer_deaths": 1383984,
+      "non_tobacco_cancer_deaths": 5038553,
+      "tobacco_share_pct": 27.74,
+      "total_indexed_1990": 126.4,
+      "tobacco_indexed_1990": 124.7,
+      "lung_indexed_1990": 129.9
+    },
+    {
+      "year": 2003,
+      "total_cancer_deaths": 7102767,
+      "tobacco_cancer_deaths": 1967466,
+      "lung_cancer_deaths": 1417126,
+      "non_tobacco_cancer_deaths": 5135301,
+      "tobacco_share_pct": 27.7,
+      "total_indexed_1990": 128.8,
+      "tobacco_indexed_1990": 126.8,
+      "lung_indexed_1990": 133.0
+    },
+    {
+      "year": 2004,
+      "total_cancer_deaths": 7212867,
+      "tobacco_cancer_deaths": 1995800,
+      "lung_cancer_deaths": 1449142,
+      "non_tobacco_cancer_deaths": 5217067,
+      "tobacco_share_pct": 27.67,
+      "total_indexed_1990": 130.7,
+      "tobacco_indexed_1990": 128.6,
+      "lung_indexed_1990": 136.1
+    },
+    {
+      "year": 2005,
+      "total_cancer_deaths": 7354368,
+      "tobacco_cancer_deaths": 2029806,
+      "lung_cancer_deaths": 1485760,
+      "non_tobacco_cancer_deaths": 5324562,
+      "tobacco_share_pct": 27.6,
+      "total_indexed_1990": 133.3,
+      "tobacco_indexed_1990": 130.8,
+      "lung_indexed_1990": 139.5
+    },
+    {
+      "year": 2006,
+      "total_cancer_deaths": 7416652,
+      "tobacco_cancer_deaths": 2032904,
+      "lung_cancer_deaths": 1505994,
+      "non_tobacco_cancer_deaths": 5383748,
+      "tobacco_share_pct": 27.41,
+      "total_indexed_1990": 134.4,
+      "tobacco_indexed_1990": 131.0,
+      "lung_indexed_1990": 141.4
+    },
+    {
+      "year": 2007,
+      "total_cancer_deaths": 7537697,
+      "tobacco_cancer_deaths": 2057791,
+      "lung_cancer_deaths": 1543830,
+      "non_tobacco_cancer_deaths": 5479906,
+      "tobacco_share_pct": 27.3,
+      "total_indexed_1990": 136.6,
+      "tobacco_indexed_1990": 132.6,
+      "lung_indexed_1990": 144.9
+    },
+    {
+      "year": 2008,
+      "total_cancer_deaths": 7706312,
+      "tobacco_cancer_deaths": 2097658,
+      "lung_cancer_deaths": 1590730,
+      "non_tobacco_cancer_deaths": 5608654,
+      "tobacco_share_pct": 27.22,
+      "total_indexed_1990": 139.7,
+      "tobacco_indexed_1990": 135.2,
+      "lung_indexed_1990": 149.3
+    },
+    {
+      "year": 2009,
+      "total_cancer_deaths": 7840496,
+      "tobacco_cancer_deaths": 2127127,
+      "lung_cancer_deaths": 1631778,
+      "non_tobacco_cancer_deaths": 5713369,
+      "tobacco_share_pct": 27.13,
+      "total_indexed_1990": 142.1,
+      "tobacco_indexed_1990": 137.1,
+      "lung_indexed_1990": 153.2
+    },
+    {
+      "year": 2010,
+      "total_cancer_deaths": 7995757,
+      "tobacco_cancer_deaths": 2162053,
+      "lung_cancer_deaths": 1670745,
+      "non_tobacco_cancer_deaths": 5833704,
+      "tobacco_share_pct": 27.04,
+      "total_indexed_1990": 144.9,
+      "tobacco_indexed_1990": 139.3,
+      "lung_indexed_1990": 156.9
+    },
+    {
+      "year": 2011,
+      "total_cancer_deaths": 8128569,
+      "tobacco_cancer_deaths": 2185772,
+      "lung_cancer_deaths": 1704610,
+      "non_tobacco_cancer_deaths": 5942797,
+      "tobacco_share_pct": 26.89,
+      "total_indexed_1990": 147.3,
+      "tobacco_indexed_1990": 140.9,
+      "lung_indexed_1990": 160.0
+    },
+    {
+      "year": 2012,
+      "total_cancer_deaths": 8264980,
+      "tobacco_cancer_deaths": 2210882,
+      "lung_cancer_deaths": 1736387,
+      "non_tobacco_cancer_deaths": 6054098,
+      "tobacco_share_pct": 26.75,
+      "total_indexed_1990": 149.8,
+      "tobacco_indexed_1990": 142.5,
+      "lung_indexed_1990": 163.0
+    },
+    {
+      "year": 2013,
+      "total_cancer_deaths": 8402701,
+      "tobacco_cancer_deaths": 2230917,
+      "lung_cancer_deaths": 1765970,
+      "non_tobacco_cancer_deaths": 6171784,
+      "tobacco_share_pct": 26.55,
+      "total_indexed_1990": 152.3,
+      "tobacco_indexed_1990": 143.8,
+      "lung_indexed_1990": 165.8
+    },
+    {
+      "year": 2014,
+      "total_cancer_deaths": 8558547,
+      "tobacco_cancer_deaths": 2255177,
+      "lung_cancer_deaths": 1799303,
+      "non_tobacco_cancer_deaths": 6303370,
+      "tobacco_share_pct": 26.35,
+      "total_indexed_1990": 155.1,
+      "tobacco_indexed_1990": 145.3,
+      "lung_indexed_1990": 168.9
+    },
+    {
+      "year": 2015,
+      "total_cancer_deaths": 8764354,
+      "tobacco_cancer_deaths": 2297137,
+      "lung_cancer_deaths": 1840754,
+      "non_tobacco_cancer_deaths": 6467217,
+      "tobacco_share_pct": 26.21,
+      "total_indexed_1990": 158.9,
+      "tobacco_indexed_1990": 148.0,
+      "lung_indexed_1990": 172.8
+    },
+    {
+      "year": 2016,
+      "total_cancer_deaths": 8960182,
+      "tobacco_cancer_deaths": 2334127,
+      "lung_cancer_deaths": 1879226,
+      "non_tobacco_cancer_deaths": 6626055,
+      "tobacco_share_pct": 26.05,
+      "total_indexed_1990": 162.4,
+      "tobacco_indexed_1990": 150.4,
+      "lung_indexed_1990": 176.4
+    },
+    {
+      "year": 2017,
+      "total_cancer_deaths": 9145111,
+      "tobacco_cancer_deaths": 2368584,
+      "lung_cancer_deaths": 1920896,
+      "non_tobacco_cancer_deaths": 6776527,
+      "tobacco_share_pct": 25.9,
+      "total_indexed_1990": 165.8,
+      "tobacco_indexed_1990": 152.6,
+      "lung_indexed_1990": 180.3
+    },
+    {
+      "year": 2018,
+      "total_cancer_deaths": 9398540,
+      "tobacco_cancer_deaths": 2422944,
+      "lung_cancer_deaths": 1979288,
+      "non_tobacco_cancer_deaths": 6975596,
+      "tobacco_share_pct": 25.78,
+      "total_indexed_1990": 170.4,
+      "tobacco_indexed_1990": 156.2,
+      "lung_indexed_1990": 185.8
+    },
+    {
+      "year": 2019,
+      "total_cancer_deaths": 9671471,
+      "tobacco_cancer_deaths": 2485568,
+      "lung_cancer_deaths": 2042640,
+      "non_tobacco_cancer_deaths": 7185903,
+      "tobacco_share_pct": 25.7,
+      "total_indexed_1990": 175.3,
+      "tobacco_indexed_1990": 160.2,
+      "lung_indexed_1990": 191.8
+    }
+  ],
+  "top_countries_tobacco_2019": [
+    {
+      "rank": 1,
+      "country": "Greenland",
+      "code": "GRL",
+      "tobacco_share_pct": 43.15,
+      "delta_vs_world": 17.45
+    },
+    {
+      "rank": 2,
+      "country": "Montenegro",
+      "code": "MNE",
+      "tobacco_share_pct": 43.1,
+      "delta_vs_world": 17.4
+    },
+    {
+      "rank": 3,
+      "country": "Greece",
+      "code": "GRC",
+      "tobacco_share_pct": 36.82,
+      "delta_vs_world": 11.12
+    },
+    {
+      "rank": 4,
+      "country": "Bosnia and Herzegovina",
+      "code": "BIH",
+      "tobacco_share_pct": 36.06,
+      "delta_vs_world": 10.36
+    },
+    {
+      "rank": 5,
+      "country": "Hungary",
+      "code": "HUN",
+      "tobacco_share_pct": 35.73,
+      "delta_vs_world": 10.03
+    },
+    {
+      "rank": 6,
+      "country": "Serbia",
+      "code": "SRB",
+      "tobacco_share_pct": 34.65,
+      "delta_vs_world": 8.95
+    },
+    {
+      "rank": 7,
+      "country": "China",
+      "code": "CHN",
+      "tobacco_share_pct": 34.51,
+      "delta_vs_world": 8.81
+    },
+    {
+      "rank": 8,
+      "country": "North Macedonia",
+      "code": "MKD",
+      "tobacco_share_pct": 34.15,
+      "delta_vs_world": 8.45
+    },
+    {
+      "rank": 9,
+      "country": "Turkey",
+      "code": "TUR",
+      "tobacco_share_pct": 33.24,
+      "delta_vs_world": 7.54
+    },
+    {
+      "rank": 10,
+      "country": "Poland",
+      "code": "POL",
+      "tobacco_share_pct": 33.11,
+      "delta_vs_world": 7.41
+    },
+    {
+      "rank": 11,
+      "country": "Tunisia",
+      "code": "TUN",
+      "tobacco_share_pct": 32.85,
+      "delta_vs_world": 7.15
+    },
+    {
+      "rank": 12,
+      "country": "Bulgaria",
+      "code": "BGR",
+      "tobacco_share_pct": 32.3,
+      "delta_vs_world": 6.6
+    },
+    {
+      "rank": 13,
+      "country": "Lebanon",
+      "code": "LBN",
+      "tobacco_share_pct": 32.05,
+      "delta_vs_world": 6.35
+    },
+    {
+      "rank": 14,
+      "country": "Croatia",
+      "code": "HRV",
+      "tobacco_share_pct": 31.71,
+      "delta_vs_world": 6.01
+    },
+    {
+      "rank": 15,
+      "country": "Albania",
+      "code": "ALB",
+      "tobacco_share_pct": 31.47,
+      "delta_vs_world": 5.77
+    },
+    {
+      "rank": 16,
+      "country": "Denmark",
+      "code": "DNK",
+      "tobacco_share_pct": 31.28,
+      "delta_vs_world": 5.58
+    },
+    {
+      "rank": 17,
+      "country": "Cuba",
+      "code": "CUB",
+      "tobacco_share_pct": 30.77,
+      "delta_vs_world": 5.07
+    },
+    {
+      "rank": 18,
+      "country": "Monaco",
+      "code": "MCO",
+      "tobacco_share_pct": 30.6,
+      "delta_vs_world": 4.9
+    },
+    {
+      "rank": 19,
+      "country": "Belgium",
+      "code": "BEL",
+      "tobacco_share_pct": 30.46,
+      "delta_vs_world": 4.76
+    },
+    {
+      "rank": 20,
+      "country": "United States",
+      "code": "USA",
+      "tobacco_share_pct": 30.45,
+      "delta_vs_world": 4.75
+    }
   ]
 }

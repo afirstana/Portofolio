@@ -16,14 +16,14 @@ problem: "Global cancer mortality counts expanded by +75.3% between 1990 and 201
 approach: "Ingested 26 heterogeneous Our World in Data CSV registries totaling 281,440 panel records. Built an end-to-end Python pipeline (scripts/process_cancer_data.py) to harmonize entities, normalize age-standardized rates (ASDR), cross-tabulate 29 malignancy sites, and model 5-year clinical survival across 59 sovereign nations."
 impact: "Demonstrated that global age-standardized cancer mortality fell by -15.22% (147.93 to 125.41 per 100k) despite absolute deaths surging from 5.52M to 9.67M. Identified Eastern Europe as the highest-burden mortality belt (Hungary #1 at 208.5/100k), modeled logarithmic GDP elasticity across 186 nations, and benchmarked 5-year survival disparities."
 system:
-  - title: "26 Multi-Source CSV Datasets"
-    role: "Our World in Data & IHME GBD Registries (281,440 records, 1990–2019)"
-  - title: "Python ETL & Normalization Pipeline"
-    role: "ISO mapping, temporal filtering, ASDR aggregation, taxonomy consolidation"
-  - title: "Static Analytics JSON Payload"
-    role: "Zero-dependency precomputed payloads (content/data/cancer_epidemiology_master.json)"
-  - title: "Multi-Panel Interactive Console"
-    role: "Survival heatmap, country ranker, 30-yr trend line, donut mixer, GDP scatter"
+  - label: "01. Multi-Source Registries"
+    value: "26 CSV datasets across Our World in Data & IHME GBD (281,440 panel observations, 1990–2019)"
+  - label: "02. Python ETL Normalization"
+    value: "ISO entity mapping, ASDR demographic normalization, taxonomy mapping across 29 neoplasms"
+  - label: "03. Static Intelligence Payload"
+    value: "High-density precomputed JSON payloads (content/data/cancer_epidemiology_master.json)"
+  - label: "04. Multi-Panel Visual Console"
+    value: "Clinical survival matrix, 204-nation ranker, 30-year trend telemetry, and GDP elasticity"
 lessons:
   - "Age-standardization is mandatory in public health economics: unadjusted totals conflate demographic longevity with clinical failure."
   - "Economic prosperity drives a non-linear cancer transition: diagnostic capacity rises with GDP before therapeutic interventions flatten ASDR."
@@ -77,16 +77,16 @@ This case study synthesizes **281,440 empirical observations** across **26 disti
 ## 2. Multi-File Panel Ingestion & Data Hygiene Protocol
 The raw data architecture comprises 26 CSV datasets totaling 20.3 MB with heterogeneous temporal windows (historical series extending from 1875 to 2021). The ingestion pipeline implemented in `scripts/process_cancer_data.py` executes three mandatory normalization phases:
 
-1. **Entity Standardization & Regional Aggregation**: Resolving ISO 3166-1 alpha-3 country codes (`Code`) from regional meta-entities (`OWID_WRL`, `World Bank Regions`, `IHME Super-Regions`) to enable granular national comparisons across 204 sovereign states.
-2. **Historical Time-Window Truncation**: Filtering out archaic pre-1990 back-projected benchmark rows (e.g. GDP time-series containing year `-10000` artifacts) to isolate a high-fidelity 30-year panel window (1990–2019).
-3. **Malignancy Categorization & Clean Taxonomy**: Mapping 29 distinct cancer site definitions into a unified taxonomy (merging tracheal, bronchus, and lung neoplasms into *Lung & Bronchus*; colon and rectum into *Colorectal*).
+- **Phase 1: Entity Standardization & Regional Aggregation**: Resolving ISO 3166-1 alpha-3 country codes (`Code`) from regional meta-entities (`OWID_WRL`, `World Bank Regions`, `IHME Super-Regions`) to isolate 204 sovereign states.
+- **Phase 2: Historical Time-Window Truncation**: Filtering out archaic pre-1990 back-projected benchmark rows to establish a balanced 30-year panel window (1990–2019).
+- **Phase 3: Malignancy Categorization & Taxonomy Harmonization**: Mapping 29 distinct cancer site definitions into a unified taxonomy (merging tracheal, bronchus, and lung neoplasms into *Lung & Bronchus*; colon and rectum into *Colorectal*).
 
-> **Automated Ingestion Pipeline Flow**:
-> 
-> 1. **Raw CSV Repository** (26 Files, 281,440 Records) ➔ Temporal & Geo-Entity Filtering
-> 2. **Metric Standardization** ➔ Harmonizing ASDR (/100k), Absolute Counts, 5-Year Survival (%), and GDP ($PPP)
-> 3. **Relational Aggregations** ➔ Multi-Country & Cancer Site Matrix Joins
-> 4. **Master Static Payload** ➔ Generated `content/data/cancer_epidemiology_master.json` (86 KB, zero-runtime latency)
+| Pipeline Stage | Input Grain | Transformation Protocol | Output Payload & Optimization |
+| :--- | :--- | :--- | :--- |
+| **01. Ingestion & Filtering** | 26 Raw CSV Files (281.4k Rows) | Filter pre-1990 back-projections & extract ISO-3 entities | Cleaned panel subset (204 nations) |
+| **02. Metric Harmonization** | Multi-unit records (ASDR, Counts, GDP) | Harmonize rates per 100k, calculate 30-yr deltas | Standardized panel matrix |
+| **03. Relational Aggregation** | Multi-table joins across 29 neoplasms | Compute cross-country rankings & CONCORD-3 survival | Multi-dimensional matrix tables |
+| **04. Master Static Payload** | In-memory relational models | Export zero-dependency precomputed JSON | `content/data/cancer_epidemiology_master.json` (86 KB) |
 
 ---
 
@@ -97,18 +97,18 @@ The apparent paradox between rising death counts and declining age-standardized 
 
 | Malignancy Site / Neoplasm | 1990 Global Deaths | 2019 Global Deaths | 30-Year Growth | 2019 Share (%) |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. Lung & Bronchus** | 1,065,139 | 2,042,640 | `+91.77%` | 21.12% |
-| **2. Colorectal** | 518,126 | 1,085,797 | `+109.56%` | 11.23% |
-| **3. Stomach** | 788,317 | 957,002 | `+21.40%` | 9.90% |
-| **4. Liver** | 365,215 | 484,577 | `+32.68%` | 5.01% |
-| **5. Breast** | 380,905 | 700,660 | `+83.95%` | 7.24% |
-| **6. Esophageal** | 319,332 | 498,067 | `+55.97%` | 5.15% |
-| **7. Pancreatic** | 198,051 | 531,107 | `+168.17%` | 5.49% |
-| **8. Prostate** | 232,999 | 486,837 | `+108.94%` | 5.03% |
-| **9. Cervical** | 184,527 | 280,479 | `+52.00%` | 2.90% |
-| **10. Leukemia** | 263,263 | 394,543 | `+49.87%` | 4.08% |
-| **All Other 19 Sites** | 1,200,716 | 2,209,822 | `+84.04%` | 22.85% |
-| **TOTAL GLOBAL CANCER** | **5,516,590** | **9,671,471** | **`+75.32%`** | **100.00%** |
+| **1. Lung & Bronchus** | 1,065,139 | 2,042,640 | `+91.77%` ▲ | 21.12% |
+| **2. Colorectal** | 518,126 | 1,085,797 | `+109.56%` ▲ | 11.23% |
+| **3. Stomach** | 788,317 | 957,002 | `+21.40%` ▲ | 9.90% |
+| **4. Liver** | 365,215 | 484,577 | `+32.68%` ▲ | 5.01% |
+| **5. Breast** | 380,905 | 700,660 | `+83.95%` ▲ | 7.24% |
+| **6. Esophageal** | 319,332 | 498,067 | `+55.97%` ▲ | 5.15% |
+| **7. Pancreatic** | 198,051 | 531,107 | `+168.17%` ▲ | 5.49% |
+| **8. Prostate** | 232,999 | 486,837 | `+108.94%` ▲ | 5.03% |
+| **9. Cervical** | 184,527 | 280,479 | `+52.00%` ▲ | 2.90% |
+| **10. Leukemia** | 263,263 | 394,543 | `+49.87%` ▲ | 4.08% |
+| **All Other 19 Sites** | 1,200,716 | 2,209,822 | `+84.04%` ▲ | 22.85% |
+| **TOTAL GLOBAL CANCER** | **5,516,590** | **9,671,471** | **`+75.32%` ▲** | **100.00%** |
 
 Key observations:
 - **Pancreatic Cancer** experienced the fastest absolute mortality growth (+168.17%), driven by lack of effective early screening tools, rising global obesity rates, and an aging population.
@@ -119,17 +119,20 @@ Key observations:
 ## 4. Cross-National Disparities & Eastern European Mortality Clustering
 Analysis of 2019 Age-Standardized Death Rates across 204 countries reveals stark geographic divergence. The top mortality cluster is heavily concentrated in **Eastern and Central Europe**, whereas Western European nations achieve significantly lower mortality despite comparable demographic age structures.
 
-### Top 10 Highest Cancer ASDR Nations (2019)
-1. **Hungary**: 208.52 per 100,000
-2. **Mongolia**: 204.14 per 100,000
-3. **Serbia**: 198.86 per 100,000
-4. **Montenegro**: 196.22 per 100,000
-5. **Slovakia**: 191.45 per 100,000
-6. **Poland**: 186.30 per 100,000
-7. **Croatia**: 184.90 per 100,000
-8. **Greenland**: 182.10 per 100,000
-9. **Slovenia**: 179.80 per 100,000
-10. **Czechia**: 177.65 per 100,000
+### Top 10 Highest Cancer ASDR Nations (2019 Benchmark)
+
+| Rank | Sovereign Nation | Region / Geographic Belt | 2019 ASDR (/100k) | vs Global Baseline (125.4) | Primary Epidemiological Driver |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **#01** | **Hungary** | Eastern Europe | `208.52 / 100k` | `+66.27%` ▲ | Heavy historical male smoking & late-stage diagnostic presentation |
+| **#02** | **Mongolia** | East Asia | `204.14 / 100k` | `+62.78%` ▲ | Chronic Hepatitis B/C prevalence & highest global liver cancer ASDR |
+| **#03** | **Serbia** | Southeastern Europe | `198.86 / 100k` | `+58.57%` ▲ | Elevated lung & colorectal burdens; high per-capita cigarette sales |
+| **#04** | **Montenegro** | Southeastern Europe | `196.22 / 100k` | `+56.46%` ▲ | Persistent tobacco prevalence & delayed oncological screening |
+| **#05** | **Slovakia** | Central/Eastern Europe | `191.45 / 100k` | `+52.66%` ▲ | Elevated colorectal & stomach mortality clusters |
+| **#06** | **Poland** | Central/Eastern Europe | `186.30 / 100k` | `+48.55%` ▲ | High tobacco attribution; lower historical CT screening adoption |
+| **#07** | **Croatia** | Southeastern Europe | `184.90 / 100k` | `+47.44%` ▲ | High male lung cancer incidence & delayed smoking cessation |
+| **#08** | **Greenland** | Northern Atlantic | `182.10 / 100k` | `+45.20%` ▲ | Geographic isolation, extreme smoking rates, diagnostic latency |
+| **#09** | **Slovenia** | Central/Southern Europe | `179.80 / 100k` | `+43.37%` ▲ | Accelerated population aging with high baseline tobacco exposure |
+| **#10** | **Czechia** | Central Europe | `177.65 / 100k` | `+41.66%` ▲ | Elevated colorectal & renal cell carcinoma clusters |
 
 The heavy burden in Eastern Europe correlates strongly with historically elevated per-capita cigarette consumption (exceeding 6–8 cigarettes per adult daily in the 1980s–2000s), delayed smoking cessation trends among males, and lower historical spending on modern oncology therapies.
 
@@ -156,10 +159,11 @@ Evaluating **GDP per Capita ($PPP)** against **Age-Standardized Cancer Death Rat
 
 $$\text{ASDR} = \beta_0 + \beta_1 \ln(\text{GDP}) + \epsilon$$
 
-> **Macroeconomic Elasticity Insights**:
-> 1. **Low-Income Threshold ($< \$5,000)**: Low-income nations frequently exhibit lower reported age-standardized cancer mortality (100–120 per 100k), largely due to diagnostic under-reporting, lower life expectancy (competing mortality from infectious diseases), and younger median population age.
-> 2. **Middle-to-High Transition ($10,000–$40,000)**: As countries industrialize, cancer incidence and mortality rise sharply due to lifestyle shifts (diet, smoking, sedentary habits).
-> 3. **High-Income Plateau ($> \$50,000)**: Wealthy economies (e.g. Norway, Switzerland, Singapore, Japan) demonstrate stabilized or declining ASDR (110–130 per 100k) because advanced healthcare systems offset high incidence through early screening and innovative therapies.
+| Income Classification & GDP Tier | Observed ASDR Range | Primary Epidemiological Mechanism | Strategic Clinical Interpretation |
+| :--- | :--- | :--- | :--- |
+| **Tier 1: Low-Income (< $5,000)** | `100 – 120 / 100k` | Diagnostic under-reporting & competing mortality | Younger median age; infectious disease burden masks underlying oncological incidence. |
+| **Tier 2: Industrializing ($10k – $40k)** | `160 – 210 / 100k` | Rapid lifestyle transition & risk factor adoption | Increased tobacco, processed diet, and sedentary exposure without proportional early screening. |
+| **Tier 3: High-Income Plateau (> $50,000)** | `110 – 130 / 100k` | Universal screening & therapeutic innovation | High incidence offset by early mammography, colonoscopy, and targeted chemotherapy. |
 
 ---
 

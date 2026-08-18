@@ -15,6 +15,7 @@ import { CancerTrendAsdrShowcase } from "@/components/CancerTrendAsdrShowcase";
 import { CancerSiteMixShowcase } from "@/components/CancerSiteMixShowcase";
 import { CancerGdpScatterShowcase } from "@/components/CancerGdpScatterShowcase";
 import { CancerTobaccoRiskShowcase } from "@/components/CancerTobaccoRiskShowcase";
+import { CancerTobaccoTableShowcase } from "@/components/CancerTobaccoTableShowcase";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -131,6 +132,9 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone Tobacco Risk & Smoking Attribution Showcase */}
             {isCancer && <CancerTobaccoRiskShowcase />}
+
+            {/* Standalone Tobacco Longitudinal & Country Risk Matrix Table */}
+            {isCancer && <CancerTobaccoTableShowcase />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

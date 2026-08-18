@@ -135,14 +135,54 @@ def main():
         if len(vals) > 0:
             avg_survival_by_cancer[sc] = round(float(vals.mean()), 1)
 
-    # 5. Tobacco Attributable Share
+    # 5. Tobacco Attributable Share & Longitudinal Comparative Trajectory
     tobacco_path = os.path.join(cancer_dir, "share-of-cancer-deaths-attributed-to-tobacco.csv")
     df_tob = pd.read_csv(tobacco_path)
     tob_col = [c for c in df_tob.columns if c not in ['Entity', 'Code', 'Year']][0]
     world_tob = df_tob[df_tob['Entity'] == 'World'].sort_values('Year')
+    
+    tob_dict = {int(r['Year']): float(r[tob_col]) for _, r in world_tob.iterrows()}
+    
     tobacco_trend = []
-    for _, row in world_tob.iterrows():
-        tobacco_trend.append({"year": int(row['Year']), "tobacco_share_pct": round(float(row[tob_col]), 2)})
+    tobacco_comparison_longitudinal = []
+    base_total = global_time_series[0]['total_deaths']
+    base_lung = global_time_series[0].get('Lung & Bronchus', 1065139)
+    base_tobacco = round(base_total * (tob_dict.get(1990, 27.42) / 100))
+
+    for item in global_time_series:
+        yr = item['year']
+        tot_d = item['total_deaths']
+        lung_d = item.get('Lung & Bronchus', 0)
+        tob_pct = round(tob_dict.get(yr, 25.0), 2)
+        tob_deaths = round(tot_d * (tob_pct / 100))
+        non_tob_deaths = tot_d - tob_deaths
+
+        tobacco_trend.append({"year": yr, "tobacco_share_pct": tob_pct})
+        tobacco_comparison_longitudinal.append({
+            "year": yr,
+            "total_cancer_deaths": tot_d,
+            "tobacco_cancer_deaths": tob_deaths,
+            "lung_cancer_deaths": lung_d,
+            "non_tobacco_cancer_deaths": non_tob_deaths,
+            "tobacco_share_pct": tob_pct,
+            "total_indexed_1990": round((tot_d / base_total) * 100, 1),
+            "tobacco_indexed_1990": round((tob_deaths / base_tobacco) * 100, 1),
+            "lung_indexed_1990": round((lung_d / base_lung) * 100, 1)
+        })
+
+    # Top countries tobacco attributable share (2019)
+    tob_2019 = df_tob[(df_tob['Year'] == 2019) & (df_tob['Code'].notna()) & (df_tob['Code'] != 'OWID_WRL')].copy()
+    tob_2019_sorted = tob_2019.sort_values(tob_col, ascending=False)
+    top_countries_tobacco_2019 = []
+    for rank_idx, (_, row) in enumerate(tob_2019_sorted.head(20).iterrows(), 1):
+        rate_val = round(float(row[tob_col]), 2)
+        top_countries_tobacco_2019.append({
+            "rank": rank_idx,
+            "country": row['Entity'],
+            "code": row['Code'],
+            "tobacco_share_pct": rate_val,
+            "delta_vs_world": round(rate_val - tobacco_comparison_longitudinal[-1]['tobacco_share_pct'], 2)
+        })
 
     master_payload = {
         "metadata": {
@@ -168,7 +208,9 @@ def main():
         "gdp_vs_mortality": scatter_data,
         "survival_matrix": survival_matrix,
         "avg_survival_by_cancer": avg_survival_by_cancer,
-        "tobacco_trend": tobacco_trend
+        "tobacco_trend": tobacco_trend,
+        "tobacco_comparison_longitudinal": tobacco_comparison_longitudinal,
+        "top_countries_tobacco_2019": top_countries_tobacco_2019
     }
 
     out_file = os.path.join(base_dir, "content", "data", "cancer_epidemiology_master.json")

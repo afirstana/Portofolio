@@ -11,24 +11,18 @@ export function CancerSiteMixShowcase() {
 
   const meta = cancerData.metadata;
 
-  // Donut slices setup (Top 5 + Stomach + Other)
+  // Donut slices setup (Top 6 distinct sites + Other 23 sites)
   const donutData = useMemo(() => {
-    const top5 = cancerData.cancer_types_2019.slice(0, 5);
-    const top5Share = top5.reduce((sum, d) => sum + d.share_pct, 0);
-    const top5Deaths = top5.reduce((sum, d) => sum + d.deaths, 0);
-    const stomach = cancerData.cancer_types_2019.find((c) => c.type === "Stomach") || { type: "Stomach", deaths: 957002, share_pct: 9.9 };
-    const otherShare = Math.max(0, 100 - top5Share - stomach.share_pct);
-    const otherDeaths = meta.global_deaths_2019 - top5Deaths - stomach.deaths;
+    const top6 = cancerData.cancer_types_2019.slice(0, 6);
+    const top6Share = top6.reduce((sum, d) => sum + d.share_pct, 0);
+    const top6Deaths = top6.reduce((sum, d) => sum + d.deaths, 0);
+    const otherShare = Math.max(0, 100 - top6Share);
+    const otherDeaths = meta.global_deaths_2019 - top6Deaths;
 
     const colors = ["#38bdf8", "var(--accent)", "#f59e0b", "#10b981", "#a855f7", "#ec4899", "var(--dim)"];
 
     return [
-      { ...top5[0], color: colors[0] },
-      { ...top5[1], color: colors[1] },
-      { ...stomach, color: colors[2] },
-      { ...top5[2], color: colors[3] },
-      { ...top5[3], color: colors[4] },
-      { ...top5[4], color: colors[5] },
+      ...top6.map((item, idx) => ({ ...item, color: colors[idx % colors.length] })),
       { type: "Other 23 Sites", deaths: otherDeaths, share_pct: parseFloat(otherShare.toFixed(1)), color: colors[6] },
     ];
   }, [meta.global_deaths_2019]);
@@ -170,7 +164,7 @@ export function CancerSiteMixShowcase() {
               const isHovered = hoveredDonutIndex === idx;
               return (
                 <path
-                  key={slice.type}
+                  key={`${slice.type}-${idx}`}
                   d={slice.pathData}
                   fill={slice.color}
                   stroke={isHovered ? "#fff" : "var(--surface-secondary)"}
@@ -259,7 +253,7 @@ export function CancerSiteMixShowcase() {
             const barWidthPct = (d.deaths / (donutData[0].deaths * 1.05)) * 100;
             return (
               <div
-                key={d.type}
+                key={`${d.type}-${idx}`}
                 onMouseEnter={() => setHoveredDonutIndex(idx)}
                 onMouseLeave={() => setHoveredDonutIndex(null)}
                 style={{

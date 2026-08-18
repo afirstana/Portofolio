@@ -19,7 +19,7 @@ skills:
   - "Financial data quality"
   - "Data reconciliation"
   - "Excel"
-order: 2
+order: 5
 system:
   - label: "01. Ingestion & Normalization"
     value: "Standardizes raw tax invoices (Faktur Asli) and internal DBO system transaction records"

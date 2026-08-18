@@ -33,7 +33,7 @@ skills:
   - "Demographic standardization"
   - "Global health intelligence"
   - "Interactive data visualization"
-order: 8
+order: 1
 preview:
   eyebrow: "Global Health Surveillance"
   metrics:

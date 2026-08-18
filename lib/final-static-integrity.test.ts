@@ -22,12 +22,12 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     // Exactly 6 dynamic routes
     expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).toEqual([
+      "global-cancer-epidemiology-surveillance",
+      "olist-e-commerce-logistics-analysis",
       "ml-product-mapping-system",
       "revenue-reconciliation-automation",
-      "olist-e-commerce-logistics-analysis",
       "certificate-generator-desktop-app",
       "brent-oil-market-dynamics",
-      "global-cancer-epidemiology-surveillance",
     ]);
   });
 

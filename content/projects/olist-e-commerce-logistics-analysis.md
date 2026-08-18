@@ -18,7 +18,7 @@ skills:
   - "RFM segmentation"
   - "Data modeling (DAX & SQL)"
   - "Geospatial analytics"
-order: 3
+order: 2
 system:
   - label: "01. Multi-Table Relational Model"
     value: "Aggregates 1.55M rows across 9 tables, normalizing multi-payments, item-level grains, and zip coordinates"

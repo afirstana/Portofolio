@@ -3,6 +3,7 @@ import "./globals.css";
 import "./interactive.css";
 import { siteConfig } from "@/lib/site";
 import { FloatingBackToTop } from "@/components/GlobalUX";
+import { InteractiveButterfly } from "@/components/InteractiveButterfly";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <FloatingBackToTop />
+        <InteractiveButterfly />
       </body>
     </html>
   );

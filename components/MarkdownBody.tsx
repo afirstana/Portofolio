@@ -5,14 +5,33 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\text\{([^\}]+)\}/g, "$1")
     .replace(/\\mathrm\{([^\}]+)\}/g, "$1")
     .replace(/\\mathbf\{([^\}]+)\}/g, "$1")
+    .replace(/\\left\s*[\(\[\{]/g, "(")
+    .replace(/\\right\s*[\)\]\}]/g, ")")
+    .replace(/\\left/g, "")
+    .replace(/\\right/g, "")
+    .replace(/\\sqrt\{([^\}]+)\}/g, "√($1)")
+    .replace(/\\sqrt/g, "√")
+    .replace(/\\Delta\s*\\phi/g, "Δϕ")
+    .replace(/\\Delta\s*\\lambda/g, "Δλ")
+    .replace(/\\Delta\s*([a-zA-Z]+)/g, "Δ$1")
+    .replace(/\\phi_1/g, "ϕ₁")
+    .replace(/\\phi_2/g, "ϕ₂")
+    .replace(/\\phi/g, "ϕ")
+    .replace(/\\lambda_1/g, "λ₁")
+    .replace(/\\lambda_2/g, "λ₂")
+    .replace(/\\lambda/g, "λ")
+    .replace(/\\arcsin/g, "arcsin")
+    .replace(/\\sin\^2/g, "sin²")
+    .replace(/\\cos/g, "cos")
+    .replace(/\\sin/g, "sin")
     .replace(/\\ln/g, "ln")
     .replace(/\\log/g, "log")
     .replace(/\\times/g, " × ")
     .replace(/\\cdot/g, " · ")
     .replace(/\\approx/g, " ≈ ")
     .replace(/\\neq/g, " ≠ ")
-    .replace(/\\le/g, " ≤ ")
-    .replace(/\\ge/g, " ≥ ")
+    .replace(/\\le\b|\\le(?![a-zA-Z])/g, " ≤ ")
+    .replace(/\\ge\b|\\ge(?![a-zA-Z])/g, " ≥ ")
     .replace(/\\pm/g, " ± ")
     .replace(/\\sum_\{i=1\}\^\{([^\}]+)\}/g, "∑(i=1..$1)")
     .replace(/\\sum_\{([^\}]+)\}/g, "∑($1)")
@@ -24,10 +43,6 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\epsilon/g, "ε")
     .replace(/\\sigma/g, "σ")
     .replace(/\\mu/g, "μ")
-    .replace(/\\left\(/g, "(")
-    .replace(/\\right\)/g, ")")
-    .replace(/\\left\[/g, "[")
-    .replace(/\\right\]/g, "]")
     .replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "($1 / $2)")
     .replace(/\{,\}/g, ",")
     .replace(/_i\b/g, "ᵢ")
@@ -203,7 +218,7 @@ export function MarkdownBody({ source }: { source: string }) {
               Mathematical Model • Econometric Formulation
             </span>
             <span className="mono" style={{ fontSize: "9px", color: "var(--dim)", background: "rgba(255,255,255,0.03)", padding: "2px 6px", borderRadius: 2, border: "1px solid var(--line)" }}>
-              EPIDEMIOLOGICAL SPECIFICATION
+              FORMULATION SPECIFICATION
             </span>
           </div>
           <div

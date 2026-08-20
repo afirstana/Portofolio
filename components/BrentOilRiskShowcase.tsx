@@ -285,7 +285,7 @@ export function BrentOilRiskShowcase() {
                       y1={getY(f)}
                       x2={svgWidth - padding.right}
                       y2={getY(f)}
-                      stroke="rgba(255, 255, 255, 0.05)"
+                      stroke="var(--line)"
                       strokeDasharray="2 2"
                     />
                     <text
@@ -476,7 +476,7 @@ export function BrentOilRiskShowcase() {
                     cursor: "pointer",
                     backgroundColor: tableFilter === "all" ? "var(--accent)" : "transparent",
                     border: "1px solid var(--line)",
-                    color: tableFilter === "all" ? "#000" : "var(--dim)",
+                    color: tableFilter === "all" ? "#ffffff" : "var(--dim)",
                     fontWeight: 700,
                   }}
                 >
@@ -493,7 +493,7 @@ export function BrentOilRiskShowcase() {
                     cursor: "pointer",
                     backgroundColor: tableFilter === "tail" ? "var(--accent)" : "transparent",
                     border: "1px solid var(--line)",
-                    color: tableFilter === "tail" ? "#000" : "var(--dim)",
+                    color: tableFilter === "tail" ? "#ffffff" : "var(--dim)",
                     fontWeight: 700,
                   }}
                 >
@@ -510,7 +510,7 @@ export function BrentOilRiskShowcase() {
                     cursor: "pointer",
                     backgroundColor: tableFilter === "extreme" ? "var(--accent)" : "transparent",
                     border: "1px solid var(--line)",
-                    color: tableFilter === "extreme" ? "#000" : "var(--dim)",
+                    color: tableFilter === "extreme" ? "#ffffff" : "var(--dim)",
                     fontWeight: 700,
                   }}
                 >
@@ -543,7 +543,7 @@ export function BrentOilRiskShowcase() {
                         key={row.id}
                         onClick={() => setSelectedMetricId(row.id)}
                         style={{
-                          borderBottom: "1px solid rgba(255, 255, 255, 0.04)",
+                          borderBottom: "1px solid var(--line)",
                           backgroundColor: isSelected ? "var(--accent-subtle)" : "transparent",
                           cursor: "pointer",
                           transition: "all 0.12s ease",

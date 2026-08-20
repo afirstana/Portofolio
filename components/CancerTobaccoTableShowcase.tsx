@@ -78,7 +78,7 @@ export function CancerTobaccoTableShowcase() {
             <div className="table-scroll" style={{ border: "1px solid var(--line)", borderRadius: "4px", backgroundColor: "var(--panel)", overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11.5 }}>
                 <thead>
-                  <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
+                  <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--panel)" }}>
                     <th style={{ padding: "9px 14px", textAlign: "left", color: "var(--ink-heading)", font: "10px monospace", textTransform: "uppercase" }}>
                       Timeline
                     </th>
@@ -111,20 +111,20 @@ export function CancerTobaccoTableShowcase() {
                         style={{
                           borderBottom: rIdx === visibleYears.length - 1 ? "none" : "1px solid var(--line)",
                           backgroundColor: isEnd
-                            ? "rgba(244, 63, 94, 0.05)"
+                            ? "rgba(244, 63, 94, 0.08)"
                             : isBaseline
-                            ? "rgba(255, 255, 255, 0.03)"
+                            ? "var(--accent-subtle)"
                             : rIdx % 2 === 0
-                            ? "rgba(255, 255, 255, 0.012)"
+                            ? "var(--surface-hover)"
                             : "transparent",
                         }}
                       >
                         <td style={{ padding: "8px 14px" }}>
-                          <span className="mono" style={{ fontWeight: 700, color: isEnd ? "var(--accent)" : isBaseline ? "#ffffff" : "var(--ink)" }}>
+                          <span className="mono" style={{ fontWeight: 700, color: isEnd ? "var(--accent)" : isBaseline ? "var(--ink-heading)" : "var(--ink)" }}>
                             {row.year} {isBaseline && "(Base)"} {isEnd && "(Latest)"}
                           </span>
                         </td>
-                        <td className="mono" style={{ padding: "8px 14px", textAlign: "right", color: "#ffffff", fontWeight: 600 }}>
+                        <td className="mono" style={{ padding: "8px 14px", textAlign: "right", color: "var(--ink-heading)", fontWeight: 600 }}>
                           {(row.total_cancer_deaths / 1e6).toFixed(2)}M
                         </td>
                         <td className="mono" style={{ padding: "8px 14px", textAlign: "right", color: "#f43f5e", fontWeight: 600 }}>
@@ -141,7 +141,7 @@ export function CancerTobaccoTableShowcase() {
                             style={{
                               padding: "2px 6px",
                               borderRadius: 2,
-                              background: isBaseline ? "rgba(255,255,255,0.04)" : "rgba(244,63,94,0.08)",
+                              background: isBaseline ? "var(--surface-secondary)" : "rgba(244,63,94,0.08)",
                               color: isBaseline ? "var(--dim)" : "#f43f5e",
                               border: isBaseline ? "1px solid var(--line)" : "1px solid rgba(244,63,94,0.2)",
                               fontSize: "10px",
@@ -185,7 +185,7 @@ export function CancerTobaccoTableShowcase() {
           <div className="table-scroll" style={{ border: "1px solid var(--line)", borderRadius: "4px", backgroundColor: "var(--panel)", overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11.5 }}>
               <thead>
-                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
+                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--panel)" }}>
                   <th style={{ padding: "9px 14px", textAlign: "left", color: "var(--ink-heading)", font: "10px monospace", textTransform: "uppercase", width: "45px" }}>
                     Rank
                   </th>
@@ -211,7 +211,7 @@ export function CancerTobaccoTableShowcase() {
                       key={c.code || c.country}
                       style={{
                         borderBottom: cIdx === topCountries.length - 1 ? "none" : "1px solid var(--line)",
-                        backgroundColor: cIdx % 2 === 0 ? "rgba(255, 255, 255, 0.012)" : "transparent",
+                        backgroundColor: cIdx % 2 === 0 ? "var(--surface-hover)" : "transparent",
                       }}
                     >
                       <td style={{ padding: "8px 14px" }}>
@@ -226,7 +226,7 @@ export function CancerTobaccoTableShowcase() {
                         {c.tobacco_share_pct.toFixed(2)}%
                       </td>
                       <td style={{ padding: "8px 14px" }}>
-                        <div style={{ height: "5px", width: "100%", background: "rgba(255,255,255,0.06)", borderRadius: "3px", overflow: "hidden" }}>
+                        <div style={{ height: "5px", width: "100%", background: "var(--line)", borderRadius: "3px", overflow: "hidden" }}>
                           <div
                             style={{
                               height: "100%",

@@ -156,7 +156,8 @@ export function BrentOilInteractiveShowcase() {
                   onClick={() => setSelectedDecade(btn.id)}
                   style={{
                     backgroundColor: selectedDecade === btn.id ? "var(--accent)" : "var(--panel)",
-                    color: selectedDecade === btn.id ? "#000" : "var(--muted)",
+                    color: selectedDecade === btn.id ? "#ffffff" : "var(--muted)",
+                    fontWeight: selectedDecade === btn.id ? 700 : 500,
                     border: "1px solid var(--line)",
                     padding: "4px 8px",
                     fontSize: 10,
@@ -225,8 +226,8 @@ export function BrentOilInteractiveShowcase() {
             <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} style={{ width: "100%", height: "auto", display: "block" }}>
               <defs>
                 <linearGradient id="brentGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.0" />
+                  <stop offset="0%" stopColor="var(--accent)" stopOpacity={0.25} />
+                  <stop offset="100%" stopColor="var(--accent)" stopOpacity={0.0} />
                 </linearGradient>
               </defs>
 
@@ -312,7 +313,7 @@ export function BrentOilInteractiveShowcase() {
                   key={crisis.name}
                   onClick={() => setSelectedCrisisIndex(idx)}
                   style={{
-                    backgroundColor: isSelected ? "var(--panel)" : "var(--panel-secondary, #111)",
+                    backgroundColor: isSelected ? "var(--panel)" : "var(--surface-secondary)",
                     border: isSelected ? "1px solid var(--accent)" : "1px solid var(--line)",
                     padding: "8px 10px",
                     borderRadius: 2,

@@ -86,7 +86,7 @@ export function CancerTrendAsdrShowcase() {
 
       {/* 4 KPI Summary Cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px", marginBottom: "20px" }}>
-        <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "var(--dim)" }}>1990 BASELINE ASDR</span>
           <strong style={{ display: "block", fontSize: "20px", color: "var(--ink-heading)", fontFamily: "monospace", margin: "3px 0" }}>
             147.93 / 100k
@@ -96,7 +96,7 @@ export function CancerTrendAsdrShowcase() {
           </span>
         </div>
 
-        <div style={{ background: "rgba(16, 185, 129, 0.06)", border: "1px solid rgba(16, 185, 129, 0.3)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.3)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "#10b981" }}>2019 ASDR TRAJECTORY</span>
           <strong style={{ display: "block", fontSize: "20px", color: "#10b981", fontFamily: "monospace", margin: "3px 0" }}>
             125.41 / 100k
@@ -106,7 +106,7 @@ export function CancerTrendAsdrShowcase() {
           </span>
         </div>
 
-        <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "var(--dim)" }}>1990 ABSOLUTE DEATHS</span>
           <strong style={{ display: "block", fontSize: "20px", color: "var(--ink-heading)", fontFamily: "monospace", margin: "3px 0" }}>
             5.52 Million
@@ -116,7 +116,7 @@ export function CancerTrendAsdrShowcase() {
           </span>
         </div>
 
-        <div style={{ background: "rgba(244, 63, 94, 0.06)", border: "1px solid rgba(244, 63, 94, 0.3)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "rgba(244, 63, 94, 0.08)", border: "1px solid rgba(244, 63, 94, 0.3)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "#f43f5e" }}>2019 ABSOLUTE SURGE</span>
           <strong style={{ display: "block", fontSize: "20px", color: "#f43f5e", fontFamily: "monospace", margin: "3px 0" }}>
             9.67 Million
@@ -128,15 +128,15 @@ export function CancerTrendAsdrShowcase() {
       </div>
 
       {/* Main Interactive Graph Box */}
-      <div style={{ background: "rgba(0,0,0,0.3)", border: "1px solid var(--line)", borderRadius: "4px", padding: "18px 20px" }}>
+      <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", borderRadius: "4px", padding: "18px 20px" }}>
         {/* Controls Toolbar */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px", flexWrap: "wrap", gap: "10px" }}>
           <div style={{ display: "flex", gap: "6px" }}>
             <button
               onClick={() => setTrendMetric("rate")}
               style={{
-                backgroundColor: trendMetric === "rate" ? "var(--accent)" : "var(--surface-secondary)",
-                color: trendMetric === "rate" ? "#000" : "var(--muted)",
+                backgroundColor: trendMetric === "rate" ? "var(--accent)" : "var(--panel)",
+                color: trendMetric === "rate" ? "#ffffff" : "var(--muted)",
                 border: "1px solid var(--line)",
                 padding: "6px 12px",
                 fontSize: "10.5px",
@@ -152,8 +152,8 @@ export function CancerTrendAsdrShowcase() {
             <button
               onClick={() => setTrendMetric("count")}
               style={{
-                backgroundColor: trendMetric === "count" ? "var(--accent)" : "var(--surface-secondary)",
-                color: trendMetric === "count" ? "#000" : "var(--muted)",
+                backgroundColor: trendMetric === "count" ? "var(--accent)" : "var(--panel)",
+                color: trendMetric === "count" ? "#ffffff" : "var(--muted)",
                 border: "1px solid var(--line)",
                 padding: "6px 12px",
                 fontSize: "10.5px",
@@ -302,10 +302,9 @@ export function CancerTrendAsdrShowcase() {
                         width={tooltipW}
                         height={tooltipH}
                         rx="4"
-                        fill="#0d0d10"
+                        fill="var(--bg-translucent)"
                         stroke="var(--accent)"
                         strokeWidth="1"
-                        opacity="0.95"
                       />
                       <text x={tooltipX + 10} y={tooltipY + 16} fill="var(--dim)" fontSize="8.5" fontFamily="monospace" fontWeight="bold">
                         YEAR {activeHoverPoint.year} SNEAK PEEK

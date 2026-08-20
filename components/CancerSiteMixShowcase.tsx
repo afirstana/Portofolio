@@ -114,7 +114,7 @@ export function CancerSiteMixShowcase() {
 
       {/* 4 KPI Summary Cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px", marginBottom: "22px" }}>
-        <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "var(--dim)" }}>TOP 3 COMBINED SHARE</span>
           <strong style={{ display: "block", fontSize: "20px", color: "var(--ink-heading)", fontFamily: "monospace", margin: "3px 0" }}>
             42.2%
@@ -124,7 +124,7 @@ export function CancerSiteMixShowcase() {
           </span>
         </div>
 
-        <div style={{ background: "rgba(56, 189, 248, 0.06)", border: "1px solid rgba(56, 189, 248, 0.3)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "rgba(56, 189, 248, 0.08)", border: "1px solid rgba(56, 189, 248, 0.3)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "#38bdf8" }}>#1 DOMINANT MALIGNANCY</span>
           <strong style={{ display: "block", fontSize: "20px", color: "#38bdf8", fontFamily: "monospace", margin: "3px 0" }}>
             2.04M
@@ -134,7 +134,7 @@ export function CancerSiteMixShowcase() {
           </span>
         </div>
 
-        <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "var(--dim)" }}>DIGESTIVE SYSTEM SITES</span>
           <strong style={{ display: "block", fontSize: "20px", color: "#f59e0b", fontFamily: "monospace", margin: "3px 0" }}>
             3.32M
@@ -144,7 +144,7 @@ export function CancerSiteMixShowcase() {
           </span>
         </div>
 
-        <div style={{ background: "rgba(244, 63, 94, 0.06)", border: "1px solid rgba(244, 63, 94, 0.3)", padding: "12px", borderRadius: "4px" }}>
+        <div style={{ background: "rgba(244, 63, 94, 0.08)", border: "1px solid rgba(244, 63, 94, 0.3)", padding: "12px", borderRadius: "4px" }}>
           <span className="mono" style={{ fontSize: "9px", color: "#f43f5e" }}>FASTEST 30-YR SURGE</span>
           <strong style={{ display: "block", fontSize: "20px", color: "#f43f5e", fontFamily: "monospace", margin: "3px 0" }}>
             +168.2%
@@ -156,7 +156,7 @@ export function CancerSiteMixShowcase() {
       </div>
 
       {/* Top Graphic Section: Donut + Synchronized Proportional Bar Graph */}
-      <div style={{ display: "grid", gridTemplateColumns: "minmax(250px, 320px) 1fr", gap: "24px", alignItems: "center", marginBottom: "24px", background: "rgba(0,0,0,0.25)", padding: "16px", borderRadius: "4px", border: "1px solid var(--line)" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "minmax(250px, 320px) 1fr", gap: "24px", alignItems: "center", marginBottom: "24px", background: "var(--surface-secondary)", padding: "16px", borderRadius: "4px", border: "1px solid var(--line)" }}>
         {/* Donut Graphic with Dynamic Center Display */}
         <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
           <svg viewBox="0 0 200 200" style={{ width: "230px", height: "230px", overflow: "visible" }}>
@@ -312,7 +312,7 @@ export function CancerSiteMixShowcase() {
               onClick={() => setSiteBarFilter("top10")}
               style={{
                 background: siteBarFilter === "top10" ? "var(--accent)" : "var(--panel)",
-                color: siteBarFilter === "top10" ? "#000" : "var(--muted)",
+                color: siteBarFilter === "top10" ? "#ffffff" : "var(--muted)",
                 border: "1px solid var(--line)",
                 padding: "5px 10px",
                 fontSize: "10px",
@@ -328,7 +328,7 @@ export function CancerSiteMixShowcase() {
               onClick={() => setSiteBarFilter("digestive")}
               style={{
                 background: siteBarFilter === "digestive" ? "var(--accent)" : "var(--panel)",
-                color: siteBarFilter === "digestive" ? "#000" : "var(--muted)",
+                color: siteBarFilter === "digestive" ? "#ffffff" : "var(--muted)",
                 border: "1px solid var(--line)",
                 padding: "5px 10px",
                 fontSize: "10px",
@@ -344,7 +344,7 @@ export function CancerSiteMixShowcase() {
               onClick={() => setSiteBarFilter("all29")}
               style={{
                 background: siteBarFilter === "all29" ? "var(--accent)" : "var(--panel)",
-                color: siteBarFilter === "all29" ? "#000" : "var(--muted)",
+                color: siteBarFilter === "all29" ? "#ffffff" : "var(--muted)",
                 border: "1px solid var(--line)",
                 padding: "5px 10px",
                 fontSize: "10px",
@@ -409,8 +409,8 @@ export function CancerSiteMixShowcase() {
                   fontFamily: "monospace",
                   padding: "5px 10px",
                   borderRadius: "3px",
-                  backgroundColor: isHovered ? "var(--surface-secondary)" : "rgba(255, 255, 255, 0.015)",
-                  border: isHovered ? "1px solid var(--accent)" : "1px solid rgba(255, 255, 255, 0.04)",
+                  backgroundColor: isHovered ? "var(--surface-hover)" : "transparent",
+                  border: isHovered ? "1px solid var(--accent)" : "1px solid var(--line)",
                   cursor: "pointer",
                   transition: "all 0.15s ease",
                 }}
@@ -427,12 +427,12 @@ export function CancerSiteMixShowcase() {
                 >
                   {t.type}
                 </span>
-                <div style={{ height: "10px", background: "rgba(255, 255, 255, 0.05)", borderRadius: "2px", overflow: "hidden" }}>
+                <div style={{ height: "10px", background: "var(--line)", borderRadius: "2px", overflow: "hidden" }}>
                   <div
                     style={{
                       height: "100%",
                       width: `${barPct}%`,
-                      background: rankNum === 1 ? "#38bdf8" : rankNum <= 5 ? "var(--accent)" : "rgba(255, 255, 255, 0.35)",
+                      background: rankNum === 1 ? "#38bdf8" : rankNum <= 5 ? "var(--accent)" : "var(--line-strong)",
                       borderRadius: "2px",
                       boxShadow: isHovered ? "0 0 10px var(--accent)" : "none",
                       transition: "width 0.3s ease",

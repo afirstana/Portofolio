@@ -367,8 +367,8 @@ export function OlistPaymentDashboard() {
               const val = maxMonthValue * (1 - ratio);
               return (
                 <g key={idx}>
-                  <line x1="50" y1={y} x2="850" y2={y} stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
-                  <text x="42" y={y + 4} fill="#666" fontSize="9" textAnchor="end" fontFamily="monospace">
+                  <line x1="50" y1={y} x2="850" y2={y} stroke="var(--line)" strokeDasharray="3 3" />
+                  <text x="42" y={y + 4} fill="var(--dim)" fontSize="9" textAnchor="end" fontFamily="monospace">
                     {trendMetric === "value" ? `R$ ${(val / 1000).toFixed(0)}k` : formatNumber(Math.round(val))}
                   </text>
                 </g>
@@ -422,7 +422,7 @@ export function OlistPaymentDashboard() {
                   })
                   .join(" ")}
                 fill="none"
-                stroke="#fff"
+                stroke="var(--ink-heading)"
                 strokeWidth="1.8"
                 strokeDasharray="4 4"
               />
@@ -443,12 +443,12 @@ export function OlistPaymentDashboard() {
                     cy={270 - ((trendMetric === "value" ? m.credit_card_value : m.credit_card_orders) / maxMonthValue) * 240}
                     r={isHovered ? 5 : 3}
                     fill={METHOD_COLORS.credit_card}
-                    stroke="#101014"
+                    stroke="var(--panel)"
                     strokeWidth="1.5"
                   />
                   {/* Month X Labels */}
                   {i % 2 === 0 && (
-                    <text x={x} y="295" fill="#777" fontSize="9" textAnchor="middle" fontFamily="monospace">
+                    <text x={x} y="295" fill="var(--dim)" fontSize="9" textAnchor="middle" fontFamily="monospace">
                       {m.month}
                     </text>
                   )}
@@ -629,8 +629,8 @@ export function OlistPaymentDashboard() {
                 const y = 220 - (val / 400) * 180;
                 return (
                   <g key={val}>
-                    <line x1="45" y1={y} x2="430" y2={y} stroke="rgba(255,255,255,0.06)" />
-                    <text x="38" y={y + 4} fill="#666" fontSize="9" textAnchor="end" fontFamily="monospace">
+                    <line x1="45" y1={y} x2="430" y2={y} stroke="var(--line)" />
+                    <text x="38" y={y + 4} fill="var(--dim)" fontSize="9" textAnchor="end" fontFamily="monospace">
                       R${val}
                     </text>
                   </g>
@@ -672,13 +672,13 @@ export function OlistPaymentDashboard() {
                       cy={y}
                       r={isHovered ? r + 3 : r}
                       fill={isHovered ? "var(--accent)" : "rgba(255,77,28,0.75)"}
-                      stroke="#ffffff"
+                      stroke="var(--panel)"
                       strokeWidth={isHovered ? "2" : "1"}
                     />
-                    <text x={x} y={y - r - 6} fill="#ffffff" fontSize="9" fontWeight="600" textAnchor="middle" fontFamily="monospace">
+                    <text x={x} y={y - r - 6} fill="var(--ink-heading)" fontSize="9" fontWeight="600" textAnchor="middle" fontFamily="monospace">
                       {currency(b.avg_order_value)}
                     </text>
-                    <text x={x} y="240" fill="#888" fontSize="10" textAnchor="middle" fontFamily="monospace">
+                    <text x={x} y="240" fill="var(--dim)" fontSize="10" textAnchor="middle" fontFamily="monospace">
                       {b.bucket}
                     </text>
                   </g>

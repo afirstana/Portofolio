@@ -320,7 +320,7 @@ export function OlistRfmShowcase() {
         >
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
             <thead>
-              <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
+              <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--panel)" }}>
                 <th style={{ padding: "10px 14px", textAlign: "center", font: "10px/1.2 monospace", color: "var(--ink-heading)" }}>#</th>
                 <th style={{ padding: "10px 14px", textAlign: "left", font: "10px/1.2 monospace", color: "var(--ink-heading)" }}>SEGMENT NAME</th>
                 <th style={{ padding: "10px 14px", textAlign: "left", font: "10px/1.2 monospace", color: "var(--ink-heading)" }}>RFM CRITERIA</th>
@@ -338,7 +338,7 @@ export function OlistRfmShowcase() {
                   key={tier.rank}
                   style={{
                     borderBottom: tier.rank === 9 ? "none" : "1px solid var(--line)",
-                    backgroundColor: tier.rank % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
+                    backgroundColor: tier.rank % 2 === 0 ? "var(--surface-hover)" : "transparent",
                   }}
                 >
                   <td style={{ padding: "10px 14px", textAlign: "center", fontFamily: "monospace", color: "var(--dim)" }}>{tier.rank}</td>

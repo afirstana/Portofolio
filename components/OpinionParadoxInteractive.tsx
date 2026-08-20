@@ -83,7 +83,7 @@ export function OpinionParadoxInteractive() {
             onClick={() => setActiveView("divergence")}
             style={{
               background: activeView === "divergence" ? "var(--accent)" : "var(--surface-secondary)",
-              color: activeView === "divergence" ? "#000" : "var(--muted)",
+              color: activeView === "divergence" ? "#ffffff" : "var(--muted)",
               border: `1px solid ${activeView === "divergence" ? "var(--accent)" : "var(--line)"}`,
               padding: "5px 10px",
               fontSize: "10.5px",
@@ -99,7 +99,7 @@ export function OpinionParadoxInteractive() {
             onClick={() => setActiveView("clusters")}
             style={{
               background: activeView === "clusters" ? "var(--accent)" : "var(--surface-secondary)",
-              color: activeView === "clusters" ? "#000" : "var(--muted)",
+              color: activeView === "clusters" ? "#ffffff" : "var(--muted)",
               border: `1px solid ${activeView === "clusters" ? "var(--accent)" : "var(--line)"}`,
               padding: "5px 10px",
               fontSize: "10.5px",
@@ -124,7 +124,7 @@ export function OpinionParadoxInteractive() {
                 onClick={() => setSelectedYear(m.year)}
                 style={{
                   background: selectedYear === m.year ? "var(--accent)" : "var(--surface-secondary)",
-                  color: selectedYear === m.year ? "#000" : "var(--muted)",
+                  color: selectedYear === m.year ? "#ffffff" : "var(--muted)",
                   border: `1px solid ${selectedYear === m.year ? "var(--accent)" : "var(--line)"}`,
                   padding: "5px 11px",
                   fontSize: "10.5px",
@@ -143,7 +143,7 @@ export function OpinionParadoxInteractive() {
           {/* 3 Metric Cards Grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "12px", marginBottom: "16px" }}>
             {/* Metric 1: Absolute Deaths */}
-            <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--line)", padding: "12px 14px", borderRadius: "4px" }}>
+            <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px 14px", borderRadius: "4px" }}>
               <span className="mono" style={{ fontSize: "8.5px", color: "var(--dim)" }}>GLOBAL CANCER FATALITIES</span>
               <strong style={{ display: "block", fontSize: "20px", color: "#f43f5e", fontFamily: "monospace", margin: "3px 0" }}>
                 {current.deaths} Million
@@ -154,7 +154,7 @@ export function OpinionParadoxInteractive() {
             </div>
 
             {/* Metric 2: Elderly Population (≥65) */}
-            <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--line)", padding: "12px 14px", borderRadius: "4px" }}>
+            <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", padding: "12px 14px", borderRadius: "4px" }}>
               <span className="mono" style={{ fontSize: "8.5px", color: "var(--dim)" }}>SENIOR POPULATION (≥65)</span>
               <strong style={{ display: "block", fontSize: "20px", color: "#f59e0b", fontFamily: "monospace", margin: "3px 0" }}>
                 {current.elderlyPop} Million
@@ -165,7 +165,7 @@ export function OpinionParadoxInteractive() {
             </div>
 
             {/* Metric 3: Age-Standardized Death Rate */}
-            <div style={{ background: "rgba(16, 185, 129, 0.06)", border: "1px solid rgba(16, 185, 129, 0.3)", padding: "12px 14px", borderRadius: "4px" }}>
+            <div style={{ background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.3)", padding: "12px 14px", borderRadius: "4px" }}>
               <span className="mono" style={{ fontSize: "8.5px", color: "#10b981" }}>AGE-STANDARDIZED RATE (ASDR)</span>
               <strong style={{ display: "block", fontSize: "20px", color: "#10b981", fontFamily: "monospace", margin: "3px 0" }}>
                 {current.asdr} / 100k
@@ -177,7 +177,7 @@ export function OpinionParadoxInteractive() {
           </div>
 
           {/* Interactive Dual-Trajectory SVG Chart */}
-          <div style={{ background: "rgba(0,0,0,0.35)", border: "1px solid var(--line)", borderRadius: "4px", padding: "14px 16px", marginBottom: "14px", position: "relative" }}>
+          <div style={{ background: "var(--surface-secondary)", border: "1px solid var(--line)", borderRadius: "4px", padding: "14px 16px", marginBottom: "14px", position: "relative" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
               <div style={{ display: "flex", gap: "14px", alignItems: "center" }}>
                 <span style={{ fontSize: "9.5px", fontFamily: "monospace", color: "#10b981", display: "flex", alignItems: "center", gap: "5px" }}>
@@ -207,7 +207,7 @@ export function OpinionParadoxInteractive() {
               <path d={deathsPath} fill="none" stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
 
               {/* Active Tracking Crosshair */}
-              <line x1={activePt.x} y1={padY} x2={activePt.x} y2={chartH - padY} stroke="rgba(255,255,255,0.4)" strokeDasharray="3 3" strokeWidth="1" />
+              <line x1={activePt.x} y1={padY} x2={activePt.x} y2={chartH - padY} stroke="var(--accent)" strokeDasharray="3 3" strokeWidth="1" />
 
               {/* Interactive Nodes */}
               {chartPoints.map((pt) => {
@@ -230,7 +230,7 @@ export function OpinionParadoxInteractive() {
           </div>
 
           {/* Key Analytical Takeaway */}
-          <div style={{ padding: "10px 14px", background: "rgba(255,255,255,0.02)", border: "1px solid var(--line)", borderRadius: "3px" }}>
+          <div style={{ padding: "10px 14px", background: "var(--surface-secondary)", border: "1px solid var(--line)", borderRadius: "3px" }}>
             <p className="mono" style={{ margin: 0, fontSize: "10.5px", color: "var(--muted)", lineHeight: 1.5 }}>
               💡 <strong>The Simpson's Paradox Diagnosis</strong>: While total cancer deaths climbed from <strong>5.52M to 9.67M</strong> due to global life expectancy gains doubling the senior population (328M ➔ 703M), the individual age-standardized mortality risk declined by <strong>-15.22%</strong> (147.9 ➔ 125.4 per 100k).
             </p>
@@ -257,7 +257,7 @@ export function OpinionParadoxInteractive() {
                 gap: "12px",
                 alignItems: "center",
                 padding: "7px 12px",
-                background: "rgba(255, 255, 255, 0.02)",
+                background: "var(--surface-secondary)",
                 border: "1px solid var(--line)",
                 borderRadius: "3px",
                 fontFamily: "monospace",
@@ -269,7 +269,7 @@ export function OpinionParadoxInteractive() {
                 <span style={{ fontSize: "9px", color: "var(--dim)" }}>{cluster.driver}</span>
               </div>
 
-              <div style={{ height: "9px", background: "rgba(255,255,255,0.05)", borderRadius: "2px", overflow: "hidden" }}>
+              <div style={{ height: "9px", background: "var(--line)", borderRadius: "2px", overflow: "hidden" }}>
                 <div
                   style={{
                     height: "100%",

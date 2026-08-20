@@ -132,7 +132,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
                 alignItems: "center",
                 gap: 8,
                 backgroundColor: "var(--accent)",
-                color: "#000",
+                color: "#ffffff",
                 fontWeight: 700,
                 padding: "8px 16px",
                 borderRadius: 3,
@@ -188,7 +188,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
               <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--accent)" }} />
               2019 ANNUAL MORTALITY (GLOBAL BURDEN)
             </span>
-            <strong style={{ color: "var(--accent)", textShadow: "0 0 24px rgba(255,77,28,0.2)" }}>
+            <strong style={{ color: "var(--accent)", textShadow: "0 0 24px var(--accent-subtle)" }}>
               {(latestRecord.volume / 1000000).toFixed(2)}M
             </strong>
             <p>{latestRecord.volume.toLocaleString()} recorded deaths in 2019 ({category === "All" ? "all types" : category}).</p>
@@ -217,7 +217,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
                 </span>
               </div>
               {hoveredPoint ? (
-                <div style={{ backgroundColor: "rgba(255,77,28,0.15)", border: "1px solid var(--accent)", padding: "3px 9px", borderRadius: 4, fontSize: 10, color: "#ffffff", fontFamily: "monospace" }}>
+                <div style={{ backgroundColor: "var(--accent-subtle)", border: "1px solid var(--accent)", padding: "3px 9px", borderRadius: 4, fontSize: 10, color: "var(--ink-heading)", fontFamily: "monospace" }}>
                   <strong style={{ color: "var(--accent)" }}>Year {hoveredPoint.year}:</strong> {hoveredPoint.volume.toLocaleString()} deaths ({hoveredPoint.value.toLocaleString()}k)
                 </div>
               ) : (
@@ -238,13 +238,13 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
             >
               <defs>
                 <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#ff4d1c" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#ff4d1c" stopOpacity="0.01" />
+                  <stop offset="0%" stopColor="var(--accent)" stopOpacity={0.25} />
+                  <stop offset="100%" stopColor="var(--accent)" stopOpacity={0.01} />
                 </linearGradient>
               </defs>
 
               {/* Minimal Baseline Grid */}
-              <path d="M35 155H345M35 100H345M35 45H345" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+              <path d="M35 155H345M35 100H345M35 45H345" stroke="var(--line)" strokeDasharray="3 3" />
 
               {/* Shaded Area Under Curve */}
               <polygon points={areaPoints} fill="url(#chartGradient)" />
@@ -268,7 +268,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
                     y1={25}
                     x2={hoveredPoint.x}
                     y2={155}
-                    stroke="rgba(255,77,28,0.5)"
+                    stroke="var(--accent)"
                     strokeWidth="1"
                     strokeDasharray="2 2"
                   />
@@ -277,7 +277,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
                     cx={hoveredPoint.x}
                     cy={hoveredPoint.y}
                     r="8"
-                    fill="rgba(255,77,28,0.25)"
+                    fill="var(--accent-subtle)"
                   />
                   {/* Center Dot */}
                   <circle
@@ -285,7 +285,7 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
                     cy={hoveredPoint.y}
                     r="4.5"
                     fill="var(--accent)"
-                    stroke="#ffffff"
+                    stroke="var(--panel)"
                     strokeWidth="2"
                   />
                 </g>

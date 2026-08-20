@@ -268,7 +268,7 @@ export function OlistCategoryFinancingShowcase() {
                     </span>
 
                     {/* Visual Bar */}
-                    <div style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", height: 16, borderRadius: 2, overflow: "hidden", position: "relative" }}>
+                    <div style={{ backgroundColor: "var(--line)", height: 16, borderRadius: 2, overflow: "hidden", position: "relative" }}>
                       <div
                         style={{
                           width: `${barWidthPct}%`,
@@ -282,7 +282,7 @@ export function OlistCategoryFinancingShowcase() {
                           paddingRight: 6,
                         }}
                       >
-                        <span style={{ fontSize: 9, fontFamily: "monospace", color: "#000", fontWeight: 700 }}>
+                        <span style={{ fontSize: 9, fontFamily: "monospace", color: "#ffffff", fontWeight: 700 }}>
                           {item.avgInstallments.toFixed(2)}x
                         </span>
                       </div>
@@ -496,7 +496,7 @@ export function OlistCategoryFinancingShowcase() {
                         backgroundColor: isSelected
                           ? "var(--accent-subtle)"
                           : idx % 2 === 0
-                          ? "rgba(255, 255, 255, 0.015)"
+                          ? "var(--surface-hover)"
                           : "transparent",
                         cursor: "pointer",
                         transition: "background-color 0.12s ease",

@@ -276,7 +276,7 @@ export function BrentOilRegimesShowcase() {
                         y1={yPos}
                         x2={svgWidth - padding.right}
                         y2={yPos}
-                        stroke="rgba(255, 255, 255, 0.05)"
+                        stroke="var(--line)"
                         strokeDasharray="2 2"
                       />
                       <text

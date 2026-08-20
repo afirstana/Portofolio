@@ -207,7 +207,7 @@ export function CancerEpidemiologyDashboard() {
                     onClick={() => setSurvivalViewMode("all")}
                     style={{
                       background: survivalViewMode === "all" ? "var(--accent)" : "var(--panel)",
-                      color: survivalViewMode === "all" ? "#000" : "var(--muted)",
+                      color: survivalViewMode === "all" ? "#ffffff" : "var(--muted)",
                       border: "1px solid var(--line)",
                       padding: "5px 10px",
                       fontSize: "10px",
@@ -223,7 +223,7 @@ export function CancerEpidemiologyDashboard() {
                     onClick={() => setSurvivalViewMode("top15")}
                     style={{
                       background: survivalViewMode === "top15" ? "var(--accent)" : "var(--panel)",
-                      color: survivalViewMode === "top15" ? "#000" : "var(--muted)",
+                      color: survivalViewMode === "top15" ? "#ffffff" : "var(--muted)",
                       border: "1px solid var(--line)",
                       padding: "5px 10px",
                       fontSize: "10px",
@@ -239,7 +239,7 @@ export function CancerEpidemiologyDashboard() {
                     onClick={() => setSurvivalViewMode("bottom15")}
                     style={{
                       background: survivalViewMode === "bottom15" ? "var(--accent)" : "var(--panel)",
-                      color: survivalViewMode === "bottom15" ? "#000" : "var(--muted)",
+                      color: survivalViewMode === "bottom15" ? "#ffffff" : "var(--muted)",
                       border: "1px solid var(--line)",
                       padding: "5px 10px",
                       fontSize: "10px",
@@ -263,7 +263,7 @@ export function CancerEpidemiologyDashboard() {
             <div style={{ overflowX: "auto", border: "1px solid var(--line)", borderRadius: "4px", maxHeight: "460px", scrollbarWidth: "thin" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", fontFamily: "monospace" }}>
                 <thead>
-                  <tr style={{ position: "sticky", top: 0, zIndex: 10, background: "var(--surface-secondary)", borderBottom: "2px solid var(--line)", textAlign: "left", color: "var(--dim)" }}>
+                  <tr style={{ position: "sticky", top: 0, zIndex: 10, background: "var(--panel)", borderBottom: "2px solid var(--line)", textAlign: "left", color: "var(--dim)" }}>
                     <th
                       onClick={() => handleSurvivalHeaderClick("Country")}
                       style={{ padding: "8px 10px", cursor: "pointer", minWidth: "150px", borderRight: "1px solid var(--line)" }}
@@ -296,7 +296,7 @@ export function CancerEpidemiologyDashboard() {
                       style={{
                         borderBottom: "1px solid var(--line)",
                         color: "var(--ink)",
-                        backgroundColor: idx % 2 === 0 ? "rgba(255,255,255,0.015)" : "transparent",
+                        backgroundColor: idx % 2 === 0 ? "var(--surface-hover)" : "transparent",
                       }}
                     >
                       <td style={{ padding: "7px 10px", fontWeight: "bold", borderRight: "1px solid var(--line)", whiteSpace: "nowrap" }}>
@@ -321,7 +321,7 @@ export function CancerEpidemiologyDashboard() {
                         const textCol = !val
                           ? "var(--dim)"
                           : isHovered
-                          ? "#000000"
+                          ? "#ffffff"
                           : isHigh
                           ? "#10b981"
                           : isLow
@@ -410,7 +410,7 @@ export function CancerEpidemiologyDashboard() {
                   onClick={() => setCountryViewMode("chart")}
                   style={{
                     background: countryViewMode === "chart" ? "var(--accent)" : "var(--panel)",
-                    color: countryViewMode === "chart" ? "#000" : "var(--muted)",
+                    color: countryViewMode === "chart" ? "#ffffff" : "var(--muted)",
                     border: "1px solid var(--line)",
                     padding: "5px 10px",
                     fontSize: "10px",
@@ -425,7 +425,7 @@ export function CancerEpidemiologyDashboard() {
                   onClick={() => setCountryViewMode("table")}
                   style={{
                     background: countryViewMode === "table" ? "var(--accent)" : "var(--panel)",
-                    color: countryViewMode === "table" ? "#000" : "var(--muted)",
+                    color: countryViewMode === "table" ? "#ffffff" : "var(--muted)",
                     border: "1px solid var(--line)",
                     padding: "5px 10px",
                     fontSize: "10px",
@@ -443,9 +443,9 @@ export function CancerEpidemiologyDashboard() {
                   <button
                     onClick={() => setCountryFilter("top")}
                     style={{
-                      background: countryFilter === "top" ? "var(--panel)" : "transparent",
+                      background: countryFilter === "top" ? "var(--accent-subtle)" : "transparent",
                       color: countryFilter === "top" ? "var(--accent)" : "var(--muted)",
-                      border: "1px solid var(--line)",
+                      border: `1px solid ${countryFilter === "top" ? "var(--accent)" : "var(--line)"}`,
                       padding: "4px 8px",
                       fontSize: "10px",
                       fontFamily: "monospace",
@@ -458,9 +458,9 @@ export function CancerEpidemiologyDashboard() {
                   <button
                     onClick={() => setCountryFilter("bottom")}
                     style={{
-                      background: countryFilter === "bottom" ? "var(--panel)" : "transparent",
+                      background: countryFilter === "bottom" ? "var(--accent-subtle)" : "transparent",
                       color: countryFilter === "bottom" ? "var(--accent)" : "var(--muted)",
-                      border: "1px solid var(--line)",
+                      border: `1px solid ${countryFilter === "bottom" ? "var(--accent)" : "var(--line)"}`,
                       padding: "4px 8px",
                       fontSize: "10px",
                       fontFamily: "monospace",
@@ -503,7 +503,7 @@ export function CancerEpidemiologyDashboard() {
                       <span style={{ color: isHovered ? "var(--accent)" : "var(--ink)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         #{c.rank || "—"} {c.country}
                       </span>
-                      <div style={{ height: "12px", background: "rgba(255, 255, 255, 0.05)", borderRadius: "2px", overflow: "hidden" }}>
+                      <div style={{ height: "12px", background: "var(--line)", borderRadius: "2px", overflow: "hidden" }}>
                         <div
                           style={{
                             height: "100%",
@@ -525,7 +525,7 @@ export function CancerEpidemiologyDashboard() {
               <div style={{ overflowX: "auto", border: "1px solid var(--line)", borderRadius: "4px", maxHeight: "420px", scrollbarWidth: "thin" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", fontFamily: "monospace" }}>
                   <thead>
-                    <tr style={{ position: "sticky", top: 0, zIndex: 10, background: "var(--surface-secondary)", borderBottom: "2px solid var(--line)", textAlign: "left", color: "var(--dim)" }}>
+                    <tr style={{ position: "sticky", top: 0, zIndex: 10, background: "var(--panel)", borderBottom: "2px solid var(--line)", textAlign: "left", color: "var(--dim)" }}>
                       <th style={{ padding: "8px 10px" }}>Rank</th>
                       <th style={{ padding: "8px 10px" }}>Country</th>
                       <th style={{ padding: "8px 10px" }}>ISO Code</th>
@@ -544,7 +544,7 @@ export function CancerEpidemiologyDashboard() {
                           style={{
                             borderBottom: "1px solid var(--line)",
                             color: "var(--ink)",
-                            backgroundColor: idx % 2 === 0 ? "rgba(255,255,255,0.015)" : "transparent",
+                            backgroundColor: idx % 2 === 0 ? "var(--surface-hover)" : "transparent",
                           }}
                         >
                           <td style={{ padding: "6px 10px", color: "var(--dim)" }}>#{c.rank || idx + 1}</td>

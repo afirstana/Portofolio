@@ -205,7 +205,7 @@ export function CancerTobaccoRiskShowcase() {
           {/* Interactive Legend */}
           <div style={{ display: "flex", alignItems: "center", gap: "14px", fontSize: "10.5px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-              <span style={{ width: 10, height: 3, backgroundColor: "#ffffff", borderRadius: 1 }} />
+              <span style={{ width: 10, height: 3, backgroundColor: "var(--ink-heading)", borderRadius: 1 }} />
               <span className="mono" style={{ color: "var(--ink-heading)" }}>Total Cancer</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
@@ -220,7 +220,7 @@ export function CancerTobaccoRiskShowcase() {
         </div>
 
         {/* Interactive SVG Multi-Metric Curve */}
-        <div style={{ background: "#0a0a0d", border: "1px solid var(--line)", borderRadius: "4px", padding: "12px", position: "relative" }}>
+        <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: "4px", padding: "12px", position: "relative" }}>
           <svg
             viewBox={`0 0 ${width} ${height}`}
             style={{ width: "100%", height: "auto", display: "block" }}
@@ -237,8 +237,8 @@ export function CancerTobaccoRiskShowcase() {
           >
             <defs>
               <linearGradient id="tobaccoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#f43f5e" stopOpacity="0.01" />
+                <stop offset="0%" stopColor="#f43f5e" stopOpacity={0.25} />
+                <stop offset="100%" stopColor="#f43f5e" stopOpacity={0.01} />
               </linearGradient>
             </defs>
 
@@ -249,7 +249,7 @@ export function CancerTobaccoRiskShowcase() {
                   const y = getYAbsolute(millions * 1000000);
                   return (
                     <g key={millions}>
-                      <line x1={padLeft} y1={y} x2={padLeft + chartW} y2={y} stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+                      <line x1={padLeft} y1={y} x2={padLeft + chartW} y2={y} stroke="var(--line)" strokeDasharray="3 3" />
                       <text x={padLeft - 8} y={y + 3} fill="var(--dim)" fontSize="9" fontFamily="monospace" textAnchor="end">
                         {millions === 0 ? "0" : `${millions}M`}
                       </text>
@@ -265,7 +265,7 @@ export function CancerTobaccoRiskShowcase() {
                   const y = getYIndexed(idxVal);
                   return (
                     <g key={idxVal}>
-                      <line x1={padLeft} y1={y} x2={padLeft + chartW} y2={y} stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+                      <line x1={padLeft} y1={y} x2={padLeft + chartW} y2={y} stroke="var(--line)" strokeDasharray="3 3" />
                       <text x={padLeft - 8} y={y + 3} fill="var(--dim)" fontSize="9" fontFamily="monospace" textAnchor="end">
                         {idxVal === 100 ? "100 (Base)" : `+${idxVal - 100}%`}
                       </text>
@@ -281,7 +281,7 @@ export function CancerTobaccoRiskShowcase() {
                   const y = padTop + chartH - (pct / 40) * chartH;
                   return (
                     <g key={pct}>
-                      <line x1={padLeft} y1={y} x2={padLeft + chartW} y2={y} stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+                      <line x1={padLeft} y1={y} x2={padLeft + chartW} y2={y} stroke="var(--line)" strokeDasharray="3 3" />
                       <text x={padLeft - 8} y={y + 3} fill="var(--dim)" fontSize="9" fontFamily="monospace" textAnchor="end">
                         {pct}%
                       </text>
@@ -308,7 +308,7 @@ export function CancerTobaccoRiskShowcase() {
             {activeMode === "absolute" && (
               <>
                 <path d={areaTobaccoAbsolute} fill="url(#tobaccoGrad)" />
-                <path d={pathTotalAbsolute} fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                <path d={pathTotalAbsolute} fill="none" stroke="var(--ink-heading)" strokeWidth="2.5" strokeLinecap="round" />
                 <path d={pathTobaccoAbsolute} fill="none" stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d={pathLungAbsolute} fill="none" stroke="#38bdf8" strokeWidth="2" strokeDasharray="4 3" strokeLinecap="round" />
               </>
@@ -317,7 +317,7 @@ export function CancerTobaccoRiskShowcase() {
             {activeMode === "indexed" && (
               <>
                 <path d={pathLungIndexed} fill="none" stroke="#38bdf8" strokeWidth="2.2" strokeLinecap="round" />
-                <path d={pathTotalIndexed} fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                <path d={pathTotalIndexed} fill="none" stroke="var(--ink-heading)" strokeWidth="2.5" strokeLinecap="round" />
                 <path d={pathTobaccoIndexed} fill="none" stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" />
               </>
             )}
@@ -360,17 +360,17 @@ export function CancerTobaccoRiskShowcase() {
 
                 {activeMode === "absolute" && (
                   <>
-                    <circle cx={getX(activeData.year)} cy={getYAbsolute(activeData.total_cancer_deaths)} r="5" fill="#ffffff" stroke="#0a0a0d" strokeWidth="2" />
-                    <circle cx={getX(activeData.year)} cy={getYAbsolute(activeData.tobacco_cancer_deaths)} r="5" fill="#f43f5e" stroke="#0a0a0d" strokeWidth="2" />
-                    <circle cx={getX(activeData.year)} cy={getYAbsolute(activeData.lung_cancer_deaths)} r="4" fill="#38bdf8" stroke="#0a0a0d" strokeWidth="2" />
+                    <circle cx={getX(activeData.year)} cy={getYAbsolute(activeData.total_cancer_deaths)} r="5" fill="var(--ink-heading)" stroke="var(--panel)" strokeWidth="2" />
+                    <circle cx={getX(activeData.year)} cy={getYAbsolute(activeData.tobacco_cancer_deaths)} r="5" fill="#f43f5e" stroke="var(--panel)" strokeWidth="2" />
+                    <circle cx={getX(activeData.year)} cy={getYAbsolute(activeData.lung_cancer_deaths)} r="4" fill="#38bdf8" stroke="var(--panel)" strokeWidth="2" />
                   </>
                 )}
 
                 {activeMode === "indexed" && (
                   <>
-                    <circle cx={getX(activeData.year)} cy={getYIndexed(activeData.lung_indexed_1990)} r="4" fill="#38bdf8" stroke="#0a0a0d" strokeWidth="2" />
-                    <circle cx={getX(activeData.year)} cy={getYIndexed(activeData.total_indexed_1990)} r="5" fill="#ffffff" stroke="#0a0a0d" strokeWidth="2" />
-                    <circle cx={getX(activeData.year)} cy={getYIndexed(activeData.tobacco_indexed_1990)} r="5" fill="#f43f5e" stroke="#0a0a0d" strokeWidth="2" />
+                    <circle cx={getX(activeData.year)} cy={getYIndexed(activeData.lung_indexed_1990)} r="4" fill="#38bdf8" stroke="var(--panel)" strokeWidth="2" />
+                    <circle cx={getX(activeData.year)} cy={getYIndexed(activeData.total_indexed_1990)} r="5" fill="var(--ink-heading)" stroke="var(--panel)" strokeWidth="2" />
+                    <circle cx={getX(activeData.year)} cy={getYIndexed(activeData.tobacco_indexed_1990)} r="5" fill="#f43f5e" stroke="var(--panel)" strokeWidth="2" />
                   </>
                 )}
               </g>
@@ -383,7 +383,7 @@ export function CancerTobaccoRiskShowcase() {
               style={{
                 marginTop: "12px",
                 padding: "10px 14px",
-                background: "rgba(255,255,255,0.02)",
+                background: "var(--surface-secondary)",
                 border: "1px solid var(--line)",
                 borderRadius: "3px",
                 display: "flex",
@@ -405,7 +405,7 @@ export function CancerTobaccoRiskShowcase() {
               <div style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "11px", flexWrap: "wrap" }}>
                 <div>
                   <span className="mono" style={{ color: "var(--dim)", fontSize: "9.5px" }}>TOTAL CANCER: </span>
-                  <strong className="mono" style={{ color: "#ffffff" }}>
+                  <strong className="mono" style={{ color: "var(--ink-heading)" }}>
                     {activeData.total_cancer_deaths.toLocaleString()}
                   </strong>
                   <span className="mono" style={{ fontSize: "9px", color: "var(--muted)", marginLeft: "4px" }}>
@@ -461,7 +461,7 @@ export function CancerTobaccoRiskShowcase() {
                       {site.fraction}%
                     </span>
                   </div>
-                  <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.06)", borderRadius: "2px", overflow: "hidden", margin: "6px 0" }}>
+                  <div style={{ height: "4px", width: "100%", background: "var(--line)", borderRadius: "2px", overflow: "hidden", margin: "6px 0" }}>
                     <div style={{ height: "100%", width: `${site.fraction}%`, backgroundColor: site.color, borderRadius: "2px" }} />
                   </div>
                 </div>

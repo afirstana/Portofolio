@@ -91,7 +91,7 @@ export function CancerGdpScatterShowcase() {
                   onClick={() => setIncomeFilter(filter.id as any)}
                   style={{
                     background: incomeFilter === filter.id ? "var(--accent)" : "var(--panel)",
-                    color: incomeFilter === filter.id ? "#000" : "var(--muted)",
+                    color: incomeFilter === filter.id ? "#ffffff" : "var(--muted)",
                     border: "1px solid var(--line)",
                     padding: "5px 10px",
                     fontSize: "10px",
@@ -206,10 +206,9 @@ export function CancerGdpScatterShowcase() {
                     width={tooltipW}
                     height={tooltipH}
                     rx="4"
-                    fill="#0d0d10"
+                    fill="var(--bg-translucent)"
                     stroke="var(--accent)"
                     strokeWidth="1"
-                    opacity="0.96"
                   />
                   <text x={tooltipX + 10} y={tooltipY + 16} fill="var(--ink-heading)" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
                     {hoveredScatter.country} ({hoveredScatter.code})

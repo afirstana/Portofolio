@@ -188,7 +188,7 @@ export function OlistInstallmentAnomalyShowcase() {
                       ? "#38bdf8"
                       : row.curveType === "bump"
                       ? "#f59e0b"
-                      : "rgba(255, 255, 255, 0.12)",
+                      : "var(--line-strong)",
                     borderRadius: "3px 3px 0 0",
                     transition: "all 0.2s ease",
                     boxShadow: isSpike

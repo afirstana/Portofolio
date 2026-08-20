@@ -151,7 +151,7 @@ export function DataPlaygroundPart2({ data }: { data: Part2Data }) {
                 alignItems: "center",
                 gap: 8,
                 backgroundColor: "var(--accent)",
-                color: "#000",
+                color: "#ffffff",
                 fontWeight: 700,
                 padding: "8px 16px",
                 borderRadius: 3,

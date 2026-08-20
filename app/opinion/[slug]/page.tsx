@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { OpinionParadoxInteractive } from "@/components/OpinionParadoxInteractive";
@@ -125,6 +126,7 @@ export default async function OpinionArticlePage({ params }: RouteProps) {
           )}
         </nav>
       </article>
+      <SiteFooter backHref={`/opinion/${article.slug}/#top`} backLabel="Top ↑" />
     </main>
   );
 }

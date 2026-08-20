@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { OpinionExplorer } from "@/components/OpinionExplorer";
 import { getOpinions } from "@/lib/opinions";
@@ -41,6 +42,7 @@ export default function OpinionIndexPage() {
 
         <OpinionExplorer opinions={opinions} />
       </div>
+      <SiteFooter backHref="/opinion/#top" backLabel="Top ↑" />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CaseStudyToc } from "@/components/CaseStudyToc";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SystemDiagram } from "@/components/SystemDiagram";
 import { VisualEvidence } from "@/components/VisualEvidence";
@@ -198,12 +199,7 @@ export default async function ProjectPage({ params }: RouteProps) {
         </nav>
       </article>
 
-      <footer className="footer page-width">
-        <span className="mono">ABIMAEL.DATA / Data systems</span>
-        <Link className="mono" href="/">
-          Home ↑
-        </Link>
-      </footer>
+      <SiteFooter backHref="/" backLabel="Home ↑" />
     </main>
   );
 }

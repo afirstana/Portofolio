@@ -260,13 +260,23 @@ export function MarkdownBody({ source }: { source: string }) {
       continue;
     }
 
-    // Multi-line Blockquote Card
+    // Multi-line Blockquote / Callout Card
     if (line.trim().startsWith(">")) {
       const quoteLines: string[] = [];
       while (i < lines.length && lines[i].trim().startsWith(">")) {
         quoteLines.push(lines[i].trim().replace(/^>\s*/, ""));
         i++;
       }
+
+      let alertType: string | null = null;
+      if (quoteLines.length > 0) {
+        const match = quoteLines[0].match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/i);
+        if (match) {
+          alertType = match[1].toUpperCase();
+          quoteLines.shift(); // Remove the [!NOTE] line
+        }
+      }
+
       nodes.push(
         <div
           key={`quote-${i}`}
@@ -274,7 +284,7 @@ export function MarkdownBody({ source }: { source: string }) {
             border: "1px solid var(--line)",
             borderLeft: "3px solid var(--accent)",
             padding: "16px 20px",
-            margin: "22px 0",
+            margin: "24px 0",
             backgroundColor: "var(--surface-secondary)",
             borderRadius: 4,
             color: "var(--ink)",
@@ -282,8 +292,25 @@ export function MarkdownBody({ source }: { source: string }) {
             lineHeight: 1.65,
           }}
         >
+          {alertType && (
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                marginBottom: 8,
+                font: "10px/1.2 monospace",
+                fontWeight: 700,
+                color: "var(--accent)",
+                letterSpacing: "0.08em",
+              }}
+            >
+              <span className="pulse-dot" />
+              <span>{alertType}</span>
+            </div>
+          )}
           {quoteLines.map((qText, qIdx) => (
-            <p key={qIdx} style={{ margin: qIdx === 0 ? 0 : "8px 0 0" }}>
+            <p key={qIdx} style={{ margin: qIdx === 0 && !alertType ? 0 : "4px 0 0" }}>
               {formatInline(qText)}
             </p>
           ))}

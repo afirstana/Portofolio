@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteHeader } from "@/components/SiteHeader";
 import { PaymentCaseStudyToc } from "@/components/PaymentCaseStudyToc";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { OlistPaymentDashboard } from "@/components/OlistPaymentDashboard";
 import { OlistPaymentInteractiveShowcase } from "@/components/OlistPaymentInteractiveShowcase";
 import { OlistInstallmentAnomalyShowcase } from "@/components/OlistInstallmentAnomalyShowcase";
@@ -181,12 +182,7 @@ export default function OlistPaymentAnalyticsPage() {
         </nav>
       </article>
 
-      <footer className="footer page-width-wide">
-        <span className="mono">ABIMAEL.DATA / Data systems</span>
-        <Link className="mono" href="/">
-          Home ↑
-        </Link>
-      </footer>
+      <SiteFooter wide backHref="/" backLabel="Home ↑" />
     </main>
   );
 }

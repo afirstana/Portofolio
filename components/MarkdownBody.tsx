@@ -181,8 +181,9 @@ export function MarkdownBody({ source }: { source: string }) {
       continue;
     }
 
-    // Code block
+    // Code block & Visual Flowchart / Pipeline Diagram
     if (line.trim().startsWith("```")) {
+      const codeType = line.trim().replace(/^```/, "").trim().toLowerCase();
       const codeLines: string[] = [];
       i++;
       while (i < lines.length && !lines[i].trim().startsWith("```")) {
@@ -190,6 +191,115 @@ export function MarkdownBody({ source }: { source: string }) {
         i++;
       }
       i++; // skip closing ```
+
+      const isPipelineDiagram = codeType === "pipeline" || codeType === "flowchart" || codeType === "diagram" || codeLines.some(l => l.includes("➔") || l.includes("->"));
+
+      if (isPipelineDiagram) {
+        // Parse Pipeline Lanes
+        const lanes: Array<{ title: string; subtitle?: string; type: "danger" | "success" | "neutral"; steps: Array<{ title: string; desc?: string }> }> = [];
+        let currentTitle = "Surveillance Pipeline";
+        let currentSubtitle = "";
+        let currentType: "danger" | "success" | "neutral" = "neutral";
+
+        for (const cl of codeLines) {
+          const trimmed = cl.trim();
+          if (!trimmed) continue;
+
+          if (trimmed.toLowerCase().includes("reactive") || trimmed.toLowerCase().includes("conventional") || trimmed.toLowerCase().includes("legacy")) {
+            currentTitle = trimmed.replace(/:$/, "").replace(/^Lane:\s*/i, "");
+            currentType = "danger";
+            if (currentTitle.includes("|")) {
+              const parts = currentTitle.split("|").map(p => p.trim());
+              currentTitle = parts[0];
+              currentSubtitle = parts[1] || "";
+            } else {
+              currentSubtitle = "Legacy Post-Settlement Backlog (30–90 Days Lag)";
+            }
+            continue;
+          }
+
+          if (trimmed.toLowerCase().includes("proactive") || trimmed.toLowerCase().includes("surveillance") || trimmed.toLowerCase().includes("sql")) {
+            currentTitle = trimmed.replace(/:$/, "").replace(/^Lane:\s*/i, "");
+            currentType = "success";
+            if (currentTitle.includes("|")) {
+              const parts = currentTitle.split("|").map(p => p.trim());
+              currentTitle = parts[0];
+              currentSubtitle = parts[1] || "";
+            } else {
+              currentSubtitle = "Real-Time Pre-Settlement Stream Defense (0ms Latency)";
+            }
+            continue;
+          }
+
+          if (trimmed.includes("➔") || trimmed.includes("->")) {
+            const rawSteps = trimmed.split(/➔|->/).map(s => s.trim().replace(/^\[|\]$/g, ""));
+            const parsedSteps = rawSteps.map(st => {
+              if (st.includes("|")) {
+                const [stTitle, stDesc] = st.split("|").map(p => p.trim());
+                return { title: stTitle, desc: stDesc };
+              }
+              return { title: st, desc: "" };
+            });
+
+            lanes.push({
+              title: currentTitle,
+              subtitle: currentSubtitle,
+              type: currentType,
+              steps: parsedSteps
+            });
+
+            // Reset defaults for next lane
+            currentTitle = "Surveillance Phase";
+            currentSubtitle = "";
+            currentType = "neutral";
+          }
+        }
+
+        if (lanes.length > 0) {
+          nodes.push(
+            <div key={`pipeline-diagram-${i}`} className="pipeline-diagram-wrapper mono" role="img" aria-label="Visual Architecture Pipeline Comparison Diagram">
+              <div className="diagram-top-badge">
+                <span className="pulse-dot" />
+                <span>ARCHITECTURAL PARADIGM COMPARISON • FLOW DIAGRAM</span>
+              </div>
+              <div className="pipeline-lanes-list">
+                {lanes.map((lane, lIdx) => (
+                  <div key={lIdx} className={`pipeline-lane-card ${lane.type}`}>
+                    <div className="lane-header">
+                      <div className="lane-title-group">
+                        <span className={`lane-type-badge ${lane.type}`}>
+                          {lane.type === "danger" ? "⚠️ LEGACY PARADIGM" : lane.type === "success" ? "⚡ PROACTIVE PARADIGM" : "FLOW"}
+                        </span>
+                        <strong className="lane-title">{lane.title}</strong>
+                      </div>
+                      {lane.subtitle && <span className={`lane-subtitle ${lane.type}`}>{lane.subtitle}</span>}
+                    </div>
+
+                    <div className="pipeline-steps-flex">
+                      {lane.steps.map((st, stIdx) => (
+                        <React.Fragment key={stIdx}>
+                          <div className={`pipeline-step-node ${lane.type} ${stIdx === lane.steps.length - 1 ? "final-node" : ""}`}>
+                            <span className="step-num">0{stIdx + 1}</span>
+                            <strong className="step-title">{st.title}</strong>
+                            {st.desc && <p className="step-desc">{st.desc}</p>}
+                          </div>
+                          {stIdx < lane.steps.length - 1 && (
+                            <div className={`pipeline-flow-arrow ${lane.type}`} aria-hidden="true">
+                              <span>➔</span>
+                            </div>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+          continue;
+        }
+      }
+
       nodes.push(
         <pre
           key={`code-${i}`}

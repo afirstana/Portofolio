@@ -14,9 +14,15 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     const slugPageSource = fs.readFileSync(slugPagePath, "utf-8");
     expect(slugPageSource).toContain('p.slug !== "amazon-product-intelligence"');
     expect(slugPageSource).toContain('p.slug !== "olist-payment-behavior-analytics"');
+    expect(slugPageSource).toContain('p.slug !== "banking-transaction-anti-fraud"');
 
     const dynamicSlugs = getProjects()
-      .filter((p) => p.slug !== "amazon-product-intelligence" && p.slug !== "olist-payment-behavior-analytics")
+      .filter(
+        (p) =>
+          p.slug !== "amazon-product-intelligence" &&
+          p.slug !== "olist-payment-behavior-analytics" &&
+          p.slug !== "banking-transaction-anti-fraud"
+      )
       .map((project) => ({ slug: project.slug }));
 
     // Exactly 6 dynamic routes
@@ -34,23 +40,28 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
   it("verifies explicit route page files have no generateStaticParams exported", () => {
     const amazonPagePath = path.join(rootDir, "app/projects/amazon-product-intelligence/page.tsx");
     const paymentPagePath = path.join(rootDir, "app/projects/olist-payment-behavior-analytics/page.tsx");
+    const fraudPagePath = path.join(rootDir, "app/projects/banking-transaction-anti-fraud/page.tsx");
 
     expect(fs.existsSync(amazonPagePath)).toBe(true);
     expect(fs.existsSync(paymentPagePath)).toBe(true);
+    expect(fs.existsSync(fraudPagePath)).toBe(true);
 
     const amazonSource = fs.readFileSync(amazonPagePath, "utf-8");
     const paymentSource = fs.readFileSync(paymentPagePath, "utf-8");
+    const fraudSource = fs.readFileSync(fraudPagePath, "utf-8");
 
     expect(amazonSource).not.toMatch(/export\s+(async\s+)?function\s+generateStaticParams/);
     expect(paymentSource).not.toMatch(/export\s+(async\s+)?function\s+generateStaticParams/);
+    expect(fraudSource).not.toMatch(/export\s+(async\s+)?function\s+generateStaticParams/);
 
     expect(amazonSource).toContain("export const dynamicParams = false;");
     expect(paymentSource).toContain("export const dynamicParams = false;");
+    expect(fraudSource).toContain("export const dynamicParams = false;");
   });
 
-  it("verifies all 8 project static HTML and index.txt files exist in out/projects/", () => {
+  it("verifies all 9 project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(8);
+    expect(projects).toHaveLength(9);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

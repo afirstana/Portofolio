@@ -4,9 +4,10 @@ import { getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(8);
+    expect(projects).toHaveLength(9);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
-    expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length === 3 && project.preview.takeaway)).toBe(true);
+    expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
+    expect(projects.some((project) => project.slug === "banking-transaction-anti-fraud")).toBe(true);
     expect(projects.some((project) => project.slug === "olist-payment-behavior-analytics")).toBe(true);
     expect(projects.some((project) => project.slug === "brent-oil-market-dynamics")).toBe(true);
     expect(projects.some((project) => project.slug === "global-cancer-epidemiology-surveillance")).toBe(true);
@@ -82,12 +83,18 @@ describe("local Markdown content", () => {
 
   it("filters out dedicated route folders from dynamic project static params", () => {
     const dynamicSlugs = getProjects()
-      .filter((p) => p.slug !== "amazon-product-intelligence" && p.slug !== "olist-payment-behavior-analytics")
+      .filter(
+        (p) =>
+          p.slug !== "amazon-product-intelligence" &&
+          p.slug !== "olist-payment-behavior-analytics" &&
+          p.slug !== "banking-transaction-anti-fraud"
+      )
       .map((project) => ({ slug: project.slug }));
 
     expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("amazon-product-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("olist-payment-behavior-analytics");
+    expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-transaction-anti-fraud");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("brent-oil-market-dynamics");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
   });

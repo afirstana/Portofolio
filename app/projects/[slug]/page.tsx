@@ -31,7 +31,12 @@ type RouteProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getProjects()
-    .filter((p) => p.slug !== "amazon-product-intelligence" && p.slug !== "olist-payment-behavior-analytics")
+    .filter(
+      (p) =>
+        p.slug !== "amazon-product-intelligence" &&
+        p.slug !== "olist-payment-behavior-analytics" &&
+        p.slug !== "banking-transaction-anti-fraud"
+    )
     .map((project) => ({ slug: project.slug }));
 }
 

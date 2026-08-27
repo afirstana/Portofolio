@@ -85,7 +85,7 @@ export default async function LearningTrackDetailPage({ params }: RouteProps) {
           </div>
           <div className="learning-timeline-meta mono">
             <span>TIMELINE: {track.startDate.toUpperCase()} – {track.endDate.toUpperCase()}</span>
-            <span>COHORT STATUS: VERIFIED SCHOLAR ENROLLED</span>
+            <span>STATUS: {track.status.toUpperCase()}</span>
           </div>
         </div>
 

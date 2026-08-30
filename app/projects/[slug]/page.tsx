@@ -21,6 +21,7 @@ import { CancerSiteMixShowcase } from "@/components/CancerSiteMixShowcase";
 import { CancerGdpScatterShowcase } from "@/components/CancerGdpScatterShowcase";
 import { CancerTobaccoRiskShowcase } from "@/components/CancerTobaccoRiskShowcase";
 import { CancerTobaccoTableShowcase } from "@/components/CancerTobaccoTableShowcase";
+import { RevenueReconciliationShowcase } from "@/components/RevenueReconciliationShowcase";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -81,6 +82,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   const isCertificate = project.slug === "certificate-generator-desktop-app";
   const isBrentOil = project.slug === "brent-oil-market-dynamics";
   const isCancer = project.slug === "global-cancer-epidemiology-surveillance";
+  const isRevenue = project.slug === "revenue-reconciliation-automation";
 
   return (
     <main className="site-shell">
@@ -157,6 +159,9 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone Tobacco Longitudinal & Country Risk Matrix Table */}
             {isCancer && <CancerTobaccoTableShowcase />}
+
+            {/* Standalone Revenue Reconciliation 4-Tier Interactive Showcase */}
+            {isRevenue && <RevenueReconciliationShowcase />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

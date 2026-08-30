@@ -89,31 +89,12 @@ At **PT. Depoguna Bangunan Online (DBO Group)**, managing nationwide building ma
 
 The engine parses and categorizes every transaction into one of four definitive financial audit buckets:
 
-```
-[Raw Invoices (Faktur Asli)]       [System Invoices (Faktur Terproses)]
-             │                                    │
-             └───────────────┬────────────────────┘
-                             │
-                             ▼
-     ┌────────────────────────────────────────────────┐
-     │  Vectorized String & Dimension Normalization   │
-     │  (Strip special chars, normalize dates & NPWP) │
-     └───────────────────────┬────────────────────────┘
-                             │
-                             ▼
-     ┌────────────────────────────────────────────────┐
-     │         Composite Multi-Key Matching           │
-     │   (Invoice # + Tax ID + Date + Gross Amount)   │
-     └───────────────────────┬────────────────────────┘
-                             │
-       ┌─────────────────────┼─────────────────────┬─────────────────────┐
-       ▼                     ▼                     ▼                     ▼
-┌──────────────┐      ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-│   TIER 01    │      │   TIER 02    │      │   TIER 03    │      │   TIER 04    │
-│  100% Match  │      │  Value Diff  │      │  Missing in  │      │  Duplicate   │
-│  (Identical) │      │  (Tax/Nom.)  │      │  System ERP  │      │  Processed   │
-└──────────────┘      └──────────────┘      └──────────────┘      └──────────────┘
-```
+> [!TIP]
+> **Audit Routing Protocol**: Ingested transactions from *Faktur Asli* and *Faktur Terproses* pass through vectorized string sanitization and a composite 4-key matching algorithm before triage into one of four definitive tiers:
+> - 🟢 **Tier 1 (100% Cleared)**: Exact match ($\Delta = 0$). Auto-cleared for ledger journalization.
+> - 🟡 **Tier 2 (Tax & Rounding Diff)**: Value mismatch. Generates targeted credit/tax adjustment notes.
+> - 🔵 **Tier 3 (Missing in ERP)**: Unrecorded invoice. Dispatched to immediate accounting entry queue.
+> - 🔴 **Tier 4 (Double Processed)**: Dual-posted voucher. Immediate reversal alert to stop payment leakage.
 
 | Tier Classification | Detection Logic & Mathematical Criteria | Operational Action & Audit Routing |
 | :--- | :--- | :--- |

@@ -130,14 +130,13 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
 
     // Check 08. Technical Markdown Narrative sections
     expect(html).toContain("08. Detailed Analysis &amp; Recommendations");
-    expect(html).toContain("1. Executive Summary &amp; Problem Scope");
-    expect(html).toContain("2. Relational Schema &amp; Data Preparation Pipeline");
-    expect(html).toContain("3. Empirical Finding 1: Payment Method Distribution &amp; Wallet Share");
-    expect(html).toContain("4. Empirical Finding 2: Installment Elasticity Model &amp; Basket Size Multiplier");
-    expect(html).toContain("5. Diagnostic Investigation: The 10x Installment Checkout Anomaly");
-    expect(html).toContain("6. Empirical Finding 3: Category Financing Sensitivity Matrix");
-    expect(html).toContain("7. Strategic Action Recommendations");
-    expect(html).toContain("8. Analytical Limitations &amp; Methodological Guardrails");
+    expect(html).toContain("01. Brazilian Payment Infrastructure &amp; Wallet Share Matrix");
+    expect(html).toContain("02. Multi-Payment Ingestion &amp; Normalization Rules");
+    expect(html).toContain("03. Installment Elasticity Model &amp; Basket Size Multiplier");
+    expect(html).toContain("04. Diagnostic Investigation: The 10x Checkout Anomaly");
+    expect(html).toContain("05. Category Financing Sensitivity Matrix");
+    expect(html).toContain("07. Strategic Action Recommendations");
+    expect(html).toContain("08. Strategic Fintech Lessons");
 
     // Check econometric formulas & data points
     expect(html).toContain("Pearson");

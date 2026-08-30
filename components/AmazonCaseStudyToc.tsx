@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 
 const sections = [
   ["overview", "Overview"],
-  ["dashboard", "Data explorer"],
-  ["model", "Model evaluation"],
-  ["method", "Method"],
-  ["limitations", "Limits"],
-  ["evidence", "Evidence"],
+  ["dashboard", "Data Lab"],
+  ["model", "ML Benchmark"],
+  ["predict-lab", "NLP Simulator"],
+  ["case-study", "Analysis Deep-Dive"],
+  ["system", "Architecture"],
+  ["lessons", "Lessons"],
 ] as const;
 
 export function AmazonCaseStudyToc() {

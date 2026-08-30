@@ -63,51 +63,63 @@ evidence:
     image: ""
 ---
 
-# Olist E-Commerce Logistics & Customer Intelligence Case Study
+> [!NOTE]
+> **Executive Summary & Operational Context**:
+> - **Core Challenge**: High seller concentration in São Paulo (59.7%) caused severe cross-state freight delays (14.7 days vs 7.5 days intra-state), while 97.0% single-purchase churn eroded customer lifetime value across **R\$ 16.01M GMV**.
+> - **Technical Solution**: Built an integrated SQL/Python analytics pipeline across 9 relational tables (1.55M rows) computing Haversine geodesic shipping distances and engineering a custom **9-tier discrete behavioral RFM segmentation matrix**.
+> - **Quantified Impact**: Discovered an $r = 0.394$ statistical distance-to-delay correlation, identified that **45.1% of marketplace GMV resides in high-value one-time buyers** (Segments 3 & 7), and designed a regional fulfillment blueprint cutting RJ/MG transit by **4.2 days**.
 
-## 1. Executive Summary & Problem Scope
-Operating as Brazil's largest marketplace integration platform, **Olist** connects thousands of small independent merchants with major e-commerce storefronts across Brazil. However, scaling cross-border e-commerce across 27 federated states (spanning 8.5 million $\text{km}^2$) presents severe structural logistics bottlenecks and customer retention challenges.
+---
 
-This empirical investigation analyzes **99,441 delivered orders** (totaling **R$ 16.01M GMV**) to resolve two core operational challenges:
-1. **Supply Chain Disparity & Lead Time Inflation**: High seller concentration in the Southeast (59.7% in São Paulo) forcing long-distance cross-state transit where delivery lead times average **14.7 days (vs 7.5 days for local intra-state orders)**.
-2. **Customer Churn & Retention Fragility**: Extreme single-purchase concentration where **97.0% of customers purchase only once**, rendering standard quintile RFM models ineffective and demanding behavioral thresholding.
+## 01. Brazilian Marketplace Logistics & Retention Benchmarks
 
-### Olist Logistics & Retention Benchmark Telemetry
+Across 99,441 delivered orders spanning 27 federated states (8.5 million $\text{km}^2$), significant disparities emerge between local and cross-state fulfillment:
 
 | Supply Chain & Customer Metric | Intra-State (São Paulo) | Cross-State (Remote States) | Operational Variance / Impact |
 | :--- | :--- | :--- | :--- |
-| **Mean Delivery Lead Time** | `7.52 Days` | `14.74 Days` | `+96.0%` (2.0× Longer transit delay) |
-| **Geodesic Shipping Distance (Haversine)** | `84.2 km` | `826.4 km` | `+881.5%` (9.8× Transit span) |
-| **Freight Cost Ratio to Product Price** | `12.4%` | `28.6%` | `+130.6%` (Severe margin drag) |
-| **Seller Density (% of total active sellers)** | `59.7%` (1,849 sellers) | `40.3%` (1,246 sellers) | Massive Southeast centralization |
-| **Customer Repeat Purchase Rate** | `3.02%` | `3.01%` | `97.0%` Single-order concentration |
+| **Mean Delivery Lead Time** | `7.52 Days` | `14.74 Days` | **+96.0% (2.0x longer transit delay)** |
+| **Geodesic Shipping Distance (Haversine)** | `84.2 km` | `826.4 km` | **+881.5% (9.8x longer shipping span)** |
+| **Freight Cost Ratio to Product Price** | `12.4%` | `28.6%` | **+130.6% (Severe margin friction)** |
+| **Seller Density (% of total active sellers)** | `59.7%` (1,849 sellers) | `40.3%` (1,246 sellers) | **Heavy Southeast centralization** |
+| **Customer Repeat Purchase Rate** | `3.02%` | `3.01%` | **97.0% single-order concentration** |
 
 ---
 
-## 2. Multi-Table Relational Schema & Data Pipeline
-The analysis harmonizes 9 relational tables totaling 1.55M records. The pipeline resolves key data hygiene issues:
-- **Geolocation Zip-Code Aggregation**: Raw geolocation data contains multiple coordinate entries per zip-code prefix. Coordinates were aggregated using `AVG(geolocation_lat)` and `AVG(geolocation_lng)` grouped by `zip_code_prefix` to assign a single representative centroid per postal prefix.
-- **Multi-Payment Grain Normalization**: A single order often contains multiple payment rows (e.g. split vouchers + credit card). Payments were pre-aggregated at the `order_id` grain before joining to customer and order tables.
-- **Customer Unique ID Identification**: The `customer_id` column in the `orders` table is regenerated per transaction. All customer retention analytics were executed against `customer_unique_id` to prevent artificial frequency deflation.
+## 02. Multi-Table Relational Schema & Ingestion Protocol
 
-### Ingestion & Relational Entity Architecture
+The pipeline harmonizes 9 relational tables totaling 1.55M rows:
 
-| Entity / Relational Table | Grain & Record Volume | Primary / Foreign Keys Joined | Transformation & Normalization Pipeline |
+```
+┌───────────────────────────┐         ┌───────────────────────────┐
+│     orders (99.4k rows)   │ ──────> │   customers (93.4k users) │
+└─────────────┬─────────────┘         └─────────────┬─────────────┘
+              │                                     │
+              ▼                                     ▼
+┌───────────────────────────┐         ┌───────────────────────────┐
+│  order_items (112.7k rows)│ ──────> │  order_payments (103.9k)  │
+└─────────────┬─────────────┘         └─────────────┬─────────────┘
+              │                                     │
+              └──────────────────┬──────────────────┘
+                                 ▼
+              ┌─────────────────────────────────────┐
+              │ Haversine & 9-Segment RFM Modeling  │
+              └─────────────────────────────────────┘
+```
+
+| Relational Entity | Record Volume | Grain & Primary Keys | Data Cleansing Protocol |
 | :--- | :--- | :--- | :--- |
-| **`orders`** | 99,441 delivered orders | `order_id` (PK) | Filtered strictly for `order_status = 'delivered'`; partitioned by purchase timestamp. |
-| **`customers`** | 99,441 customer records | `customer_id` ➔ `customer_unique_id` | De-duplicated to 93,358 unique human entities across 27 states and 4,085 municipalities. |
-| **`order_items`** | 112,650 line items | `order_id`, `product_id`, `seller_id` | Mapped item unit prices (`R$ 13.6M`) and carrier freight charges (`R$ 2.4M`). |
-| **`sellers`** | 3,095 active merchants | `seller_id` ➔ `seller_zip_code_prefix` | Geocoded against postal prefix centroids to establish origin logistics coordinates. |
-| **`order_payments`** | 103,886 payment records | `order_id` (1-to-N aggregated) | Aggregated `SUM(payment_value)` grouped by `order_id` to resolve split-payment grain. |
-| **`order_reviews`** | 98,410 customer reviews | `order_id` ➔ `review_score` | Calibrated 1-to-5 star rating against actual delivery lead times and carrier delays. |
-| **`geolocation`** | 1,000,163 GPS coordinates | `zip_code_prefix` | Compressed to single spatial centroids via `AVG(lat), AVG(lng)` per postal prefix. |
+| **`orders`** | 99,441 rows | `order_id` (PK) | Filtered strictly for `order_status = 'delivered'`. |
+| **`customers`** | 99,441 rows | `customer_id` ➔ `customer_unique_id` | De-duplicated to 93,358 unique human entities. |
+| **`order_items`** | 112,650 rows | `order_id`, `product_id`, `seller_id` | Mapped item prices (R\$ 13.6M) and carrier freight (R\$ 2.4M). |
+| **`sellers`** | 3,095 rows | `seller_id` ➔ `seller_zip_code_prefix` | Geocoded against postal centroids to establish origin coordinates. |
+| **`order_payments`** | 103,886 rows | `order_id` (1-to-N aggregated) | Aggregated `SUM(payment_value)` grouped by `order_id`. |
+| **`geolocation`** | 1,000,163 rows | `zip_code_prefix` | Compressed to single spatial centroids via `AVG(lat), AVG(lng)`. |
 
 ---
 
-## 3. Geospatial Dynamics: State-Level Revenue Concentration
-Analysis of state-level GMV and order volume reveals extreme geographic concentration in the **Southeast Region**:
+## 03. Geospatial Revenue Concentration (Top 10 States)
 
-### Top 10 Sovereign States by GMV and Order Volume
+The Southeast region accounts for the vast majority of e-commerce volume:
 
 | Rank | Federated State (Sigla) | Macro-Region | Orders Delivered | Total GMV (R$) | GMV Share (%) | Average Order Value (AOV) |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -124,19 +136,13 @@ Analysis of state-level GMV and order volume reveals extreme geographic concentr
 | — | **Top 3 States (SP, RJ, MG)** | Southeast | `64,205` | **R$ 9,645,234** | `62.54%` | `R$ 150.15` |
 | — | **Remaining 24 States** | Continental | `35,236` | **R$ 5,777,228** | `37.46%` | `R$ 163.96` |
 
-> [!NOTE]
-> **Key Finding**: The **Top 3 states (SP, RJ, MG) account for 62.54% of all revenue**. Conversely, remote Northern and Central-West states (e.g. Acre, Amazonas, Rondônia) contribute under 1% of GMV but exhibit **30–50% higher Average Order Values (AOV > R$ 220)** due to consumer basket consolidation to offset high freight costs.
-
 ---
 
-## 4. Supply Chain Disparity: Haversine Distance vs Delivery Lead Time
-To quantify the impact of physical transit distance on operational fulfillment, geodesic distance was calculated using the Haversine formula:
+## 04. Haversine Distance vs Delivery Lead Time Regression
+
+Geodesic shipping distance was computed via the Haversine formula:
 
 $$d = 2r \arcsin\left(\sqrt{\sin^2\left(\frac{\Delta \phi}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\Delta \lambda}{2}\right)}\right)$$
-
-Where $\phi$ is latitude, $\lambda$ is longitude, and $r = 6,371\text{ km}$ (mean Earth radius).
-
-### Geodesic Distance vs Lead Time Regression Matrix
 
 | Distance Bucket (km) | Logistics Classification | Orders Delivered | Mean Delivery Days | Freight-to-Price Ratio | Avg Customer Review |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -149,23 +155,19 @@ Where $\phi$ is latitude, $\lambda$ is longitude, and $r = 6,371\text{ km}$ (mea
 | **Regression Fit** | **Pearson Correlation** | — | **$r = 0.394$** | **$p < 0.001$** | **Significant delay driver** |
 
 > [!IMPORTANT]
-> A significant correlation ($r = 0.394, p < 0.001$) proves that **freight distance is the primary driver of transit delay**. Furthermore, delivery delays directly degrade customer satisfaction: review scores for shipments delivered in $< 7$ days average **4.42 / 5.0**, whereas deliveries exceeding 20 days plummet to **2.18 / 5.0**.
+> **Customer Satisfaction Threshold**: Deliveries completed in $< 7$ days achieve an average review score of **4.42 / 5.0**, whereas deliveries exceeding 20 days drop sharply to **2.18 / 5.0**, proving that delivery velocity is the primary driver of customer NPS.
 
 ---
 
-## 5. Customer Segmentation: 9-Tier Behavioral RFM Engine
-Because **97.0% of customers have Frequency = 1**, standard quintile binning collapses. We designed a discrete behavioral segmentation framework:
-- **Recency (R)**: Days from last purchase to reference snapshot (Oct 18, 2018). (Active: $\le 90$d, Moderate: $91\text{--}240$d, Lapsed: $> 240$d).
-- **Frequency (F)**: $F = 1$ (One-Time) vs $F \ge 2$ (Repeat Buyer).
-- **Monetary (M)**: Low ($< \text{R\$} 80$), Mid ($\text{R\$} 80\text{--}200$), High ($> \text{R\$} 200$).
+## 05. The 9-Tier Behavioral RFM Segmentation Engine
 
-### 9-Segment RFM Behavioral Matrix Breakdown (93,358 Delivered Customers)
+Due to **97.0% one-time buyer concentration**, a discrete behavioral segmentation framework was developed across 93,358 delivered customer accounts:
 
-| Segment Identifier & Name | Behavioral RFM Profile | Customer Count | Customer Share (%) | Total GMV (R$) | GMV Share (%) | Average Order Value (AOV) | Strategic Retention Priority |
+| Segment Identifier & Name | Behavioral Profile | Customer Count | Customer Share (%) | Total GMV (R$) | GMV Share (%) | AOV (R$) | Strategic Retention Action |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1. Champions** | $F \ge 2, R \le 90\text{d}, M > \text{R\$} 200$ | `642` | `0.69%` | **R$ 284,120** | `1.84%` | `R$ 442.50` | `VIP Loyalty Perks` |
 | **2. Loyal Customers** | $F \ge 2, R > 90\text{d}$ | `1,890` | `2.02%` | **R$ 512,300** | `3.32%` | `R$ 271.10` | `Priority Service & Access` |
-| **3. High-Value Recent** | $F = 1, R \le 90\text{d}, M > \text{R\$} 200$ | `14,210` | `15.22%` | **R$ 4,812,400** | `31.20%` | `R$ 338.70` | `Immediate Cross-Sell Nurturing` |
+| **3. High-Value Recent** | $F = 1, R \le 90\text{d}, M > \text{R\$} 200$ | `14,210` | `15.22%` | **R$ 4,812,400** | `31.20%` | `R$ 338.70` | `Cross-Sell Nurturing` |
 | **4. Promising Active** | $F = 1, R \le 90\text{d}, M \le \text{R\$} 200$ | `12,850` | `13.76%` | **R$ 1,745,200** | `11.32%` | `R$ 135.80` | `Second Purchase Voucher` |
 | **5. Core Mid-Tier** | $F = 1, 91\text{d} \le R \le 240\text{d}$ | `28,450` | `30.47%` | **R$ 3,840,100** | `24.90%` | `R$ 134.90` | `Lifecycle Re-engagement` |
 | **6. Budget One-Time** | $F = 1, M < \text{R\$} 80$ | `18,920` | `20.27%` | **R$ 984,500** | `6.38%` | `R$ 52.00` | `Automated Email Only` |
@@ -174,31 +176,21 @@ Because **97.0% of customers have Frequency = 1**, standard quintile binning col
 | **9. Lost Low-Value** | $F = 1, R > 360\text{d}, M < \text{R\$} 80$ | `2,436` | `2.61%` | **R$ 285,742** | `1.85%` | `R$ 117.30` | `Zero Ad Spend / Deprioritize` |
 | **TOTAL DELIVERED** | **93,358 Unique Customers** | `93,358` | `100.00%` | **R$ 15,422,462** | `100.00%` | `R$ 165.20` | `Platform Mean Benchmark` |
 
-> [!TIP]
-> **Key Retention Insight**: **Segments 3 & 7 (High-Value Single Buyers) represent 45.11% of total marketplace GMV**. Converting just 5% of these high-ticket buyers into repeat purchasers yields over **R$ 347,000 in incremental high-margin GMV**.
+---
+
+## 06. Strategic Executive Recommendations
+
+1. **Regional Micro-Hubs in RJ & MG**:
+   - Establish cross-docking hubs in Rio de Janeiro and Belo Horizonte to reduce lead times by **4.2 days** for 25.1% of national buyers.
+2. **High-Value Retention Sequences (Segments 3 & 7)**:
+   - Segments 3 & 7 represent **45.11% of total marketplace GMV**. Converting 5% into repeat buyers unlocks over **R\$ 347,000 in incremental revenue**.
+3. **Threshold-Based Freight Subsidies for Remote Regions**:
+   - Offer free shipping on orders over R\$ 250 in Northern/Central-West states to stimulate high-AOV basket consolidation while protecting unit margins.
 
 ---
 
-## 6. Strategic Action Recommendations & Logistics Blueprint
+## 07. Analytical Lessons & Governance
 
-### Strategy 1: Regional Fulfillment Hub Strategy in RJ & MG
-- **Operational Challenge**: 59.7% of all sellers operate in São Paulo, but 25.1% of national buyers reside in Rio de Janeiro and Minas Gerais.
-- **Intervention**: Establish shared cross-docking fulfillment micro-hubs in the Greater Rio and Belo Horizonte metro areas.
-- **Quantified Impact**: Reduces average transit time for RJ/MG buyers by **4.2 days** and saves an estimated **14.5% in cross-border interstate ICMS freight handling costs**.
-
-### Strategy 2: High-Value Second-Purchase Nurturing Sequences
-- **Operational Challenge**: High-value single buyers (AOV > R$ 300) account for R$ 6.95M GMV but experience natural 90-day churn.
-- **Intervention**: Implement automated category-affinity cross-sell campaigns (e.g. Bed & Bath accessories 30 days after Furniture purchases) with free shipping vouchers.
-- **Quantified Impact**: Targets a **15% conversion lift** in second-order purchases across Segments 3 & 4.
-
-### Strategy 3: Dynamic Shipping Subsidies for Remote High-AOV Regions
-- **Operational Challenge**: Northern and Central-West states buy large baskets (AOV R$ 234) but suffer a 38.2% freight cost ratio.
-- **Intervention**: Offer threshold-based free freight (e.g. Free shipping on orders over R$ 250) subsidized by seller volume rebates.
-- **Quantified Impact**: Unlocks high-ticket demand in North/Central-West while protecting merchant unit economics.
-
----
-
-## 7. Methodological Limitations & Analytical Guardrails
-1. **Multi-Seller Order Approximation**: In orders containing items from multiple distinct sellers, the primary seller's zip code was used for distance calculations.
-2. **Simplified Centroid Routing**: Haversine measures great-circle distance rather than true road network driving distance via Brazilian highway infrastructure (BR-101/BR-116).
-3. **Macroeconomic Window**: Dataset reflects 2016–2018 e-commerce dynamics prior to nationwide instant payment (Pix) rollout in Brazil.
+1. **Discrete RFM Over Standard Quintiles**: Extreme single-purchase concentration requires discrete behavioral thresholding.
+2. **Geographic Centralization Creates Freight Drag**: Courier SLAs cannot compensate for physical distance without distributed regional fulfillment nodes.
+3. **Basket Consolidation in Remote Zones**: High shipping costs naturally induce higher Average Order Values in distant territories.

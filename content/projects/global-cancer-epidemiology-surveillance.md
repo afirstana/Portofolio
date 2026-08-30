@@ -56,138 +56,139 @@ evidence:
     alt: "Heatmap matrix comparing 5-year relative survival rates across 10 cancer types and 59 countries"
 ---
 
-# Global Cancer Epidemiology & Clinical Survival Surveillance (1990–2019)
-
-## 1. Executive Summary & Macro Problem Scope
-Cancer represents one of the most formidable global public health challenges, accounting for nearly **1 in 6 deaths worldwide**. However, evaluating the true trajectory of cancer burden is fraught with analytical pitfalls if epidemiologists and policymakers rely solely on unadjusted mortality totals. 
-
-Between 1990 and 2019, absolute global cancer deaths surged from **5,516,590 to 9,671,471**—a dramatic **+75.32% expansion** in total disease burden. However, when controlling for demographic shifts (population growth and increasing global life expectancy) using **Age-Standardized Death Rates (ASDR per 100,000)**, the global rate actually **declined from 147.93 to 125.41 per 100k (-15.22%)**.
-
-This case study synthesizes **281,440 empirical observations** across **26 distinct panel datasets** curated by *Our World in Data (OWID)*, the *Institute for Health Metrics and Evaluation (IHME)* Global Burden of Disease (GBD), and the *CONCORD-3* international cancer registry surveillance program.
-
-| Global Epidemiological Metric | 1990 Baseline | 2019 Baseline | 30-Year Delta | Clinical & Public Health Significance |
-| :--- | :--- | :--- | :--- | :--- |
-| **Global Absolute Fatalities** | 5.52 Million | 9.67 Million | `+75.32%` ▲ | Driven by demographic longevity expansion |
-| **Age-Standardized Rate (ASDR)** | 147.93 / 100k | 125.41 / 100k | `-15.22%` ▼ | **True age-adjusted biological risk falling** |
-| **Leading Global Malignancy** | Lung (1.07M) | Lung (2.04M) | `+91.77%` ▲ | Single most lethal neoplasm worldwide |
-| **Tobacco-Attributed Share** | 27.42% | 24.68% | `-2.74%` ▼ | Smoking remains the dominant behavioral risk |
+> [!NOTE]
+> **Executive Summary & Epidemiological Baseline**:
+> - **Core Paradox**: Global cancer deaths expanded by **+75.32%** (5.52M to 9.67M) between 1990 and 2019. However, after controlling for demographic aging, the **Age-Standardized Death Rate (ASDR)** actually declined by **-15.22%** (147.93 to 125.41 per 100k).
+> - **Technical Solution**: Ingested **281,440 panel records** across 26 Our World in Data / IHME registries, decomposing demographic expansion from biological mortality trends across 204 countries and 29 malignancy sites.
+> - **Quantified Impact**: Discovered an Eastern European high-mortality cluster (Hungary #1 at 208.5/100k), modeled non-linear GDP elasticity ($R^2 = 0.64$), and benchmarked national 5-year survival disparities (e.g. South Korea's 68.9% stomach survival vs UK's 20.5%).
 
 ---
 
-## 2. Multi-File Panel Ingestion & Data Hygiene Protocol
-The raw data architecture comprises 26 CSV datasets totaling 20.3 MB with heterogeneous temporal windows (historical series extending from 1875 to 2021). The ingestion pipeline implemented in `scripts/process_cancer_data.py` executes three mandatory normalization phases:
+## 01. Global Epidemiological Telemetry Matrix (1990–2019)
 
-- **Phase 1: Entity Standardization & Regional Aggregation**: Resolving ISO 3166-1 alpha-3 country codes (`Code`) from regional meta-entities (`OWID_WRL`, `World Bank Regions`, `IHME Super-Regions`) to isolate 204 sovereign states.
-- **Phase 2: Historical Time-Window Truncation**: Filtering out archaic pre-1990 back-projected benchmark rows to establish a balanced 30-year panel window (1990–2019).
-- **Phase 3: Malignancy Categorization & Taxonomy Harmonization**: Mapping 29 distinct cancer site definitions into a unified taxonomy (merging tracheal, bronchus, and lung neoplasms into *Lung & Bronchus*; colon and rectum into *Colorectal*).
+Cancer accounts for approximately **1 in 6 deaths globally**. Controlling for population aging reveals significant divergence between raw mortality counts and age-standardized biological risk:
 
-| Pipeline Stage | Input Grain | Transformation Protocol | Output Payload & Optimization |
+| Global Epidemiological Metric | 1990 Baseline | 2019 Baseline | 30-Year Delta | Clinical & Public Health Significance |
+| :--- | :--- | :--- | :--- | :--- |
+| **Global Absolute Fatalities** | 5.52 Million | 9.67 Million | **+75.32%** ▲ | Driven by demographic expansion and aging population cohorts |
+| **Age-Standardized Rate (ASDR)** | 147.93 / 100k | 125.41 / 100k | **-15.22%** ▼ | **True age-adjusted biological risk is falling globally** |
+| **Leading Global Malignancy** | Lung (1.07M) | Lung (2.04M) | **+91.77%** ▲ | Single most lethal neoplasm worldwide |
+| **Tobacco-Attributed Share** | 27.42% | 24.68% | **-2.74%** ▼ | Smoking remains the dominant behavioral carcinogenic driver |
+
+---
+
+## 02. Multi-File Panel Ingestion & Data Hygiene Protocol
+
+The raw data architecture comprises 26 CSV datasets totaling 20.3 MB with heterogeneous temporal spans. The Python ETL pipeline (`scripts/process_cancer_data.py`) executes 4 structured phases:
+
+```
+┌───────────────────────────┐     ┌───────────────────────────┐     ┌───────────────────────────┐
+│ 26 Raw CSV Panel Datasets │ ──> │ ISO Entity Normalization  │ ──> │ Master Precomputed JSON   │
+│ (281.4k Panel Rows, OWID) │     │ ASDR, Age Weights, Neoplasms│   │ (Zero-Dependency Payload) │
+└───────────────────────────┘     └───────────────────────────┘     └───────────────────────────┘
+```
+
+| Pipeline Stage | Input Grain | Transformation Protocol | Output Deliverable |
 | :--- | :--- | :--- | :--- |
 | **01. Ingestion & Filtering** | 26 Raw CSV Files (281.4k Rows) | Filter pre-1990 back-projections & extract ISO-3 entities | Cleaned panel subset (204 nations) |
 | **02. Metric Harmonization** | Multi-unit records (ASDR, Counts, GDP) | Harmonize rates per 100k, calculate 30-yr deltas | Standardized panel matrix |
 | **03. Relational Aggregation** | Multi-table joins across 29 neoplasms | Compute cross-country rankings & CONCORD-3 survival | Multi-dimensional matrix tables |
-| **04. Master Static Payload** | In-memory relational models | Export zero-dependency precomputed JSON | `content/data/cancer_epidemiology_master.json` (86 KB) |
+| **04. Master Static Payload** | In-memory relational models | Export zero-dependency precomputed JSON | `cancer_epidemiology_master.json` (<86 KB) |
 
 ---
 
-## 3. Thirty-Year Longitudinal Trends & Age-Standardized Trajectories (1990–2019)
-The apparent paradox between rising death counts and declining age-standardized rates reflects the massive global demographic expansion of elderly population cohorts (ages 50–69 and 70+), where cancer incidence naturally concentrates.
+## 03. Thirty-Year Longitudinal Trends & Age-Standardized Trajectories
 
-### Absolute Global Deaths by Cancer Type (1990 vs 2019)
+Absolute global cancer fatalities expanded across nearly every major organ site due to increased life expectancy:
 
 | Malignancy Site / Neoplasm | 1990 Global Deaths | 2019 Global Deaths | 30-Year Growth | 2019 Share (%) |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. Lung & Bronchus** | 1,065,139 | 2,042,640 | `+91.77%` ▲ | 21.12% |
-| **2. Colorectal** | 518,126 | 1,085,797 | `+109.56%` ▲ | 11.23% |
-| **3. Stomach** | 788,317 | 957,002 | `+21.40%` ▲ | 9.90% |
-| **4. Liver** | 365,215 | 484,577 | `+32.68%` ▲ | 5.01% |
-| **5. Breast** | 380,905 | 700,660 | `+83.95%` ▲ | 7.24% |
-| **6. Esophageal** | 319,332 | 498,067 | `+55.97%` ▲ | 5.15% |
-| **7. Pancreatic** | 198,051 | 531,107 | `+168.17%` ▲ | 5.49% |
-| **8. Prostate** | 232,999 | 486,837 | `+108.94%` ▲ | 5.03% |
-| **9. Cervical** | 184,527 | 280,479 | `+52.00%` ▲ | 2.90% |
-| **10. Leukemia** | 263,263 | 394,543 | `+49.87%` ▲ | 4.08% |
-| **All Other 19 Sites** | 1,200,716 | 2,209,822 | `+84.04%` ▲ | 22.85% |
-| **TOTAL GLOBAL CANCER** | **5,516,590** | **9,671,471** | **`+75.32%` ▲** | **100.00%** |
+| **1. Lung & Bronchus** | 1,065,139 | 2,042,640 | **+91.77%** ▲ | 21.12% |
+| **2. Colorectal** | 518,126 | 1,085,797 | **+109.56%** ▲ | 11.23% |
+| **3. Stomach** | 788,317 | 957,002 | **+21.40%** ▲ | 9.90% |
+| **4. Liver** | 365,215 | 484,577 | **+32.68%** ▲ | 5.01% |
+| **5. Breast** | 380,905 | 700,660 | **+83.95%** ▲ | 7.24% |
+| **6. Esophageal** | 319,332 | 498,067 | **+55.97%** ▲ | 5.15% |
+| **7. Pancreatic** | 198,051 | 531,107 | **+168.17%** ▲ | 5.49% |
+| **8. Prostate** | 232,999 | 486,837 | **+108.94%** ▲ | 5.03% |
+| **9. Cervical** | 184,527 | 280,479 | **+52.00%** ▲ | 2.90% |
+| **10. Leukemia** | 263,263 | 394,543 | **+49.87%** ▲ | 4.08% |
+| **All Other 19 Sites** | 1,200,716 | 2,209,822 | **+84.04%** ▲ | 22.85% |
+| **TOTAL GLOBAL CANCER** | **5,516,590** | **9,671,471** | **+75.32%** ▲ | **100.00%** |
 
-Key observations:
-- **Pancreatic Cancer** experienced the fastest absolute mortality growth (+168.17%), driven by lack of effective early screening tools, rising global obesity rates, and an aging population.
-- **Stomach Cancer** experienced the slowest growth (+21.40%), reflecting global improvements in food refrigeration, reduced consumption of salt-preserved foods, and widespread eradication of *Helicobacter pylori* infections.
+> [!TIP]
+> **Etiological Insight**: **Pancreatic cancer** showed the fastest mortality expansion (+168.17%), driven by lack of early screening modalities and rising metabolic risks. Conversely, **Stomach cancer** grew slowest (+21.40%), reflecting food refrigeration adoption and *Helicobacter pylori* eradication.
 
 ---
 
-## 4. Cross-National Disparities & Eastern European Mortality Clustering
-Analysis of 2019 Age-Standardized Death Rates across 204 countries reveals stark geographic divergence. The top mortality cluster is heavily concentrated in **Eastern and Central Europe**, whereas Western European nations achieve significantly lower mortality despite comparable demographic age structures.
+## 04. Cross-National Disparities & Eastern European Mortality Clustering
 
-### Top 10 Highest Cancer ASDR Nations (2019 Benchmark)
+Evaluating 2019 Age-Standardized Death Rates across 204 sovereign nations reveals distinct geographic risk clustering:
 
 | Rank | Sovereign Nation | Region / Geographic Belt | 2019 ASDR (/100k) | vs Global Baseline (125.4) | Primary Epidemiological Driver |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **#01** | **Hungary** | Eastern Europe | `208.52 / 100k` | `+66.27%` ▲ | Heavy historical male smoking & late-stage diagnostic presentation |
-| **#02** | **Mongolia** | East Asia | `204.14 / 100k` | `+62.78%` ▲ | Chronic Hepatitis B/C prevalence & highest global liver cancer ASDR |
-| **#03** | **Serbia** | Southeastern Europe | `198.86 / 100k` | `+58.57%` ▲ | Elevated lung & colorectal burdens; high per-capita cigarette sales |
-| **#04** | **Montenegro** | Southeastern Europe | `196.22 / 100k` | `+56.46%` ▲ | Persistent tobacco prevalence & delayed oncological screening |
-| **#05** | **Slovakia** | Central/Eastern Europe | `191.45 / 100k` | `+52.66%` ▲ | Elevated colorectal & stomach mortality clusters |
-| **#06** | **Poland** | Central/Eastern Europe | `186.30 / 100k` | `+48.55%` ▲ | High tobacco attribution; lower historical CT screening adoption |
-| **#07** | **Croatia** | Southeastern Europe | `184.90 / 100k` | `+47.44%` ▲ | High male lung cancer incidence & delayed smoking cessation |
-| **#08** | **Greenland** | Northern Atlantic | `182.10 / 100k` | `+45.20%` ▲ | Geographic isolation, extreme smoking rates, diagnostic latency |
-| **#09** | **Slovenia** | Central/Southern Europe | `179.80 / 100k` | `+43.37%` ▲ | Accelerated population aging with high baseline tobacco exposure |
-| **#10** | **Czechia** | Central Europe | `177.65 / 100k` | `+41.66%` ▲ | Elevated colorectal & renal cell carcinoma clusters |
-
-The heavy burden in Eastern Europe correlates strongly with historically elevated per-capita cigarette consumption (exceeding 6–8 cigarettes per adult daily in the 1980s–2000s), delayed smoking cessation trends among males, and lower historical spending on modern oncology therapies.
+| **#01** | **Hungary** | Eastern Europe | **208.52 / 100k** | **+66.27%** ▲ | Historical male smoking & delayed oncology presentation |
+| **#02** | **Mongolia** | East Asia | **204.14 / 100k** | **+62.78%** ▲ | High Hepatitis B/C prevalence & highest global liver cancer ASDR |
+| **#03** | **Serbia** | Southeastern Europe | **198.86 / 100k** | **+58.57%** ▲ | Elevated lung & colorectal burdens; high per-capita smoking |
+| **#04** | **Montenegro** | Southeastern Europe | **196.22 / 100k** | **+56.46%** ▲ | Persistent tobacco prevalence & diagnostic latency |
+| **#05** | **Slovakia** | Central/Eastern Europe | **191.45 / 100k** | **+52.66%** ▲ | High colorectal & gastric mortality clusters |
+| **#06** | **Poland** | Central/Eastern Europe | **186.30 / 100k** | **+48.55%** ▲ | Elevated tobacco attribution; historical screening gaps |
+| **#07** | **Croatia** | Southeastern Europe | **184.90 / 100k** | **+47.44%** ▲ | High male lung cancer incidence |
+| **#08** | **Greenland** | Northern Atlantic | **182.10 / 100k** | **+45.20%** ▲ | Geographic isolation & elevated baseline smoking |
+| **#09** | **Slovenia** | Central/Southern Europe | **179.80 / 100k** | **+43.37%** ▲ | Accelerated aging combined with tobacco exposure |
+| **#10** | **Czechia** | Central Europe | **177.65 / 100k** | **+41.66%** ▲ | Elevated colorectal & renal cell carcinoma clusters |
 
 ---
 
-## 5. Cancer Site Mortality Composition & Etiology Breakdown
-The top 3 cancer sites (**Lung, Colorectal, Stomach**) collectively account for **42.2% of all cancer deaths worldwide**. 
+## 05. Cancer Site Etiology & Behavioral Risk Attribution
 
-| Cancer Site Category | 2019 Global Deaths | Global Mortality Share | Primary Etiological & Clinical Risk Factor |
+The top 3 cancer sites (**Lung, Colorectal, Stomach**) account for **42.2% of all cancer deaths worldwide**:
+
+| Cancer Site Category | 2019 Global Deaths | Global Mortality Share | Primary Etiological & Risk Factor |
 | :--- | :--- | :--- | :--- |
-| **Lung & Bronchus** | 2,042,640 | `21.12%` | Direct tobacco smoking inhalation & outdoor PM2.5 particulates |
-| **Colorectal** | 1,085,797 | `11.23%` | Dietary patterns, processed meats, obesity & screening latency |
-| **Stomach** | 957,002 | `9.90%` | *Helicobacter pylori* infection, dietary sodium & nitrate preservation |
-| **Breast** | 700,660 | `7.24%` | Hormonal exposure, reproductive factors & screening accessibility |
-| **All Other 25 Sites** | 4,885,372 | `50.51%` | Combined organ-specific carcinogenic etiologies |
-
-### Risk Factor Attribution
-Tobacco smoking remains the single largest preventable driver of cancer mortality globally. In 1990, smoking accounted for **27.42%** of all cancer deaths; by 2019, this figure modestly decreased to **24.68%**, demonstrating the slow multi-decade latency between tobacco control policy adoption and observed epidemiological outcomes.
+| **Lung & Bronchus** | 2,042,640 | **21.12%** | Direct tobacco smoking & environmental PM2.5 particulates |
+| **Colorectal** | 1,085,797 | **11.23%** | Processed dietary patterns, metabolic obesity & screening latency |
+| **Stomach** | 957,002 | **9.90%** | *Helicobacter pylori* infection, dietary sodium & preservation nitrates |
+| **Breast** | 700,660 | **7.24%** | Hormonal exposure, reproductive factors & screening accessibility |
+| **All Other 25 Sites** | 4,885,372 | **50.51%** | Combined organ-specific carcinogenic etiologies |
 
 ---
 
-## 6. Socio-Economic Elasticity: GDP per Capita vs Cancer Mortality Scatter Analysis
-Evaluating **GDP per Capita ($PPP)** against **Age-Standardized Cancer Death Rates** across 186 countries reveals a non-linear relationship:
+## 06. Socio-Economic Elasticity: GDP per Capita vs Cancer Mortality
+
+Evaluating **GDP per Capita (\$PPP)** against **Age-Standardized Death Rates** across 186 nations exhibits a non-linear economic curve:
 
 $$\text{ASDR} = \beta_0 + \beta_1 \ln(\text{GDP}) + \epsilon$$
 
-| Income Classification & GDP Tier | Observed ASDR Range | Primary Epidemiological Mechanism | Strategic Clinical Interpretation |
+| Income Tier & GDP Range | Observed ASDR Range | Epidemiological Mechanism | Public Health Interpretation |
 | :--- | :--- | :--- | :--- |
-| **Tier 1: Low-Income (< $5,000)** | `100 – 120 / 100k` | Diagnostic under-reporting & competing mortality | Younger median age; infectious disease burden masks underlying oncological incidence. |
-| **Tier 2: Industrializing ($10k – $40k)** | `160 – 210 / 100k` | Rapid lifestyle transition & risk factor adoption | Increased tobacco, processed diet, and sedentary exposure without proportional early screening. |
-| **Tier 3: High-Income Plateau (> $50,000)** | `110 – 130 / 100k` | Universal screening & therapeutic innovation | High incidence offset by early mammography, colonoscopy, and targeted chemotherapy. |
+| **Tier 1: Low-Income (< \$5,000)** | `100 – 120 / 100k` | Diagnostic under-reporting & infectious disease competition | Younger median age; infectious diseases mask underlying oncological incidence. |
+| **Tier 2: Industrializing (\$10k – \$40k)** | `160 – 210 / 100k` | Rapid lifestyle shift & elevated behavioral risks | Increased tobacco & sedentary exposure without proportional early screening. |
+| **Tier 3: High-Income (> \$50,000)** | `110 – 130 / 100k` | Universal screening & therapeutic innovation | High incidence offset by early mammography, colonoscopy, and targeted therapies. |
 
 ---
 
-## 7. 5-Year Clinical Survival Heterogeneity Matrix
-Drawing from the CONCORD-3 registry data covering 59 nations, 5-year relative survival rates display extreme divergence based on anatomical site and diagnostic detectability:
+## 07. 5-Year Clinical Survival Heterogeneity Matrix (CONCORD-3)
+
+Based on CONCORD-3 clinical registry data covering 59 nations:
 
 | Malignancy Type | Global Mean 5-Yr Survival | High-Performing Benchmark | Low-Performing Registry | Key Clinical Determinant |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. Testicular** | `95.2%` | USA (96.8%) | India (82.1%) | Cisplatin chemotherapy responsiveness |
-| **2. Thyroid** | `89.4%` | Japan (92.5%) | Brazil (78.2%) | Early indolent nodule ultrasound screening |
-| **3. Prostate** | `86.5%` | USA (98.0%) | Poland (72.4%) | PSA screening & anti-androgen therapy |
-| **4. Breast** | `82.4%` | Australia (89.5%) | Russia (68.1%) | Population mammography & HER2 targeted drugs |
-| **5. Colorectal** | `61.8%` | S. Korea (71.8%) | India (40.2%) | Colonoscopy polypectomy & adjuvant FOLFOX |
-| **6. Cervical** | `64.2%` | Japan (73.2%) | China (58.4%) | HPV cytology screening & early brachytherapy |
-| **7. Stomach** | `31.5%` | **S. Korea (68.9%)** | **UK (20.5%)** | **National endoscopic mass screening program** |
-| **8. Lung & Bronchus** | `17.8%` | Japan (32.9%) | Poland (13.4%) | Low-dose CT screening & EGFR/ALK inhibitors |
-| **9. Liver** | `16.2%` | S. Korea (30.1%) | Germany (14.2%) | HBV surveillance & surgical resection |
-| **10. Pancreatic** | `8.4%` | USA (11.5%) | India (4.2%) | Asymptomatic latency & early systemic metastasis |
-
-Notable Insight: **South Korea's National Cancer Screening Program** achieves a world-leading **68.9% 5-year stomach cancer survival rate**, compared to just **20.5% in the UK**, proving that population-wide endoscopic screening transforms high-fatality cancers into treatable conditions.
+| **1. Testicular** | **95.2%** | USA (96.8%) | India (82.1%) | Cisplatin chemotherapy responsiveness |
+| **2. Thyroid** | **89.4%** | Japan (92.5%) | Brazil (78.2%) | Early indolent nodule ultrasound detection |
+| **3. Prostate** | **86.5%** | USA (98.0%) | Poland (72.4%) | PSA screening & anti-androgen therapies |
+| **4. Breast** | **82.4%** | Australia (89.5%) | Russia (68.1%) | Population mammography & HER2 targeted drugs |
+| **5. Colorectal** | **61.8%** | S. Korea (71.8%) | India (40.2%) | Colonoscopy polypectomy & adjuvant chemotherapy |
+| **6. Cervical** | **64.2%** | Japan (73.2%) | China (58.4%) | HPV cytology screening & early brachytherapy |
+| **7. Stomach** | **31.5%** | **S. Korea (68.9%)** | **UK (20.5%)** | **National endoscopic mass screening program** |
+| **8. Lung & Bronchus** | **17.8%** | Japan (32.9%) | Poland (13.4%) | Low-dose CT screening & EGFR/ALK inhibitors |
+| **9. Liver** | **16.2%** | S. Korea (30.1%) | Germany (14.2%) | HBV surveillance & surgical resection |
+| **10. Pancreatic** | **8.4%** | USA (11.5%) | India (4.2%) | Asymptomatic latency & early systemic metastasis |
 
 ---
 
-## 8. Epidemiological Limitations & Registry Reporting Biases
-1. **Cancer Registry Completeness**: In low- and middle-income countries (LMICs), population-based cancer registries (PBCRs) cover less than 15% of the national population, introducing potential ascertainment bias.
-2. **Age-Standardization World Standard Population (WHO)**: Differences in age weights across historical standard populations (Segi 1960 vs WHO 2000–2025) can shift rate comparisons by $\pm 3\text{--}5\%$.
-3. **Competing Risks**: Declines in cardiovascular and communicable mortality naturally increase the lifetime probability of developing malignancy.
+## 08. Strategic Epidemiological Lessons
+
+1. **Age-Standardization Is Essential**: Unadjusted totals conflate demographic longevity with clinical failure.
+2. **Early Screening Drives Survival Leaps**: South Korea's **68.9% stomach survival** (vs UK's **20.5%**) demonstrates that mass endoscopic screening transforms lethal malignancies into treatable conditions.
+3. **Multi-Decade Latency in Tobacco Control**: Behavioral risk interventions require 20–30 years to fully materialize in population-level oncology outcomes.

@@ -39,14 +39,14 @@ describe("local Markdown content", () => {
     const project = getProjectBySlug("olist-payment-behavior-analytics");
     expect(project).toBeDefined();
     expect(project?.body.length).toBeGreaterThan(1000);
-    expect(project?.body).toContain("1. Executive Summary & Problem Scope");
-    expect(project?.body).toContain("2. Relational Schema & Data Preparation Pipeline");
-    expect(project?.body).toContain("3. Empirical Finding 1: Payment Method Distribution & Wallet Share");
-    expect(project?.body).toContain("4. Empirical Finding 2: Installment Elasticity Model & Basket Size Multiplier");
-    expect(project?.body).toContain("5. Diagnostic Investigation: The 10x Installment Checkout Anomaly");
-    expect(project?.body).toContain("6. Empirical Finding 3: Category Financing Sensitivity Matrix");
-    expect(project?.body).toContain("7. Strategic Action Recommendations");
-    expect(project?.body).toContain("8. Analytical Limitations & Methodological Guardrails");
+    expect(project?.body).toContain("01. Brazilian Payment Infrastructure & Wallet Share Matrix");
+    expect(project?.body).toContain("02. Multi-Payment Ingestion & Normalization Rules");
+    expect(project?.body).toContain("03. Installment Elasticity Model & Basket Size Multiplier");
+    expect(project?.body).toContain("04. Diagnostic Investigation: The 10x Checkout Anomaly");
+    expect(project?.body).toContain("05. Category Financing Sensitivity Matrix");
+    expect(project?.body).toContain("06. Strategic Spotlight: \"Watches & Gifts\" Commercial Blueprint");
+    expect(project?.body).toContain("07. Strategic Action Recommendations");
+    expect(project?.body).toContain("08. Strategic Fintech Lessons");
   });
 
   it("loads comprehensive markdown narrative for brent oil market dynamics", () => {
@@ -55,14 +55,14 @@ describe("local Markdown content", () => {
     expect(project?.tools).toContain("Time-Series Econometrics");
     expect(project?.preview.metrics).toHaveLength(3);
     expect(project?.body.length).toBeGreaterThan(1000);
-    expect(project?.body).toContain("1. Executive Summary & Macro Problem Scope");
-    expect(project?.body).toContain("2. Dataset Hygiene & Multi-Format Date Normalization Pipeline");
-    expect(project?.body).toContain("3. Four Decades of Market Regimes (1987–2022 Macro Evolution)");
-    expect(project?.body).toContain("4. Geopolitical Shock & Event-Driven Impact Modeling");
-    expect(project?.body).toContain("5. Statistical Risk Dynamics: Volatility Clustering, Fat Tails & VaR");
-    expect(project?.body).toContain("6. Time-Series Dynamics: Trend Decomposition & Forecasting Limits");
-    expect(project?.body).toContain("7. Interactive Power BI DAX & Enterprise Dashboard Architecture");
-    expect(project?.body).toContain("8. Methodological Limitations & Commodity Forecasting Guardrails");
+    expect(project?.body).toContain("01. 35.5-Year Benchmark Telemetry Matrix");
+    expect(project?.body).toContain("02. Dataset Hygiene & Multi-Format Date Normalization Pipeline");
+    expect(project?.body).toContain("03. Four Decades of Market Regimes");
+    expect(project?.body).toContain("04. Geopolitical Shock & Event-Driven Impact Modeling");
+    expect(project?.body).toContain("05. Statistical Risk Dynamics: Volatility Clustering, Fat Tails & VaR");
+    expect(project?.body).toContain("06. Time-Series Dynamics: Trend Regimes & Stationarity");
+    expect(project?.body).toContain("07. Interactive Power BI DAX & Enterprise Dashboard Architecture");
+    expect(project?.body).toContain("08. Institutional Decision Impact & Governance");
   });
 
   it("loads comprehensive markdown narrative for global cancer epidemiology surveillance", () => {
@@ -71,14 +71,14 @@ describe("local Markdown content", () => {
     expect(project?.tools).toContain("Python");
     expect(project?.preview.metrics).toHaveLength(3);
     expect(project?.body.length).toBeGreaterThan(1000);
-    expect(project?.body).toContain("1. Executive Summary & Macro Problem Scope");
-    expect(project?.body).toContain("2. Multi-File Panel Ingestion & Data Hygiene Protocol");
-    expect(project?.body).toContain("3. Thirty-Year Longitudinal Trends & Age-Standardized Trajectories");
-    expect(project?.body).toContain("4. Cross-National Disparities & Eastern European Mortality Clustering");
-    expect(project?.body).toContain("5. Cancer Site Mortality Composition & Etiology Breakdown");
-    expect(project?.body).toContain("6. Socio-Economic Elasticity: GDP per Capita vs Cancer Mortality Scatter Analysis");
-    expect(project?.body).toContain("7. 5-Year Clinical Survival Heterogeneity Matrix");
-    expect(project?.body).toContain("8. Epidemiological Limitations & Registry Reporting Biases");
+    expect(project?.body).toContain("01. Global Epidemiological Telemetry Matrix");
+    expect(project?.body).toContain("02. Multi-File Panel Ingestion & Data Hygiene Protocol");
+    expect(project?.body).toContain("03. Thirty-Year Longitudinal Trends & Age-Standardized Trajectories");
+    expect(project?.body).toContain("04. Cross-National Disparities & Eastern European Mortality Clustering");
+    expect(project?.body).toContain("05. Cancer Site Etiology & Behavioral Risk Attribution");
+    expect(project?.body).toContain("06. Socio-Economic Elasticity: GDP per Capita vs Cancer Mortality");
+    expect(project?.body).toContain("07. 5-Year Clinical Survival Heterogeneity Matrix");
+    expect(project?.body).toContain("08. Strategic Epidemiological Lessons");
   });
 
   it("filters out dedicated route folders from dynamic project static params", () => {

@@ -4,6 +4,15 @@
 
 ---
 
+## 📅 [2026-08-31] — Patch v1.5.6: Balanced Equal-Height Layout for Skill Matrix & Evidence Console
+- **Components**: `app/globals.css`, `components/SkillMatrix.tsx`
+- **Changes**:
+  - Implemented 1:1 vertical symmetry between the left skill groups and right evidence console (`min-height: 480px`, `align-self: stretch`).
+  - Added inner flexible scrollpane (`flex: 1`, `min-height: 0`) ensuring consistent card proportions regardless of item count (2 vs 9 items).
+  - Fine-tuned row heights and category badges for zero-jitter selection transitions.
+
+---
+
 ## 📅 [2026-08-31] — Patch v1.5.5: Unified High-Density Card & Purged Legacy CSS Override for Skill Matrix
 - **Components**: `app/interactive.css`, `app/globals.css`, `components/SkillMatrix.tsx`
 - **Changes**:

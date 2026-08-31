@@ -113,9 +113,7 @@ export function SiteFooter({
 
       <div className="footer-meta">
         <span className="mono">Data systems. Analytical clarity. Useful automation.</span>
-        <Link className="mono footer-back-link" href={backHref}>
-          {backLabel}
-        </Link>
+        <span className="mono">© 2026 Abimael Firstana</span>
       </div>
     </footer>
   );

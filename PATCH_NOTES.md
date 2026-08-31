@@ -1,0 +1,97 @@
+# 📜 PATCH NOTES & CHANGELOG LOGBOOK
+
+> **Standard Operating Rule**: Always append new patch entries to this document chronologically with date, commit hash, files modified, and technical breakdown of changes.
+
+---
+
+## 📅 [2026-08-31] — Patch v1.5.3: Capability Evidence Synchronization & Project Ordering Normalization
+- **Components**: `content/skills.md`, `content/projects/*.md`
+- **Changes**:
+  - Synced all 9 project case studies into `content/skills.md` (`Python`, `Power BI`, `SQL`, `Predictive Analytics`, `Scikit-learn`, `Data Quality`, `Automation Design`), resolving unlinked evidence cards in the Skill Matrix (`#skills`).
+  - Standardized sequential 1-to-9 project ordering across all case study frontmatters (`banking-transaction-anti-fraud` #1, `global-cancer-epidemiology-surveillance` #2, `olist-e-commerce-logistics-analysis` #3, `olist-payment-behavior-analytics` #4, `brent-oil-market-dynamics` #5, `amazon-product-intelligence` #6, `ml-product-mapping-system` #7, `revenue-reconciliation-automation` #8, `certificate-generator-desktop-app` #9).
+  - All 232 test cases and static typechecks passed 100%.
+
+---
+
+## 📅 [2026-08-31] — Patch v1.5.2: Footer Streamlining & Redundancy Removal
+- **Commit**: `bd656c3`
+- **Component**: `components/SiteFooter.tsx`
+- **Changes**:
+  - Removed static `BACK TO TOP ↑` text link from footer meta row.
+  - Retained `FloatingBackToTop` (`Top ↑`) floating button as the single source of truth for viewport return navigation.
+  - Eliminated visual overlap and redundancy in the footer section.
+
+---
+
+## 📅 [2026-08-31] — Patch v1.5.1: CV Download Trigger Eye-Catcher
+- **Commit**: `39f25dc`
+- **Components**: `components/SiteHeader.tsx`, `app/globals.css`
+- **Changes**:
+  - Added live pulsing emerald green dot (`.cv-live-dot`) next to the `CV` button in navbar.
+  - Implemented subtle glowing green border animation (`cv-border-pulse`) to catch user attention.
+  - Maintained instant 2-item download popover (`English EN` & `Indonesia ID`).
+
+---
+
+## 📅 [2026-08-31] — Patch v1.5.0: Standardisation of Monochrome Catalogs & Navigation Overhaul
+- **Commit**: `c0d2e4f`
+- **Components**:
+  - `app/learning/page.tsx`, `app/learning/[slug]/page.tsx`
+  - `app/opinion/page.tsx`, `components/OpinionExplorer.tsx`
+  - `components/SiteHeader.tsx`, `app/certifications/page.tsx`
+  - `app/globals.css`, `.agents/rules/certification-catalog-standards.md`
+  - `HANDOFF-2026-08-31.md`, `NOTES.md`
+- **Changes**:
+  - **Certification Catalog (`/learning/`)**: Rebuilt landing page into a **Compact Monochrome Data Table** with telemetry stats (`TRACKS`, `ACTIVE COHORTS`, `TOTAL MODULES`, `STANDARDS`).
+  - **Opinion Explorer (`/opinion/`)**: Converted into an ultra-minimalist Compact Monochrome Data Table, removing bulky cover images.
+  - **Navbar Refinement**:
+    - Renamed `01 CASE STUDIES` ➔ `01 PROJECTS`.
+    - Removed `02 INTERACTIVE LABS` from `PORTFOLIO ▾`.
+    - Renamed `02 OPINIONS & ESSAYS` ➔ `02 OPINION`.
+    - Removed `03 CAREER TIMELINE` from `RESOURCES ▾`.
+    - Added right-flyout submenu for `03 CURRICULUM VITAE ▸` (`ENGLISH (EN) ↓` & `INDONESIA (ID) ↓`).
+    - Removed duplicate standalone `OPINION` link from top-level navbar.
+  - **Route Aliasing**: Added `/certifications/` automatic permanent redirect to `/learning/`.
+  - **Standards & Handover**: Codified `.agents/rules/certification-catalog-standards.md` and created dated `HANDOFF-2026-08-31.md`.
+
+---
+
+## 📅 [2026-08-30] — Patch v1.4.0: Interactive Revenue Reconciliation Showcase
+- **Commit**: `8ec491b`
+- **Component**: `components/RevenueReconciliationShowcase.tsx`, `content/projects/revenue-reconciliation-automation.md`
+- **Changes**:
+  - Built interactive 4-tier discrepancy visual reconciliation pipeline (Exact Match, Timestamp Drift, Gateway Fee Discrepancy, Unreconciled Orphan).
+  - Added interactive filtering, search, and instant Excel export preview inspector.
+
+---
+
+## 📅 [2026-08-30] — Patch v1.3.0: Amazon Product Intelligence NLP Suite
+- **Commit**: `7564634`
+- **Components**: `components/AmazonProductDashboard.tsx`, `content/projects/amazon-product-intelligence.md`
+- **Changes**:
+  - Implemented 1-click NLP review preset analyzer (`runInference`).
+  - Added filter chips, confusion matrix inspection, and sortable product dataset explorer.
+
+---
+
+## 📅 [2026-08-30] — Patch v1.2.0: Case Study Readability & Standards Sweep
+- **Commit**: `3fe5b66`
+- **Rule**: `.agents/rules/case-study-readability.md`
+- **Changes**:
+  - Overhauled all 9 portfolio project markdown files with executive summaries (`> [!NOTE]`), numbered headings (`## 01. ...`), aligned tables, KaTeX math formatting, and escaped currency symbols.
+
+---
+
+## 📅 [2026-08-27] — Patch v1.1.0: DataCamp Data Analyst Associate Integration
+- **Commit**: `36ec685`
+- **Content**: `content/learning/datacamp-data-analyst-associate.md`
+- **Changes**:
+  - Added structured syllabus and certification track for DataCamp DAA (Timed SQL assessments, EDA, Business Exam).
+
+---
+
+## 📅 [2026-08-25] — Patch v1.0.0: Banking Transaction Anti-Fraud Suite
+- **Commit**: `9e91345`
+- **Component**: `components/AntiFraudShowcase.tsx`, `content/projects/banking-transaction-anti-fraud.md`
+- **Changes**:
+  - Delivered 6 interactive fraud detection dashboards with Isolation Forest anomaly scoring and live transaction inspection.

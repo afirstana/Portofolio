@@ -43,18 +43,25 @@ export function SkillMatrix({ content, projects }: { content: SkillsContent; pro
           </div>
 
           <aside className="skill-evidence" aria-live="polite">
-            <p className="mono">Evidence / {chosen?.name ?? "—"}</p>
+            <div className="skill-evidence-header mono">
+              <p>Evidence / {chosen?.name ?? "—"}</p>
+              <span className="evidence-count-tag">
+                {String(evidence.length).padStart(2, "0")} Systems
+              </span>
+            </div>
+
             {evidence.length > 0 ? (
-              <div>
-                {evidence.map((project) => (
-                  <Link href={`/projects/${project.slug}/`} key={project.slug}>
-                    <span>{project.title}</span>
-                    <i>↗</i>
+              <div className="skill-evidence-list">
+                {evidence.map((project, idx) => (
+                  <Link href={`/projects/${project.slug}/`} key={project.slug} className="skill-evidence-item">
+                    <span className="mono evidence-item-idx">{String(idx + 1).padStart(2, "0")}.</span>
+                    <span className="evidence-item-title">{project.title}</span>
+                    <i className="evidence-item-arrow" aria-hidden="true">↗</i>
                   </Link>
                 ))}
               </div>
             ) : (
-              <p>Evidence is being documented through the work itself.</p>
+              <p className="skill-evidence-empty mono">Evidence is being documented through the work itself.</p>
             )}
           </aside>
         </div>

@@ -4,6 +4,15 @@
 
 ---
 
+## 📅 [2026-08-31] — Patch v1.5.4: Compact High-Density Skill Evidence Box with Sticky Viewport Scroll
+- **Components**: `components/SkillMatrix.tsx`, `app/globals.css`
+- **Changes**:
+  - Restructured `.skill-evidence` into a compact, fixed-height (`max-height: 480px`) container with smooth custom scrollbar and `sticky: top: 90px`.
+  - Added header badge count (`EVIDENCE / PYTHON — 09 SYSTEMS`) and numbered index indicators (`01.`, `02.`, etc.).
+  - Reduced item height and padding, eliminating long vertical page expansion when multiple evidence items are linked.
+
+---
+
 ## 📅 [2026-08-31] — Patch v1.5.3: Capability Evidence Synchronization & Project Ordering Normalization
 - **Components**: `content/skills.md`, `content/projects/*.md`
 - **Changes**:

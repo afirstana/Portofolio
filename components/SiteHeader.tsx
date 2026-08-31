@@ -277,6 +277,7 @@ export function SiteHeader() {
             aria-expanded={activeMenu === "cv"}
             aria-haspopup="true"
           >
+            <span className="cv-live-dot" aria-hidden="true" />
             <span>CV</span>
             <i style={{ fontStyle: "normal", fontSize: "8px" }}>{activeMenu === "cv" ? "▲" : "▼"}</i>
           </button>

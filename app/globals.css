@@ -207,15 +207,15 @@ a { color: inherit; text-decoration: none; }
   padding-top: 7px;
 }
 
-/* Minimalist CV Button & Popover */
+/* Minimalist CV Button & Popover with Green Pulse */
 .cv-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
 .header-cv-trigger {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: var(--surface-secondary);
-  border: 1px solid var(--line);
-  color: var(--muted);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--ink-heading);
   padding: 5px 9px;
   border-radius: 2px;
   font-size: 9.5px;
@@ -224,11 +224,47 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   cursor: pointer;
   transition: all .15s ease;
+  animation: cv-border-pulse 2s ease-in-out infinite;
 }
 .header-cv-trigger:hover, .header-cv-trigger.active {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-subtle);
+  border-color: #10b981;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.cv-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: cv-green-blink 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes cv-green-blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8), 0 0 8px #10b981;
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0), 0 0 2px rgba(16, 185, 129, 0.2);
+  }
+}
+
+@keyframes cv-border-pulse {
+  0%, 100% {
+    border-color: rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.25);
+  }
+  50% {
+    border-color: rgba(16, 185, 129, 0.2);
+    box-shadow: none;
+  }
 }
 .cv-popover {
   position: absolute;

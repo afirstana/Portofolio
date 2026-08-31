@@ -21,6 +21,7 @@ export function SkillMatrix({ content, projects }: { content: SkillsContent; pro
           {content.heading}
         </h2>
         <div className="skill-layout">
+          {/* Left Column: Skill Groups */}
           <div className="skill-groups">
             {content.groups.map((group) => (
               <div className="skill-group" key={group.name}>
@@ -42,27 +43,46 @@ export function SkillMatrix({ content, projects }: { content: SkillsContent; pro
             ))}
           </div>
 
-          <aside className="skill-evidence" aria-live="polite">
-            <div className="skill-evidence-header mono">
-              <p>Evidence / {chosen?.name ?? "—"}</p>
-              <span className="evidence-count-tag">
-                {String(evidence.length).padStart(2, "0")} Systems
+          {/* Right Column: Compact High-Density Evidence Card */}
+          <aside className="skill-evidence-card" aria-live="polite">
+            <div className="skill-evidence-topbar mono">
+              <div className="evidence-pill-label">
+                <span className="pulse-dot" aria-hidden="true" />
+                <span>EVIDENCE / {chosen?.name ?? "—"}</span>
+              </div>
+              <span className="evidence-badge-tag">
+                {String(evidence.length).padStart(2, "0")} SYSTEMS
               </span>
             </div>
 
             {evidence.length > 0 ? (
-              <div className="skill-evidence-list">
+              <div className="skill-evidence-scrollpane">
                 {evidence.map((project, idx) => (
-                  <Link href={`/projects/${project.slug}/`} key={project.slug} className="skill-evidence-item">
-                    <span className="mono evidence-item-idx">{String(idx + 1).padStart(2, "0")}.</span>
-                    <span className="evidence-item-title">{project.title}</span>
-                    <i className="evidence-item-arrow" aria-hidden="true">↗</i>
+                  <Link
+                    href={`/projects/${project.slug}/`}
+                    key={project.slug}
+                    className="skill-evidence-row"
+                  >
+                    <div className="evidence-row-left">
+                      <span className="mono evidence-row-num">{String(idx + 1).padStart(2, "0")}.</span>
+                      <div className="evidence-row-texts">
+                        <strong className="evidence-row-title">{project.title}</strong>
+                        <span className="mono evidence-row-category">{project.category}</span>
+                      </div>
+                    </div>
+                    <span className="evidence-row-arrow" aria-hidden="true">↗</span>
                   </Link>
                 ))}
               </div>
             ) : (
-              <p className="skill-evidence-empty mono">Evidence is being documented through the work itself.</p>
+              <div className="skill-evidence-empty mono">
+                <p>// Evidence is being documented through production systems.</p>
+              </div>
             )}
+
+            <div className="skill-evidence-foot mono">
+              <span>Click to open technical case study ↗</span>
+            </div>
           </aside>
         </div>
       </div>

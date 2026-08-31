@@ -769,107 +769,153 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ==========================================================================
-   COMPACT HIGH-DENSITY SKILL EVIDENCE BOX
+   COMPACT MONOCHROME SKILL EVIDENCE CARD
    ========================================================= */
-.skill-evidence {
-  padding: 18px 20px !important;
-  background: var(--panel) !important;
-  border: 1px solid var(--line) !important;
+.skill-evidence-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 4px;
   position: sticky;
   top: 90px;
   align-self: start;
-  max-height: 480px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  max-height: 480px;
 }
-.skill-evidence-header {
+
+.skill-evidence-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
+  padding: 12px 16px;
+  background: var(--surface-secondary);
   border-bottom: 1px solid var(--line);
-}
-.skill-evidence-header p {
-  color: var(--accent);
   font-size: 9px;
-  margin: 0;
   letter-spacing: .1em;
+}
+
+.evidence-pill-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent);
+  font-weight: 700;
   text-transform: uppercase;
 }
-.evidence-count-tag {
-  font-size: 8.5px;
+
+.evidence-badge-tag {
   color: var(--dim);
+  font-size: 8.5px;
   letter-spacing: .08em;
-  background: var(--surface-secondary);
+  background: var(--panel);
   border: 1px solid var(--line);
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 2px;
 }
-.skill-evidence-list {
+
+.skill-evidence-scrollpane {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  padding-right: 6px;
   max-height: 380px;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--accent) var(--surface-secondary);
 }
-.skill-evidence-list::-webkit-scrollbar { width: 3px; }
-.skill-evidence-list::-webkit-scrollbar-track { background: var(--surface-secondary); }
-.skill-evidence-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-.skill-evidence-item {
-  display: grid;
-  grid-template-columns: 24px 1fr 16px;
+.skill-evidence-scrollpane::-webkit-scrollbar { width: 4px; }
+.skill-evidence-scrollpane::-webkit-scrollbar-track { background: var(--surface-secondary); }
+.skill-evidence-scrollpane::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+.skill-evidence-row {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding: 10px 4px !important;
-  border-bottom: 1px solid var(--line) !important;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--line);
   text-decoration: none;
-  color: var(--ink);
-  transition: all .15s ease;
+  color: inherit;
+  transition: background 150ms ease, padding-left 150ms ease;
 }
-.skill-evidence-item:last-child {
-  border-bottom: none !important;
+
+.skill-evidence-row:last-child {
+  border-bottom: none;
 }
-.skill-evidence-item:hover {
-  color: var(--accent);
+
+.skill-evidence-row:hover {
   background: var(--surface-hover);
-  padding-left: 8px !important;
+  padding-left: 20px;
 }
-.evidence-item-idx {
-  color: var(--dim);
-  font-size: 9px;
+
+.evidence-row-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
 }
-.skill-evidence-item:hover .evidence-item-idx {
+
+.evidence-row-num {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.evidence-row-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.evidence-row-title {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--ink-heading);
+  font-weight: 600;
+  transition: color 150ms ease;
+}
+
+.skill-evidence-row:hover .evidence-row-title {
   color: var(--accent);
 }
-.evidence-item-title {
-  font-size: 12.5px !important;
-  line-height: 1.35 !important;
-  color: var(--ink);
-  transition: color .15s ease;
-}
-.skill-evidence-item:hover .evidence-item-title {
-  color: var(--accent);
-}
-.evidence-item-arrow {
+
+.evidence-row-category {
+  font-size: 8.5px;
   color: var(--dim);
-  font-style: normal;
-  font-size: 12px;
-  text-align: right;
-  transition: transform .15s ease, color .15s ease;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-.skill-evidence-item:hover .evidence-item-arrow {
+
+.evidence-row-arrow {
+  color: var(--dim);
+  font-size: 14px;
+  margin-left: 10px;
+  flex-shrink: 0;
+  transition: transform 150ms ease, color 150ms ease;
+}
+
+.skill-evidence-row:hover .evidence-row-arrow {
   color: var(--accent);
   transform: translate(2px, -2px);
 }
+
+.skill-evidence-foot {
+  padding: 9px 16px;
+  background: var(--surface-secondary);
+  border-top: 1px solid var(--line);
+  font-size: 8.5px;
+  color: var(--dim);
+  letter-spacing: .06em;
+  text-align: center;
+}
+
 .skill-evidence-empty {
+  padding: 30px 16px;
+  text-align: center;
   color: var(--dim);
   font-size: 10px;
-  margin: 16px 0 0;
-  line-height: 1.5;
 }
 

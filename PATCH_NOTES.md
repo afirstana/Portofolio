@@ -4,6 +4,15 @@
 
 ---
 
+## 📅 [2026-08-31] — Patch v1.5.5: Unified High-Density Card & Purged Legacy CSS Override for Skill Matrix
+- **Components**: `app/interactive.css`, `app/globals.css`, `components/SkillMatrix.tsx`
+- **Changes**:
+  - Purged conflicting legacy `.skill-evidence` CSS rules from `app/interactive.css` that were overriding modern styles.
+  - Upgraded right-side evidence container into `.skill-evidence-card` featuring obsidian topbar telemetry (`EVIDENCE / PYTHON — 09 SYSTEMS`), high-density row cells with category tags (`Healthcare Analytics`, `Fintech`, etc.), numbered prefix chips (`01.`, `02.`), and a bounded smooth-scroll pane (`max-height: 380px`).
+  - Added bottom instruction bar (`Click to open technical case study ↗`).
+
+---
+
 ## 📅 [2026-08-31] — Patch v1.5.4: Compact High-Density Skill Evidence Box with Sticky Viewport Scroll
 - **Components**: `components/SkillMatrix.tsx`, `app/globals.css`
 - **Changes**:

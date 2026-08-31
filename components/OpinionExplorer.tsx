@@ -21,22 +21,37 @@ export function OpinionExplorer({ opinions }: { opinions: OpinionArticle[] }) {
 
   return (
     <div className="opinion-explorer">
-      {/* Search and Category Filter Toolbar */}
-      <div className="explorer-toolbar">
-        <label className="search-field">
-          <span className="mono">Search</span>
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search essays, tags, or themes..."
-            type="search"
-          />
-        </label>
-        <div className="filter-list" aria-label="Filter essays by topic">
+      {/* Telemetry Summary Bar */}
+      <div className="cert-telemetry-bar mono" style={{ marginBottom: "28px" }}>
+        <div className="cert-stat-item">
+          <span className="cert-stat-label">ESSAYS</span>
+          <strong className="cert-stat-val">0{opinions.length}</strong>
+        </div>
+        <div className="cert-stat-divider" />
+        <div className="cert-stat-item">
+          <span className="cert-stat-label">TOPICS</span>
+          <strong className="cert-stat-val" style={{ color: "var(--accent)" }}>{categories.length - 1} CATEGORIES</strong>
+        </div>
+        <div className="cert-stat-divider" />
+        <div className="cert-stat-item">
+          <span className="cert-stat-label">STATUS</span>
+          <strong className="cert-stat-val">PUBLISHED &amp; LIVE</strong>
+        </div>
+        <div className="cert-stat-divider" />
+        <div className="cert-stat-item">
+          <span className="cert-stat-label">FOCUS</span>
+          <strong className="cert-stat-val">SYSTEMS, DATA &amp; DECISION ENGINES</strong>
+        </div>
+      </div>
+
+      {/* Filter & Search Toolbar */}
+      <div className="opinion-toolbar">
+        <div className="opinion-category-pills" aria-label="Filter essays by topic">
           {categories.map((cat) => (
             <button
               key={cat}
               type="button"
+              className={`opinion-pill-btn mono ${category === cat ? "is-active" : ""}`}
               aria-pressed={category === cat}
               onClick={() => setCategory(cat)}
             >
@@ -44,82 +59,90 @@ export function OpinionExplorer({ opinions }: { opinions: OpinionArticle[] }) {
             </button>
           ))}
         </div>
+
+        <div className="opinion-search-wrapper">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Filter essays..."
+            className="opinion-search-input mono"
+            type="search"
+          />
+        </div>
       </div>
 
-      {/* Count Indicator */}
-      <p className="explorer-count mono" aria-live="polite">
-        {String(filtered.length).padStart(2, "0")} perspectives published
-      </p>
+      {/* Compact Monochrome Data Table */}
+      <div className="cert-table-container">
+        <div className="cert-table-header mono">
+          <span className="col-idx">#</span>
+          <span className="col-program">ESSAY / PERSPECTIVE</span>
+          <span className="col-provider">TOPIC &amp; TAGS</span>
+          <span className="col-status">READ TIME &amp; DATE</span>
+          <span className="col-action">ACTION</span>
+        </div>
 
-      {/* List of Opinion Cards */}
-      <div className="opinion-list">
-        {filtered.map((article, index) => (
-          <Link
-            key={article.slug}
-            href={`/opinion/${article.slug}/`}
-            className="opinion-card"
-          >
-            {article.coverImage && (
-              <div className="opinion-card-cover">
-                <img
-                  src={article.coverImage}
-                  alt={`Cover artwork for ${article.title}`}
-                  loading="lazy"
-                />
-              </div>
-            )}
-
-            <div className="opinion-card-body">
-              <div className="opinion-card-header">
-                <span className="mono opinion-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="opinion-meta mono">
-                  <span className="opinion-category">{article.category}</span>
-                  <span className="opinion-dot">•</span>
-                  <span>{article.readTime}</span>
-                  <span className="opinion-dot">•</span>
-                  <span>{article.date}</span>
-                </div>
-              </div>
-
-              <h3 className="opinion-card-title">{article.title}</h3>
-              <p className="opinion-card-subtitle">{article.subtitle}</p>
-
-              {/* Thesis Teaser Callout */}
-              <div className="opinion-thesis-teaser">
-                <span className="mono">Core Thesis:</span>
-                <p>"{article.thesis}"</p>
-              </div>
-
-              <div className="opinion-card-footer">
-                <div className="tags">
-                  {article.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-                <span className="opinion-read-action mono">
-                  Read essay <i aria-hidden="true">↗</i>
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
-
-        {filtered.length === 0 && (
-          <div className="empty-state">
-            <p className="mono">No matching perspectives found</p>
-            <button
-              type="button"
-              onClick={() => {
-                setQuery("");
-                setCategory("All");
-              }}
+        <div className="cert-table-body">
+          {filtered.map((article, index) => (
+            <Link
+              key={article.slug}
+              href={`/opinion/${article.slug}/`}
+              className="cert-table-row"
             >
-              Reset filters
-            </button>
-          </div>
-        )}
+              <div className="col-idx mono">
+                <span className="idx-number">0{index + 1}</span>
+              </div>
+
+              <div className="col-program">
+                <strong className="program-title">{article.title}</strong>
+                <p className="program-subtitle">{article.subtitle}</p>
+              </div>
+
+              <div className="col-provider">
+                <span className="provider-name">{article.category}</span>
+                <span className="category-tag mono">
+                  {article.tags.slice(0, 3).map((t) => `#${t}`).join(" ")}
+                </span>
+              </div>
+
+              <div className="col-status">
+                <div className="status-top mono" style={{ marginBottom: 0 }}>
+                  <span className="status-pill" style={{ color: "var(--ink)" }}>
+                    {article.readTime}
+                  </span>
+                  <span className="progress-pct">{article.date}</span>
+                </div>
+              </div>
+
+              <div className="col-action mono">
+                <span className="action-button">
+                  Read Essay <i aria-hidden="true">→</i>
+                </span>
+              </div>
+            </Link>
+          ))}
+
+          {filtered.length === 0 && (
+            <div className="cert-empty-state mono" style={{ padding: "30px", textAlign: "center" }}>
+              <span>// No matching essays found. </span>
+              <button
+                type="button"
+                className="reset-btn mono"
+                style={{ marginLeft: "10px" }}
+                onClick={() => {
+                  setQuery("");
+                  setCategory("All");
+                }}
+              >
+                Reset Filters
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Editorial Footnote */}
+      <div className="cert-catalog-footnote mono">
+        <span>// EDITORIAL INTEGRITY: Unfiltered production retrospectives, system trade-offs, and software economics.</span>
       </div>
     </div>
   );

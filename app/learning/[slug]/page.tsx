@@ -48,7 +48,7 @@ export default async function LearningTrackDetailPage({ params }: RouteProps) {
       <article className="page-width learning-reader-shell">
         <header className="learning-reader-header">
           <Link className="back-link mono" href="/learning/">
-            ← All Ongoing Learning
+            ← Back to All Certifications
           </Link>
 
           <div className="learning-meta-bar mono">
@@ -92,15 +92,44 @@ export default async function LearningTrackDetailPage({ params }: RouteProps) {
         {/* Core Thesis Box */}
         <div className="learning-thesis-box" role="region" aria-label="Learning Objectives & Thesis">
           <div className="thesis-box-header">
-            <span className="mono">CORE OBJECTIVE & TECHNICAL FOCUS</span>
+            <span className="mono">CORE OBJECTIVE &amp; TECHNICAL FOCUS</span>
             <span className="pulse-dot" />
           </div>
           <p className="thesis-content">"{track.thesis}"</p>
         </div>
 
-        {/* Standalone Interactive Academy Learning Lab Showcase */}
+        {/* Standalone Interactive Academy Learning Lab Showcase (for AWS) */}
         {track.slug === "aws-ai-academy-2026" && (
           <AwsAcademyInteractiveShowcase />
+        )}
+
+        {/* Enrolled Modules & Coursework Grid */}
+        {track.modules && track.modules.length > 0 && (
+          <section className="learning-modules-section">
+            <h2 className="modules-section-title mono">// ENROLLED MODULES &amp; CURRICULUM ({track.modules.length})</h2>
+            <div className="learning-modules-grid">
+              {track.modules.map((m) => (
+                <div key={m.name} className="learning-module-item">
+                  <div className="module-item-top">
+                    <strong className="module-item-name">{m.name}</strong>
+                    <span className="mono module-item-level">{m.level}</span>
+                  </div>
+                  <p className="module-item-desc">{m.summary}</p>
+                  <div className="module-item-footer">
+                    <span className="mono module-status-tag">Status: {m.status}</span>
+                    <a
+                      href={m.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mono module-link"
+                    >
+                      Curriculum ↗
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         )}
 
         {/* Markdown Curriculum & Narrative */}

@@ -4,6 +4,23 @@
 
 ---
 
+## 📅 [2026-09-02] — Patch v1.6.0: Comprehensive Certification Catalog Expansion (7 Tracks & Multi-Authority Kredensial)
+- **Components**:
+  - `content/learning/datacamp-data-analyst-associate.md` (Updated to 100% Certified & Verified)
+  - `content/learning/komdigi-project-management-fundamental.md` (New 100% Verified Track)
+  - `content/learning/komdigi-associate-data-scientist.md` (New SKKNI BNSP 12-Unit Track)
+  - `content/learning/komdigi-data-scientist-supervisor.md` (New SKKNI BNSP 20 JP Track)
+  - `content/learning/komdigi-data-scientist-nasional.md` (New SKKNI 299/2020 100.00% Score Track)
+  - `content/learning/dqlab-data-science-ai-foundations.md` (New 5 Verified DQLab Credentials Track)
+  - `components/SiteFooter.tsx`, `public/certificates/*.pdf`, `lib/learning.test.ts`
+- **Changes**:
+  - Expanded catalog from 2 tracks to **7 comprehensive learning and credential tracks** across DataCamp, Komdigi DTS (SKKNI BNSP), DQLab, and AWS.
+  - Linked official PDF certificate assets in `public/certificates/` for direct stakeholder download.
+  - Updated footer telemetry and ongoing credential strip with 100% verified progress.
+  - All 232 test cases and Next.js 31-page static builds passed 100%.
+
+---
+
 ## 📅 [2026-08-31] — Patch v1.5.6: Balanced Equal-Height Layout for Skill Matrix & Evidence Console
 - **Components**: `app/globals.css`, `components/SkillMatrix.tsx`
 - **Changes**:

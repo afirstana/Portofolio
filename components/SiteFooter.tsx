@@ -11,14 +11,28 @@ const ONGOING_TRACKS = [
     id: "datacamp",
     name: "DataCamp Data Analyst Associate",
     slug: "datacamp-data-analyst-associate",
-    badge: "DATACAMP CERTIFICATION",
-    status: "30-Day Window",
-    progressPct: 10,
+    badge: "DATACAMP VERIFIED",
+    status: "100% Certified & Verified",
+    progressPct: 100,
     modules: [
-      "Timed SQL Technical Assessment",
-      "Exploratory Data Analysis (EDA)",
-      "Hands-On Practical Business Case Exam",
-      "Data Management & Decisioning Standards",
+      "Stage 1: Timed SQL Exam (Score: 174/86)",
+      "Stage 2: Practical Business Exam (4/4 Tasks Passed)",
+      "Exploratory Statistical Diagnostics & Data Quality",
+      "Executive Synthesis & Decision Standards",
+    ],
+  },
+  {
+    id: "komdigi-ads",
+    name: "Komdigi Associate Data Scientist",
+    slug: "komdigi-associate-data-scientist",
+    badge: "KOMDIGI DTS",
+    status: "12/12 Units Completed",
+    progressPct: 100,
+    modules: [
+      "UK 01: Multi-Source Data Collection & Ingestion",
+      "UK 02: Exploratory Data Analysis & Skew Diagnostics",
+      "UK 03: Automated Cleansing & Preprocessing Pipelines",
+      "UK 04–12: Supervised Modeling & Evaluation",
     ],
   },
   {
@@ -49,18 +63,18 @@ export function SiteFooter({
           href="/learning/datacamp-data-analyst-associate/"
           className="footer-ongoing"
           role="region"
-          aria-label="View Active Certification Track: DataCamp Data Analyst Associate"
+          aria-label="View Verified Certification Track: DataCamp Data Analyst Associate"
         >
           <span className="footer-ongoing-tag mono">
-            <span className="pulse-dot" aria-hidden="true" /> ACTIVE CERTIFICATION:
+            <span className="pulse-dot" aria-hidden="true" /> VERIFIED CREDENTIAL:
           </span>
           <span className="footer-ongoing-title mono">
             DataCamp Data Analyst Associate
           </span>
-          <div className="footer-mini-progress mono" aria-label="Progress: 30-Day Window">
-            <span className="footer-prog-label">30-Day Window</span>
+          <div className="footer-mini-progress mono" aria-label="Progress: 100% Completed">
+            <span className="footer-prog-label">100% Certified</span>
             <div className="footer-prog-track">
-              <div className="footer-prog-bar" style={{ width: "10%" }} />
+              <div className="footer-prog-bar" style={{ width: "100%" }} />
             </div>
           </div>
           <span className="footer-ongoing-arrow mono" aria-hidden="true">

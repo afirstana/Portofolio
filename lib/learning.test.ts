@@ -4,7 +4,7 @@ import { getAdjacentLearningTracks, getLearningTrackBySlug, getLearningTracks } 
 describe("Ongoing Learning & Academy Modules System", () => {
   it("loads all active learning tracks with full metadata and progress bar values", () => {
     const tracks = getLearningTracks();
-    expect(tracks.length).toBeGreaterThanOrEqual(2);
+    expect(tracks.length).toBeGreaterThanOrEqual(6);
 
     const awsTrack = tracks.find((t) => t.slug === "aws-ai-academy-2026");
     expect(awsTrack).toBeDefined();
@@ -18,8 +18,18 @@ describe("Ongoing Learning & Academy Modules System", () => {
     expect(datacampTrack).toBeDefined();
     expect(datacampTrack?.title).toContain("Data Analyst Associate");
     expect(datacampTrack?.provider).toContain("DataCamp");
-    expect(datacampTrack?.progressPct).toBe(10);
+    expect(datacampTrack?.progressPct).toBe(100);
     expect(datacampTrack?.modules.length).toBe(4);
+
+    const komdigiTrack = tracks.find((t) => t.slug === "komdigi-project-management-fundamental");
+    expect(komdigiTrack).toBeDefined();
+    expect(komdigiTrack?.provider).toContain("Komdigi");
+    expect(komdigiTrack?.progressPct).toBe(100);
+
+    const dqlabTrack = tracks.find((t) => t.slug === "dqlab-data-science-ai-foundations");
+    expect(dqlabTrack).toBeDefined();
+    expect(dqlabTrack?.provider).toContain("DQLab");
+    expect(dqlabTrack?.modules.length).toBe(5);
   });
 
   it("retrieves a track by slug accurately", () => {
@@ -32,8 +42,8 @@ describe("Ongoing Learning & Academy Modules System", () => {
     const datacampTrack = getLearningTrackBySlug("datacamp-data-analyst-associate");
     expect(datacampTrack).toBeDefined();
     expect(datacampTrack?.slug).toBe("datacamp-data-analyst-associate");
-    expect(datacampTrack?.badge).toBe("DATACAMP CERTIFICATION CANDIDATE");
-    expect(datacampTrack?.body).toContain("01. Program Objective & Context");
+    expect(datacampTrack?.badge).toBe("VERIFIED CREDENTIAL");
+    expect(datacampTrack?.body).toContain("01. Certification Overview");
   });
 
   it("handles adjacent track navigation gracefully between tracks", () => {

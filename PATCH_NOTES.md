@@ -4,6 +4,14 @@
 
 ---
 
+## 📅 [2026-09-02] — Patch v1.6.2: Restrict Footer Widget Exclusively to Active Ongoing Cohorts
+- **Components**: `components/SiteFooter.tsx`
+- **Changes**:
+  - Reconfigured the footer widget to strictly feature active in-progress cohorts (`AWS AI Academy 2026`), preserving the footer as an exclusive telemetry strip for ongoing studies.
+  - Retained all completed/verified certifications in the primary catalog at `/learning/` with direct cross-navigation from the popover footer.
+
+---
+
 ## 📅 [2026-09-02] — Patch v1.6.1: Footer Popover Multi-Track Synchronization & Badge Header Overhaul
 - **Components**: `components/SiteFooter.tsx`, `app/interactive.css`
 - **Changes**:

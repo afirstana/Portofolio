@@ -8,67 +8,11 @@ interface SiteFooterProps {
 
 const ONGOING_TRACKS = [
   {
-    id: "datacamp",
-    name: "DataCamp Data Analyst Associate",
-    slug: "datacamp-data-analyst-associate",
-    badge: "DATACAMP VERIFIED",
-    status: "100% Certified",
-    progressPct: 100,
-    modules: [
-      "Stage 1: Timed SQL Exam (Score: 174/86)",
-      "Stage 2: Practical Business Exam (4/4 Tasks Passed)",
-      "Exploratory Statistical Diagnostics & Data Quality",
-      "Executive Synthesis & Decision Standards",
-    ],
-  },
-  {
-    id: "komdigi-ads",
-    name: "Komdigi Associate Data Scientist",
-    slug: "komdigi-associate-data-scientist",
-    badge: "KOMDIGI DTS",
-    status: "12/12 Units Done",
-    progressPct: 100,
-    modules: [
-      "UK 01: Multi-Source Data Collection & Ingestion",
-      "UK 02: Exploratory Data Analysis & Skew Diagnostics",
-      "UK 03: Automated Cleansing & Preprocessing Pipelines",
-      "UK 04–12: Supervised Modeling & Evaluation",
-    ],
-  },
-  {
-    id: "komdigi-ds-nasional",
-    name: "Komdigi Data Scientist Nasional",
-    slug: "komdigi-data-scientist-nasional",
-    badge: "KOMDIGI DTS",
-    status: "Score: 100.00",
-    progressPct: 100,
-    modules: [
-      "UK 1: CRISP-DM Business Scoping (100.00/100.00)",
-      "UK 2: Technical KPI Charters (100.00/100.00)",
-      "UK 3: 5-Fold Validation Scenarios (100.00/100.00)",
-      "UK 4: 6-Model Benchmark Review (90.00/100.00)",
-    ],
-  },
-  {
-    id: "dqlab",
-    name: "DQLab Data Science & AI",
-    slug: "dqlab-data-science-ai-foundations",
-    badge: "DQLAB VERIFIED",
-    status: "5 Credentials",
-    progressPct: 100,
-    modules: [
-      "Fundamental SQL Using SELECT Statement",
-      "Guide to Learn SQL with AI at DQLab",
-      "Guide to Learn Python with AI at DQLab",
-      "Python & R Fundamental for Data Science",
-    ],
-  },
-  {
     id: "aws",
     name: "AWS AI Academy 2026",
     slug: "aws-ai-academy-2026",
     badge: "AWS × DICODING",
-    status: "Active Cohort",
+    status: "Active Cohort (1/100)",
     progressPct: 1,
     modules: [
       "Spec-Driven Development dengan Kiro",
@@ -88,21 +32,21 @@ export function SiteFooter({
     <footer className={`footer ${wide ? "page-width-wide" : "page-width"}`}>
       <div className="footer-ongoing-wrapper">
         <Link
-          href="/learning/datacamp-data-analyst-associate/"
+          href="/learning/aws-ai-academy-2026/"
           className="footer-ongoing"
           role="region"
-          aria-label="View Verified Certification Track: DataCamp Data Analyst Associate"
+          aria-label="View Active Certification Track: AWS AI Academy 2026"
         >
           <span className="footer-ongoing-tag mono">
-            <span className="pulse-dot" aria-hidden="true" /> VERIFIED CREDENTIAL:
+            <span className="pulse-dot" aria-hidden="true" /> ACTIVE TRACK:
           </span>
           <span className="footer-ongoing-title mono">
-            DataCamp Data Analyst Associate
+            AWS AI Academy 2026
           </span>
-          <div className="footer-mini-progress mono" aria-label="Progress: 100% Completed">
-            <span className="footer-prog-label">100% Certified</span>
+          <div className="footer-mini-progress mono" aria-label="Progress: Active Cohort (1/100)">
+            <span className="footer-prog-label">Active Cohort</span>
             <div className="footer-prog-track">
-              <div className="footer-prog-bar" style={{ width: "100%" }} />
+              <div className="footer-prog-bar" style={{ width: "1%" }} />
             </div>
           </div>
           <span className="footer-ongoing-arrow mono" aria-hidden="true">
@@ -115,10 +59,10 @@ export function SiteFooter({
           <div className="floating-popover-header mono">
             <div className="popover-header-title">
               <span className="pulse-dot" />
-              <span>CERTIFICATIONS &amp; ACADEMIES (7 TRACKS)</span>
+              <span>ACTIVE LEARNING &amp; COHORTS (1 ONGOING)</span>
             </div>
             <Link href="/learning/" className="popover-progress-badge">
-              View All ↗
+              All Certs (7) ↗
             </Link>
           </div>
 
@@ -147,8 +91,10 @@ export function SiteFooter({
           </div>
 
           <div className="floating-popover-footer mono">
-            <span>Klik untuk membuka katalog &amp; silabus lengkap</span>
-            <i>↗</i>
+            <Link href="/learning/" style={{ color: "inherit", textDecoration: "none", display: "flex", width: "100%", justifyContent: "space-between" }}>
+              <span>Lihat 6 sertifikasi terverifikasi lainnya di katalog utama</span>
+              <i>↗</i>
+            </Link>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ const ONGOING_TRACKS = [
     name: "DataCamp Data Analyst Associate",
     slug: "datacamp-data-analyst-associate",
     badge: "DATACAMP VERIFIED",
-    status: "100% Certified & Verified",
+    status: "100% Certified",
     progressPct: 100,
     modules: [
       "Stage 1: Timed SQL Exam (Score: 174/86)",
@@ -26,7 +26,7 @@ const ONGOING_TRACKS = [
     name: "Komdigi Associate Data Scientist",
     slug: "komdigi-associate-data-scientist",
     badge: "KOMDIGI DTS",
-    status: "12/12 Units Completed",
+    status: "12/12 Units Done",
     progressPct: 100,
     modules: [
       "UK 01: Multi-Source Data Collection & Ingestion",
@@ -36,11 +36,39 @@ const ONGOING_TRACKS = [
     ],
   },
   {
+    id: "komdigi-ds-nasional",
+    name: "Komdigi Data Scientist Nasional",
+    slug: "komdigi-data-scientist-nasional",
+    badge: "KOMDIGI DTS",
+    status: "Score: 100.00",
+    progressPct: 100,
+    modules: [
+      "UK 1: CRISP-DM Business Scoping (100.00/100.00)",
+      "UK 2: Technical KPI Charters (100.00/100.00)",
+      "UK 3: 5-Fold Validation Scenarios (100.00/100.00)",
+      "UK 4: 6-Model Benchmark Review (90.00/100.00)",
+    ],
+  },
+  {
+    id: "dqlab",
+    name: "DQLab Data Science & AI",
+    slug: "dqlab-data-science-ai-foundations",
+    badge: "DQLAB VERIFIED",
+    status: "5 Credentials",
+    progressPct: 100,
+    modules: [
+      "Fundamental SQL Using SELECT Statement",
+      "Guide to Learn SQL with AI at DQLab",
+      "Guide to Learn Python with AI at DQLab",
+      "Python & R Fundamental for Data Science",
+    ],
+  },
+  {
     id: "aws",
     name: "AWS AI Academy 2026",
     slug: "aws-ai-academy-2026",
     badge: "AWS × DICODING",
-    status: "Active Cohort (1/100)",
+    status: "Active Cohort",
     progressPct: 1,
     modules: [
       "Spec-Driven Development dengan Kiro",
@@ -87,7 +115,7 @@ export function SiteFooter({
           <div className="floating-popover-header mono">
             <div className="popover-header-title">
               <span className="pulse-dot" />
-              <span>ACTIVE CERTIFICATIONS &amp; ACADEMIES (2 ENROLLED)</span>
+              <span>CERTIFICATIONS &amp; ACADEMIES (7 TRACKS)</span>
             </div>
             <Link href="/learning/" className="popover-progress-badge">
               View All ↗
@@ -119,7 +147,7 @@ export function SiteFooter({
           </div>
 
           <div className="floating-popover-footer mono">
-            <span>Klik untuk membuka silabus lengkap &amp; interactive lab</span>
+            <span>Klik untuk membuka katalog &amp; silabus lengkap</span>
             <i>↗</i>
           </div>
         </div>

@@ -4,6 +4,15 @@
 
 ---
 
+## 📅 [2026-09-02] — Patch v1.6.1: Footer Popover Multi-Track Synchronization & Badge Header Overhaul
+- **Components**: `components/SiteFooter.tsx`, `app/interactive.css`
+- **Changes**:
+  - Updated footer popover header to display `CERTIFICATIONS & ACADEMIES (7 TRACKS)`.
+  - Fixed merged text glitch (`DATACAMP DATA ANALYST ASSOCIATE100%`) by implementing flex spacing, dedicated `.track-group-status` pill badges, and separated header layouts.
+  - Added multi-track syllabus modules for Komdigi DTS, DQLab, DataCamp, and AWS into the interactive hover accordion.
+
+---
+
 ## 📅 [2026-09-02] — Patch v1.6.0: Comprehensive Certification Catalog Expansion (7 Tracks & Multi-Authority Kredensial)
 - **Components**:
   - `content/learning/datacamp-data-analyst-associate.md` (Updated to 100% Certified & Verified)

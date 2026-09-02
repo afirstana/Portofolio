@@ -6943,17 +6943,29 @@ button, input { font: inherit; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   font-size: 8.5px;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 5px;
+  padding-bottom: 6px;
+  margin-bottom: 2px;
 }
 .track-group-name {
   color: var(--ink-heading);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex: 1;
+  min-width: 0;
 }
 .track-group-status {
   color: var(--accent);
-  font-size: 7.5px;
+  font-size: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .track-link-row {
   display: flex;

@@ -5,6 +5,7 @@
 ---
 
 ## 📅 [2026-09-03] — Patch v1.6.6: Career Timeline & System Trajectory Overhaul
+- **Commit**: `9e2ca58`
 - **Components**: `content/timeline.md`, `components/TimelineExplorer.tsx`, `app/interactive.css`
 - **Changes**:
   - Overhauled Section 06 (*Where I've Been — A Career in Motion*) from 2 generic placeholders into a concrete 3-phase professional trajectory:

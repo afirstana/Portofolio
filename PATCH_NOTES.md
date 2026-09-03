@@ -4,6 +4,15 @@
 
 ---
 
+## 📅 [2026-09-03] — Patch v1.6.7: Minimalist Refinement of Career Timeline
+- **Components**: `content/timeline.md`, `components/TimelineExplorer.tsx`, `app/interactive.css`
+- **Changes**:
+  - Streamlined Section 06 (*Where I've Been — A Career in Motion*) to a minimalist, uncluttered layout per user direction.
+  - Stripped out heavy callout boxes, status badges, secondary tags, and extra links, returning to the sleek Obsidian typography.
+  - Kept all rows collapsed by default with lean, punchy 1-sentence role summaries and concise focus details.
+
+---
+
 ## 📅 [2026-09-03] — Patch v1.6.6: Career Timeline & System Trajectory Overhaul
 - **Commit**: `9e2ca58`
 - **Components**: `content/timeline.md`, `components/TimelineExplorer.tsx`, `app/interactive.css`

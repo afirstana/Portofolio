@@ -87,13 +87,9 @@ Spanning May 20, 1987 through November 14, 2022, Brent Crude Oil serves as the i
 
 ## 02. Dataset Hygiene & Multi-Format Date Normalization Pipeline
 
-```mermaid
-flowchart TD
-    A["Raw Time-Series (9,011 Trading Days)"] --> B["Dual-Format Date Ingestion Engine<br/>(%d-%b-%y and %b %d, %Y)"]
-    B --> C["Regime Classification<br/>(4 Structural Historical Eras)"]
-    C --> D["Geopolitical Shock Engine<br/>(7 Major Global Supply/Demand Crises)"]
-    D --> E["Volatility Clustering & Fat-Tail Risk<br/>(VaR 95%/99% & Kurtosis 45.43)"]
-    E --> F["Executive Power BI Intelligence Dashboard<br/>(Hedging Parameters & Decision Analytics)"]
+```diagram
+Econometric Ingestion & Risk Modeling | 35.5-Year Multi-Regime Architecture
+[01. Date Ingestion Engine | Standardizes 9,011 rows across mixed legacy and modern timestamp formats] ➔ [02. Macro Regime Segmentation | Segments 35.5 years into 4 distinct historical economic eras] ➔ [03. Geopolitical Shock Engine | Quantifies price shock elasticity across 7 global historical crises] ➔ [04. Fat-Tail Risk Modeling | Calculates rolling volatility, kurtosis (45.43), and VaR 95/99] ➔ [05. Executive Power BI Console | Interactive DAX dashboard delivering procurement risk guardrails]
 ```
 
 ### Ingestion Challenge: Dual-Format Date Encodings

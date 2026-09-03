@@ -192,12 +192,14 @@ export function MarkdownBody({ source }: { source: string }) {
       }
       i++; // skip closing ```
 
-      const isPipelineDiagram = codeType === "pipeline" || codeType === "flowchart" || codeType === "diagram" || codeLines.some(l => l.includes("➔") || l.includes("->"));
+      const codeLangs = ["python", "py", "sql", "dax", "javascript", "js", "typescript", "ts", "json", "yaml", "yml", "bash", "sh", "html", "css"];
+      const isCodeLang = codeLangs.includes(codeType);
+      const isPipelineDiagram = !isCodeLang && (codeType === "pipeline" || codeType === "flowchart" || codeType === "diagram" || (!codeType && codeLines.some(l => l.includes("➔"))));
 
       if (isPipelineDiagram) {
         // Parse Pipeline Lanes
         const lanes: Array<{ title: string; subtitle?: string; type: "danger" | "success" | "neutral"; steps: Array<{ title: string; desc?: string }> }> = [];
-        let currentTitle = "Surveillance Pipeline";
+        let currentTitle = "Architecture Flow";
         let currentSubtitle = "";
         let currentType: "danger" | "success" | "neutral" = "neutral";
 
@@ -228,6 +230,14 @@ export function MarkdownBody({ source }: { source: string }) {
             } else {
               currentSubtitle = "Real-Time Pre-Settlement Stream Defense (0ms Latency)";
             }
+            continue;
+          }
+
+          if (trimmed.includes("|") && !trimmed.includes("➔") && !trimmed.includes("->")) {
+            const parts = trimmed.split("|").map(p => p.trim());
+            currentTitle = parts[0].replace(/^Lane:\s*/i, "").replace(/:$/, "");
+            currentSubtitle = parts[1] || "";
+            currentType = "neutral";
             continue;
           }
 

@@ -5,6 +5,7 @@
 ---
 
 ## 📅 [2026-09-03] — Patch v1.6.5: Streamline Homepage — Remove Clinical Survival Matrix Section
+- **Commit**: `ac86c3c`
 - **Components**: `app/page.tsx`
 - **Changes**:
   - Removed Section 05.2 (`DataPlaygroundPart2` — *Global Benchmarks & Clinical Survival Matrix*) from the homepage per user directive.

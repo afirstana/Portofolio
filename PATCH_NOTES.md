@@ -4,6 +4,17 @@
 
 ---
 
+## 📅 [2026-09-03] — Patch v1.6.4: Universal Project Readability Standard & Architecture Flow Standardization
+- **Components**: `content/projects/*.md`
+- **Changes**:
+  - Conducted systematic QA audit across all 9 project case studies against the 5 Readability Invariants (`case-study-readability.md`).
+  - Standardized dynamic Mermaid architecture flowcharts across all projects, upgrading previous ASCII box drawings in Amazon Product Intelligence, ML Product Mapping, Revenue Reconciliation, Certificate Generator, Cancer Surveillance, and Olist Logistics.
+  - Added proactive vs reactive pipeline flow to Banking Transaction Anti-Fraud and parcelamento elasticity flow to Olist Payment Analytics.
+  - Sanitized currency dollar signs and mathematical ranges across frontmatter and body copy for 100% clean LaTeX KaTeX rendering.
+  - All 9 projects now achieve 100% compliance across Executive Callouts, Numbered Descriptive Headings, Markdown Tables, Mermaid Flows, and Escaped Currency.
+
+---
+
 ## 📅 [2026-09-03] — Patch v1.6.3: SEO, Crawler Metadata, PWA Manifest & Full LLMS Specification Overhaul
 - **Commit**: `1ae6fb8`
 - **Components**: `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, `public/llms.txt`

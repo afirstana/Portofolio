@@ -90,30 +90,13 @@ For educational institutions and conference organizers, manual certificate issua
 
 The application architecture decouples visual positioning from data ingestion and asynchronous PDF rendering:
 
-```
-┌───────────────────────────┐         ┌───────────────────────────┐
-│ Template Image (.png/.jpg)│         │ Participant Roster (.xlsx)│
-└─────────────┬─────────────┘         └─────────────┬─────────────┘
-              │                                     │
-              ▼                                     ▼
-┌───────────────────────────┐         ┌───────────────────────────┐
-│ Visual Coordinate Mapper  │         │ Dynamic Schema Auto-Bind  │
-│ (X, Y, Max-Width, Font)   │         │ (Name, Event, Date, ID)   │
-└─────────────┬─────────────┘         └─────────────┬─────────────┘
-              │                                     │
-              └──────────────────┬──────────────────┘
-                                 ▼
-              ┌─────────────────────────────────────┐
-              │   Pillow Font Bounding Box Engine   │
-              │   (Optical TrueType Auto-Centering) │
-              └──────────────────┬──────────────────┘
-                                 ▼
-              ┌─────────────────────────────────────┐
-              │   Multi-Threaded Vector Exporter    │
-              │   (ReportLab 300-DPI Batch Runner)  │
-              └──────────────────┬──────────────────┘
-                                 ▼
-              [Timestamped Bundle: 500 PDFs in 24.8s]
+```mermaid
+flowchart TD
+    A1["Template Image (.png/.jpg)"] --> B1["Visual Coordinate Mapper<br/>(X, Y, Max-Width, Font)"]
+    A2["Participant Roster (.xlsx)"] --> B2["Dynamic Schema Auto-Bind<br/>(Name, Event, Date, ID)"]
+    B1 & B2 --> C["Pillow Font Bounding Box Engine<br/>(Optical TrueType Auto-Centering)"]
+    C --> D["Multi-Threaded Vector Exporter<br/>(ReportLab 300-DPI Batch Runner)"]
+    D --> E["Timestamped Bundle: 500 PDFs in 24.8s<br/>(20.16 certs/sec, 0% Layout Drift)"]
 ```
 
 ### Core Architecture Modules:

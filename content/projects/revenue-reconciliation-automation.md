@@ -87,6 +87,18 @@ At **PT. Depoguna Bangunan Online (DBO Group)**, managing nationwide building ma
 
 ## 02. The 4-Tier Discrepancy Categorization Engine
 
+```mermaid
+flowchart TD
+    A["Source A: Original Tax Invoices<br/>(Faktur Asli Records)"] & B["Source B: Processed System Entries<br/>(ERP DBO Ledger Records)"] --> C["Vectorized String Sanitization & Normalization"]
+    C --> D["Composite 4-Key Pairing Algorithm<br/>(Invoice ID, NPWP, Date, Nominal)"]
+    D --> E{"4-Tier Classification Engine"}
+    E -->|"Delta = 0"| F1["Tier 1: 100% Cleared<br/>(Auto-Cleared for General Ledger)"]
+    E -->|"Delta > 0"| F2["Tier 2: Tax & Rounding Diff<br/>(Credit / Adjustment Review)"]
+    E -->|"Missing in ERP"| F3["Tier 3: Missing in System<br/>(Pre-Tax Filing Entry Queue)"]
+    E -->|"Duplicate Found"| F4["Tier 4: Duplicate Processed<br/>(Reversal Alert: Zero Double Pay)"]
+    F1 & F2 & F3 & F4 --> G["Automated Openpyxl Executive Workbook<br/>(Turnaround Cut from 1 Wk to 1 Day)"]
+```
+
 The engine parses and categorizes every transaction into one of four definitive financial audit buckets:
 
 > [!TIP]

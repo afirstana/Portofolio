@@ -107,42 +107,23 @@ $$\text{Final Score} = 0.20 \times M_1 + 0.25 \times M_2 + 0.20 \times M_3 + 0.1
 
 ## 03. Operational Workflow: 3-Tier Confidence Triage
 
-```
-[Distributor PO / Invoice Text]
-               │
-               ▼
-┌─────────────────────────────────────────────────┐
-│  Text Preprocessing & Dimension Normalization   │
-│  (Regex inch-mm, brand aliases, schedule specs) │
-└──────────────────────┬──────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────┐
-│   5-Model + TF-IDF Hybrid Ensemble Scoring      │
-│  (Bi-Encoder ➡️ Cross-Encoder ➡️ XGBoost ➡️ RF) │
-└──────────────────────┬──────────────────────────┘
-                       │
-       ┌───────────────┴───────────────┐
-       ▼                               ▼
-[Score ≥ 85%: AUTO-APPROVE]   [Score 60-85%: REVIEW QUEUE]   [Score < 60%: ANOMALY FLAG]
- (>80% Total PO Volume)        (Top 3 Suggested Candidates)   (New Uncataloged SKU)
-       │                               │                               │
-       │                               ▼                               │
-       │                   [Operator Validates Choice]                 │
-       │                               │                               │
-       │                               ▼                               │
-       │                   ┌────────────────────────┐                  │
-       │                   │ Online Active Learner  │                  │
-       │                   │ Weight Update (<1ms)   │                  │
-       │                   └────────────────────────┘                  │
-       ▼                               ▼                               ▼
- [ERP SAP Master SKU]         [ERP SAP Master SKU]            [Master Data Triage]
+```mermaid
+flowchart TD
+    A["Distributor PO / Invoice Text"] --> B["Text Preprocessing & Dimension Normalization<br/>(Regex inch-mm, brand aliases, specs)"]
+    B --> C["Hierarchical Ensemble Scoring<br/>(Bi-Encoder ➔ Cross-Encoder ➔ XGBoost ➔ RF)"]
+    C --> D{"Confidence Triage"}
+    D -->|"Score ≥ 85%: Auto-Approve"| E["ERP SAP Master SKU<br/>(>80% PO Volume, 95.4% Precision)"]
+    D -->|"Score 60-85%: Review Queue"| F["Human Review Queue<br/>(Top 3 Suggestions)"]
+    D -->|"Score < 60%: Anomaly Flag"| G["Master Data Triage<br/>(New Uncataloged SKU)"]
+    F --> H["Operator Validates Choice"]
+    H --> I["Online Active Learner<br/>(Incremental SGD Update <1ms)"]
+    I --> E
 ```
 
 ### Confidence Tier Specifications:
-1. **Tier 1: Auto-Approved ($\ge 85\%$ Score)**: Covers **>80% of daily PO volume**, directly synchronizing with the SAP ERP system with **95.4% precision**.
-2. **Tier 2: Human Review Queue ($60\% - 85\%$ Score)**: Surfaces the Top 3 recommended candidates. Operator clicks update the online active learner in **<1ms**.
-3. **Tier 3: Anomaly / Uncataloged Flag ($< 60\%$ Score)**: Isolates new unreleased product lines for Master Data team cataloging.
+1. **Tier 1: Auto-Approved (Score ≥ 85%)**: Covers **>80% of daily PO volume**, directly synchronizing with the SAP ERP system with **95.4% precision**.
+2. **Tier 2: Human Review Queue (Score 60%–85%)**: Surfaces the Top 3 recommended candidates. Operator clicks update the online active learner in **<1ms**.
+3. **Tier 3: Anomaly / Uncataloged Flag (Score < 60%)**: Isolates new unreleased product lines for Master Data team cataloging.
 
 ---
 

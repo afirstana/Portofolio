@@ -92,6 +92,14 @@ Across 103,886 payment transaction records totaling **R\$ 16,008,872.12 GMV**, t
 
 ## 02. Multi-Payment Ingestion & Normalization Rules
 
+```mermaid
+flowchart TD
+    A["Raw Olist Payments<br/>(103,886 Transaction Records)"] --> B["Multi-Payment Sequential Aggregation<br/>(Sum Values & Max Installments)"]
+    B --> C["Dominant Payment Type Assignment<br/>(Credit Card / Boleto / Voucher / Debit)"]
+    C --> D["Installment Elasticity & AOV Multiplier<br/>(1x vs 7-10x: 3.33x Basket Surge)"]
+    D --> E["Fintech Working Capital Architecture<br/>(0% Interest Subsidy Thresholds & Merchant P&L)"]
+```
+
 In Brazilian e-commerce, customers frequently combine promotional vouchers with secondary credit cards. The data pipeline executes three normalization rules:
 
 1. **Multi-Payment Sequential Aggregation (`payment_sequential > 1`)**:

@@ -61,12 +61,14 @@ preview:
 
 In modern retail and corporate banking environments, financial crime operations face a critical time lag when relying on legacy post-settlement reviews:
 
-```
-Conventional Reactive Pipeline | Legacy Post-Settlement Lag (30–90 Days)
-[01. Transaction Event] ➔ [02. Settlement Batch] ➔ [03. Customer Dispute] ➔ [04. 30–90 Day Backlog]
-
-Proactive SQL Surveillance Architecture | Real-Time Pre-Settlement Stream Defense (0ms Latency)
-[01. Transaction Event] ➔ [02. 8-Point SQL Flags] ➔ [03. Real-Time Risk Score] ➔ [04. Instant Triage HUD]
+```mermaid
+flowchart TD
+    subgraph Reactive["Conventional Reactive Pipeline (30–90 Day Lag)"]
+        R1["01. Transaction Event"] --> R2["02. Settlement Batch"] --> R3["03. Customer Dispute"] --> R4["04. 30–90 Day Backlog"]
+    end
+    subgraph Proactive["Proactive SQL Stream Defense (0ms Latency)"]
+        P1["01. Transaction Event"] --> P2["02. 8-Point SQL Anomaly Flags"] --> P3["03. Real-Time Risk Score (0–6)"] --> P4["04. Instant Triage Surveillance HUD"]
+    end
 ```
 
 To establish proactive defense, this architecture implements an **8-point rule-based anomaly detection engine** at the SQL transformation layer, feeding an interactive **surveillance dashboard suite** tailored for executive oversight, channel risk management, customer behavioral analytics, and forensic transaction drill-downs.

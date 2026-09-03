@@ -58,15 +58,15 @@ evidence:
   - slot: "03"
     kind: "screenshot"
     title: "Volatility Clustering & Value-at-Risk (VaR) Distribution"
-    description: "Statistical distribution analysis visualizing fat tails, kurtosis anomalies, and 30-day rolling volatility regimes."
-    alt: "Statistical risk distribution and volatility clustering chart."
+    description: "Empirical return distribution showing fat-tail kurtosis (45.43) and Value-at-Risk failure thresholds."
+    alt: "Statistical distribution chart of Brent crude daily returns."
     image: ""
 ---
 
 > [!NOTE]
-> **Executive Summary & Macro Scope**:
-> - **Core Challenge**: Energy markets suffer from extreme non-linear price dislocations where standard Gaussian risk models fail to account for black swan events and geopolitical supply disruptions.
-> - **Technical Solution**: Ingested and harmonized **9,011 daily trading records (1987–2022)** via a dual-pattern Python ETL pipeline, modeling non-stationary regime shifts, empirical Value-at-Risk (VaR 95/99), and moving average crossovers.
+> **Executive Summary & Macro Impact**:
+> - **Core Challenge**: Crude oil is the world's most volatile physical asset, prone to sudden geopolitical disruption and extreme fat-tail kurtosis where standard linear models fail catastrophically.
+> - **Technical Solution**: Built a 35.5-year econometric pipeline (1987–2022, 9,011 trading days) modeling dual-format date parsing, 4 structural macro regimes, moving average trend crossovers, and rolling Value-at-Risk (VaR 95%/99%).
 > - **Quantified Impact**: Discovered an empirical kurtosis of **45.43** (+1,414% excess kurtosis over Gaussian norms) and quantified event-driven shock elasticity across **7 global geopolitical crises**, establishing institutional risk parameters for energy procurement.
 
 ---
@@ -86,6 +86,15 @@ Spanning May 20, 1987 through November 14, 2022, Brent Crude Oil serves as the i
 ---
 
 ## 02. Dataset Hygiene & Multi-Format Date Normalization Pipeline
+
+```mermaid
+flowchart TD
+    A["Raw Time-Series (9,011 Trading Days)"] --> B["Dual-Format Date Ingestion Engine<br/>(%d-%b-%y and %b %d, %Y)"]
+    B --> C["Regime Classification<br/>(4 Structural Historical Eras)"]
+    C --> D["Geopolitical Shock Engine<br/>(7 Major Global Supply/Demand Crises)"]
+    D --> E["Volatility Clustering & Fat-Tail Risk<br/>(VaR 95%/99% & Kurtosis 45.43)"]
+    E --> F["Executive Power BI Intelligence Dashboard<br/>(Hedging Parameters & Decision Analytics)"]
+```
 
 ### Ingestion Challenge: Dual-Format Date Encodings
 The dataset aggregates records across two historical collection eras, producing non-contiguous date formatting anomalies within a single timestamp column:

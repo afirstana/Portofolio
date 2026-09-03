@@ -81,11 +81,11 @@ Cancer accounts for approximately **1 in 6 deaths globally**. Controlling for po
 
 The raw data architecture comprises 26 CSV datasets totaling 20.3 MB with heterogeneous temporal spans. The Python ETL pipeline (`scripts/process_cancer_data.py`) executes 4 structured phases:
 
-```
-┌───────────────────────────┐     ┌───────────────────────────┐     ┌───────────────────────────┐
-│ 26 Raw CSV Panel Datasets │ ──> │ ISO Entity Normalization  │ ──> │ Master Precomputed JSON   │
-│ (281.4k Panel Rows, OWID) │     │ ASDR, Age Weights, Neoplasms│   │ (Zero-Dependency Payload) │
-└───────────────────────────┘     └───────────────────────────┘     └───────────────────────────┘
+```mermaid
+flowchart LR
+    A["26 Raw CSV Panel Datasets<br/>(281.4k Panel Rows, OWID)"] --> B["ISO Entity Normalization<br/>(ASDR, Age Weights, 29 Neoplasms)"]
+    B --> C["Relational Metric Harmonization<br/>(30-Year Longitudinal Deltas)"]
+    C --> D["Master Precomputed JSON Payload<br/>(<86 KB Zero-Server Runtime)"]
 ```
 
 | Pipeline Stage | Input Grain | Transformation Protocol | Output Deliverable |

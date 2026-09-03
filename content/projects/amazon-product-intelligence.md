@@ -73,11 +73,12 @@ evidence:
 
 The snapshot dataset comprises **1,465 catalog records** across **1,351 unique product entities**. The pipeline enforces rigorous schema integrity checks before performing any downstream aggregations:
 
-```
-┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
-│   RAW SNAPSHOT (CSV)    │ ──> │   PARSING & CLEANING    │ ──> │  STATIC PRECOMPUTATION  │
-│  1,465 Product Records  │     │ Currency, Discounts, NLP│     │ Compact JSON Artifacts  │
-└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
+```mermaid
+flowchart LR
+    A["Raw Snapshot CSV<br/>(1,465 Products)"] --> B["Parsing & Normalization<br/>(Currency, Taxonomy, Text)"]
+    B --> C["EDA & Quality Invariants<br/>(Discount Delta & Boundary Checks)"]
+    C --> D["TF-IDF & ML Classifier<br/>(F1: 0.7414 / AUC: 0.8369)"]
+    D --> E["Precomputed JSON Artifacts<br/>(Zero-Server Client Execution)"]
 ```
 
 ### Invariant Validation Rules:

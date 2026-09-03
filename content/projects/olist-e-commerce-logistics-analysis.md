@@ -89,21 +89,13 @@ Across 99,441 delivered orders spanning 27 federated states (8.5 million $\text{
 
 The pipeline harmonizes 9 relational tables totaling 1.55M rows:
 
-```
-┌───────────────────────────┐         ┌───────────────────────────┐
-│     orders (99.4k rows)   │ ──────> │   customers (93.4k users) │
-└─────────────┬─────────────┘         └─────────────┬─────────────┘
-              │                                     │
-              ▼                                     ▼
-┌───────────────────────────┐         ┌───────────────────────────┐
-│  order_items (112.7k rows)│ ──────> │  order_payments (103.9k)  │
-└─────────────┬─────────────┘         └─────────────┬─────────────┘
-              │                                     │
-              └──────────────────┬──────────────────┘
-                                 ▼
-              ┌─────────────────────────────────────┐
-              │ Haversine & 9-Segment RFM Modeling  │
-              └─────────────────────────────────────┘
+```mermaid
+flowchart TD
+    A["orders (99.4k rows)"] --> B["customers (93.4k users)"]
+    A --> C["order_items (112.7k rows)"]
+    C --> D["order_payments (103.9k)"]
+    B & C & D --> E["Haversine Geodesic Engine & 9-Segment RFM Modeling"]
+    E --> F["Executive Power BI Supply Chain Intelligence Console"]
 ```
 
 | Relational Entity | Record Volume | Grain & Primary Keys | Data Cleansing Protocol |

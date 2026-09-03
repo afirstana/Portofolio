@@ -5,6 +5,7 @@
 ---
 
 ## 📅 [2026-09-03] — Patch v1.6.3: SEO, Crawler Metadata, PWA Manifest & Full LLMS Specification Overhaul
+- **Commit**: `1ae6fb8`
 - **Components**: `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, `public/llms.txt`
 - **Changes**:
   - Expanded `sitemap.xml` dynamic generator to index all core landing pages, 9 project case studies, 7 certification tracks, and 4 opinion essays (23 canonical indexed URLs with priority and changeFrequency tuning).
@@ -15,6 +16,7 @@
 ---
 
 ## 📅 [2026-09-02] — Patch v1.6.2: Restrict Footer Widget Exclusively to Active Ongoing Cohorts
+- **Commit**: `a5a2fe7`
 - **Components**: `components/SiteFooter.tsx`
 - **Changes**:
   - Reconfigured the footer widget to strictly feature active in-progress cohorts (`AWS AI Academy 2026`), preserving the footer as an exclusive telemetry strip for ongoing studies.
@@ -23,6 +25,7 @@
 ---
 
 ## 📅 [2026-09-02] — Patch v1.6.1: Footer Popover Multi-Track Synchronization & Badge Header Overhaul
+- **Commit**: `1400957`
 - **Components**: `components/SiteFooter.tsx`, `app/interactive.css`
 - **Changes**:
   - Updated footer popover header to display `CERTIFICATIONS & ACADEMIES (7 TRACKS)`.
@@ -32,6 +35,7 @@
 ---
 
 ## 📅 [2026-09-02] — Patch v1.6.0: Comprehensive Certification Catalog Expansion (7 Tracks & Multi-Authority Kredensial)
+- **Commit**: `e5a2545`
 - **Components**:
   - `content/learning/datacamp-data-analyst-associate.md` (Updated to 100% Certified & Verified)
   - `content/learning/komdigi-project-management-fundamental.md` (New 100% Verified Track)

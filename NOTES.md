@@ -1,23 +1,27 @@
 # PROJECT SESSION NOTES & QUICK REFERENCE
 
 > **Project**: Abimael.Data Portfolio & Interactive Analytical Engine  
-> **Date**: August 31, 2026 (2026-08-31)  
+> **Date**: September 03, 2026 (2026-09-03)  
 > **Status**: Production Ready & Fully Verified (100% QA/QC Pass)  
 > **Local Server**: `http://localhost:3000`  
-> **Backup Bundle**: `backup-portfolio-2026-08-31.bundle` (4.13 MB)  
+> **Backup Bundle**: `backup-portfolio-2026-09-02.bundle` (4.14 MB)  
 
 ---
 
 ## 01. RINGKASAN PEKERJAAN & PEMBARUAN TERAKHIR
 
-1. **Sinkronisasi Matriks Bukti Skill (#01–#09) & Keseimbangan Tata Letak (`/#skills`)**:
-   - Menghubungkan seluruh **9 studi kasus** ke matriks kemampuan (`Python`, `Power BI`, `SQL`, `Predictive Analytics`, `Scikit-Learn`, `Data Quality`, `Automation Design`).
-   - Merestrukturisasi kartu bukti sebelah kanan (`.skill-evidence-card`) menjadi konsol monokrom dengan **tinggi simetris seimbang 1:1 (`min-height: 480px`)** terhadap daftar skill di sebelah kiri.
-   - Mengintegrasikan *inner scrollpane* terisolasi, nomor urut oranye (`01.`, `02.`), tag kategori spesifik (`FINTECH`, `HEALTHCARE`, dll.), dan header topbar telemetry.
-   - Menghapus aturan CSS lama di `app/interactive.css` yang menyebabkan tampilan meregang atau tidak seimbang.
+1. **Peningkatan Menyeluruh SEO, AI Crawlers, PWA & LLMS Standard (Patch v1.6.3)**:
+   - Dynamic `sitemap.xml`: Mengindeks seluruh 23 URL kanonik (Beranda, 9 Proyek, 7 Sertifikasi, 4 Opini) dengan prioritas dan update frequency.
+   - Enhanced `robots.txt`: Mengisolasi rute admin (`/admin/`) dan memberikan izin eksplisit bagi AI crawlers (`GPTBot`, `ClaudeBot`, `Google-Extended`, `PerplexityBot`, `Applebot-Extended`).
+   - PWA `manifest.webmanifest`: App shortcuts (Selected Work, Certifications, Opinions), high-res touch icons, dan portrait standalone display.
+   - Standard `llms.txt`: Dokumentasi komprehensif 9 proyek, 7 sertifikasi, 4 opini, dan kontak provenance.
 
-2. **Katalog Sertifikasi Terstandarisasi (`/learning/`)**:
-   - Dibuat format **Compact Monochrome Data Table** dengan kolom `#`, `CERTIFICATION / PROGRAM`, `AUTHORITY / PROVIDER`, `PROGRESS & STATUS`, dan `ACTION`.
+2. **Katalog Sertifikasi & Kredensial Terverifikasi (Patch v1.6.0 - v1.6.2)**:
+   - DataCamp Data Analyst Associate (DAA): **100% Certified & Verified** (`DAA0012071407542`).
+   - Komdigi DTS: Fundamental Project Management (**Verified 2025** dengan PDF terarsip).
+   - Komdigi DTS: Associate Data Scientist, Data Scientist Supervisor, dan Data Scientist Nasional (Skor Sempurna 100.00).
+   - DQLab: 5 Kredensial Terverifikasi (SQL, Python, R, AI Learning).
+   - Footer Ongoing Strip: Dikhususkan eksklusif hanya untuk track aktif yang sedang ditempuh (`AWS AI Academy 2026`).
    - Menambahkan *Telemetry Strip* ringkas di header (`TRACKS`, `ACTIVE COHORTS`, `TOTAL MODULES`, `STANDARDS`).
    - Seluruh baris tabel interaktif dan bernavigasi ke halaman detail `/learning/[slug]/`.
    - Ditambahkan rute alias `/certifications/` yang mengarahkan otomatis ke `/learning/`.

@@ -4,6 +4,15 @@
 
 ---
 
+## 📅 [2026-09-03] — Patch v1.6.5: Streamline Homepage — Remove Clinical Survival Matrix Section
+- **Components**: `app/page.tsx`
+- **Changes**:
+  - Removed Section 05.2 (`DataPlaygroundPart2` — *Global Benchmarks & Clinical Survival Matrix*) from the homepage per user directive.
+  - Retained Section 05.1 (`DataPlayground` — *Global Cancer Epidemiology & Trends*) and the full dedicated case study at `/projects/global-cancer-epidemiology-surveillance/`.
+  - Decreased homepage JS payload from 9.81 kB to 6.62 kB while keeping all 232 test cases and 31 static routes passing 100%.
+
+---
+
 ## 📅 [2026-09-03] — Patch v1.6.4: Universal Project Readability Standard & Architecture Flow Standardization
 - **Commit**: `1434277`
 - **Components**: `content/projects/*.md`

@@ -5,6 +5,7 @@
 ---
 
 ## 📅 [2026-09-03] — Patch v1.6.7: Minimalist Refinement of Career Timeline
+- **Commit**: `a28024a`
 - **Components**: `content/timeline.md`, `components/TimelineExplorer.tsx`, `app/interactive.css`
 - **Changes**:
   - Streamlined Section 06 (*Where I've Been — A Career in Motion*) to a minimalist, uncluttered layout per user direction.

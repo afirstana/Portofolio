@@ -4,6 +4,16 @@
 
 ---
 
+## 📅 [2026-09-03] — Patch v1.6.3: SEO, Crawler Metadata, PWA Manifest & Full LLMS Specification Overhaul
+- **Components**: `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, `public/llms.txt`
+- **Changes**:
+  - Expanded `sitemap.xml` dynamic generator to index all core landing pages, 9 project case studies, 7 certification tracks, and 4 opinion essays (23 canonical indexed URLs with priority and changeFrequency tuning).
+  - Upgraded `robots.txt` with explicit AI crawler permissions (GPTBot, ClaudeBot, PerplexityBot, Applebot-Extended, Google-Extended), admin route isolation (`disallow: ["/admin", "/admin/"]`), canonical Host, and Sitemap reference.
+  - Enhanced `manifest.webmanifest` PWA metadata with app shortcuts (Selected Work, Certifications, Opinions), high-resolution icons (180px Apple touch, 512px SVG), and portrait display mode.
+  - Overhauled `llms.txt` following standard LLMS.txt specification, incorporating all 9 projects, 7 certifications with IDs/URLs, 4 technical essays, and author contact provenance.
+
+---
+
 ## 📅 [2026-09-02] — Patch v1.6.2: Restrict Footer Widget Exclusively to Active Ongoing Cohorts
 - **Components**: `components/SiteFooter.tsx`
 - **Changes**:

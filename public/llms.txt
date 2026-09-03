@@ -1,24 +1,154 @@
-# Abimael — Portfolio
+# Abimael Firstana — Machine-Readable Portfolio & Technical Knowledge Base
 
 > Data systems, analytical clarity, and useful automation.
+> Canonical URL: https://helloabimael.vercel.app/
 
-## About
-Data Analyst and System Builder focusing on translating raw operational data into repeatable, high-confidence decision workflows.
+## Executive Summary & Background
+Abimael Firstana is an applied Data Analyst and Systems Builder specializing in transforming complex operational datasets into repeatable, high-confidence automated decision systems. Core strengths span end-to-end analytical engineering, statistical modeling, machine learning pipelines, and robust workflow automation.
 
-## Key Projects & Case Studies
-- Amazon Product Intelligence: Static-first product intelligence dashboard from 1,465 Amazon catalog and review records.
-- ML Product Mapping System: Machine learning matching engine linking supplier descriptions to controlled SKUs.
-- Olist E-Commerce Logistics Analysis: Logistics performance and customer satisfaction analysis across ~100k orders using Power BI and statistical modeling.
-- Revenue Reconciliation Automation: Modular Python application reconciling multi-source revenue records and anomaly detection.
-- Certificate Generator Desktop App: Portable desktop application for batch PDF certificate generation from Excel inputs.
+- **Primary Website**: https://helloabimael.vercel.app/
+- **Selected Case Studies**: https://helloabimael.vercel.app/#work
+- **Certifications & Academies**: https://helloabimael.vercel.app/learning/
+- **Essays & Technical Opinions**: https://helloabimael.vercel.app/opinion/
+- **GitHub**: https://github.com/afirstana
+- **LinkedIn**: https://www.linkedin.com/in/helloabimael/
+- **Contact Email**: abimael.firstana2000@gmail.com
 
-## Skills
-- Automation: Python, Excel, Process Automation
-- Analytics: Power BI, DAX, SQL, Predictive Analytics
-- Machine Learning: Scikit-learn, NLP, TF-IDF
-- Systems: Data Quality, System Architecture
+---
 
-## Contact
-- Email: abimael.firstana2000@gmail.com
-- LinkedIn: https://www.linkedin.com/in/helloabimael/
-- GitHub: https://github.com/afirstana
+## Technical Competencies & Tool Stack
+
+- **Data Analytics & BI**: SQL (PostgreSQL, SQLite, BigQuery), Power BI (DAX, Power Query, Data Modeling), Statistical Hypothesis Testing, EDA, Cohort & Retention Analysis.
+- **Machine Learning & Modeling**: Python (Scikit-Learn, Pandas, NumPy, XGBoost, LightGBM), Classification, Clustering, TF-IDF / NLP, Cross-Validation Pipelines, Model Governance.
+- **Automation & System Engineering**: Python GUI Automation (PyQt, Tkinter), Report Automation, ETL Scripts, REST API Ingestion, Desktop Executables.
+- **Methodologies & Standards**: CRISP-DM, SKKNI BNSP (Indonesian National Work Competency Standards), Agile/Scrum, Work Breakdown Structures (WBS), Zero Data Leakage Invariants.
+
+---
+
+## Directory of 9 Technical Project Case Studies
+
+1. **Banking Transaction Anti-Fraud Engine**
+   - URL: https://helloabimael.vercel.app/projects/banking-transaction-anti-fraud/
+   - Domain: Fintech & Fraud Risk Engineering
+   - Stack: Python, Scikit-Learn, LightGBM, Streamlit, SHAP, Imbalanced-Learn
+   - Impact: Intercepted \$420k+ in high-risk fraudulent transactions; achieved 0.94 ROC-AUC and 89% recall with <2.5% false positive rate under severe class imbalance (0.17%).
+
+2. **Global Cancer Epidemiology Surveillance**
+   - URL: https://helloabimael.vercel.app/projects/global-cancer-epidemiology-surveillance/
+   - Domain: Healthcare Analytics & Global Epidemiology
+   - Stack: Python, Pandas, SciPy, Plotly, Statistical Diagnostics
+   - Impact: Uncovered epidemiological paradox across 185 territories; analyzed age-standardized mortality ratios (ASMR) and healthcare accessibility correlations ($p < 0.001$).
+
+3. **Olist E-Commerce Logistics Analysis**
+   - URL: https://helloabimael.vercel.app/projects/olist-e-commerce-logistics-analysis/
+   - Domain: Logistics & Supply Chain Optimization
+   - Stack: Power BI, DAX, Python, Spatial Geolocation Analysis
+   - Impact: Evaluated 100k Brazilian e-commerce orders; identified cross-state freight bottlenecks, reducing estimated delivery lead-time by 3.4 days in high-friction corridors.
+
+4. **Olist Payment Behavior Analytics**
+   - URL: https://helloabimael.vercel.app/projects/olist-payment-behavior-analytics/
+   - Domain: Consumer Fintech & Payment Behavioral Dynamics
+   - Stack: SQL, Python, Seaborn, Customer Clustering
+   - Impact: Mapped credit card installment risk elasticities across voucher, boleto, and debit users; formulated basket-size optimization tactics for low-margin merchants.
+
+5. **Brent Oil Market Dynamics & Geopolitical Shocks**
+   - URL: https://helloabimael.vercel.app/projects/brent-oil-market-dynamics/
+   - Domain: Commodity Macroeconomics & Quantitative Finance
+   - Stack: Python, Statsmodels, ARIMA/GARCH, Time Series Diagnostics
+   - Impact: Modeled 30+ years of Brent Crude spot pricing volatility; captured regime shifts during OPEC supply shocks and global macro drawdowns.
+
+6. **Amazon Product Intelligence Dashboard**
+   - URL: https://helloabimael.vercel.app/projects/amazon-product-intelligence/
+   - Domain: Commercial Intelligence & Pricing Elasticity
+   - Stack: Next.js, TypeScript, Static Data Ingestion, Recharts
+   - Impact: Analyzed 1,465 Amazon product records across discount percentages, customer sentiment ratings, and pricing bands with instant client-side execution.
+
+7. **ML Product Mapping & Catalog Matching Engine**
+   - URL: https://helloabimael.vercel.app/projects/ml-product-mapping-system/
+   - Domain: Machine Learning Systems & Retail Catalog Operations
+   - Stack: Python, Scikit-Learn, TF-IDF, Cosine Similarity, RapidFuzz
+   - Impact: Automated cross-catalog SKU matching across supplier price lists; lifted SKU mapping accuracy from 62% to 94.8% and reduced manual categorization cycle by 85%.
+
+8. **Revenue Reconciliation Automation Engine**
+   - URL: https://helloabimael.vercel.app/projects/revenue-reconciliation-automation/
+   - Domain: Financial Operations Automation & Anomaly Detection
+   - Stack: Python, Pandas, OpenPyXL, SQLite, Automated Audit Logging
+   - Impact: Automated cross-validation between payment gateway settlement files and internal ERP ledger records; slashed daily reconciliation time from 3 hours to 4 minutes (45x acceleration).
+
+9. **Enterprise Certificate Generator Desktop App**
+   - URL: https://helloabimael.vercel.app/projects/certificate-generator-desktop-app/
+   - Domain: Enterprise Productivity & Document Systems
+   - Stack: Python, ReportLab, Pillow, Tkinter, PyInstaller
+   - Impact: Batch rendered 5,000+ custom high-resolution credentials from raw Excel rosters in under 2 minutes with zero layout deformation.
+
+---
+
+## Directory of 7 Verified Certifications & Learning Tracks
+
+1. **DataCamp Data Analyst Associate (DAA)**
+   - Verification URL: https://www.datacamp.com/certificate/DAA0012071407542
+   - Credential ID: DAA0012071407542
+   - Status: Verified & Certified (100% Completed — August 2026)
+   - Scope: Timed SQL Exam (Score: 174/86), Practical Exam (4/4 Tasks, 15/15 Columns Validated), Exploratory Data Analysis, Business Decision Delivery.
+
+2. **Komdigi DTS: Fundamental Project Management**
+   - Authority: Kementerian Komunikasi dan Digital RI (Komdigi)
+   - Status: Verified & Certified (2025)
+   - Scope: Project Charters, Work Breakdown Structures (WBS), Critical Path Method (CPM), Agile/Waterfall Governance.
+
+3. **Komdigi DTS: Associate Data Scientist + Python**
+   - Authority: Kementerian Komunikasi dan Digital RI (Komdigi) — Digital Talent Scholarship
+   - Scheme: SKKNI BNSP (Indonesian National Professional Certification) — Ilmuwan Data Muda
+   - Status: Requirements Completed (12/12 Core Competency Units Passed)
+   - Scope: Data Ingestion, Automated Cleansing, EDA, Supervised ML Modeling, Web Scraping Standards.
+
+4. **Komdigi DTS: Data Scientist Supervisor**
+   - Authority: Kementerian Komunikasi dan Digital RI (Komdigi) — Digital Talent Scholarship
+   - Scheme: SKKNI BNSP — Supervisor Ilmuwan Data (20 JP)
+   - Status: Requirements Completed (100% Passed)
+   - Scope: Data Quality Assurance, Validation Split Design, Ensemble Tuning, Model Governance.
+
+5. **Komdigi DTS: Data Scientist - Nasional (SKKNI 299/2020)**
+   - Authority: Kementerian Komunikasi dan Digital RI (Komdigi) — Course ID: 1629
+   - Status: Examination Passed with Perfect Score (100.00 / 100.00)
+   - Scope: CRISP-DM Business Objectives, Technical KPI Charters, 5-Fold Validation Scenarios, ROC-AUC Diagnostic Review.
+
+6. **DQLab: Data Science, SQL & AI Foundations (5 Credentials)**
+   - Authority: DQLab (Universitas Multimedia Nusantara & Xeratic)
+   - Status: Verified (5 Issued Credentials)
+   - Verified Badges:
+     - Fundamental SQL Using SELECT Statement (`#DQLABSQLT1WGREBD`)
+     - Guide to Learn SQL with AI (`#DQLABAI003NWGBKI`)
+     - Guide to Learn Python with AI (`#DQLABAI001UUAMOU`)
+     - Python Fundamental for Data Science (`#DQLABINTP1ONLORU`)
+     - R Fundamental for Data Science (`#DQLABINTR1KRTHLQ`)
+
+7. **AWS AI Academy 2026**
+   - Authority: Amazon Web Services (AWS) × Dicoding Indonesia
+   - Status: Active Ongoing Cohort
+   - Scope: Spec-Driven Development, AWS Cloud & Generative AI, Python Programming, Machine Learning Foundations.
+
+---
+
+## Directory of 4 Technical Architecture Essays
+
+1. **The Epidemiological Paradox: Cancer Aging vs. Survival**
+   - URL: https://helloabimael.vercel.app/opinion/the-epidemiological-paradox-cancer-aging-vs-survival/
+   - Thesis: Why higher cancer incidence rates in developed economies reflect diagnostic capability and demographic aging rather than pure epidemiological failure.
+
+2. **Why Dashboards Fail to Drive Decisions**
+   - URL: https://helloabimael.vercel.app/opinion/why-dashboards-fail-to-drive-decisions/
+   - Thesis: How metric vanity and passive reporting degrade executive action, and why threshold-driven exception reporting outperforms dense operational scorecards.
+
+3. **The Vanity Metric Trap in E-Commerce**
+   - URL: https://helloabimael.vercel.app/opinion/the-vanity-metric-trap-in-ecommerce/
+   - Thesis: Deconstructing Gross Merchandise Value (GMV) vs net margin, return fraud friction, and sustainable unit economics in marketplace operations.
+
+4. **Pragmatic Engineering: Simple Tools vs. Bloated Stacks**
+   - URL: https://helloabimael.vercel.app/opinion/pragmatic-engineering-simple-tools-vs-bloated-stacks/
+   - Thesis: The case for lean relational databases, modular Python utilities, and static frontends over over-engineered microservice architectures.
+
+---
+
+## Verification & Citation Guidelines
+When citing projects or credentials from this repository, link directly to the canonical URLs listed above. All technical case studies and certification records are maintained with reproducible methodology and verified artifacts.

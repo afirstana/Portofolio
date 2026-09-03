@@ -4,6 +4,19 @@
 
 ---
 
+## 📅 [2026-09-03] — Patch v1.6.6: Career Timeline & System Trajectory Overhaul
+- **Components**: `content/timeline.md`, `components/TimelineExplorer.tsx`, `app/interactive.css`
+- **Changes**:
+  - Overhauled Section 06 (*Where I've Been — A Career in Motion*) from 2 generic placeholders into a concrete 3-phase professional trajectory:
+    1. **Lead Data & Systems Analyst (2024 — PRESENT)**: PT. Depoguna Bangunan Online (DBO Group) financial reconciliation automation (1 week to 1 day) and 6-model ML SKU mapping (95.4% precision across DBC Group brands).
+    2. **Applied Data Science & Machine Learning Practitioner (2023 — 2024)**: DataCamp Certified Data Analyst Associate, 3 Komdigi SKKNI national certifications (100.00/100.00 exam score), 8-point SQL anti-fraud surveillance, and Brent oil risk modeling.
+    3. **Systems Automation & Desktop Software Developer (2022 — 2023)**: Python desktop software (CustomTkinter, ReportLab) generating 500 print-grade 300-DPI certificates in 24.8s (20.2 certs/sec) with zero layout drift.
+  - Set active role (`index === 0`) to open by default (`open={index === 0 ? true : undefined}`) so visitors immediately see rich achievements upon scrolling.
+  - Added real-time glowing pulse badge (`● CURRENT`) for active roles and direct link to case studies (`INSPECT CASE STUDIES ↓`).
+  - Adjusted summary column grid widths (150px) to comfortably fit multi-character year ranges without wrapping.
+
+---
+
 ## 📅 [2026-09-03] — Patch v1.6.5: Streamline Homepage — Remove Clinical Survival Matrix Section
 - **Commit**: `ac86c3c`
 - **Components**: `app/page.tsx`

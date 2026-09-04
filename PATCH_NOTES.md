@@ -5,6 +5,7 @@
 ---
 
 ## 📅 [2026-09-05] — Patch v1.7.0: Brent Oil 3D Volatility Manifold & Project #2 Elevation
+- **Commit**: `850ad78`
 - **Components**: `components/BrentOil3DManifold.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `app/projects/[slug]/page.tsx`, `content/projects/*.md`, `lib/interactive-stress.test.ts`, `lib/final-static-integrity.test.ts`
 - **Changes**:
   - Engineered zero-dependency Native HTML5 Canvas 3D Interactive Engine rendering the **3D Volatility & Crisis Manifold (Terrain Surface)** across 35.5 years (1987–2024), 9,011 trading days, and 7 geopolitical shock beacons.

@@ -4,6 +4,17 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.0: Brent Oil 3D Volatility Manifold & Project #2 Elevation
+- **Components**: `components/BrentOil3DManifold.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `app/projects/[slug]/page.tsx`, `content/projects/*.md`, `lib/interactive-stress.test.ts`, `lib/final-static-integrity.test.ts`
+- **Changes**:
+  - Engineered zero-dependency Native HTML5 Canvas 3D Interactive Engine rendering the **3D Volatility & Crisis Manifold (Terrain Surface)** across 35.5 years (1987–2024), 9,011 trading days, and 7 geopolitical shock beacons.
+  - Implemented 360° orbit drag, mouse wheel/pinch zoom, Painter's depth sorting, elevation color ramps (Cyan ➔ Amber ➔ Crimson), and 3 camera presets (`3D Orbit`, `Top-Down Heatmap`, `Fat-Tail Profile`).
+  - Created standalone dedicated route: `app/projects/brent-oil-market-dynamics/page.tsx` with customized telemetry strip (35.5Y, 9,011 Days, \$9.10–\$143.95 spread, 45.43 Kurtosis, -7.12% VaR).
+  - Promoted Brent Crude Oil Market Dynamics to **Project #2** in the portfolio catalog, updating orders across all 9 project files.
+  - Expanded test suite to 234/234 passing tests verifying 3D crisis pins and dedicated route integrity.
+
+---
+
 ## 📅 [2026-09-03] — Patch v1.6.7: Minimalist Refinement of Career Timeline
 - **Commit**: `a28024a`
 - **Components**: `content/timeline.md`, `components/TimelineExplorer.tsx`, `app/interactive.css`

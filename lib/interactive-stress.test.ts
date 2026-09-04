@@ -403,4 +403,41 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
       });
     });
   });
+
+  // =========================================================================
+  // 7. Brent Oil 3D Volatility & Crisis Manifold Verification
+  // =========================================================================
+  describe("Brent Oil 3D Volatility & Crisis Manifold Verification", () => {
+    it("verifies 7 historical crisis beacons integrity and price milestones", async () => {
+      const { HISTORICAL_CRISIS_PINS } = await import("../components/BrentOil3DManifold");
+      expect(HISTORICAL_CRISIS_PINS.length).toBe(7);
+
+      // Verify all years are within the 1987-2024 range
+      HISTORICAL_CRISIS_PINS.forEach((pin) => {
+        expect(pin.year).toBeGreaterThanOrEqual(1987);
+        expect(pin.year).toBeLessThanOrEqual(2024);
+        expect(pin.price).toBeGreaterThan(0);
+        expect(pin.volatilitySpike).toBeGreaterThan(0);
+        expect(pin.description.length).toBeGreaterThan(20);
+        expect(Math.abs(pin.returnShock)).toBeGreaterThan(0);
+      });
+
+      // Verify historic extremes
+      const ath = HISTORICAL_CRISIS_PINS.find((p) => p.id === "supercycle-ath");
+      expect(ath).toBeDefined();
+      expect(ath!.price).toBe(143.95);
+
+      const nadir = HISTORICAL_CRISIS_PINS.find((p) => p.id === "covid-nadir");
+      expect(nadir).toBeDefined();
+      expect(nadir!.price).toBe(9.1);
+    });
+
+    it("verifies Brent Oil Market Dynamics is correctly ranked as Project #2", async () => {
+      const { getProjects } = await import("./content");
+      const projects = getProjects();
+      expect(projects[1].slug).toBe("brent-oil-market-dynamics");
+      expect(projects[1].order).toBe(2);
+    });
+  });
 });
+

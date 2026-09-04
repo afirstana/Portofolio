@@ -36,7 +36,8 @@ export function generateStaticParams() {
       (p) =>
         p.slug !== "amazon-product-intelligence" &&
         p.slug !== "olist-payment-behavior-analytics" &&
-        p.slug !== "banking-transaction-anti-fraud"
+        p.slug !== "banking-transaction-anti-fraud" &&
+        p.slug !== "brent-oil-market-dynamics"
     )
     .map((project) => ({ slug: project.slug }));
 }

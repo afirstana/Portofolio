@@ -15,22 +15,23 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(slugPageSource).toContain('p.slug !== "amazon-product-intelligence"');
     expect(slugPageSource).toContain('p.slug !== "olist-payment-behavior-analytics"');
     expect(slugPageSource).toContain('p.slug !== "banking-transaction-anti-fraud"');
+    expect(slugPageSource).toContain('p.slug !== "brent-oil-market-dynamics"');
 
     const dynamicSlugs = getProjects()
       .filter(
         (p) =>
           p.slug !== "amazon-product-intelligence" &&
           p.slug !== "olist-payment-behavior-analytics" &&
-          p.slug !== "banking-transaction-anti-fraud"
+          p.slug !== "banking-transaction-anti-fraud" &&
+          p.slug !== "brent-oil-market-dynamics"
       )
       .map((project) => ({ slug: project.slug }));
 
-    // Exactly 6 dynamic routes
-    expect(dynamicSlugs).toHaveLength(6);
+    // Exactly 5 dynamic routes
+    expect(dynamicSlugs).toHaveLength(5);
     expect(dynamicSlugs.map((s) => s.slug)).toEqual([
       "global-cancer-epidemiology-surveillance",
       "olist-e-commerce-logistics-analysis",
-      "brent-oil-market-dynamics",
       "ml-product-mapping-system",
       "revenue-reconciliation-automation",
       "certificate-generator-desktop-app",
@@ -41,10 +42,16 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     const amazonPagePath = path.join(rootDir, "app/projects/amazon-product-intelligence/page.tsx");
     const paymentPagePath = path.join(rootDir, "app/projects/olist-payment-behavior-analytics/page.tsx");
     const fraudPagePath = path.join(rootDir, "app/projects/banking-transaction-anti-fraud/page.tsx");
+    const brentPagePath = path.join(rootDir, "app/projects/brent-oil-market-dynamics/page.tsx");
 
     expect(fs.existsSync(amazonPagePath)).toBe(true);
     expect(fs.existsSync(paymentPagePath)).toBe(true);
     expect(fs.existsSync(fraudPagePath)).toBe(true);
+    expect(fs.existsSync(brentPagePath)).toBe(true);
+
+    const brentPageSource = fs.readFileSync(brentPagePath, "utf8");
+    expect(brentPageSource).not.toContain("export function generateStaticParams");
+    expect(brentPageSource).not.toContain("export async function generateStaticParams");
 
     const amazonSource = fs.readFileSync(amazonPagePath, "utf-8");
     const paymentSource = fs.readFileSync(paymentPagePath, "utf-8");

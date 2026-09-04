@@ -18,7 +18,7 @@ skills:
   - "Geopolitical risk modeling"
   - "Statistical hypothesis testing"
   - "Interactive data visualization"
-order: 5
+order: 2
 system:
   - label: "01. Multi-Format Ingestion"
     value: "Standardizes 9,011 daily trading rows, resolving mixed date encodings (%d-%b-%y and %b %d, %Y) with zero data loss"

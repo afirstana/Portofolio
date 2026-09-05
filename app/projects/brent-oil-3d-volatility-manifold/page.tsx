@@ -166,8 +166,11 @@ export default function BrentOil3DProjectPage() {
               Interactive 3D Volatility &amp; Crisis Manifold
             </h2>
             <p style={{ color: "var(--muted)", fontSize: 14.5, lineHeight: 1.65, maxWidth: 840, margin: 0 }}>
-              Topographical manifold tensor \( \mathcal&#123;M&#125;(t, r) \mapsto z \) projecting 35.5 years of empirical price shock distributions.
-              Rotate freely in 3D orbit, zoom into specific regimes, and inspect the 7 historical geopolitical crisis beacons.
+              Topographical manifold surface{" "}
+              <code className="mono" style={{ color: "#00f0ff", padding: "2px 7px", backgroundColor: "rgba(0, 240, 255, 0.08)", border: "1px solid rgba(0, 240, 255, 0.2)", borderRadius: 3, fontSize: 12 }}>
+                ℳ(t, r) ⟶ z
+              </code>{" "}
+              projecting 35.5 years of empirical price shock distributions across 36 annual epochs. Rotate freely in 3D orbit, zoom into specific regimes, and inspect the 7 historical geopolitical crisis beacons.
             </p>
           </div>
 

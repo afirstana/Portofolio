@@ -71,7 +71,7 @@ evidence:
 
 ---
 
-## 01. 35.5-Year Benchmark Telemetry Matrix (1987–2022)
+## 01. 35.5-Year Benchmark Telemetry Matrix (1987–2022) {#telemetry}
 
 Spanning May 20, 1987 through November 14, 2022, Brent Crude Oil serves as the international pricing benchmark for over 60% of physical crude transactions:
 
@@ -132,7 +132,7 @@ Grouping 35.5 years into distinct economic eras reveals profound macroeconomic s
 
 ---
 
-## 04. Geopolitical Shock & Event-Driven Impact Modeling
+## 04. Geopolitical Shock & Event-Driven Impact Modeling {#shocks}
 
 To quantify how global shocks transmit into energy markets, a standardized **Before-During-After ($\pm 30\text{--}90\text{ days}$)** event window methodology was applied:
 
@@ -183,7 +183,7 @@ $$\text{Mean Return} = +0.050\% \quad \big| \quad \text{Std Dev} = 2.525\% \quad
 
 ---
 
-## 07. Interactive Power BI DAX & Enterprise Dashboard Architecture
+## 07. Interactive Power BI DAX & Enterprise Dashboard Architecture {#powerbi}
 
 ```dax
 Avg Price = AVERAGE(BrentOil[Price])

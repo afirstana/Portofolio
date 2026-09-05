@@ -4,6 +4,27 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.5: Brent Oil 2D Dedicated TOC & Navigation Parity
+- **Commit**: `887059d`
+- **Components**: `components/BrentOilMarketDynamicsToc.tsx`, `components/CaseStudyToc.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `content/projects/brent-oil-market-dynamics.md`
+- **Changes**:
+  - **Dedicated Table of Contents (`BrentOilMarketDynamicsToc.tsx`)**:
+    - Replaced the outdated generic `CaseStudyToc` (`01 Problem, 02 Data, 03 Approach, 04 System, 05 Impact, 06 Lessons`) with a custom 9-section TOC matching the real econometrics study: `01 Pipeline`, `02 Explorer`, `03 Regimes`, `04 Tail Risk`, `05 Telemetry`, `06 Shocks`, `07 Power BI`, `08 Impact`, `09 Lessons`.
+    - Bound all 9 sections to exact DOM IDs (`#pipeline`, `#explorer`, `#regimes`, `#risk`, `#telemetry`, `#shocks`, `#powerbi`, `#impact`, `#lessons`), eliminating dead links.
+    - Added top-scroll position guard (`window.scrollY < 120`) to prevent premature activation of `#impact`.
+  - **Hardened Generic `CaseStudyToc.tsx`**:
+    - Added DOM existence filtering on mount to only render links for elements present in the DOM.
+    - Added top-scroll guard so fallback pages don't highlight lower sections prematurely.
+  - **Page & Content Anchors**:
+    - Wrapped `SystemDiagram`, `BrentOilInteractiveShowcase`, `BrentOilRegimesShowcase`, and `BrentOilRiskShowcase` in designated `<section>` blocks with matching IDs.
+    - Added custom anchor IDs (`{#telemetry}`, `{#shocks}`, `{#powerbi}`) to `content/projects/brent-oil-market-dynamics.md`.
+  - **Verification**:
+    - 234/234 unit tests passing across all 14 test suites.
+    - 32/32 static routes cleanly generated in Next.js production build.
+    - Live server verified for both `/projects/brent-oil-market-dynamics/` and `/projects/brent-oil-3d-volatility-manifold/`.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.4: 3D Camera Transformation Table & Mathematical Parser Refinement
 - **Commit**: `03a966f`
 - **Components**: `components/MarkdownBody.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`

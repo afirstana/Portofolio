@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export function CaseStudyToc({ hasEvidence = false }: { hasEvidence?: boolean }) {
-  const sections = [
+  const baseSections = [
     { id: "problem", label: "Problem" },
     { id: "data", label: "Data" },
     { id: "approach", label: "Approach" },
@@ -13,15 +13,26 @@ export function CaseStudyToc({ hasEvidence = false }: { hasEvidence?: boolean })
     { id: "lessons", label: "Lessons" },
   ];
 
+  const [availableSections, setAvailableSections] = useState(baseSections);
   const [activeSection, setActiveSection] = useState<string>("problem");
 
   useEffect(() => {
+    // Only keep sections that actually exist on the current page DOM
+    const existing = baseSections.filter((s) => Boolean(document.getElementById(s.id)));
+    const targetSections = existing.length > 0 ? existing : baseSections;
+    setAvailableSections(targetSections);
+    setActiveSection(targetSections[0].id);
+
     const handleScroll = () => {
       const scrollPos = window.scrollY + 160;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i].id);
+      if (window.scrollY < 120) {
+        setActiveSection(targetSections[0].id);
+        return;
+      }
+      for (let i = targetSections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(targetSections[i].id);
         if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i].id);
+          setActiveSection(targetSections[i].id);
           break;
         }
       }
@@ -34,7 +45,7 @@ export function CaseStudyToc({ hasEvidence = false }: { hasEvidence?: boolean })
     <nav className="case-toc" aria-label="On this page navigation">
       <p className="mono">On this page</p>
       <div className="case-toc-links">
-        {sections.map((section, index) => (
+        {availableSections.map((section, index) => (
           <a
             key={section.id}
             href={`#${section.id}`}

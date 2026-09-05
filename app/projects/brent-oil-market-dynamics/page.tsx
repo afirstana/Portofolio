@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SystemDiagram } from "@/components/SystemDiagram";
 import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { CaseStudyToc } from "@/components/CaseStudyToc";
+import { BrentOilMarketDynamicsToc } from "@/components/BrentOilMarketDynamicsToc";
 import { BrentOilInteractiveShowcase } from "@/components/BrentOilInteractiveShowcase";
 import { BrentOilRegimesShowcase } from "@/components/BrentOilRegimesShowcase";
 import { BrentOilRiskShowcase } from "@/components/BrentOilRiskShowcase";
@@ -161,20 +161,28 @@ export default function BrentOilProjectPage() {
         </div>
 
         {/* System Diagram */}
-        <SystemDiagram nodes={project.system} />
+        <section id="pipeline" aria-label="System Architecture Pipeline">
+          <SystemDiagram nodes={project.system} />
+        </section>
 
         <div className="case-layout">
-          <CaseStudyToc />
+          <BrentOilMarketDynamicsToc />
 
           <div className="case-story">
             {/* 2D Interactive Shock Engine */}
-            <BrentOilInteractiveShowcase />
+            <section id="explorer" aria-label="35-Year Price and Risk Explorer">
+              <BrentOilInteractiveShowcase />
+            </section>
 
             {/* 4 Decades of Market Regimes */}
-            <BrentOilRegimesShowcase />
+            <section id="regimes" aria-label="Four Decades of Market Regimes">
+              <BrentOilRegimesShowcase />
+            </section>
 
             {/* Fat-Tail Risk & VaR Distribution */}
-            <BrentOilRiskShowcase />
+            <section id="risk" aria-label="Non-Gaussian Fat-Tail Risk and VaR Terminal">
+              <BrentOilRiskShowcase />
+            </section>
 
             {/* Deep Technical Markdown Narrative */}
             {project.body && <MarkdownBody source={project.body} />}

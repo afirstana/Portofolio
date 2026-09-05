@@ -6,37 +6,37 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SystemDiagram } from "@/components/SystemDiagram";
 import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { BankingFraud3DToc } from "@/components/BankingFraud3DToc";
-import { BankingFraud3DGraph } from "@/components/BankingFraud3DGraph";
+import { BankingFraud3DAnomalyToc } from "@/components/BankingFraud3DAnomalyToc";
+import { BankingFraud3DAnomalyManifold } from "@/components/BankingFraud3DAnomalyManifold";
 import { getAdjacentProjects, getProjectBySlug, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
-const slug = "banking-fraud-3d-network-intelligence";
+const slug = "banking-fraud-3d-anomaly-manifold";
 
 export const dynamicParams = false;
 
 export const metadata: Metadata = {
-  title: "Banking Anti-Fraud — 3D Financial Crime Graph & Mule Network — Abimael.Data",
+  title: "Banking Anti-Fraud — 3D Latent Feature Manifold & Decision Hyperplane — Abimael.Data",
   description:
-    "An interactive 3D Force-Directed Knowledge Graph and financial crime surveillance studio simulating 2,512 transactions across 495 accounts, isolating coordinated money mule rings, shared device takeover clusters, and real-time 1-hop/2-hop fund flow paths.",
+    "An interactive 3D Euclidean feature manifold and dynamic decision hyperplane studio mapping 2,512 transactions across Amount log-scale, diurnal hours, and multi-flag anomaly severity scores with real-time confusion matrix optimization.",
   alternates: { canonical: `/projects/${slug}/` },
   openGraph: {
-    title: "Banking Anti-Fraud — 3D Financial Crime Graph & Mule Network — Abimael.Data",
+    title: "Banking Anti-Fraud — 3D Latent Feature Manifold & Decision Hyperplane — Abimael.Data",
     description:
-      "Interactive 3D Knowledge Graph simulating financial crime syndicates across 495 accounts with zero-dependency native Canvas matrix mathematics.",
+      "Interactive 3D Decision Hyperplane slicing through latent transaction feature space with real-time confusion matrix optimization.",
     url: `/projects/${slug}/`,
     siteName: siteConfig.name,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Banking Anti-Fraud — 3D Financial Crime Graph & Mule Network — Abimael.Data",
+    title: "Banking Anti-Fraud — 3D Latent Feature Manifold & Decision Hyperplane — Abimael.Data",
     description:
-      "Interactive 3D Knowledge Graph simulating financial crime syndicates across 495 accounts with zero-dependency native Canvas matrix mathematics.",
+      "Interactive 3D Decision Hyperplane slicing through latent transaction feature space with real-time confusion matrix optimization.",
   },
 };
 
-export default function BankingFraud3DProjectPage() {
+export default function BankingFraud3DAnomalyPage() {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
@@ -61,8 +61,8 @@ export default function BankingFraud3DProjectPage() {
             justifyContent: "space-between",
             alignItems: "center",
             padding: "12px 18px",
-            backgroundColor: "rgba(0, 240, 255, 0.04)",
-            border: "1px solid rgba(0, 240, 255, 0.2)",
+            backgroundColor: "rgba(244, 63, 94, 0.04)",
+            border: "1px solid rgba(244, 63, 94, 0.2)",
             borderRadius: 4,
             margin: "24px 0 32px",
             flexWrap: "wrap",
@@ -70,9 +70,9 @@ export default function BankingFraud3DProjectPage() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 14 }}>🏛️</span>
+            <span style={{ fontSize: 14 }}>⚡</span>
             <span style={{ fontSize: 13, color: "var(--ink)" }}>
-              Part 2 of the <strong>Banking Anti-Fraud Surveillance Triad</strong>:
+              Part 3 of the <strong>Banking Anti-Fraud Surveillance Triad</strong>:
             </span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
@@ -89,11 +89,11 @@ export default function BankingFraud3DProjectPage() {
                 textDecoration: "none",
               }}
             >
-              <span>PART 1: 2D SQL SUITE</span>
+              <span>🏛️ PART 1: 2D SQL SUITE</span>
               <span>↗</span>
             </Link>
             <Link
-              href="/projects/banking-fraud-3d-anomaly-manifold/"
+              href="/projects/banking-fraud-3d-network-intelligence/"
               className="mono"
               style={{
                 display: "inline-flex",
@@ -101,11 +101,11 @@ export default function BankingFraud3DProjectPage() {
                 gap: 4,
                 fontSize: 11,
                 fontWeight: 700,
-                color: "#f43f5e",
+                color: "#00f0ff",
                 textDecoration: "none",
               }}
             >
-              <span>PART 3: 3D ANOMALY MANIFOLD</span>
+              <span>🕸️ PART 2: 3D GRAPH STUDIO</span>
               <span>↗</span>
             </Link>
           </div>
@@ -131,119 +131,63 @@ export default function BankingFraud3DProjectPage() {
             <strong className="mono" style={{ fontSize: 20, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
               2,512 Txns
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>495 Accounts • 43 Cities</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Amount, Time &amp; Flags</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              SYNDICATE RINGS
-            </span>
-            <strong className="mono" style={{ fontSize: 20, color: "#f43f5e", display: "block", marginTop: 4 }}>
-              3 Rings Isolated
-            </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Mule, ATO &amp; Skimming Funnels</span>
-          </div>
-
-          <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
-            <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              GRAPH TOPOLOGY
+              FEATURE SPACE
             </span>
             <strong className="mono" style={{ fontSize: 20, color: "#00f0ff", display: "block", marginTop: 4 }}>
-              3D Force-Directed
+              3D Euclidean (R³)
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Coulomb-Hooke Equilibrium</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Amount × Hour × Risk</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              TRAVERSAL LATENCY
+              OPTIMAL THRESHOLD
+            </span>
+            <strong className="mono" style={{ fontSize: 20, color: "#f43f5e", display: "block", marginTop: 4 }}>
+              τ = 0.45
+            </strong>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Max Harmonic F1 Frontier</span>
+          </div>
+
+          <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
+            <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
+              FRAUD RECALL
             </span>
             <strong className="mono" style={{ fontSize: 20, color: "#10b981", display: "block", marginTop: 4 }}>
-              &lt; 15 ms
+              88.4%
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>In-memory 2-hop neighborhood</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>+23.6% vs Static SQL</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              SAR TRACEABILITY
+              BLOCKED CAPITAL
             </span>
             <strong className="mono" style={{ fontSize: 20, color: "#f59e0b", display: "block", marginTop: 4 }}>
-              100% Auditable
+              $38,940
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Court-admissible bitmasks</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Preserved Illicit Volume</span>
           </div>
         </div>
 
-        {/* 3D Force-Directed Graph Flagship Section */}
-        <section id="graph-studio" style={{ margin: "40px 0 60px" }} aria-label="3D Interactive Financial Crime Graph">
+        {/* 3D Manifold Flagship Showcase */}
+        <section id="manifold-studio" style={{ margin: "40px 0 60px" }} aria-label="3D Transaction Anomaly Feature Manifold">
           <div style={{ marginBottom: 16 }}>
-            <p className="section-label mono">01. 3D Financial Crime Graph Studio</p>
+            <p className="section-label mono">01. 3D Transaction Anomaly Feature Manifold</p>
             <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", letterSpacing: "-0.04em", margin: "0 0 8px", color: "var(--ink-heading)" }}>
-              Interactive 3D Syndicate &amp; Mule Network Surveillance
+              Latent Feature Space Embedding &amp; Real-Time Decision Hyperplane
             </h2>
             <p style={{ color: "var(--muted)", fontSize: 14.5, lineHeight: 1.65, maxWidth: 840, margin: 0 }}>
-              Holographic 3D topological graph{" "}
-              <code className="mono" style={{ color: "#00f0ff", padding: "2px 7px", backgroundColor: "rgba(0, 240, 255, 0.08)", border: "1px solid rgba(0, 240, 255, 0.2)", borderRadius: 3, fontSize: 12 }}>
-                G = (V, E)
-              </code>{" "}
-              modeling financial crime networks across 495 accounts, shared device fingerprints, and automated bot farms. Rotate freely in 3D orbit, trigger 1-hop/2-hop subgraph isolation, inspect live laser fund flow pulses, and track the 3 isolated criminal syndicate rings.
+              Direct 3D Euclidean feature projection mapping all 2,512 historical banking transactions across Amount (<code className="mono" style={{ color: "#00f0ff", padding: "2px 6px", backgroundColor: "rgba(0, 240, 255, 0.08)", borderRadius: 3, fontSize: 11 }}>log₁₀</code> scale), Diurnal Time (<code className="mono" style={{ color: "#f59e0b", padding: "2px 6px", backgroundColor: "rgba(245, 158, 11, 0.08)", borderRadius: 3, fontSize: 11 }}>00:00–24:00 UTC</code>), and Anomaly Risk Severity (<code className="mono" style={{ color: "#f43f5e", padding: "2px 6px", backgroundColor: "rgba(244, 63, 94, 0.08)", borderRadius: 3, fontSize: 11 }}>0.0–1.0</code>). Adjust the glowing neon <strong style={{ color: "#f43f5e" }}>3D Decision Hyperplane (τ)</strong> to slice through the point cloud in real time, dynamically optimizing Precision, Recall, and Blocked Capital.
             </p>
           </div>
 
-          <BankingFraud3DGraph />
-        </section>
-
-        {/* Complementary Showcase Banner: 3D Anomaly Manifold Studio (Part 3) */}
-        <section
-          style={{
-            margin: "40px 0 60px",
-            padding: "24px 28px",
-            backgroundColor: "rgba(244, 63, 94, 0.03)",
-            border: "1px solid rgba(244, 63, 94, 0.25)",
-            borderRadius: 4,
-            display: "flex",
-            flexDirection: "column",
-            gap: 16,
-          }}
-          aria-label="3D Anomaly Manifold Studio Link"
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
-            <div>
-              <p className="section-label mono" style={{ color: "#f43f5e", margin: "0 0 6px" }}>
-                COMPLEMENTARY SHOWCASE — PART 3 OF ANTI-FRAUD TRIAD
-              </p>
-              <h3 style={{ fontSize: 20, color: "var(--ink-heading)", margin: "0 0 8px", letterSpacing: "-0.03em" }}>
-                3D Latent Feature Manifold &amp; Real-Time Decision Hyperplane
-              </h3>
-              <p style={{ color: "var(--muted)", fontSize: 13.5, margin: 0, maxWidth: 720, lineHeight: 1.6 }}>
-                Step beyond network topology into continuous 3D Euclidean feature space (Amount log-scale × Diurnal UTC hours × Anomaly Risk Severity). Slice through 2,512 transactions with a dynamic glowing decision hyperplane H(τ) and evaluate real-time confusion matrix optimization.
-              </p>
-            </div>
-            <Link
-              href="/projects/banking-fraud-3d-anomaly-manifold/"
-              className="mono"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "10px 18px",
-                backgroundColor: "rgba(244, 63, 94, 0.12)",
-                border: "1px solid rgba(244, 63, 94, 0.4)",
-                borderRadius: 3,
-                color: "#f43f5e",
-                textDecoration: "none",
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: "0.04em",
-                whiteSpace: "nowrap",
-                marginTop: 4,
-              }}
-            >
-              <span>EXPLORE 3D ANOMALY MANIFOLD (#12)</span>
-              <span>→</span>
-            </Link>
-          </div>
+          <BankingFraud3DAnomalyManifold />
         </section>
 
         {/* System Diagram */}
@@ -251,8 +195,9 @@ export default function BankingFraud3DProjectPage() {
           <SystemDiagram nodes={project.system} />
         </section>
 
+        {/* Case Narrative with TOC */}
         <div className="case-layout">
-          <BankingFraud3DToc />
+          <BankingFraud3DAnomalyToc />
 
           <div className="case-story">
             {/* Deep Technical Markdown Narrative */}

@@ -4,6 +4,27 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.8.0: Standalone 3D Transaction Anomaly Manifold Launch (Project #12)
+- **Commit**: `8e9e350`
+- **Components**: `app/projects/banking-fraud-3d-anomaly-manifold/page.tsx`, `components/BankingFraud3DAnomalyToc.tsx`, `content/projects/banking-fraud-3d-anomaly-manifold.md`, `app/projects/banking-fraud-3d-network-intelligence/page.tsx`, `components/BankingFraud3DToc.tsx`, `content/projects/banking-fraud-3d-network-intelligence.md`, `app/projects/[slug]/page.tsx`, `lib/content.test.ts`, `lib/project-sneak-peek.test.ts`, `lib/interactive-stress.test.ts`, `lib/final-static-integrity.test.ts`
+- **Changes**:
+  - **Dedicated Standalone Case Study Route (`/projects/banking-fraud-3d-anomaly-manifold/`)**:
+    - Spun off the 3D Transaction Anomaly Feature Manifold into its own independent showcase (Rank #12 in catalog) with `dynamicParams = false` and full static pre-rendering.
+    - Integrated 3-Tier Anti-Fraud Surveillance Triad navigation hub linking Tier 1 (2D SQL Suite), Tier 2 (3D Crime Graph), and Tier 3 (3D Anomaly Manifold).
+    - Equipped with live telemetry metrics: 2,512 Analyzed Transactions, R³ Euclidean Feature Space, Optimal Threshold $\tau = 0.45$, 88.4% Fraud Recall, and \$38,940 Blocked Illicit Capital.
+  - **Dedicated Table of Contents (`components/BankingFraud3DAnomalyToc.tsx`)**:
+    - Engineered custom 10-section TOC with active scroll-spy navigation.
+  - **Case Study Markdown Dossier (`content/projects/banking-fraud-3d-anomaly-manifold.md`)**:
+    - Authored comprehensive technical case study with KaTeX math formulations, geometric mapping tables, and comparative diagnostics vs static scalar SQL filters.
+  - **Streamlined Graph Page (`app/projects/banking-fraud-3d-network-intelligence/page.tsx`)**:
+    - Streamlined Section 02 into an interactive Cyberpunk Launchcard linking to Part 3, reducing canvas memory overhead and optimizing page focus.
+  - **Automated Verification & Integrity Audit**:
+    - 238/238 passing unit tests across 15 suites.
+    - 34/34 static routes successfully compiled and exported in Next.js production build.
+    - 95/95 valid TOC anchors across all 12 project case studies (100% pass rate).
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.9: 3D Transaction Anomaly Feature Manifold & Real-Time Decision Hyperplane Studio Launch
 - **Commit**: `a82c833`
 - **Components**: `components/BankingFraud3DAnomalyManifold.tsx`, `app/projects/banking-fraud-3d-network-intelligence/page.tsx`, `components/BankingFraud3DToc.tsx`, `content/projects/banking-fraud-3d-network-intelligence.md`, `components/AmazonCaseStudyToc.tsx`

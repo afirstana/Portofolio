@@ -3,19 +3,20 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "graph-studio", label: "Graph Studio" },
+  { id: "manifold-studio", label: "Manifold Studio" },
   { id: "pipeline", label: "Pipeline" },
-  { id: "formulation", label: "Coulomb-Hooke" },
-  { id: "syndicates", label: "Syndicates" },
-  { id: "projection", label: "Projection" },
+  { id: "formulation", label: "R³ Formulation" },
+  { id: "hyperplane", label: "Hyperplane" },
+  { id: "optimization", label: "Optimization" },
+  { id: "projection", label: "3D Projection" },
   { id: "diagnostics", label: "Diagnostics" },
   { id: "evidence", label: "Evidence" },
   { id: "impact", label: "Impact" },
   { id: "lessons", label: "Lessons" },
 ];
 
-export function BankingFraud3DToc() {
-  const [activeSection, setActiveSection] = useState<string>("graph-studio");
+export function BankingFraud3DAnomalyToc() {
+  const [activeSection, setActiveSection] = useState<string>("manifold-studio");
 
   useEffect(() => {
     const handleScroll = () => {

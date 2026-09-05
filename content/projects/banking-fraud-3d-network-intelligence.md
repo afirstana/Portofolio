@@ -141,34 +141,7 @@ $$P_{\text{screen}}(X_s, Y_s) = \left( X_{\text{center}} + x_1 \cdot \left(\frac
 
 ---
 
-## 04. 3D Latent Feature Space & Real-Time Decision Hyperplane {#feature-space}
-
-While the Force-Directed Graph exposes **relational entity topologies** ($G = (\mathcal{V}, \mathcal{E})$), compliance modeling also demands understanding the **statistical distribution of individual transactions** in high-dimensional feature space.
-
-### 📐 Feature Vector Projection in $\mathbb{R}^3$
-
-Each of the 2,512 transactions $i$ is mapped to a 3D coordinate vector $\mathbf{x}_i = (x_i, y_i, z_i)^T \in \mathbb{R}^3$:
-
-$$\mathbf{x}_i = \begin{pmatrix} x_i \\ y_i \\ z_i \end{pmatrix} = \begin{pmatrix} \text{Log-Scaled Monetary Amount: } \log_{10}(\text{Amount}_i) \\ \text{Diurnal Circadian Hour: } \text{Hour}_i \in [0, 24) \text{ UTC} \\ \text{Anomaly Severity Score: } \mathcal{R}_i = \frac{\text{RiskScore}_i}{6} \in [0.0, 1.0] \end{pmatrix}$$
-
-### ⚡ 3D Decision Hyperplane & Dynamic Classification
-
-To evaluate machine learning and rule-based decision thresholds in real time, the feature space is partitioned by an adjustable linear decision hyperplane $\mathcal{H}(\tau)$:
-
-$$S(\mathbf{x}_i) = 0.45 \cdot \left(\frac{\text{RiskScore}_i}{6}\right) + 0.35 \cdot \left(\frac{\log_{10}(\text{Amount}_i) - 1.30}{1.98}\right) + 0.20 \cdot \mathbb{I}(\text{Hour}_i \in [1, 4])$$
-
-$$\text{Decision}(\mathbf{x}_i) = \begin{cases} \text{BLOCKED ANOMALY } (\text{Crimson}), & \text{if } S(\mathbf{x}_i) \ge \tau \\ \text{APPROVED TRANSACTION } (\text{Cyan}), & \text{if } S(\mathbf{x}_i) < \tau \end{cases}$$
-
-| Topological Dimension | Statistical Latent Variable | Normal Transaction Cluster | Anomaly Spike Cluster |
-|---|---|---|---|
-| **$X$-Axis (Amount)** | Logarithmic Dollar Volume ($\log_{10}$) | Clustered in modest amounts (\$20–\$350) | High amounts funneled through mules (\$1,200–\$1,919) |
-| **$Y$-Axis (Diurnal Time)** | Transaction Hour (UTC 00:00–24:00) | Normal daytime business hours (08:00–21:00) | Severe spikes concentrated in twilight hours (01:00–04:00 UTC) |
-| **$Z$-Axis (Risk Severity)** | Multi-Flag Anomaly Score (0–6) | Floor level ($Z \le 1$, Clean credentials) | Spires rising to ceiling ($Z \ge 4$, Multiple ATO & drain flags) |
-| **Hyperplane ($\tau$)** | Cut-off Threshold Slice | Below plane ($S_i < \tau$, Automated Clearing) | Above plane ($S_i \ge \tau$, Immediate Step-Up / SAR Interception) |
-
----
-
-## 05. Graph Analytics vs Relational SQL: Comparative Empirical Diagnostics {#diagnostics}
+## 04. Graph Analytics vs Relational SQL: Comparative Empirical Diagnostics {#diagnostics}
 
 Standard banking fraud detection architectures rely on relational SQL queries. When investigating multi-hop criminal networks, relational databases suffer from exponential performance degradation due to nested self-joins:
 
@@ -182,7 +155,7 @@ Standard banking fraud detection architectures rely on relational SQL queries. W
 
 ---
 
-## 06. Financial Crime Surveillance Takeaways & Institutional AML Guidelines {#aml-guidelines}
+## 05. Financial Crime Surveillance Takeaways & Institutional AML Guidelines {#aml-guidelines}
 
 1. **Deploy Graph Intelligence Alongside SQL Rules**: Rule-based SQL engines are exceptional at point-in-time threshold authorization (e.g. blocking balance drains >70%). However, graph intelligence is irreplaceable for identifying the wider criminal ring and identifying the ultimate beneficiary accumulator account.
 2. **Prioritize 1-Hop / 2-Hop Visual Isolation in SAR Preparation**: Regulators (such as FinCEN and PPATK) require clear evidence of willful financial crime. Presenting a visually isolated 2-hop money trail graph accelerates SAR approval by providing unmistakable proof of coordinated collusion.

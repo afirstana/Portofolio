@@ -18,6 +18,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(slugPageSource).toContain('p.slug !== "brent-oil-market-dynamics"');
     expect(slugPageSource).toContain('p.slug !== "brent-oil-3d-volatility-manifold"');
     expect(slugPageSource).toContain('p.slug !== "banking-fraud-3d-network-intelligence"');
+    expect(slugPageSource).toContain('p.slug !== "banking-fraud-3d-anomaly-manifold"');
 
     const dynamicSlugs = getProjects()
       .filter(
@@ -27,7 +28,8 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
           p.slug !== "banking-transaction-anti-fraud" &&
           p.slug !== "brent-oil-market-dynamics" &&
           p.slug !== "brent-oil-3d-volatility-manifold" &&
-          p.slug !== "banking-fraud-3d-network-intelligence"
+          p.slug !== "banking-fraud-3d-network-intelligence" &&
+          p.slug !== "banking-fraud-3d-anomaly-manifold"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -49,6 +51,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     const brentPagePath = path.join(rootDir, "app/projects/brent-oil-market-dynamics/page.tsx");
     const brent3DPagePath = path.join(rootDir, "app/projects/brent-oil-3d-volatility-manifold/page.tsx");
     const fraud3DPagePath = path.join(rootDir, "app/projects/banking-fraud-3d-network-intelligence/page.tsx");
+    const fraud3DAnomalyPagePath = path.join(rootDir, "app/projects/banking-fraud-3d-anomaly-manifold/page.tsx");
 
     expect(fs.existsSync(amazonPagePath)).toBe(true);
     expect(fs.existsSync(paymentPagePath)).toBe(true);
@@ -56,6 +59,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(fs.existsSync(brentPagePath)).toBe(true);
     expect(fs.existsSync(brent3DPagePath)).toBe(true);
     expect(fs.existsSync(fraud3DPagePath)).toBe(true);
+    expect(fs.existsSync(fraud3DAnomalyPagePath)).toBe(true);
 
     const brentPageSource = fs.readFileSync(brentPagePath, "utf8");
     expect(brentPageSource).not.toContain("export function generateStaticParams");
@@ -68,6 +72,10 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     const fraud3DPageSource = fs.readFileSync(fraud3DPagePath, "utf8");
     expect(fraud3DPageSource).not.toContain("export function generateStaticParams");
     expect(fraud3DPageSource).not.toContain("export async function generateStaticParams");
+
+    const fraud3DAnomalyPageSource = fs.readFileSync(fraud3DAnomalyPagePath, "utf8");
+    expect(fraud3DAnomalyPageSource).not.toContain("export function generateStaticParams");
+    expect(fraud3DAnomalyPageSource).not.toContain("export async function generateStaticParams");
 
     const amazonSource = fs.readFileSync(amazonPagePath, "utf-8");
     const paymentSource = fs.readFileSync(paymentPagePath, "utf-8");
@@ -82,11 +90,12 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(fraudSource).toContain("export const dynamicParams = false;");
     expect(brent3DPageSource).toContain("export const dynamicParams = false;");
     expect(fraud3DPageSource).toContain("export const dynamicParams = false;");
+    expect(fraud3DAnomalyPageSource).toContain("export const dynamicParams = false;");
   });
 
-  it("verifies all 11 project static HTML and index.txt files exist in out/projects/", () => {
+  it("verifies all 12 project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(11);
+    expect(projects).toHaveLength(12);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

@@ -16,6 +16,9 @@
     - Removed `.mono` class and uppercase text transform on inline math expressions, rendering mathematical variables (`t ∈ 𝒯`, `r ∈ ℛ`, `z ∈ ℝ⁺`, `σₜ`, `γₖ`, `δₖ`) in natural, high-readability typography without heavy button badges.
     - Enabled recursive inline formatting within bold tokens (`**$7 crises in 35.5 years$**` and `**5-Sigma (±5σ) Probability**`).
     - Replaced raw LaTeX sum, exp, and fraction artifacts with clean, accessible mathematical Unicode strings (`∑(k=1..7)`, `σₜ²`, `δₖ²`).
+  - **Density Elevation Landscape Table & Visual Flowchart Pipeline**:
+    - Replaced cluttered mathematical formula bullet points (`EXP(-(R² / 2Σ_T²))` badges) with an intuitive 4-column breakdown table connecting the mathematical engine to physical 3D terrain geometry and real-world economic impacts (Peacetime Calm Spine, Supply Shock Peaks, Demand Shock Canyons).
+    - Upgraded the ASCII monospace box diagram into a responsive, high-contrast visual architecture pipeline card (`ARCHITECTURAL PARADIGM COMPARISON • FLOW DIAGRAM`) featuring 4 sequenced nodes with descriptive telemetry badges and directional flow indicators (`➔`).
   - **Data Table & Executive Summary Cleanup**:
     - Replaced escaped currency strings and cluttered percentage math tags across Historical Era and Tail Risk Diagnostic tables.
     - Replaced raw LaTeX math tags in the executive note with clean text and Unicode symbols.

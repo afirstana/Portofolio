@@ -88,32 +88,23 @@ Rather than forcing stakeholders to interpret complex mathematical equations, th
 | **Depth (Y-Axis)** | Return Shock: $r \in \mathcal{R}$ | **Daily Price Shock Magnitude** (Downside collapse vs Upside squeeze) | 19 Shock Bins (**-14.0% to +14.0%**) |
 | **Elevation (Z-Axis)** | Probability Density: $z \in \mathbb{R}^+$ | **Volatility Elevation** (Height of probability concentration & tail risk) | Density Peaks (0.0 to 160.0 normalized) |
 
-### 📐 Density Elevation Function
+### 📐 Density Elevation Function: Deconstructing the Landscape
 
-The vertical elevation $z(t, r)$ at any point combines the baseline regime volatility $\sigma_t$ with localized geopolitical shock amplifications:
+The vertical elevation $z(t, r)$ at any coordinate combines **baseline peacetime equilibrium** with **geopolitical crisis shocks**:
 
 $$z(t, r) = \max \left( \exp\left(-\frac{r^2}{2\sigma_t^2}\right), \; \sum_{k=1}^{7} \gamma_k \cdot \exp\left(-\frac{(r - r_k)^2}{2\delta_k^2}\right) \right)$$
 
-Where:
-- **Baseline Calm Spine**: $\exp\left(-\frac{r^2}{2\sigma_t^2}\right)$ generates a razor-sharp mountain ridge centered at 0% daily return during peacetime stability.
-- **Geopolitical Shock Amplifiers**: The summation $\sum_{k=1}^7 \gamma_k \cdot \exp\left(-\frac{(r - r_k)^2}{2\delta_k^2}\right)$ injects empirical Gaussian kernels $(\gamma_k, r_k, \delta_k)$ corresponding to the 7 major historical crises, forming isolated mountain peaks and deep canyons.
+Rather than treating this as an abstract equation, each mathematical term directly sculpts the physical geometry of the 3D terrain:
 
-```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                      3D VOLATILITY MANIFOLD PROJECTION PIPELINE                        │
-├────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                        │
-│   1. Historical Ingestion      ───►  2. Empirical Density Tensor Z(t, r)               │
-│      9,011 Trading Days                 36 Annual Epochs × 19 Daily Shock Bins         │
-│      (1987 – 2024 Spot Prices)          Normalized Elevation [0.0 ... 160.0]           │
-│                                                              │                         │
-│                                                              ▼                         │
-│   4. HTML5 Canvas Screen Pixel ◄───  3. Upright Euler 3D Transformation                │
-│      60 FPS Zero-Dependency             Yaw (θ) • Pitch (ϕ) Camera Orbit               │
-│      Painter's Occlusion Sorting        Exact Line-of-Sight Depth Matrix               │
-│                                                                                        │
-│                                                                                        │
-└────────────────────────────────────────────────────────────────────────────────────────┘
+| Landscape Component | Mathematical Engine | Physical Geometry on 3D Surface | Real-World Economic Meaning |
+|---|---|---|---|
+| **Peacetime Calm Spine** | $\exp(-r^2 / 2\sigma_t^2)$ | **Razor-Sharp Central Ridge** along 0% return | In calm macroeconomic periods (e.g., 1992–1996), oil prices stay tightly range-bound with minimal daily fluctuations. |
+| **Supply Shock Mountain Peaks** | $+\gamma_k \cdot \exp(-(r - r_k)^2 / 2\delta_k^2)$ | **Towering High-Elevation Peaks** (+8% to +12%) | Abrupt geopolitical supply panic (1990 Gulf War, 2008 Spike, 2022 Ukraine) triggers rapid speculative squeezes. |
+| **Demand Shock Canyons** | $-\gamma_k \cdot \exp(-(r - r_k)^2 / 2\delta_k^2)$ | **Deep Topographical Chasms** (-7% to -14%) | Global demand collapse (1998 Asian Crisis, 2020 COVID freeze) causes catastrophic inventory and storage saturation. |
+
+```diagram
+Lane: 3D Volatility Manifold Projection Pipeline | Zero-Dependency Native Mathematical Rendering (60 FPS)
+[Historical Ingestion | 9,011 Trading Days (1987 – 2024 Spot Prices)] ➔ [Empirical Density Tensor Z(t, r) | 36 Annual Epochs × 19 Daily Shock Bins] ➔ [Upright Euler 3D Transformation | Yaw (θ) • Pitch (ϕ) Camera Orbit] ➔ [HTML5 Canvas Screen Pixel | 60 FPS Painter's Occlusion Sorting]
 ```
 
 ---

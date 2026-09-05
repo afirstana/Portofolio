@@ -8,6 +8,7 @@ import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { BankingFraud3DToc } from "@/components/BankingFraud3DToc";
 import { BankingFraud3DGraph } from "@/components/BankingFraud3DGraph";
+import { BankingFraud3DAnomalyManifold } from "@/components/BankingFraud3DAnomalyManifold";
 import { getAdjacentProjects, getProjectBySlug, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
@@ -175,6 +176,21 @@ export default function BankingFraud3DProjectPage() {
           </div>
 
           <BankingFraud3DGraph />
+        </section>
+
+        {/* Section 02: 3D Transaction Anomaly Feature Manifold & Decision Hyperplane Studio */}
+        <section id="anomaly-manifold" style={{ margin: "40px 0 60px" }} aria-label="3D Transaction Anomaly Feature Manifold">
+          <div style={{ marginBottom: 16 }}>
+            <p className="section-label mono">02. 3D Transaction Anomaly Feature Manifold</p>
+            <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", letterSpacing: "-0.04em", margin: "0 0 8px", color: "var(--ink-heading)" }}>
+              Latent Feature Space Embedding &amp; Real-Time Decision Hyperplane
+            </h2>
+            <p style={{ color: "var(--muted)", fontSize: 14.5, lineHeight: 1.65, maxWidth: 840, margin: 0 }}>
+              Direct 3D Euclidean feature projection mapping all 2,512 historical banking transactions across Amount (<code className="mono" style={{ color: "#00f0ff", padding: "2px 6px", backgroundColor: "rgba(0, 240, 255, 0.08)", borderRadius: 3, fontSize: 11 }}>log₁₀</code> scale), Diurnal Time (<code className="mono" style={{ color: "#f59e0b", padding: "2px 6px", backgroundColor: "rgba(245, 158, 11, 0.08)", borderRadius: 3, fontSize: 11 }}>00:00–24:00 UTC</code>), and Anomaly Risk Severity (<code className="mono" style={{ color: "#f43f5e", padding: "2px 6px", backgroundColor: "rgba(244, 63, 94, 0.08)", borderRadius: 3, fontSize: 11 }}>0.0–1.0</code>). Adjust the glowing neon <strong style={{ color: "#f43f5e" }}>3D Decision Hyperplane (τ)</strong> to slice through the point cloud in real time, dynamically optimizing Precision, Recall, and Blocked Capital.
+            </p>
+          </div>
+
+          <BankingFraud3DAnomalyManifold />
         </section>
 
         {/* System Diagram */}

@@ -4,6 +4,27 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.9: 3D Transaction Anomaly Feature Manifold & Real-Time Decision Hyperplane Studio Launch
+- **Commit**: `a82c833`
+- **Components**: `components/BankingFraud3DAnomalyManifold.tsx`, `app/projects/banking-fraud-3d-network-intelligence/page.tsx`, `components/BankingFraud3DToc.tsx`, `content/projects/banking-fraud-3d-network-intelligence.md`, `components/AmazonCaseStudyToc.tsx`
+- **Changes**:
+  - **3D Feature Manifold & Real-Time Decision Hyperplane Studio (`components/BankingFraud3DAnomalyManifold.tsx`)**:
+    - Engineered second flagship 3D interactive studio mapping all 2,512 transactions into Euclidean $\mathbb{R}^3$ latent feature space: Amount ($\log_{10}$ scale), Diurnal Hour ($00:00\text{--}24:00\text{ UTC}$), and Anomaly Risk Severity ($0.0\text{--}1.0$).
+    - Modeled interactive cutting 3D Decision Hyperplane $\mathcal{H}(\tau)$ rendered as a glowing translucent plane slicing through feature space with depth testing and dynamic mesh subdivision.
+    - Added interactive decision threshold slider ($\tau \in [0.10, 0.85]$) calculating live Confusion Matrix telemetry (Precision, Recall, F1 Score, True Positives, False Positives, Blocked Capital, and False Alarm Cost) in real time.
+    - Integrated multi-category anomaly filter pills (All, High Amount, Odd Hours, Rapid Velocity, Balance Drain, Multiple Logins), real-time particle rendering with depth sorting, twilight zone odd-hour floor projection, 3 camera view presets (Isometric, Diurnal Profile, Top-Down), raycast hover/click transaction inspector dossier, and dual zoom controls (+/- buttons with magnification readout and floating quick-zoom widget).
+  - **TOC Navigation & Case Study Re-indexing**:
+    - Re-indexed `BankingFraud3DToc.tsx` to 11 sections with `#anomaly-manifold` (Studio 02) and `#feature-space` (Section 04 math).
+    - Synchronized `AmazonCaseStudyToc.tsx` to align with actual page DOM IDs, achieving 100% (87/87) valid TOC anchors across all 11 case studies.
+  - **Mathematical Formulation & Case Study Deep-Dive**:
+    - Added Section 04 to `banking-fraud-3d-network-intelligence.md` detailing the $\mathbb{R}^3$ feature embedding, scoring function $S(\mathbf{x}_i)$, and dynamic decision hyperplane equations.
+  - **Verification & Integrity Hardening**:
+    - 238/238 passing unit tests across 15 suites.
+    - 33/33 static routes successfully compiled and exported in Next.js production build.
+    - All 87 TOC anchors verified valid across 11 case studies via automated auditor.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.8: Interactive Zoom In/Out Controls & Magnification Telemetry
 - **Commit**: `c298b5d`
 - **Components**: `components/BankingFraud3DGraph.tsx`, `components/BrentOil3DManifold.tsx`

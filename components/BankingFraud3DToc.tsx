@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "graph-studio", label: "3D Studio" },
+  { id: "graph-studio", label: "Graph Studio" },
+  { id: "anomaly-manifold", label: "Anomaly Manifold" },
   { id: "pipeline", label: "Pipeline" },
   { id: "formulation", label: "Coulomb-Hooke" },
   { id: "syndicates", label: "Syndicates" },
   { id: "projection", label: "Projection" },
+  { id: "feature-space", label: "Feature Space" },
   { id: "diagnostics", label: "Diagnostics" },
   { id: "evidence", label: "Evidence" },
   { id: "impact", label: "Impact" },
@@ -19,6 +21,11 @@ export function BankingFraud3DToc() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (window.scrollY < 120) {
+        setActiveSection(sections[0].id);
+        return;
+      }
+
       const scrollPos = window.scrollY + 160;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i].id);
@@ -42,7 +49,7 @@ export function BankingFraud3DToc() {
             href={`#${section.id}`}
             className={activeSection === section.id ? "active" : ""}
           >
-            <span>0{index + 1}</span>
+            <span>{index < 9 ? `0${index + 1}` : index + 1}</span>
             {section.label}
           </a>
         ))}

@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 const sections = [
   ["overview", "Overview"],
   ["dashboard", "Data Lab"],
-  ["model", "ML Benchmark"],
-  ["predict-lab", "NLP Simulator"],
   ["case-study", "Analysis Deep-Dive"],
   ["system", "Architecture"],
   ["lessons", "Lessons"],

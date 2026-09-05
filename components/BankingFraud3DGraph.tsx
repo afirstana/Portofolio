@@ -113,6 +113,20 @@ export function BankingFraud3DGraph() {
     }));
   };
 
+  const handleZoomIn = () => {
+    setCamera(prev => ({
+      ...prev,
+      dist: Math.max(180, prev.dist - 75)
+    }));
+  };
+
+  const handleZoomOut = () => {
+    setCamera(prev => ({
+      ...prev,
+      dist: Math.min(1100, prev.dist + 75)
+    }));
+  };
+
   // Canvas Click Detection (Raycasting 2D Projected Distance)
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
@@ -577,16 +591,100 @@ export function BankingFraud3DGraph() {
           </span>
         </div>
 
-        {/* HUD Top-Right: Quick Camera Presets */}
+        {/* HUD Top-Right: Camera & Zoom Controls */}
         <div
           style={{
             position: "absolute",
             top: 14,
             right: 16,
             display: "flex",
-            gap: 6
+            flexWrap: "wrap",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            gap: 6,
+            zIndex: 10
           }}
         >
+          {/* Zoom In / Out Pill with Magnification Percentage */}
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              backgroundColor: "rgba(10, 12, 18, 0.9)",
+              backdropFilter: "blur(8px)",
+              border: "1px solid rgba(0, 240, 255, 0.25)",
+              borderRadius: 3,
+              overflow: "hidden",
+              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.4)"
+            }}
+          >
+            <button
+              onClick={handleZoomIn}
+              className="mono"
+              title="Zoom In (+)"
+              aria-label="Zoom In"
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                padding: "6px 10px",
+                backgroundColor: "transparent",
+                color: "#00f0ff",
+                border: "none",
+                borderRight: "1px solid rgba(0, 240, 255, 0.2)",
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                transition: "background-color 0.15s"
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(0, 240, 255, 0.15)")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+            >
+              <span style={{ fontSize: 13, lineHeight: 1 }}>+</span>
+              <span style={{ fontSize: 9.5 }}>ZOOM IN</span>
+            </button>
+
+            <span
+              className="mono"
+              style={{
+                fontSize: 9.5,
+                fontWeight: 700,
+                color: "var(--dim)",
+                padding: "0 8px",
+                userSelect: "none"
+              }}
+              title="Current Camera Magnification"
+            >
+              {Math.round((580 / camera.dist) * 100)}%
+            </span>
+
+            <button
+              onClick={handleZoomOut}
+              className="mono"
+              title="Zoom Out (−)"
+              aria-label="Zoom Out"
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                padding: "6px 10px",
+                backgroundColor: "transparent",
+                color: "#00f0ff",
+                border: "none",
+                borderLeft: "1px solid rgba(0, 240, 255, 0.2)",
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                transition: "background-color 0.15s"
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(0, 240, 255, 0.15)")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+            >
+              <span style={{ fontSize: 13, lineHeight: 1 }}>−</span>
+              <span style={{ fontSize: 9.5 }}>ZOOM OUT</span>
+            </button>
+          </div>
+
           <button
             onClick={() => setCamera({ yaw: -0.45, pitch: 0.25, dist: 580, targetX: 0, targetY: 0, targetZ: 0 })}
             className="mono"
@@ -618,6 +716,89 @@ export function BankingFraud3DGraph() {
             }}
           >
             TOP VIEW
+          </button>
+        </div>
+
+        {/* Floating Vertical Quick Zoom Widget on Right Margin */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            right: 16,
+            transform: "translateY(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+            zIndex: 10,
+            backgroundColor: "rgba(10, 12, 18, 0.85)",
+            backdropFilter: "blur(8px)",
+            padding: 4,
+            borderRadius: 4,
+            border: "1px solid rgba(0, 240, 255, 0.2)",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.5)"
+          }}
+        >
+          <button
+            onClick={handleZoomIn}
+            className="mono"
+            title="Zoom In (+)"
+            aria-label="Zoom In"
+            style={{
+              width: 32,
+              height: 32,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 18,
+              fontWeight: 700,
+              color: "#00f0ff",
+              backgroundColor: "rgba(0, 240, 255, 0.06)",
+              border: "1px solid rgba(0, 240, 255, 0.2)",
+              borderRadius: 3,
+              cursor: "pointer",
+              transition: "all 0.15s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 240, 255, 0.2)";
+              e.currentTarget.style.boxShadow = "0 0 10px rgba(0, 240, 255, 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 240, 255, 0.06)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            +
+          </button>
+          <button
+            onClick={handleZoomOut}
+            className="mono"
+            title="Zoom Out (−)"
+            aria-label="Zoom Out"
+            style={{
+              width: 32,
+              height: 32,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 18,
+              fontWeight: 700,
+              color: "#00f0ff",
+              backgroundColor: "rgba(0, 240, 255, 0.06)",
+              border: "1px solid rgba(0, 240, 255, 0.2)",
+              borderRadius: 3,
+              cursor: "pointer",
+              transition: "all 0.15s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 240, 255, 0.2)";
+              e.currentTarget.style.boxShadow = "0 0 10px rgba(0, 240, 255, 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 240, 255, 0.06)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            −
           </button>
         </div>
 

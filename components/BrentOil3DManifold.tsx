@@ -500,6 +500,16 @@ export function BrentOil3DManifold() {
     setZoom((prev) => Math.max(0.6, Math.min(2.5, prev - e.deltaY * 0.001)));
   };
 
+  const handleZoomIn = () => {
+    setIsAutoRotate(false);
+    setZoom((prev) => Math.min(2.5, Math.round((prev + 0.15) * 100) / 100));
+  };
+
+  const handleZoomOut = () => {
+    setIsAutoRotate(false);
+    setZoom((prev) => Math.max(0.6, Math.round((prev - 0.15) * 100) / 100));
+  };
+
   const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
     if (e.touches.length === 1) {
       setIsAutoRotate(false);
@@ -648,6 +658,75 @@ export function BrentOil3DManifold() {
           >
             Mode: {renderMode}
           </button>
+
+          {/* Zoom In / Out Pill with Magnification Percentage */}
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid var(--line)",
+              borderRadius: 2,
+              overflow: "hidden",
+            }}
+          >
+            <button
+              type="button"
+              className="mono"
+              onClick={handleZoomIn}
+              title="Zoom In (+)"
+              style={{
+                padding: "4px 8px",
+                fontSize: 10,
+                fontWeight: 700,
+                backgroundColor: "transparent",
+                color: "#00f0ff",
+                border: "none",
+                borderRight: "1px solid var(--line)",
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              <span>+</span>
+              <span>ZOOM IN</span>
+            </button>
+            <span
+              className="mono"
+              style={{
+                fontSize: 9.5,
+                fontWeight: 700,
+                color: "var(--dim)",
+                padding: "0 6px",
+                userSelect: "none",
+              }}
+            >
+              {Math.round(zoom * 100)}%
+            </span>
+            <button
+              type="button"
+              className="mono"
+              onClick={handleZoomOut}
+              title="Zoom Out (−)"
+              style={{
+                padding: "4px 8px",
+                fontSize: 10,
+                fontWeight: 700,
+                backgroundColor: "transparent",
+                color: "#00f0ff",
+                border: "none",
+                borderLeft: "1px solid var(--line)",
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              <span>−</span>
+              <span>ZOOM OUT</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -664,6 +743,74 @@ export function BrentOil3DManifold() {
           onTouchEnd={handleTouchEnd}
           style={{ width: "100%", height: "100%", display: "block" }}
         />
+
+        {/* Floating Vertical Quick Zoom Widget */}
+        <div
+          style={{
+            position: "absolute",
+            top: 16,
+            right: 18,
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+            zIndex: 10,
+            backgroundColor: "rgba(10, 12, 18, 0.85)",
+            backdropFilter: "blur(8px)",
+            padding: 4,
+            borderRadius: 4,
+            border: "1px solid rgba(0, 240, 255, 0.2)",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.5)",
+          }}
+        >
+          <button
+            type="button"
+            onClick={handleZoomIn}
+            className="mono"
+            title="Zoom In (+)"
+            aria-label="Zoom In"
+            style={{
+              width: 30,
+              height: 30,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 16,
+              fontWeight: 700,
+              color: "#00f0ff",
+              backgroundColor: "rgba(0, 240, 255, 0.06)",
+              border: "1px solid rgba(0, 240, 255, 0.2)",
+              borderRadius: 3,
+              cursor: "pointer",
+              transition: "all 0.15s ease",
+            }}
+          >
+            +
+          </button>
+          <button
+            type="button"
+            onClick={handleZoomOut}
+            className="mono"
+            title="Zoom Out (−)"
+            aria-label="Zoom Out"
+            style={{
+              width: 30,
+              height: 30,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 16,
+              fontWeight: 700,
+              color: "#00f0ff",
+              backgroundColor: "rgba(0, 240, 255, 0.06)",
+              border: "1px solid rgba(0, 240, 255, 0.2)",
+              borderRadius: 3,
+              cursor: "pointer",
+              transition: "all 0.15s ease",
+            }}
+          >
+            −
+          </button>
+        </div>
 
         <div
           className="mono"

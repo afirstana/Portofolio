@@ -4,6 +4,26 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.8: Interactive Zoom In/Out Controls & Magnification Telemetry
+- **Commit**: `c298b5d`
+- **Components**: `components/BankingFraud3DGraph.tsx`, `components/BrentOil3DManifold.tsx`
+- **Changes**:
+  - **Zoom In / Zoom Out Controls for Banking 3D Graph (`BankingFraud3DGraph.tsx`)**:
+    - Engineered dual zoom interaction paradigms:
+      1. High-contrast Cyberpunk HUD toolbar pill with `+ ZOOM IN` and `− ZOOM OUT` buttons flanking a real-time magnification percentage indicator (`Math.round((580 / camera.dist) * 100)%`).
+      2. Floating vertical quick-zoom widget (`+` / `−`) anchored on the right canvas margin with glowing neon border, backdrop blur, and hover elevations for rapid, single-click adjustments.
+    - Calibrated smooth step intervals ($\Delta d = \pm 75$) constrained within physical bounds ($[180, 1100]$).
+    - Hardened click raycasting hit testing using `rect.width / 2` and `rect.height / 2` for sub-pixel accuracy across varied device pixel ratios (DPR 1.0, 1.25, 1.5, 2.0).
+  - **Feature Parity for Brent Oil 3D Volatility Manifold (`BrentOil3DManifold.tsx`)**:
+    - Added matching `+ ZOOM IN` / `− ZOOM OUT` pill with magnification telemetry to top toolbar and floating quick-zoom widget to right canvas margin.
+    - Bound zoom steps ($\Delta z = \pm 0.15$) constrained within $[0.6, 2.5]$, automatically pausing auto-rotation on user engagement.
+  - **Verification**:
+    - 238/238 passing unit tests across 15 test suites.
+    - 33/33 static routes successfully compiled and exported.
+    - Both 3D studios verified live on dev server with active zoom controls.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.7: 3D Financial Crime Graph & Money Mule Syndicate Studio Launch (#11)
 - **Commit**: `2328e68`
 - **Components**: `lib/anti-fraud-graph.ts`, `lib/anti-fraud-graph.test.ts`, `components/BankingFraud3DGraph.tsx`, `components/BankingFraud3DToc.tsx`, `app/projects/banking-fraud-3d-network-intelligence/page.tsx`, `content/projects/banking-fraud-3d-network-intelligence.md`, `app/projects/banking-transaction-anti-fraud/page.tsx`, `app/projects/[slug]/page.tsx`, `lib/content.test.ts`, `lib/project-sneak-peek.test.ts`, `lib/interactive-stress.test.ts`, `lib/final-static-integrity.test.ts`

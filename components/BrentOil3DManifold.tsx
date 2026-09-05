@@ -272,7 +272,7 @@ export function BrentOil3DManifold() {
       ctx.fillRect(0, 0, width, height);
 
       const cx = width / 2;
-      const cy = height / 2 + 35;
+      const cy = height / 2 - 25;
       const focalLength = 550 * localZoom;
       const camDist = 600;
 
@@ -282,18 +282,19 @@ export function BrentOil3DManifold() {
         const x1 = p.x * cosY - p.y * sinY;
         const y1 = p.x * sinY + p.y * cosY;
 
+        const centeredZ = p.z - 45;
         const cosP = Math.cos(localPitch);
         const sinP = Math.sin(localPitch);
-        const y2 = y1 * cosP - p.z * sinP;
-        const z2 = y1 * sinP + p.z * cosP;
+        const xCam = x1;
+        const yCam = centeredZ * cosP + y1 * sinP;
+        const zCam = camDist + y1 * cosP - centeredZ * sinP;
 
-        const distance = camDist + z2;
-        const f = focalLength / Math.max(distance, 50);
+        const f = focalLength / Math.max(zCam, 50);
 
         return {
-          x: cx + x1 * f,
-          y: cy - y2 * f,
-          zDepth: distance,
+          x: cx + xCam * f,
+          y: cy - yCam * f,
+          zDepth: zCam,
           world: p,
         };
       };
@@ -394,11 +395,11 @@ export function BrentOil3DManifold() {
       });
 
       ctx.textAlign = "right";
-      const midYearIdx = Math.floor(gridPoints.length / 2);
+      const edgeYearIdx = 0;
       [-10, 0, 10].forEach((s) => {
         const shockIdx = shocks.findIndex((val) => Math.abs(val - s) < 1);
         if (shockIdx !== -1) {
-          const pt = projectedGrid[midYearIdx][shockIdx];
+          const pt = projectedGrid[edgeYearIdx][shockIdx];
           ctx.fillText(`${s > 0 ? "+" : ""}${s}%`, pt.x - 12, pt.y + 4);
         }
       });
@@ -418,7 +419,7 @@ export function BrentOil3DManifold() {
         });
 
         const terrainPt = projectedGrid[xi][closestYIdx];
-        const beaconHeight = terrainPt.world.z + 45;
+        const beaconHeight = terrainPt.world.z + 36;
         const beaconWorld: Point3D = {
           x: terrainPt.world.x,
           y: terrainPt.world.y,
@@ -650,7 +651,7 @@ export function BrentOil3DManifold() {
         </div>
       </div>
 
-      <div style={{ position: "relative", height: 500, width: "100%", cursor: isDragging.current ? "grabbing" : "grab" }}>
+      <div style={{ position: "relative", height: 520, width: "100%", cursor: isDragging.current ? "grabbing" : "grab" }}>
         <canvas
           ref={canvasRef}
           onMouseDown={handleMouseDown}

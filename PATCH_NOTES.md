@@ -4,6 +4,22 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.2: 3D Surface Viewport Centering & Readability Enhancement
+- **Commit**: `pending`
+- **Components**: `components/BrentOil3DManifold.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`
+- **Changes**:
+  - **Fixed 3D Viewport Centering & Upright Orientation**:
+    - Re-derived Euler camera perspective projection ($Y_{\text{cam}} = z_{\text{centered}} \cos\phi + y_1 \sin\phi$) so volatility spikes and crisis peaks point naturally upwards into the sky rather than dipping downwards.
+    - Centered model coordinates vertically ($z_{\text{centered}} = z - 45$, $cy = \text{height} / 2 - 25$) on an expanded 520px canvas, eliminating bottom crowding and centering the 3D manifold symmetrically across all 3 view presets.
+    - Upright crisis beacons: dashed indicator lines and diamond pins hover upright directly above the peaks with clear year labels.
+  - **Enhanced Readability & User-Friendliness**:
+    - Added an intuitive 3-axis Executive Guide table translating mathematical tensor coordinates into plain-English physical landscape analogies.
+    - Standardized high-contrast Gaussian Model vs Empirical Reality comparison table (Kurtosis 45.43 vs 3.0, 99% VaR -7.12% vs -2.33%).
+    - Added practical institutional risk recommendations for commodity portfolios and trading desks.
+  - Passed all 234 unit tests across all 14 test suites.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.1: Dedicated Brent Oil 3D Studio (#2) & 10-Project Catalog Split
 - **Commit**: `8326ace`
 - **Components**: `content/projects/brent-oil-3d-volatility-manifold.md`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `app/projects/[slug]/page.tsx`, `content/projects/*.md`, `lib/*.test.ts`

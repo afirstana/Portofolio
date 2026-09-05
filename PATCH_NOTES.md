@@ -5,7 +5,7 @@
 ---
 
 ## 📅 [2026-09-05] — Patch v1.7.1: Dedicated Brent Oil 3D Studio (#2) & 10-Project Catalog Split
-- **Commit**: `pending`
+- **Commit**: `8326ace`
 - **Components**: `content/projects/brent-oil-3d-volatility-manifold.md`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `app/projects/[slug]/page.tsx`, `content/projects/*.md`, `lib/*.test.ts`
 - **Changes**:
   - Split 3D Volatility Manifold into its own standalone, dedicated case study at **Project #2** (`/projects/brent-oil-3d-volatility-manifold/`), focusing 100% on the interactive 3D tensor surface, orbit physics, and crisis beacons without distracting 2D charts.

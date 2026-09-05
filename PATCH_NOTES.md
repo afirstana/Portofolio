@@ -4,6 +4,27 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.3: Brent Oil 3D Custom TOC & Clean Typography Hardening
+- **Commit**: `a110a5f`
+- **Components**: `components/BrentOil3DToc.tsx`, `components/MarkdownBody.tsx`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`
+- **Changes**:
+  - **Dedicated 3D Table of Contents (`BrentOil3DToc.tsx`)**:
+    - Created custom TOC matching the real sections of the 3D manifold case study (`01 3D Studio`, `02 Architecture`, `03 Formulation`, `04 Topography`, `05 3D Math`, `06 Diagnostics`, `07 Evidence`, `08 Impact`, `09 Lessons`).
+    - Replaced the generic `CaseStudyToc` (`Problem, Data, Approach, System...`) and bound active scroll spy to precise DOM section IDs (`#manifold-studio`, `#pipeline`, `#formulation`, `#topography`, `#projection`, `#diagnostics`, `#evidence`, `#impact`, `#lessons`).
+  - **Hardened Math & Currency Typography in `MarkdownBody.tsx`**:
+    - Fixed escaped dollar sign pre-processing (`\$22.25` ➔ `$22.25`) so currency symbols display cleanly without leaving raw backslashes or corrupting math regex parsers.
+    - Removed `.mono` class and uppercase text transform on inline math expressions, rendering mathematical variables (`t ∈ 𝒯`, `r ∈ ℛ`, `z ∈ ℝ⁺`, `σₜ`, `γₖ`, `δₖ`) in natural, high-readability typography without heavy button badges.
+    - Enabled recursive inline formatting within bold tokens (`**$7 crises in 35.5 years$**` and `**5-Sigma (±5σ) Probability**`).
+    - Replaced raw LaTeX sum, exp, and fraction artifacts with clean, accessible mathematical Unicode strings (`∑(k=1..7)`, `σₜ²`, `δₖ²`).
+  - **Data Table & Executive Summary Cleanup**:
+    - Replaced escaped currency strings and cluttered percentage math tags across Historical Era and Tail Risk Diagnostic tables.
+    - Replaced raw LaTeX math tags in the executive note with clean text and Unicode symbols.
+  - **Verification**:
+    - 234/234 unit tests passing across all 14 test suites.
+    - 32/32 static routes cleanly generated in Next.js production build.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.2: 3D Surface Viewport Centering & Readability Enhancement
 - **Commit**: `3505be1`
 - **Components**: `components/BrentOil3DManifold.tsx`, `components/MarkdownBody.tsx`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`

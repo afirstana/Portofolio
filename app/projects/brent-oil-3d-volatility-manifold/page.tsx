@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SystemDiagram } from "@/components/SystemDiagram";
 import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { CaseStudyToc } from "@/components/CaseStudyToc";
+import { BrentOil3DToc } from "@/components/BrentOil3DToc";
 import { BrentOil3DManifold } from "@/components/BrentOil3DManifold";
 import { getAdjacentProjects, getProjectBySlug, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
@@ -159,7 +159,7 @@ export default function BrentOil3DProjectPage() {
         </div>
 
         {/* 3D Volatility Manifold Flagship Section */}
-        <section style={{ margin: "40px 0 60px" }} aria-label="3D Interactive Volatility Manifold">
+        <section id="manifold-studio" style={{ margin: "40px 0 60px" }} aria-label="3D Interactive Volatility Manifold">
           <div style={{ marginBottom: 16 }}>
             <p className="section-label mono">01. 3D Manifold Surface Studio</p>
             <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", letterSpacing: "-0.04em", margin: "0 0 8px", color: "var(--ink-heading)" }}>
@@ -178,16 +178,20 @@ export default function BrentOil3DProjectPage() {
         </section>
 
         {/* System Diagram */}
-        <SystemDiagram nodes={project.system} />
+        <section id="pipeline" aria-label="Architecture Pipeline">
+          <SystemDiagram nodes={project.system} />
+        </section>
 
         <div className="case-layout">
-          <CaseStudyToc />
+          <BrentOil3DToc />
 
           <div className="case-story">
             {/* Deep Technical Markdown Narrative */}
             {project.body && <MarkdownBody source={project.body} />}
 
-            <VisualEvidence projectSlug={project.slug} evidence={project.evidence} />
+            <section id="evidence" aria-label="Visual Evidence">
+              <VisualEvidence projectSlug={project.slug} evidence={project.evidence} />
+            </section>
 
             <section className="case-stage" id="impact">
               <p className="mono case-label">Impact</p>

@@ -17,7 +17,10 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\in\b/g, " ∈ ")
     .replace(/\\theta/g, "θ")
     .replace(/\\phi/g, "ϕ")
+    .replace(/\\delta_k\^2/g, "δₖ²")
+    .replace(/\\delta_k/g, "δₖ")
     .replace(/\\delta/g, "δ")
+    .replace(/\\gamma_k/g, "γₖ")
     .replace(/\\gamma/g, "γ")
     .replace(/\\kappa/g, "κ")
     .replace(/\\dots/g, "...")
@@ -42,7 +45,7 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\qquad/g, "    ")
     .replace(/\\quad\s*and\s*\\quad/g, "   and   ")
     .replace(/\\quad\s*\\text\{and\}\s*\\quad/g, "   and   ")
-    .replace(/\\quad/g, "  •  ")
+    .replace(/\\quad/g, "   ")
     .replace(/\\sqrt\{([^\}]+)\}/g, "√($1)")
     .replace(/\\sqrt/g, "√")
     .replace(/\\Delta\s*\\phi/g, "Δϕ")
@@ -69,8 +72,8 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\le\b|\\le(?![a-zA-Z])/g, " ≤ ")
     .replace(/\\ge\b|\\ge(?![a-zA-Z])/g, " ≥ ")
     .replace(/\\pm/g, " ± ")
-    .replace(/\\sum_\{i=1\}\^\{([^\}]+)\}/g, "∑(i=1..$1)")
-    .replace(/\\sum_\{k=1\}\^\{([^\}]+)\}/g, "∑(k=1..$1)")
+    .replace(/\\sum_\{i=1\}\^\{?([^\}]+)\}?/g, "∑(i=1..$1)")
+    .replace(/\\sum_\{k=1\}\^\{?([^\}]+)\}?/g, "∑(k=1..$1)")
     .replace(/\\sum_\{([^\}]+)\}/g, "∑($1)")
     .replace(/\\sum/g, "∑")
     .replace(/\\beta_0/g, "β₀")
@@ -80,12 +83,14 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\epsilon/g, "ε")
     .replace(/\\sigma_X/g, "σ_X")
     .replace(/\\sigma_Y/g, "σ_Y")
-    .replace(/\\sigma_t\^2/g, "σ_t²")
-    .replace(/\\sigma_t/g, "σ_t")
+    .replace(/\\sigma_t\^2/g, "σₜ²")
+    .replace(/\\sigma_t/g, "σₜ")
     .replace(/\\sigma/g, "σ")
     .replace(/\\mu/g, "μ")
     .replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "($1 / $2)")
     .replace(/\{,\}/g, ",")
+    .replace(/\\;/g, " ")
+    .replace(/\\,/g, " ")
     .replace(/_i\b/g, "ᵢ")
     .replace(/_0\b/g, "₀")
     .replace(/_1\b/g, "₁")
@@ -95,28 +100,43 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/_t\b/g, "ₜ")
     .replace(/\^2\b/g, "²")
     .replace(/\^3\b/g, "³")
+    .replace(/\^7\b/g, "⁷")
     .replace(/\^K\b/g, "ᴷ")
     .replace(/[{}]/g, "")
     .replace(/\\/g, "")
+    .replace(/[^\S\r\n]+/g, " ")
     .trim();
 }
 
 function formatInline(text: string): React.ReactNode[] {
+  // Pre-process escaped currency symbols so they don't trigger math parsing
+  const preprocessed = text.replace(/\\\\\$/g, "§BACKSLASH_DOLLAR§").replace(/\\\$/g, "§DOLLAR§");
+
   // Split by inline code, bold, links, math
   const parts: React.ReactNode[] = [];
   const regex = /(\*\*.*?\*\*|`.*?`|\$[^\$]+?\$|\[.*?\]\(.*?\))/g;
   let lastIdx = 0;
   let match: RegExpExecArray | null;
 
-  while ((match = regex.exec(text)) !== null) {
+  while ((match = regex.exec(preprocessed)) !== null) {
     if (match.index > lastIdx) {
-      parts.push(text.substring(lastIdx, match.index));
+      parts.push(
+        preprocessed
+          .substring(lastIdx, match.index)
+          .replace(/§DOLLAR§/g, "$")
+          .replace(/§BACKSLASH_DOLLAR§/g, "\\$")
+      );
     }
     const token = match[0];
     if (token.startsWith("**") && token.endsWith("**")) {
-      parts.push(<strong key={match.index} style={{ color: "var(--ink-heading)", fontWeight: 700 }}>{token.slice(2, -2)}</strong>);
+      const boldInner = token.slice(2, -2);
+      parts.push(
+        <strong key={match.index} style={{ color: "var(--ink-heading)", fontWeight: 700 }}>
+          {formatInline(boldInner)}
+        </strong>
+      );
     } else if (token.startsWith("`") && token.endsWith("`")) {
-      const codeText = token.slice(1, -1);
+      const codeText = token.slice(1, -1).replace(/§DOLLAR§/g, "$");
       const isPositiveDelta = codeText.startsWith("+") || codeText.includes("▲");
       const isNegativeDelta = (codeText.startsWith("-") && codeText.includes("%")) || codeText.includes("▼");
 
@@ -153,19 +173,18 @@ function formatInline(text: string): React.ReactNode[] {
         </code>
       );
     } else if (token.startsWith("$") && token.endsWith("$")) {
-      const cleanInline = parseMathToCleanUnicode(token.slice(1, -1));
+      const mathInner = token.slice(1, -1).replace(/§DOLLAR§/g, "$");
+      const cleanInline = parseMathToCleanUnicode(mathInner);
       parts.push(
         <span
           key={match.index}
-          className="mono"
           style={{
+            fontFamily: "'Courier New', Courier, monospace",
             color: "var(--ink-heading)",
-            backgroundColor: "rgba(255, 255, 255, 0.05)",
-            padding: "2px 7px",
-            borderRadius: 3,
-            border: "1px solid var(--line)",
-            fontSize: 11.5,
+            fontSize: "0.95em",
             fontWeight: 600,
+            textTransform: "none",
+            letterSpacing: "0.02em",
           }}
         >
           {cleanInline}
@@ -174,18 +193,31 @@ function formatInline(text: string): React.ReactNode[] {
     } else if (token.startsWith("[") && token.includes("](")) {
       const labelMatch = token.match(/\[(.*?)\]\((.*?)\)/);
       if (labelMatch) {
-        parts.push(<a key={match.index} href={labelMatch[2]} style={{ color: "var(--accent)", textDecoration: "underline" }}>{labelMatch[1]}</a>);
+        parts.push(
+          <a
+            key={match.index}
+            href={labelMatch[2]}
+            style={{ color: "var(--accent)", textDecoration: "underline" }}
+          >
+            {labelMatch[1].replace(/§DOLLAR§/g, "$")}
+          </a>
+        );
       } else {
-        parts.push(token);
+        parts.push(token.replace(/§DOLLAR§/g, "$"));
       }
     } else {
-      parts.push(token);
+      parts.push(token.replace(/§DOLLAR§/g, "$"));
     }
     lastIdx = regex.lastIndex;
   }
 
-  if (lastIdx < text.length) {
-    parts.push(text.substring(lastIdx));
+  if (lastIdx < preprocessed.length) {
+    parts.push(
+      preprocessed
+        .substring(lastIdx)
+        .replace(/§DOLLAR§/g, "$")
+        .replace(/§BACKSLASH_DOLLAR§/g, "\\$")
+    );
   }
 
   return parts;
@@ -560,10 +592,32 @@ export function MarkdownBody({ source }: { source: string }) {
 
     // Heading 2
     if (line.startsWith("## ")) {
-      const heading = line.replace("## ", "");
+      let heading = line.replace("## ", "");
+      let sectionId = "";
+      const customIdMatch = heading.match(/\{#([a-zA-Z0-9_-]+)\}/);
+      if (customIdMatch) {
+        sectionId = customIdMatch[1];
+        heading = heading.replace(/\{#[a-zA-Z0-9_-]+\}/, "").trim();
+      } else if (heading.toLowerCase().includes("formulation")) {
+        sectionId = "formulation";
+      } else if (heading.toLowerCase().includes("topography")) {
+        sectionId = "topography";
+      } else if (heading.toLowerCase().includes("projection")) {
+        sectionId = "projection";
+      } else if (heading.toLowerCase().includes("diagnostics") || heading.toLowerCase().includes("verification")) {
+        sectionId = "diagnostics";
+      } else {
+        sectionId = heading
+          .toLowerCase()
+          .replace(/^[0-9]+\.\s*/, "")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "");
+      }
+
       nodes.push(
         <h2
           key={`h2-${i}`}
+          id={sectionId}
           style={{
             fontSize: "clamp(20px, 2.2vw, 28px)",
             color: "var(--ink-heading)",

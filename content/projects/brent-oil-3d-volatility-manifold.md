@@ -135,31 +135,21 @@ The structural topography of the 3D manifold visually contrasts calm historical 
 
 To achieve **60 FPS real-time rendering** on all devices with **zero external libraries** (<10 kB total payload vs 500 kB+ for Three.js), the rendering engine computes direct mathematical perspective projection onto an HTML5 2D Canvas context.
 
-### 📐 Camera Transformation Steps
+### 📐 Camera Transformation Pipeline: 3-Stage Mathematical Matrix
 
-Each point $P = (x, y, z)$ on the 3D surface is transformed into screen space using 3 sequential coordinate operations:
+To achieve **60 FPS zero-dependency rendering** (<10 kB payload vs 500 kB+ for Three.js), each vertex coordinate $P = (x, y, z)$ on the 3D surface is projected into 2D canvas screen pixels through 3 sequential coordinate operations:
 
-#### Step 1: Horizontal Yaw Rotation (Azimuth Orbit)
-Orbiting the camera horizontally around the terrain center by yaw angle $\theta$:
+| Step | Transformation Stage | Mathematical Engine | Physical Camera & Screen Effect |
+|---|---|---|---|
+| **01** | **Horizontal Yaw Orbit** (Azimuth $\theta$) | $x_1 = x \cos\theta - y \sin\theta$<br/>$y_1 = x \sin\theta + y \cos\theta$ | Orbits the camera 360° horizontally around the center of the historical terrain manifold. |
+| **02** | **Vertical Pitch & Centering** (Elevation $\phi$) | $X_{\text{cam}} = x_1$<br/>$Y_{\text{cam}} = z_{\text{centered}} \cos\phi + y_1 \sin\phi$<br/>$Z_{\text{cam}} = d_{\text{cam}} + y_1 \cos\phi - z_{\text{centered}} \sin\phi$ | Tilts camera downward by angle $\phi$ while centering elevation ($z_{\text{centered}} = z - 45$), keeping peaks upright into the sky. |
+| **03** | **Perspective Canvas Mapping** (Focal $f = 680$) | $X_s = X_{\text{center}} + X_{\text{cam}} \cdot (f / Z_{\text{cam}})$<br/>$Y_s = Y_{\text{center}} - Y_{\text{cam}} \cdot (f / Z_{\text{cam}})$ | Projects 3D camera coordinates to 2D screen pixels $(X_s, Y_s)$, scaling perspective inversely with depth distance $Z_{\text{cam}}$. |
 
-$$\begin{aligned}
-x_1 &= x \cos\theta - y \sin\theta \\
-y_1 &= x \sin\theta + y \cos\theta
-\end{aligned}$$
+### 🎯 Unified Perspective Projection Equation
 
-#### Step 2: Vertical Pitch Rotation & Upright Centering (Elevation Angle)
-Tilting the camera by pitch angle $\phi$ while centering the vertical elevation $z_{\text{centered}} = z - z_{\text{center}}$ ensures mountain peaks point upwards into the sky:
+Combining horizontal azimuth rotation, vertical tilt centering, and pinhole focal scaling yields the complete camera-to-screen mapping function:
 
-$$\begin{aligned}
-X_{\text{cam}} &= x_1 \\
-Y_{\text{cam}} &= z_{\text{centered}} \cos\phi + y_1 \sin\phi \\
-Z_{\text{cam}} &= d_{\text{cam}} + y_1 \cos\phi - z_{\text{centered}} \sin\phi
-\end{aligned}$$
-
-#### Step 3: Focal Perspective Projection onto Canvas Pixels
-Transforming 3D camera space coordinates into 2D canvas pixel coordinates $(X_s, Y_s)$:
-
-$$X_s = X_{\text{center}} + X_{\text{cam}} \cdot \left(\frac{f}{Z_{\text{cam}}}\right), \quad Y_s = Y_{\text{center}} - Y_{\text{cam}} \cdot \left(\frac{f}{Z_{\text{cam}}}\right)$$
+$$P_{\text{screen}}(X_s, Y_s) = \left( X_{\text{center}} + X_{\text{cam}} \cdot \left(\frac{f}{Z_{\text{cam}}}\right), \quad Y_{\text{center}} - Y_{\text{cam}} \cdot \left(\frac{f}{Z_{\text{cam}}}\right) \right)$$
 
 ### 🎨 Flawless Depth Occlusion via Painter's Algorithm
 The manifold grid is composed of **630 quadrilateral facets**. Before rasterization on each animation frame:

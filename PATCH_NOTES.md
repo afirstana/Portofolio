@@ -4,6 +4,25 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.4: 3D Camera Transformation Table & Mathematical Parser Refinement
+- **Commit**: `03a966f`
+- **Components**: `components/MarkdownBody.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`
+- **Changes**:
+  - **Section 03 3-Stage Coordinate Transformation Matrix Table**:
+    - Replaced raw multi-line `\begin{aligned}` formula blocks in Section 03 with an intuitive 4-column structured matrix table (`Step`, `Transformation Stage`, `Mathematical Engine`, `Physical Camera & Screen Effect`).
+    - Formatted Horizontal Yaw Orbit (Azimuth $\theta$), Vertical Pitch Centering (Elevation $\phi$), and Perspective Canvas Mapping ($f = 680$) with clean equations and multi-line `<br/>` breaks.
+    - Formulated a single unified master projection equation: $P_{\text{screen}}(X_s, Y_s) = ( X_{\text{center}} + X_{\text{cam}} \cdot (f / Z_{\text{cam}}), \; Y_{\text{center}} - Y_{\text{cam}} \cdot (f / Z_{\text{cam}}) )$.
+  - **Hardened Math & Table Rendering in `MarkdownBody.tsx`**:
+    - Resolved nested fraction and subscript regex collisions, ensuring `\frac{f}{Z_{\text{cam}}}` parses cleanly to `(f / Z_cam)` without redundant double parentheses.
+    - Added `<br/>` token rendering inside `formatInline`, enabling multi-equation table cells.
+    - Prioritized summation token replacement before generic subscript unnesting, rendering `\sum_{k=1}^{7}` cleanly as `∑(k=1..7)`.
+    - Added Unicode subscript conversion for `_s` to `ₛ` ($Xₛ$, $Yₛ$).
+  - **Verification**:
+    - 234/234 unit tests passing across all 14 test suites.
+    - 32/32 static routes cleanly generated in Next.js production build.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.3: Brent Oil 3D Custom TOC & Clean Typography Hardening
 - **Commit**: `a110a5f`
 - **Components**: `components/BrentOil3DToc.tsx`, `components/MarkdownBody.tsx`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`

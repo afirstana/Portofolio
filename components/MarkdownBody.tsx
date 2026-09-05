@@ -4,6 +4,16 @@ function parseMathToCleanUnicode(raw: string): string {
   return raw
     .replace(/\\begin\{aligned\}/g, "")
     .replace(/\\end\{aligned\}/g, "")
+    .replace(/\\text\{([^\}]+)\}/g, "$1")
+    .replace(/\\mathrm\{([^\}]+)\}/g, "$1")
+    .replace(/\\mathbf\{([^\}]+)\}/g, "$1")
+    .replace(/\\operatorname\{([^\}]+)\}/g, "$1")
+    .replace(/\\operatorname/g, "")
+    .replace(/\\sum_\{i=1\}\^\{?([^\}]+)\}?/g, "∑(i=1..$1)")
+    .replace(/\\sum_\{k=1\}\^\{?([^\}]+)\}?/g, "∑(k=1..$1)")
+    .replace(/\\sum_\{([^\}]+)\}/g, "∑($1)")
+    .replace(/\\sum/g, "∑")
+    .replace(/_\{([^\}]+)\}/g, "_$1")
     .replace(/\\mathcal\{M\}/g, "ℳ")
     .replace(/\\mathcal\{T\}/g, "𝒯")
     .replace(/\\mathcal\{R\}/g, "ℛ")
@@ -27,11 +37,9 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\cdots/g, "···")
     .replace(/&=/g, " = ")
     .replace(/\\\\/g, "\n")
-    .replace(/\\text\{([^\}]+)\}/g, "$1")
-    .replace(/\\mathrm\{([^\}]+)\}/g, "$1")
-    .replace(/\\mathbf\{([^\}]+)\}/g, "$1")
-    .replace(/\\operatorname\{([^\}]+)\}/g, "$1")
-    .replace(/\\operatorname/g, "")
+    .replace(/\\left\(\s*\\frac\{([^}]+)\}\{([^}]+)\}\s*\\right\)/g, "($1 / $2)")
+    .replace(/\\left\[\s*\\frac\{([^}]+)\}\{([^}]+)\}\s*\\right\]/g, "[$1 / $2]")
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, "($1 / $2)")
     .replace(/\\left\s*[\(\[\{]/g, "(")
     .replace(/\\right\s*[\)\]\}]/g, ")")
     .replace(/\\left/g, "")
@@ -72,10 +80,6 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\le\b|\\le(?![a-zA-Z])/g, " ≤ ")
     .replace(/\\ge\b|\\ge(?![a-zA-Z])/g, " ≥ ")
     .replace(/\\pm/g, " ± ")
-    .replace(/\\sum_\{i=1\}\^\{?([^\}]+)\}?/g, "∑(i=1..$1)")
-    .replace(/\\sum_\{k=1\}\^\{?([^\}]+)\}?/g, "∑(k=1..$1)")
-    .replace(/\\sum_\{([^\}]+)\}/g, "∑($1)")
-    .replace(/\\sum/g, "∑")
     .replace(/\\beta_0/g, "β₀")
     .replace(/\\beta_1/g, "β₁")
     .replace(/\\beta/g, "β")
@@ -87,7 +91,6 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\sigma_t/g, "σₜ")
     .replace(/\\sigma/g, "σ")
     .replace(/\\mu/g, "μ")
-    .replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "($1 / $2)")
     .replace(/\{,\}/g, ",")
     .replace(/\\;/g, " ")
     .replace(/\\,/g, " ")
@@ -98,6 +101,7 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/_k\b/g, "ₖ")
     .replace(/_K\b/g, "ₖ")
     .replace(/_t\b/g, "ₜ")
+    .replace(/_s\b/g, "ₛ")
     .replace(/\^2\b/g, "²")
     .replace(/\^3\b/g, "³")
     .replace(/\^7\b/g, "⁷")
@@ -114,7 +118,7 @@ function formatInline(text: string): React.ReactNode[] {
 
   // Split by inline code, bold, links, math
   const parts: React.ReactNode[] = [];
-  const regex = /(\*\*.*?\*\*|`.*?`|\$[^\$]+?\$|\[.*?\]\(.*?\))/g;
+  const regex = /(\*\*.*?\*\*|`.*?`|\$[^\$]+?\$|\[.*?\]\(.*?\)|\<br\s*\/?>)/g;
   let lastIdx = 0;
   let match: RegExpExecArray | null;
 
@@ -205,6 +209,8 @@ function formatInline(text: string): React.ReactNode[] {
       } else {
         parts.push(token.replace(/§DOLLAR§/g, "$"));
       }
+    } else if (token.startsWith("<br") || token === "<br/>" || token === "<br>") {
+      parts.push(<br key={match.index} />);
     } else {
       parts.push(token.replace(/§DOLLAR§/g, "$"));
     }

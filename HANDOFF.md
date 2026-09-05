@@ -56,6 +56,9 @@ PORTOFOLIO/01. Vercel/project/
 │
 ├── components/                           # Reusable UI & Interactive Showcases
 │   ├── AwsAcademyInteractiveShowcase.tsx # Live cloud pipeline architecture & Bedrock simulator
+│   ├── BankingFraud3DGraph.tsx           # [3D Studio 01] Force-Directed Crime Graph & Mule Syndicate
+│   ├── BankingFraud3DAnomalyManifold.tsx # [3D Studio 02] Latent Feature Manifold & Decision Hyperplane
+│   ├── BrentOil3DManifold.tsx            # [3D Studio] Empirical Volatility Manifold & Crisis Beacons
 │   ├── GlobalUX.tsx                      # Command palette (Ctrl+K), keyboard navigation shortcuts
 │   ├── InteractiveButterfly.tsx          # Non-intrusive ambient butterfly kinematics simulation
 │   ├── LogoBadge.tsx                     # Vectorized obsidian logo badge
@@ -69,29 +72,29 @@ PORTOFOLIO/01. Vercel/project/
 │
 ├── content/                              # Production Content Database (Markdown + YAML Frontmatter)
 │   ├── learning/                         # Certifications & Academies Markdown Files
-│   │   ├── aws-ai-academy-2026.md
-│   │   └── datacamp-data-analyst-associate.md
 │   ├── opinions/                         # Opinion Essays Markdown Files
-│   │   ├── operational-data-debt.md
-│   │   ├── sql-first-decision-engines.md
-│   │   └── unit-economics-governance.md
-│   └── projects/                         # In-Depth Project Case Studies Markdown Files
+│   └── projects/                         # In-Depth Project Case Studies Markdown Files (11 Total)
 │       ├── amazon-product-intelligence.md
-│       ├── banking-transaction-anti-fraud.md
-│       ├── brent-oil-market-dynamics.md
+│       ├── banking-fraud-3d-network-intelligence.md # 3D Force-Directed Graph & Anomaly Manifold Case Study (#11)
+│       ├── banking-transaction-anti-fraud.md       # 2D Enterprise SQL Suite & Behavioral Surveillance (#1)
+│       ├── brent-oil-3d-volatility-manifold.md     # 3D Leptokurtic Volatility Manifold Case Study (#10)
+│       ├── brent-oil-market-dynamics.md            # Geopolitical Econometrics & Power BI Suite (#2)
 │       ├── certificate-generator-desktop-app.md
 │       ├── global-cancer-epidemiology-surveillance.md
+│       ├── ml-product-mapping-system.md
 │       ├── olist-e-commerce-logistics-analysis.md
 │       ├── olist-payment-behavior-analytics.md
 │       └── revenue-reconciliation-automation.md
 │
 ├── lib/                                  # Pure Utility Functions, Ingestion & Test Suites
+│   ├── anti-fraud.ts                     # Anti-fraud dataset synthesizer & analytics engine
+│   ├── anti-fraud-graph.ts               # In-memory graph traversal & 3D Coulomb-Hooke physics
 │   ├── content.ts                        # Project markdown loader & slug parser
 │   ├── learning.ts                       # Certification markdown ingestion & adjacent pager
 │   ├── opinions.ts                       # Opinion markdown loader & category aggregator
 │   ├── site.ts                           # Global site metadata, canonical links, and author info
 │   ├── butterflyPhysics.ts               # Kinematic state machine, collision boundaries, repulsion
-│   └── *.test.ts(x)                      # 14 Vitest testing suites (232 tests passing)
+│   └── *.test.ts(x)                      # 15 Vitest testing suites (238 tests passing 100%)
 │
 ├── public/                               # Static Public Assets & Binary Database
 │   ├── cv/                               # Official CV Documents (EN & ID)

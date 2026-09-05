@@ -2,6 +2,28 @@ import React from "react";
 
 function parseMathToCleanUnicode(raw: string): string {
   return raw
+    .replace(/\\begin\{aligned\}/g, "")
+    .replace(/\\end\{aligned\}/g, "")
+    .replace(/\\mathcal\{M\}/g, "ℳ")
+    .replace(/\\mathcal\{T\}/g, "𝒯")
+    .replace(/\\mathcal\{R\}/g, "ℛ")
+    .replace(/\\mathcal\{([^\}]+)\}/g, "$1")
+    .replace(/\\mathbb\{R\}\^?\+?/g, "ℝ⁺")
+    .replace(/\\mathbb\{([^\}]+)\}/g, "$1")
+    .replace(/\\longmapsto/g, " ⟶ ")
+    .replace(/\\longrightarrow/g, " ⟶ ")
+    .replace(/\\rightarrow/g, " → ")
+    .replace(/\\to\b/g, " → ")
+    .replace(/\\in\b/g, " ∈ ")
+    .replace(/\\theta/g, "θ")
+    .replace(/\\phi/g, "ϕ")
+    .replace(/\\delta/g, "δ")
+    .replace(/\\gamma/g, "γ")
+    .replace(/\\kappa/g, "κ")
+    .replace(/\\dots/g, "...")
+    .replace(/\\cdots/g, "···")
+    .replace(/&=/g, " = ")
+    .replace(/\\\\/g, "\n")
     .replace(/\\text\{([^\}]+)\}/g, "$1")
     .replace(/\\mathrm\{([^\}]+)\}/g, "$1")
     .replace(/\\mathbf\{([^\}]+)\}/g, "$1")
@@ -28,7 +50,6 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\Delta\s*([a-zA-Z]+)/g, "Δ$1")
     .replace(/\\phi_1/g, "ϕ₁")
     .replace(/\\phi_2/g, "ϕ₂")
-    .replace(/\\phi/g, "ϕ")
     .replace(/\\lambda_1/g, "λ₁")
     .replace(/\\lambda_2/g, "λ₂")
     .replace(/\\lambda/g, "λ")
@@ -38,6 +59,7 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\sin\^2/g, "sin²")
     .replace(/\\cos/g, "cos")
     .replace(/\\sin/g, "sin")
+    .replace(/\\exp/g, "exp")
     .replace(/\\ln/g, "ln")
     .replace(/\\log/g, "log")
     .replace(/\\times/g, " × ")
@@ -48,6 +70,7 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\ge\b|\\ge(?![a-zA-Z])/g, " ≥ ")
     .replace(/\\pm/g, " ± ")
     .replace(/\\sum_\{i=1\}\^\{([^\}]+)\}/g, "∑(i=1..$1)")
+    .replace(/\\sum_\{k=1\}\^\{([^\}]+)\}/g, "∑(k=1..$1)")
     .replace(/\\sum_\{([^\}]+)\}/g, "∑($1)")
     .replace(/\\sum/g, "∑")
     .replace(/\\beta_0/g, "β₀")
@@ -57,6 +80,8 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\epsilon/g, "ε")
     .replace(/\\sigma_X/g, "σ_X")
     .replace(/\\sigma_Y/g, "σ_Y")
+    .replace(/\\sigma_t\^2/g, "σ_t²")
+    .replace(/\\sigma_t/g, "σ_t")
     .replace(/\\sigma/g, "σ")
     .replace(/\\mu/g, "μ")
     .replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "($1 / $2)")
@@ -67,6 +92,7 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/_2\b/g, "₂")
     .replace(/_k\b/g, "ₖ")
     .replace(/_K\b/g, "ₖ")
+    .replace(/_t\b/g, "ₜ")
     .replace(/\^2\b/g, "²")
     .replace(/\^3\b/g, "³")
     .replace(/\^K\b/g, "ᴷ")
@@ -332,7 +358,30 @@ export function MarkdownBody({ source }: { source: string }) {
 
     // Math block ($$...$$)
     if (line.trim().startsWith("$$")) {
-      const mathContent = line.trim().replace(/^\$\$|\$\$$/g, "");
+      const mathLines: string[] = [];
+      const trimmed = line.trim();
+      const isSingleLine = trimmed.length > 2 && trimmed.endsWith("$$") && trimmed.indexOf("$$", 2) === trimmed.length - 2;
+
+      if (isSingleLine) {
+        mathLines.push(trimmed.replace(/^\$\$|\$\$$/g, ""));
+        i++;
+      } else {
+        // Multi-line math block
+        const firstLine = trimmed.replace(/^\$\$/, "").trim();
+        if (firstLine) mathLines.push(firstLine);
+        i++;
+        while (i < lines.length && !lines[i].trim().endsWith("$$")) {
+          mathLines.push(lines[i].trim());
+          i++;
+        }
+        if (i < lines.length) {
+          const lastLine = lines[i].trim().replace(/\$\$$/, "").trim();
+          if (lastLine) mathLines.push(lastLine);
+          i++;
+        }
+      }
+
+      const mathContent = mathLines.join("\n");
       const cleanMath = parseMathToCleanUnicode(mathContent);
 
       nodes.push(
@@ -370,13 +419,14 @@ export function MarkdownBody({ source }: { source: string }) {
               textAlign: "center",
               letterSpacing: "0.04em",
               overflowX: "auto",
+              whiteSpace: "pre-wrap",
+              lineHeight: 1.65,
             }}
           >
             {cleanMath}
           </div>
         </div>
       );
-      i++;
       continue;
     }
 

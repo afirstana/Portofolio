@@ -113,15 +113,16 @@ Lane: 3D Volatility Manifold Projection Pipeline | Zero-Dependency Native Mathem
 
 The structural topography of the 3D manifold visually contrasts calm historical periods against severe geopolitical crises:
 
-| Historical Era | Timeline Bound | Spot Price | Median Volatility | Topographical Geometry | Governing Macro Driver |
+| Historical Era & 3D Beacon | Timeline | Spot Price | Daily Shock | Topographical Manifold Geometry | Governing Macro Driver & Market Mechanism |
 |---|---|---|---|---|---|
-| **Early Gulf Shock** | 1990 – 1991 | $22.25 | 4.2% / day | Jagged positive ridge (+8.5%) | Iraqi invasion of Kuwait & Middle Eastern supply panic |
-| **Mid-90s Stability** | 1992 – 1996 | $18.50 | 1.8% / day | Narrow, razor-sharp calm spine (0.0%) | Steady Western GDP expansion & disciplined OPEC quotas |
-| **Asian Contagion** | 1997 – 1999 | $9.55 | 3.4% / day | Downward canyon plunge (-6.8%) | Tiger economy financial collapse & severe storage glut |
-| **Supercycle Boom** | 2004 – 2008 | $143.95 | 4.8% / day | Broad elevated plateau reaching peak | Rapid industrialization in China & emerging markets |
-| **US Shale Era** | 2014 – 2016 | $28.79 | 3.7% / day | Sustained negative slope (-7.5%) | Horizontal fracking oversupply vs OPEC market share defense |
-| **COVID-19 Shock** | 2020 – 2021 | $9.10 | 5.2% / day | Extreme dual canyon (-14.2%) | Global lockdown travel cessation & negative prompt storage |
-| **Ukraine Energy War** | 2022 – 2024 | $133.18 | 4.6% / day | Prominent supply spike (+9.8%) | European pipeline embargo & Western sanctions on Russia |
+| **1990 Gulf War Shock** | 1990 – 1991 | $22.25 | `+8.5% ▲` | **Jagged Positive Ridge** | Iraqi invasion of Kuwait and Middle Eastern supply panic (+59.7% price surge in 30 days). |
+| **Mid-90s Macro Stability** | 1992 – 1996 | $18.50 | `0.0% ⚖️` | **Razor-Sharp Calm Spine** | Steady Western economic expansion and disciplined OPEC quota enforcement without disruptions. |
+| **1998 Asian Glut & Contagion** | 1997 – 1999 | $9.55 | `-6.8% ▼` | **Downward Canyon Plunge** | Asian Tiger economic collapse decimated demand while delayed OPEC cuts flooded global storage. |
+| **2008 Supercycle ATH** | 2004 – 2008 | $143.95 | `+10.4% ▲` | **Broad High-Altitude Plateau** | Unprecedented industrialization in China & BRICS drove Brent to all-time record high of $143.95. |
+| **2011 Arab Spring Shock** | 2011 – 2013 | $126.65 | `+5.8% ▲` | **Elevated Volatility Crest** | Libyan civil war took 1.5M bpd offline, keeping oil prices sustainably elevated above $100. |
+| **2014 OPEC vs Shale War** | 2014 – 2016 | $28.79 | `-7.5% ▼` | **Sustained Negative Slope** | Horizontal US fracking boom met aggressive OPEC market-share defense, triggering a collapse to $27. |
+| **2020 COVID-19 Demand Crash** | 2020 – 2021 | $9.10 | `-14.2% ▼` | **Extreme Dual Abyss / Chasm** | Global lockdowns halted 30% of transport demand; prompt storage full; physical spot crashed to $9.10. |
+| **2022 Ukraine War & Sanctions** | 2022 – 2024 | $133.18 | `+9.8% ▲` | **Prominent Supply Spike** | Russian pipeline embargo and Western financial sanctions sparked severe prompt supply dislocation. |
 
 ### 💡 Visual Takeaways for Analysts
 1. **The Peacetime Calm Spine (1992–1996)**: During periods of macroeconomic equilibrium, trading returns cluster almost exclusively within [-1.5%, +1.5%], producing a narrow, razor-sharp mountain ridge right along the centerline.

@@ -19,6 +19,8 @@
   - **Density Elevation Landscape Table & Visual Flowchart Pipeline**:
     - Replaced cluttered mathematical formula bullet points (`EXP(-(R² / 2Σ_T²))` badges) with an intuitive 4-column breakdown table connecting the mathematical engine to physical 3D terrain geometry and real-world economic impacts (Peacetime Calm Spine, Supply Shock Peaks, Demand Shock Canyons).
     - Upgraded the ASCII monospace box diagram into a responsive, high-contrast visual architecture pipeline card (`ARCHITECTURAL PARADIGM COMPARISON • FLOW DIAGRAM`) featuring 4 sequenced nodes with descriptive telemetry badges and directional flow indicators (`➔`).
+  - **Historical Era & Crisis Beacon Topography Table Upgrade**:
+    - Aligned the 8-row table directly with all 7 interactive 3D crisis beacons (plus peacetime baseline), incorporating color-coded daily shock delta badges (`+8.5% ▲`, `+10.4% ▲`, `+5.8% ▲`, `+9.8% ▲` in crimson, `-6.8% ▼`, `-7.5% ▼`, `-14.2% ▼` in emerald, `0.0% ⚖️` in neutral), clean spot prices ($22.25 to $143.95), and descriptive physical geometry classifications.
   - **Data Table & Executive Summary Cleanup**:
     - Replaced escaped currency strings and cluttered percentage math tags across Historical Era and Tail Risk Diagnostic tables.
     - Replaced raw LaTeX math tags in the executive note with clean text and Unicode symbols.

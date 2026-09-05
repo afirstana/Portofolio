@@ -89,7 +89,7 @@ Spanning May 20, 1987 through November 14, 2022, Brent Crude Oil serves as the i
 
 ```diagram
 Econometric Ingestion & Risk Modeling | 35.5-Year Multi-Regime Architecture
-[01. Date Ingestion Engine | Standardizes 9,011 rows across mixed legacy and modern timestamp formats] ➔ [02. Macro Regime Segmentation | Segments 35.5 years into 4 distinct historical economic eras] ➔ [03. Geopolitical Shock Engine | Quantifies price shock elasticity across 7 global historical crises] ➔ [04. Fat-Tail Risk Modeling | Calculates rolling volatility, kurtosis (45.43), and VaR 95/99] ➔ [05. Executive Power BI Console | Interactive DAX dashboard delivering procurement risk guardrails]
+[Date Ingestion Engine | Standardizes 9,011 rows across mixed legacy and modern timestamp formats] ➔ [Macro Regime Segmentation | Segments 35.5 years into 4 distinct historical economic eras] ➔ [Geopolitical Shock Engine | Quantifies price shock elasticity across 7 global historical crises] ➔ [Fat-Tail Risk Modeling | Calculates rolling volatility, kurtosis (45.43), and VaR 95/99] ➔ [Executive Power BI Console | Interactive DAX dashboard delivering procurement risk guardrails]
 ```
 
 ### Ingestion Challenge: Dual-Format Date Encodings

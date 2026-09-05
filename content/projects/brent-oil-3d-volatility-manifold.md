@@ -98,13 +98,13 @@ Rather than treating this as an abstract equation, each mathematical term direct
 
 | Landscape Component | Mathematical Engine | Physical Geometry on 3D Surface | Real-World Economic Meaning |
 |---|---|---|---|
-| **Peacetime Calm Spine** | $\exp(-r^2 / 2\sigma_t^2)$ | **Razor-Sharp Central Ridge** along 0% return | In calm macroeconomic periods (e.g., 1992–1996), oil prices stay tightly range-bound with minimal daily fluctuations. |
-| **Supply Shock Mountain Peaks** | $+\gamma_k \cdot \exp(-(r - r_k)^2 / 2\delta_k^2)$ | **Towering High-Elevation Peaks** (+8% to +12%) | Abrupt geopolitical supply panic (1990 Gulf War, 2008 Spike, 2022 Ukraine) triggers rapid speculative squeezes. |
-| **Demand Shock Canyons** | $-\gamma_k \cdot \exp(-(r - r_k)^2 / 2\delta_k^2)$ | **Deep Topographical Chasms** (-7% to -14%) | Global demand collapse (1998 Asian Crisis, 2020 COVID freeze) causes catastrophic inventory and storage saturation. |
+| **Peacetime Calm Spine** `0.0% Central Ridge ⚖️` | $\exp(-r^2 / 2\sigma_t^2)$ | **Razor-Sharp Center Spine** centered along 0% return axis | In calm macroeconomic periods (e.g. 1992–1996), spot prices remain tightly range-bound; daily returns cluster around 0% with low baseline volatility ($\sigma_t \approx 1.8\%$). |
+| **Supply Shock Peaks** `+8% to +12% Spires ▲` | $+\gamma_k \cdot \exp(-(r - r_k)^2 / 2\delta_k^2)$ | **Towering High-Elevation Spires** rising along positive return axis | Abrupt geopolitical supply threats (1990 Gulf War, 2008 Commodity Peak, 2022 Ukraine War) trigger panic buying and violent upside squeezes. |
+| **Demand Shock Chasms** `-7% to -14% Chasms ▼` | $-\gamma_k \cdot \exp(-(r - r_k)^2 / 2\delta_k^2)$ | **Deep Topographical Chasms & Abysses** plunging along negative axis | Global liquidity crises and demand halts (1998 Asian Contagion, 2020 COVID lockdown) saturate physical storage and trigger liquidation waterfalls. |
 
 ```diagram
-Lane: 3D Volatility Manifold Projection Pipeline | Zero-Dependency Native Mathematical Rendering (60 FPS)
-[Historical Ingestion | 9,011 Trading Days (1987 – 2024 Spot Prices)] ➔ [Empirical Density Tensor Z(t, r) | 36 Annual Epochs × 19 Daily Shock Bins] ➔ [Upright Euler 3D Transformation | Yaw (θ) • Pitch (ϕ) Camera Orbit] ➔ [HTML5 Canvas Screen Pixel | 60 FPS Painter's Occlusion Sorting]
+Lane: 3D Volatility Manifold Projection Pipeline | Zero-Dependency Native Matrix Mathematics (60 FPS)
+[Historical Ingestion | 9,011 Trading Days • 35.5 Years (1987 – 2024 Spot Prices)] ➔ [Empirical Density Tensor Z(t, r) | 36 Annual Epochs × 19 Daily Shock Bins (684 Quad Nodes)] ➔ [Upright Euler 3D Rotation | Yaw (θ) Azimuth Orbit + Pitch (ϕ) Elevation Tilt Matrix] ➔ [Screen Pixel Rasterization | HTML5 Canvas 2D • Focal Depth Scaling (f/Z_cam) • 60 FPS Painter's Occlusion Sorting]
 ```
 
 ---

@@ -4,6 +4,30 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.6: Cyberpunk Pipeline Diagram Engine & Mathematical Showcase Redesign
+- **Commit**: `b1783ac`
+- **Components**: `app/interactive.css`, `components/MarkdownBody.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`, `content/projects/brent-oil-market-dynamics.md`
+- **Changes**:
+  - **Elevated Pipeline Flowchart Diagram Engine (`app/interactive.css`)**:
+    - Replaced rigid 7-column CSS grid with flexible, responsive flexbox layout (`display: flex; align-items: stretch; gap: 8px`), supporting arbitrary step counts (3, 4, 5+ steps) with uniform card heights and clean mobile stacking.
+    - Upgraded typography and legibility: boosted `.step-title` from 9.5px to 12.5px bold `#ffffff`, `.step-desc` from unreadable 7.5px to 11px muted `#94a3b8` (line-height 1.45), and `.step-num` to 10px bold cyan.
+    - Enhanced card aesthetics with obsidian cyberpunk theme: gradient background `linear-gradient(180deg, var(--panel) 0%, rgba(10, 12, 18, 0.96) 100%)`, cyan border `1px solid rgba(0, 240, 255, 0.2)`, neon glowing arrows, and hover elevations.
+    - Added dedicated `.pipeline-lane-card.neutral`, `.lane-type-badge.neutral`, and `.final-node.neutral` cyan accents.
+  - **Dynamic Diagram Badges & Parser Hardening (`components/MarkdownBody.tsx`)**:
+    - Made top badge dynamic: displays `ARCHITECTURAL PARADIGM COMPARISON • FLOW DIAGRAM` for comparative lanes and `SYSTEM ARCHITECTURE • EXECUTION PIPELINE FLOW` for pipeline flows.
+    - Replaced generic `"FLOW"` badge with high-contrast `"⚡ PIPELINE ARCHITECTURE"`.
+    - Prioritized step detection before title matching, resolving a silent parser bug where descriptive keywords (such as "legacy") inside step nodes aborted step splitting.
+    - Elevated mathematical formula cards with pulsing cyan status dots, inset high-contrast terminal styling, and responsive KaTeX-scale typography.
+  - **Case Study Presentation Polish (`content/projects/`)**:
+    - Enriched Section 01 Landscape Component table in `brent-oil-3d-volatility-manifold.md` with high-visibility color-coded badges (`0.0% Central Ridge ⚖️`, `+8% to +12% Spires ▲`, `-7% to -14% Chasms ▼`).
+    - Stripped redundant number prefixes from step titles across 3D and 2D oil case studies, preventing duplicate `01 01.` badges.
+  - **Verification**:
+    - 234/234 passing unit tests across all 14 test suites.
+    - 32/32 static routes prerendered cleanly in Next.js production build.
+    - Both 3D Manifold and 2D Econometrics diagrams verified live on dev server.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.5: Brent Oil 2D Dedicated TOC & Navigation Parity
 - **Commit**: `887059d`
 - **Components**: `components/BrentOilMarketDynamicsToc.tsx`, `components/CaseStudyToc.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `content/projects/brent-oil-market-dynamics.md`

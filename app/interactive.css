@@ -4677,26 +4677,26 @@ button, input { font: inherit; }
 
 /* Pipeline Flowchart Diagram Styles */
 .pipeline-diagram-wrapper {
-  margin: 28px 0;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  margin: 32px 0;
+  background: linear-gradient(180deg, var(--panel) 0%, rgba(10, 12, 18, 0.96) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.2);
   border-radius: 6px;
-  padding: 18px 20px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  gap: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 16px rgba(0, 240, 255, 0.04);
 }
 .diagram-top-badge {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 8.5px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--accent);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 10px;
+  padding-bottom: 12px;
 }
 .pipeline-lanes-list {
   display: flex;
@@ -4719,6 +4719,11 @@ button, input { font: inherit; }
 .pipeline-lane-card.success {
   border-left: 4px solid #10b981;
   background: rgba(16, 185, 129, 0.03);
+}
+.pipeline-lane-card.neutral {
+  border-left: 4px solid var(--accent);
+  background: rgba(0, 240, 255, 0.02);
+  border-color: rgba(0, 240, 255, 0.15);
 }
 
 .lane-header {
@@ -4749,44 +4754,61 @@ button, input { font: inherit; }
   color: #10b981;
   border: 1px solid #10b981;
 }
+.lane-type-badge.neutral {
+  background: rgba(0, 240, 255, 0.12);
+  color: #00f0ff;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.15);
+}
 .lane-title {
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--ink-heading);
   letter-spacing: -0.01em;
 }
 .lane-subtitle {
-  font-size: 8.5px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--dim);
 }
 .lane-subtitle.danger { color: #ef4444; }
 .lane-subtitle.success { color: #10b981; }
+.lane-subtitle.neutral { color: #94a3b8; }
 
 .pipeline-steps-flex {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-  align-items: center;
+  display: flex;
+  align-items: stretch;
   gap: 8px;
 }
 .pipeline-step-node {
+  flex: 1 1 0;
+  min-width: 0;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  min-height: 72px;
+  gap: 4px;
+  min-height: 84px;
   transition: all 0.2s ease;
 }
 .pipeline-step-node:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.15);
 }
 .pipeline-step-node.danger:hover {
   border-color: #ef4444;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.15);
 }
 .pipeline-step-node.success:hover {
   border-color: #10b981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+}
+.pipeline-step-node.neutral:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.2);
 }
 .pipeline-step-node.final-node.danger {
   border-color: #ef4444;
@@ -4796,41 +4818,51 @@ button, input { font: inherit; }
   border-color: #10b981;
   background: rgba(16, 185, 129, 0.08);
 }
+.pipeline-step-node.final-node.neutral {
+  border-color: rgba(0, 240, 255, 0.45);
+  background: rgba(0, 240, 255, 0.05);
+}
 
 .step-num {
-  font-size: 8px;
-  color: var(--dim);
-  font-weight: 700;
+  font-size: 10px;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 .step-title {
-  font-size: 9.5px;
+  font-size: 12.5px;
+  font-weight: 700;
   color: var(--ink-heading);
-  line-height: 1.2;
+  line-height: 1.3;
 }
 .step-desc {
   margin: 0;
-  font-size: 7.5px;
+  font-size: 11px;
   color: var(--muted);
-  line-height: 1.3;
+  line-height: 1.45;
 }
 
 .pipeline-flow-arrow {
-  font-size: 14px;
+  flex: 0 0 auto;
+  font-size: 16px;
   color: var(--dim);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 2px;
 }
 .pipeline-flow-arrow.danger { color: #ef4444; }
 .pipeline-flow-arrow.success { color: #10b981; }
+.pipeline-flow-arrow.neutral { color: #00f0ff; opacity: 0.85; }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .pipeline-steps-flex {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 10px;
   }
   .pipeline-flow-arrow {
     transform: rotate(90deg);
+    margin: 2px 0;
   }
 }
 

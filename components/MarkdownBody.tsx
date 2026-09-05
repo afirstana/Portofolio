@@ -271,6 +271,30 @@ export function MarkdownBody({ source }: { source: string }) {
           const trimmed = cl.trim();
           if (!trimmed) continue;
 
+          if (trimmed.includes("➔") || trimmed.includes("->")) {
+            const rawSteps = trimmed.split(/➔|->/).map(s => s.trim().replace(/^\[|\]$/g, ""));
+            const parsedSteps = rawSteps.map(st => {
+              if (st.includes("|")) {
+                const [stTitle, stDesc] = st.split("|").map(p => p.trim());
+                return { title: stTitle, desc: stDesc };
+              }
+              return { title: st, desc: "" };
+            });
+
+            lanes.push({
+              title: currentTitle,
+              subtitle: currentSubtitle,
+              type: currentType,
+              steps: parsedSteps
+            });
+
+            // Reset defaults for next lane
+            currentTitle = "System Architecture Phase";
+            currentSubtitle = "";
+            currentType = "neutral";
+            continue;
+          }
+
           if (trimmed.toLowerCase().includes("reactive") || trimmed.toLowerCase().includes("conventional") || trimmed.toLowerCase().includes("legacy")) {
             currentTitle = trimmed.replace(/:$/, "").replace(/^Lane:\s*/i, "");
             currentType = "danger";
@@ -297,44 +321,26 @@ export function MarkdownBody({ source }: { source: string }) {
             continue;
           }
 
-          if (trimmed.includes("|") && !trimmed.includes("➔") && !trimmed.includes("->")) {
+          if (trimmed.includes("|")) {
             const parts = trimmed.split("|").map(p => p.trim());
             currentTitle = parts[0].replace(/^Lane:\s*/i, "").replace(/:$/, "");
             currentSubtitle = parts[1] || "";
             currentType = "neutral";
             continue;
           }
-
-          if (trimmed.includes("➔") || trimmed.includes("->")) {
-            const rawSteps = trimmed.split(/➔|->/).map(s => s.trim().replace(/^\[|\]$/g, ""));
-            const parsedSteps = rawSteps.map(st => {
-              if (st.includes("|")) {
-                const [stTitle, stDesc] = st.split("|").map(p => p.trim());
-                return { title: stTitle, desc: stDesc };
-              }
-              return { title: st, desc: "" };
-            });
-
-            lanes.push({
-              title: currentTitle,
-              subtitle: currentSubtitle,
-              type: currentType,
-              steps: parsedSteps
-            });
-
-            // Reset defaults for next lane
-            currentTitle = "Surveillance Phase";
-            currentSubtitle = "";
-            currentType = "neutral";
-          }
         }
 
         if (lanes.length > 0) {
+          const isComparison = lanes.some(l => l.type === "danger" || l.type === "success");
+          const topBadgeText = isComparison
+            ? "ARCHITECTURAL PARADIGM COMPARISON • FLOW DIAGRAM"
+            : "SYSTEM ARCHITECTURE • EXECUTION PIPELINE FLOW";
+
           nodes.push(
             <div key={`pipeline-diagram-${i}`} className="pipeline-diagram-wrapper mono" role="img" aria-label="Visual Architecture Pipeline Comparison Diagram">
               <div className="diagram-top-badge">
                 <span className="pulse-dot" />
-                <span>ARCHITECTURAL PARADIGM COMPARISON • FLOW DIAGRAM</span>
+                <span>{topBadgeText}</span>
               </div>
               <div className="pipeline-lanes-list">
                 {lanes.map((lane, lIdx) => (
@@ -342,7 +348,11 @@ export function MarkdownBody({ source }: { source: string }) {
                     <div className="lane-header">
                       <div className="lane-title-group">
                         <span className={`lane-type-badge ${lane.type}`}>
-                          {lane.type === "danger" ? "⚠️ LEGACY PARADIGM" : lane.type === "success" ? "⚡ PROACTIVE PARADIGM" : "FLOW"}
+                          {lane.type === "danger"
+                            ? "⚠️ LEGACY PARADIGM"
+                            : lane.type === "success"
+                            ? "⚡ PROACTIVE PARADIGM"
+                            : "⚡ PIPELINE ARCHITECTURE"}
                         </span>
                         <strong className="lane-title">{lane.title}</strong>
                       </div>
@@ -426,39 +436,44 @@ export function MarkdownBody({ source }: { source: string }) {
         <div
           key={`math-${i}`}
           style={{
-            margin: "24px 0",
-            padding: "16px 20px",
-            backgroundColor: "var(--surface-secondary)",
-            border: "1px solid var(--line)",
-            borderRadius: 4,
+            margin: "26px 0",
+            padding: "18px 22px",
+            backgroundColor: "var(--panel)",
+            border: "1px solid rgba(0, 240, 255, 0.2)",
+            borderRadius: 6,
             display: "flex",
             flexDirection: "column",
-            gap: "10px",
+            gap: "12px",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.35)",
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span className="mono" style={{ fontSize: "9.5px", color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-              Mathematical Model • Econometric Formulation
-            </span>
-            <span className="mono" style={{ fontSize: "9px", color: "var(--dim)", background: "rgba(255,255,255,0.03)", padding: "2px 6px", borderRadius: 2, border: "1px solid var(--line)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span className="pulse-dot" />
+              <span className="mono" style={{ fontSize: "10px", fontWeight: 700, color: "var(--accent)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                Mathematical Model • Econometric Formulation
+              </span>
+            </div>
+            <span className="mono" style={{ fontSize: "9px", color: "var(--dim)", background: "rgba(255,255,255,0.03)", padding: "2px 8px", borderRadius: 3, border: "1px solid var(--line)" }}>
               FORMULATION SPECIFICATION
             </span>
           </div>
           <div
             style={{
-              padding: "16px 20px",
-              backgroundColor: "#0a0a0d",
+              padding: "18px 22px",
+              backgroundColor: "#07080c",
               border: "1px solid var(--line)",
-              borderRadius: 3,
+              borderRadius: 4,
               fontFamily: "'Courier New', monospace",
-              fontSize: "15px",
+              fontSize: "clamp(14px, 1.35vw, 16px)",
               fontWeight: 700,
               color: "#ffffff",
               textAlign: "center",
-              letterSpacing: "0.04em",
+              letterSpacing: "0.03em",
               overflowX: "auto",
               whiteSpace: "pre-wrap",
-              lineHeight: 1.65,
+              lineHeight: 1.7,
+              boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.5)",
             }}
           >
             {cleanMath}

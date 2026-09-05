@@ -20,7 +20,7 @@ skills:
   - "Precision-recall tradeoff calibration"
   - "3D Data Visualization"
   - "Financial risk modeling"
-order: 12
+order: 5
 system:
   - label: "01. Latent Feature Vector Ingestion"
     value: "2,512 transactions mapped to R³ coordinates: Amount (log₁₀), Diurnal Hour (UTC), and Normalized Risk Severity"

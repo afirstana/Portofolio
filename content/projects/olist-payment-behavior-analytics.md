@@ -18,7 +18,7 @@ skills:
   - "Installment elasticity modeling"
   - "Data modeling (SQL & DAX)"
   - "Checkout UX optimization"
-order: 5
+order: 7
 system:
   - label: "01. Transaction Aggregation"
     value: "Normalizes 103,886 multi-payment sequential rows into 99,440 order-level entities with dominant payment tagging"

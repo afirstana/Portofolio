@@ -20,7 +20,7 @@ skills:
   - "Behavioral anomaly detection"
   - "3D Data Visualization"
   - "Graph Theory & Network Science"
-order: 11
+order: 3
 system:
   - label: "01. Graph Ingestion & Entity Resolution"
     value: "2,512 transactions synthesized into 495 account nodes, shared device fingerprints, and merchant/ATM endpoints"

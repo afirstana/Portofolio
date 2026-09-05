@@ -5,14 +5,15 @@
 ---
 
 ## 📅 [2026-09-05] — Patch v1.7.2: 3D Surface Viewport Centering & Readability Enhancement
-- **Commit**: `1edfd0b`
-- **Components**: `components/BrentOil3DManifold.tsx`, `components/MarkdownBody.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`
+- **Commit**: `3505be1`
+- **Components**: `components/BrentOil3DManifold.tsx`, `components/MarkdownBody.tsx`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`
 - **Changes**:
   - **Fixed 3D Viewport Centering & Upright Orientation**:
     - Re-derived Euler camera perspective projection ($Y_{\text{cam}} = z_{\text{centered}} \cos\phi + y_1 \sin\phi$) so volatility spikes and crisis peaks point naturally upwards into the sky rather than dipping downwards.
     - Centered model coordinates vertically ($z_{\text{centered}} = z - 45$, $cy = \text{height} / 2 - 25$) on an expanded 520px canvas, eliminating bottom crowding and centering the 3D manifold symmetrically across all 3 view presets.
     - Upright crisis beacons: dashed indicator lines and diamond pins hover upright directly above the peaks with clear year labels.
-  - **Enhanced Readability & Math Parser**:
+  - **Fixed Raw LaTeX Subtitle & Enhanced Math Typography**:
+    - Replaced raw unrendered string `\( \mathcal{M}(t, r) \mapsto z \)` in `page.tsx` with a styled Obsidian cyan monospace badge `ℳ(t, r) ⟶ z`.
     - Upgraded `MarkdownBody.tsx` with multi-line `$$...$$` math block collection and clean Unicode typography (`ℳ`, `𝒯`, `ℛ`, `ℝ⁺`, `⟶`, `θ`, `ϕ`, `δ`, `γ`), eliminating raw `beginaligned` syntax artifacts.
     - Added an intuitive 3-axis Executive Guide table translating mathematical tensor coordinates into plain-English physical landscape analogies.
     - Standardized high-contrast Gaussian Model vs Empirical Reality comparison table (Kurtosis 45.43 vs 3.0, 99% VaR -7.12% vs -2.33%).

@@ -37,7 +37,8 @@ export function generateStaticParams() {
         p.slug !== "amazon-product-intelligence" &&
         p.slug !== "olist-payment-behavior-analytics" &&
         p.slug !== "banking-transaction-anti-fraud" &&
-        p.slug !== "brent-oil-market-dynamics"
+        p.slug !== "brent-oil-market-dynamics" &&
+        p.slug !== "brent-oil-3d-volatility-manifold"
     )
     .map((project) => ({ slug: project.slug }));
 }

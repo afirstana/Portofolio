@@ -10,9 +10,10 @@ const root = process.cwd();
 describe("Project Explorer sneak peek", () => {
   it("keeps content-backed preview metadata for every authored project", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(9);
+    expect(projects).toHaveLength(10);
     expect(projects.every((project) => project.preview.eyebrow && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(getProjects().find((project) => project.slug === "banking-transaction-anti-fraud")?.preview.metrics).toContainEqual({ label: "Analyzed Scope", value: "2,512 Txns" });
+    expect(getProjects().find((project) => project.slug === "brent-oil-3d-volatility-manifold")?.preview.metrics).toContainEqual({ label: "Trading Days", value: "9,011" });
     expect(getProjects().find((project) => project.slug === "amazon-product-intelligence")?.preview.metrics).toContainEqual({ label: "ROC–AUC", value: "0.8369" });
     expect(getProjects().find((project) => project.slug === "brent-oil-market-dynamics")?.preview.metrics).toContainEqual({ label: "Timeline Span", value: "35.5 Yrs (9.0k Days)" });
     expect(getProjects().find((project) => project.slug === "global-cancer-epidemiology-surveillance")?.preview.metrics).toContainEqual({ label: "Panel Scope", value: "281.4k Rows (26 CSVs)" });

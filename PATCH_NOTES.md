@@ -4,6 +4,19 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.1: Dedicated Brent Oil 3D Studio (#2) & 10-Project Catalog Split
+- **Commit**: `pending`
+- **Components**: `content/projects/brent-oil-3d-volatility-manifold.md`, `app/projects/brent-oil-3d-volatility-manifold/page.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `app/projects/[slug]/page.tsx`, `content/projects/*.md`, `lib/*.test.ts`
+- **Changes**:
+  - Split 3D Volatility Manifold into its own standalone, dedicated case study at **Project #2** (`/projects/brent-oil-3d-volatility-manifold/`), focusing 100% on the interactive 3D tensor surface, orbit physics, and crisis beacons without distracting 2D charts.
+  - Restored **Project #6** (`/projects/brent-oil-market-dynamics/`) as the comprehensive 2D econometric study with time series exploration, Markov regime switching, and Value-at-Risk distribution charts.
+  - Implemented bidirectional quick-jump discovery banners between Project #2 (3D) and Project #6 (2D).
+  - Re-indexed all 10 portfolio projects sequentially (1 through 10), maintaining full compliance with `.agents/rules/case-study-readability.md`.
+  - Updated all 234 unit tests across `content.test.ts`, `final-static-integrity.test.ts`, `interactive-stress.test.ts`, and `project-sneak-peek.test.ts` (100% pass rate).
+  - Verified clean Next.js 15 SSG production build across all 32 static pages.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.0: Brent Oil 3D Volatility Manifold & Project #2 Elevation
 - **Commit**: `850ad78`
 - **Components**: `components/BrentOil3DManifold.tsx`, `app/projects/brent-oil-market-dynamics/page.tsx`, `app/projects/[slug]/page.tsx`, `content/projects/*.md`, `lib/interactive-stress.test.ts`, `lib/final-static-integrity.test.ts`

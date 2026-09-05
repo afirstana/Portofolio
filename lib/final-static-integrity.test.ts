@@ -16,6 +16,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(slugPageSource).toContain('p.slug !== "olist-payment-behavior-analytics"');
     expect(slugPageSource).toContain('p.slug !== "banking-transaction-anti-fraud"');
     expect(slugPageSource).toContain('p.slug !== "brent-oil-market-dynamics"');
+    expect(slugPageSource).toContain('p.slug !== "brent-oil-3d-volatility-manifold"');
 
     const dynamicSlugs = getProjects()
       .filter(
@@ -23,7 +24,8 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
           p.slug !== "amazon-product-intelligence" &&
           p.slug !== "olist-payment-behavior-analytics" &&
           p.slug !== "banking-transaction-anti-fraud" &&
-          p.slug !== "brent-oil-market-dynamics"
+          p.slug !== "brent-oil-market-dynamics" &&
+          p.slug !== "brent-oil-3d-volatility-manifold"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -43,15 +45,21 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     const paymentPagePath = path.join(rootDir, "app/projects/olist-payment-behavior-analytics/page.tsx");
     const fraudPagePath = path.join(rootDir, "app/projects/banking-transaction-anti-fraud/page.tsx");
     const brentPagePath = path.join(rootDir, "app/projects/brent-oil-market-dynamics/page.tsx");
+    const brent3DPagePath = path.join(rootDir, "app/projects/brent-oil-3d-volatility-manifold/page.tsx");
 
     expect(fs.existsSync(amazonPagePath)).toBe(true);
     expect(fs.existsSync(paymentPagePath)).toBe(true);
     expect(fs.existsSync(fraudPagePath)).toBe(true);
     expect(fs.existsSync(brentPagePath)).toBe(true);
+    expect(fs.existsSync(brent3DPagePath)).toBe(true);
 
     const brentPageSource = fs.readFileSync(brentPagePath, "utf8");
     expect(brentPageSource).not.toContain("export function generateStaticParams");
     expect(brentPageSource).not.toContain("export async function generateStaticParams");
+
+    const brent3DPageSource = fs.readFileSync(brent3DPagePath, "utf8");
+    expect(brent3DPageSource).not.toContain("export function generateStaticParams");
+    expect(brent3DPageSource).not.toContain("export async function generateStaticParams");
 
     const amazonSource = fs.readFileSync(amazonPagePath, "utf-8");
     const paymentSource = fs.readFileSync(paymentPagePath, "utf-8");
@@ -64,11 +72,12 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(amazonSource).toContain("export const dynamicParams = false;");
     expect(paymentSource).toContain("export const dynamicParams = false;");
     expect(fraudSource).toContain("export const dynamicParams = false;");
+    expect(brent3DPageSource).toContain("export const dynamicParams = false;");
   });
 
-  it("verifies all 9 project static HTML and index.txt files exist in out/projects/", () => {
+  it("verifies all 10 project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(9);
+    expect(projects).toHaveLength(10);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

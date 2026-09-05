@@ -432,11 +432,14 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
       expect(nadir!.price).toBe(9.1);
     });
 
-    it("verifies Brent Oil Market Dynamics is correctly ranked as Project #2", async () => {
+    it("verifies Brent Oil projects ranking (#2 3D Manifold and #6 2D Dynamics)", async () => {
       const { getProjects } = await import("./content");
       const projects = getProjects();
-      expect(projects[1].slug).toBe("brent-oil-market-dynamics");
+      expect(projects).toHaveLength(10);
+      expect(projects[1].slug).toBe("brent-oil-3d-volatility-manifold");
       expect(projects[1].order).toBe(2);
+      expect(projects[5].slug).toBe("brent-oil-market-dynamics");
+      expect(projects[5].order).toBe(6);
     });
   });
 });

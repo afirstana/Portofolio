@@ -7,38 +7,36 @@ import { SystemDiagram } from "@/components/SystemDiagram";
 import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { CaseStudyToc } from "@/components/CaseStudyToc";
-import { BrentOilInteractiveShowcase } from "@/components/BrentOilInteractiveShowcase";
-import { BrentOilRegimesShowcase } from "@/components/BrentOilRegimesShowcase";
-import { BrentOilRiskShowcase } from "@/components/BrentOilRiskShowcase";
+import { BrentOil3DManifold } from "@/components/BrentOil3DManifold";
 import { getAdjacentProjects, getProjectBySlug, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
-const slug = "brent-oil-market-dynamics";
+const slug = "brent-oil-3d-volatility-manifold";
 
 export const dynamicParams = false;
 
 export const metadata: Metadata = {
-  title: "Brent Crude Oil Market Dynamics & Geopolitical Econometrics — Abimael.Data",
+  title: "Brent Crude Oil — 3D Volatility & Crisis Manifold — Abimael.Data",
   description:
-    "An econometric risk study and structural volatility analysis spanning 35.5 years (1987-2024), 9,011 trading days, and 7 major geopolitical shocks modeled with fat-tail kurtosis diagnostics.",
+    "An interactive 3D topographical surface manifold modeling 35.5 years of crude oil spot price volatility (1987–2024), 9,011 trading days, and 7 geopolitical shock regimes across a non-Gaussian fat-tail distribution (Kurtosis 45.43).",
   alternates: { canonical: `/projects/${slug}/` },
   openGraph: {
-    title: "Brent Crude Oil Market Dynamics & Geopolitical Econometrics — Abimael.Data",
+    title: "Brent Crude Oil — 3D Volatility & Crisis Manifold — Abimael.Data",
     description:
-      "35.5 years of spot price volatility (1987–2024), 9,011 trading days, and 7 geopolitical shocks with econometric regime shift models.",
+      "Interactive 3D surface manifold modeling 35.5 years of oil volatility and 7 geopolitical shock beacons with zero-dependency matrix mathematics.",
     url: `/projects/${slug}/`,
     siteName: siteConfig.name,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brent Crude Oil Market Dynamics & Geopolitical Econometrics — Abimael.Data",
+    title: "Brent Crude Oil — 3D Volatility & Crisis Manifold — Abimael.Data",
     description:
-      "35.5 years of spot price volatility (1987–2024), 9,011 trading days, and 7 geopolitical shocks with econometric regime shift models.",
+      "Interactive 3D surface manifold modeling 35.5 years of oil volatility and 7 geopolitical shock beacons with zero-dependency matrix mathematics.",
   },
 };
 
-export default function BrentOilProjectPage() {
+export default function BrentOil3DProjectPage() {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
@@ -56,15 +54,15 @@ export default function BrentOilProjectPage() {
         <h1 className="payment-hero-title">{project.title}</h1>
         <p className="detail-lede payment-lede">{project.one_liner}</p>
 
-        {/* Cross-Link Banner to 3D Manifold Studio */}
+        {/* Cross-Link Banner to 2D Econometrics Study */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             padding: "12px 18px",
-            backgroundColor: "rgba(244, 63, 94, 0.05)",
-            border: "1px solid rgba(244, 63, 94, 0.25)",
+            backgroundColor: "rgba(0, 240, 255, 0.04)",
+            border: "1px solid rgba(0, 240, 255, 0.2)",
             borderRadius: 4,
             margin: "24px 0 32px",
             flexWrap: "wrap",
@@ -72,13 +70,13 @@ export default function BrentOilProjectPage() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 14 }}>🌐</span>
+            <span style={{ fontSize: 14 }}>📈</span>
             <span style={{ fontSize: 13, color: "var(--ink)" }}>
-              Want to inspect this volatility in 3D orbit? Explore the dedicated 3D interactive terrain.
+              Looking for the full 35-year historical time series & structural regimes?
             </span>
           </div>
           <Link
-            href="/projects/brent-oil-3d-volatility-manifold/"
+            href="/projects/brent-oil-market-dynamics/"
             className="mono"
             style={{
               display: "inline-flex",
@@ -86,12 +84,12 @@ export default function BrentOilProjectPage() {
               gap: 6,
               fontSize: 11,
               fontWeight: 700,
-              color: "#f43f5e",
+              color: "#00f0ff",
               textDecoration: "none",
               letterSpacing: "0.04em",
             }}
           >
-            <span>LAUNCH 3D VOLATILITY MANIFOLD STUDIO (#2)</span>
+            <span>EXPLORE 2D ECONOMETRICS CASE STUDY (#6)</span>
             <span>→</span>
           </Link>
         </div>
@@ -121,32 +119,32 @@ export default function BrentOilProjectPage() {
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              TRADING OBSERVATIONS
+              OBSERVATIONS
             </span>
             <strong className="mono" style={{ fontSize: 20, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
               9,011 Days
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Zero interpolation gaps</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>36 Time Epochs</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              HISTORIC PRICE SPREAD
+              PRICE SPREAD
             </span>
             <strong className="mono" style={{ fontSize: 20, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
               $9.10 — $143.95
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>15.8x historical spread</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>15.8x historical envelope</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
-              EXCESS KURTOSIS
+              LEPTOKURTOSIS
             </span>
             <strong className="mono" style={{ fontSize: 20, color: "#f59e0b", display: "block", marginTop: 4 }}>
               45.43
             </strong>
-            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Severe fat-tail leptokurtosis</span>
+            <span style={{ fontSize: 11.5, color: "var(--muted)" }}>Extreme non-Gaussian fat tails</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
@@ -160,6 +158,22 @@ export default function BrentOilProjectPage() {
           </div>
         </div>
 
+        {/* 3D Volatility Manifold Flagship Section */}
+        <section style={{ margin: "40px 0 60px" }} aria-label="3D Interactive Volatility Manifold">
+          <div style={{ marginBottom: 16 }}>
+            <p className="section-label mono">01. 3D Manifold Surface Studio</p>
+            <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", letterSpacing: "-0.04em", margin: "0 0 8px", color: "var(--ink-heading)" }}>
+              Interactive 3D Volatility &amp; Crisis Manifold
+            </h2>
+            <p style={{ color: "var(--muted)", fontSize: 14.5, lineHeight: 1.65, maxWidth: 840, margin: 0 }}>
+              Topographical manifold tensor \( \mathcal&#123;M&#125;(t, r) \mapsto z \) projecting 35.5 years of empirical price shock distributions.
+              Rotate freely in 3D orbit, zoom into specific regimes, and inspect the 7 historical geopolitical crisis beacons.
+            </p>
+          </div>
+
+          <BrentOil3DManifold />
+        </section>
+
         {/* System Diagram */}
         <SystemDiagram nodes={project.system} />
 
@@ -167,15 +181,6 @@ export default function BrentOilProjectPage() {
           <CaseStudyToc />
 
           <div className="case-story">
-            {/* 2D Interactive Shock Engine */}
-            <BrentOilInteractiveShowcase />
-
-            {/* 4 Decades of Market Regimes */}
-            <BrentOilRegimesShowcase />
-
-            {/* Fat-Tail Risk & VaR Distribution */}
-            <BrentOilRiskShowcase />
-
             {/* Deep Technical Markdown Narrative */}
             {project.body && <MarkdownBody source={project.body} />}
 

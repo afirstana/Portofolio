@@ -19,7 +19,7 @@ skills:
   - "Batch automation"
   - "Spreadsheet schema parsing"
   - "Zero-dependency packaging"
-order: 9
+order: 10
 system:
   - label: "01. Visual Coordinate Mapper"
     value: "Allows non-technical coordinators to position placeholders (Name, Event, Date, ID) over image templates"

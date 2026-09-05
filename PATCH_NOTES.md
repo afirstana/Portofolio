@@ -5,7 +5,7 @@
 ---
 
 ## 📅 [2026-09-05] — Patch v1.7.2: 3D Surface Viewport Centering & Readability Enhancement
-- **Commit**: `pending`
+- **Commit**: `c9703e7`
 - **Components**: `components/BrentOil3DManifold.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`
 - **Changes**:
   - **Fixed 3D Viewport Centering & Upright Orientation**:

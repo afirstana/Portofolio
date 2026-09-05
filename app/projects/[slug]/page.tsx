@@ -38,7 +38,8 @@ export function generateStaticParams() {
         p.slug !== "olist-payment-behavior-analytics" &&
         p.slug !== "banking-transaction-anti-fraud" &&
         p.slug !== "brent-oil-market-dynamics" &&
-        p.slug !== "brent-oil-3d-volatility-manifold"
+        p.slug !== "brent-oil-3d-volatility-manifold" &&
+        p.slug !== "banking-fraud-3d-network-intelligence"
     )
     .map((project) => ({ slug: project.slug }));
 }

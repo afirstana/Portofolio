@@ -65,6 +65,46 @@ export default function BankingAntiFraudProjectPage() {
           ))}
         </div>
 
+        {/* Cross-Link Banner to 3D Force-Directed Graph Studio */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "12px 18px",
+            backgroundColor: "rgba(0, 240, 255, 0.04)",
+            border: "1px solid rgba(0, 240, 255, 0.2)",
+            borderRadius: 4,
+            margin: "24px 0 32px",
+            flexWrap: "wrap",
+            gap: 12,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 14 }}>🌐</span>
+            <span style={{ fontSize: 13, color: "var(--ink)" }}>
+              Want to explore coordinated money mule syndicates &amp; shared device clusters in 3D?
+            </span>
+          </div>
+          <Link
+            href="/projects/banking-fraud-3d-network-intelligence/"
+            className="mono"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 11,
+              fontWeight: 700,
+              color: "#00f0ff",
+              textDecoration: "none",
+              letterSpacing: "0.04em",
+            }}
+          >
+            <span>EXPLORE 3D CRIME GRAPH STUDIO (#11)</span>
+            <span>→</span>
+          </Link>
+        </div>
+
         {/* Minimalist Sticky TOC Navigator */}
         <AntiFraudCaseStudyToc />
 

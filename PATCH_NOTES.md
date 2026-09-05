@@ -4,6 +4,36 @@
 
 ---
 
+## 📅 [2026-09-05] — Patch v1.7.7: 3D Financial Crime Graph & Money Mule Syndicate Studio Launch (#11)
+- **Commit**: `2328e68`
+- **Components**: `lib/anti-fraud-graph.ts`, `lib/anti-fraud-graph.test.ts`, `components/BankingFraud3DGraph.tsx`, `components/BankingFraud3DToc.tsx`, `app/projects/banking-fraud-3d-network-intelligence/page.tsx`, `content/projects/banking-fraud-3d-network-intelligence.md`, `app/projects/banking-transaction-anti-fraud/page.tsx`, `app/projects/[slug]/page.tsx`, `lib/content.test.ts`, `lib/project-sneak-peek.test.ts`, `lib/interactive-stress.test.ts`, `lib/final-static-integrity.test.ts`
+- **Changes**:
+  - **3D Financial Crime Knowledge Graph Engine (`lib/anti-fraud-graph.ts`)**:
+    - Synthesized 2,512 historical transaction logs across 495 accounts, shared devices, and cash-out endpoints into a directed multigraph $G = (\mathcal{V}, \mathcal{E})$.
+    - Modeled 3D Coulomb-Hooke equilibrium physics with simulated annealing to cluster high-risk entities organically into dense crime rings while dissipating legitimate nodes into outer space.
+    - Implemented high-performance in-memory graph traversal (`get1HopNeighbors` and `get2HopNeighbors`) delivering sub-15ms neighborhood expansion.
+  - **Interactive 60 FPS Native Canvas 3D Studio (`components/BankingFraud3DGraph.tsx`)**:
+    - Zero-dependency HTML5 2D Canvas rendering engine computing 3-stage Euler matrix transformations (yaw azimuth $\theta$, pitch elevation $\phi$, focal perspective $f=720$).
+    - Interactive 360° mouse drag orbit, mouse wheel zoom, click-to-focus on syndicates, and raycasting node selection with dynamic hit testing.
+    - Real-time animated neon laser fund flow particles with velocity-proportional speeds and multi-flag anomaly coloration.
+    - Foreground 1-hop and 2-hop neighborhood expansion with 90% background node dimming to eliminate investigator cognitive overload.
+    - Holographic HUD overlay featuring active telemetry, instant camera reset, syndicate jumps, and forensic account dossier inspector.
+  - **Dedicated Table of Contents & Navigation (`components/BankingFraud3DToc.tsx`)**:
+    - Engineered custom 9-section TOC: `01 Studio`, `02 Pipeline`, `03 Coulomb-Hooke`, `04 Syndicates`, `05 Projection`, `06 Diagnostics`, `07 Evidence`, `08 Impact`, `09 Lessons`.
+    - Integrated smooth scroll-spy with top-scroll guard and active section highlighting.
+  - **Bi-Directional Case Study Integration & Navigation**:
+    - Created dedicated route `/projects/banking-fraud-3d-network-intelligence/` with static export configuration (`dynamicParams = false`).
+    - Added high-contrast cyber cross-link banners between the 2D SQL Suite (`/projects/banking-transaction-anti-fraud/`) and this new 3D Graph Studio.
+    - Normalized portfolio ordering with `order: 11` for the 3D studio, maintaining project order integrity across all 11 portfolio case studies.
+  - **Comprehensive Case Study Markdown (`content/projects/banking-fraud-3d-network-intelligence.md`)**:
+    - Fully compliant with `.agents/rules/case-study-readability.md`: executive note callout, 4-column structured matrix tables, KaTeX math formulations, ASCII pipeline diagram, and 3 ground-truth criminal syndicates (Ring Alpha: Rapid Balance Drain Mule Funnel, Ring Beta: Device Farm Credential Stuffing, Ring Gamma: Metropolitan ATM Funnel).
+  - **Automated Verification & Integrity Hardening**:
+    - 238/238 passing unit tests across 15 suites (+4 new graph unit tests).
+    - 33/33 static routes successfully compiled and exported in Next.js production build.
+    - All 11 project HTML and `index.txt` files verified in `out/projects/`.
+
+---
+
 ## 📅 [2026-09-05] — Patch v1.7.6: Cyberpunk Pipeline Diagram Engine & Mathematical Showcase Redesign
 - **Commit**: `b1783ac`
 - **Components**: `app/interactive.css`, `components/MarkdownBody.tsx`, `content/projects/brent-oil-3d-volatility-manifold.md`, `content/projects/brent-oil-market-dynamics.md`

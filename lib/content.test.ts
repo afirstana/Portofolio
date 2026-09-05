@@ -4,10 +4,11 @@ import { getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(10);
+    expect(projects).toHaveLength(11);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(projects.some((project) => project.slug === "banking-transaction-anti-fraud")).toBe(true);
+    expect(projects.some((project) => project.slug === "banking-fraud-3d-network-intelligence")).toBe(true);
     expect(projects.some((project) => project.slug === "brent-oil-3d-volatility-manifold")).toBe(true);
     expect(projects.some((project) => project.slug === "olist-payment-behavior-analytics")).toBe(true);
     expect(projects.some((project) => project.slug === "brent-oil-market-dynamics")).toBe(true);
@@ -90,7 +91,8 @@ describe("local Markdown content", () => {
           p.slug !== "olist-payment-behavior-analytics" &&
           p.slug !== "banking-transaction-anti-fraud" &&
           p.slug !== "brent-oil-market-dynamics" &&
-          p.slug !== "brent-oil-3d-volatility-manifold"
+          p.slug !== "brent-oil-3d-volatility-manifold" &&
+          p.slug !== "banking-fraud-3d-network-intelligence"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -100,6 +102,7 @@ describe("local Markdown content", () => {
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-transaction-anti-fraud");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("brent-oil-market-dynamics");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("brent-oil-3d-volatility-manifold");
+    expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-fraud-3d-network-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
   });
 });

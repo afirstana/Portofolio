@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const output = join(root, "out");
 const sourceDirectory = join(output, "source");
-const sourceEntries = ["app", "components", "content", "lib", "scripts", "analysis", "public", "package.json", "pnpm-lock.yaml", "next.config.ts", "postcss.config.mjs", "tsconfig.json", "vitest.config.ts", "README.md", "SOURCE_EXPORT.md", "AUDIT.md", ".gitignore"];
+const sourceEntries = ["app", "components", "content", "lib", "scripts", "analysis", "public", "package.json", "package-lock.json", "next.config.ts", "postcss.config.mjs", "tsconfig.json", "vitest.config.ts", "README.md", ".gitignore"];
 
 await rm(sourceDirectory, { recursive: true, force: true });
 await mkdir(sourceDirectory, { recursive: true });
@@ -16,10 +16,10 @@ for (const entry of sourceEntries) {
 
 const manifest = {
   format: "static-source-bundle/v1",
-  generatedBy: "pnpm build",
+  generatedBy: "npm run build",
   includes: sourceEntries,
   editContentIn: "source/content",
-  installAndBuild: "pnpm install && pnpm build",
+  installAndBuild: "npm install && npm run build",
   note: "This folder contains the complete editable Next.js source alongside the static export.",
 };
 

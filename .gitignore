@@ -12,3 +12,18 @@ gemini/
 .vscode/
 .idea/
 
+# Internal Developer Notes, Handoffs, & Guides
+HANDOFF*.md
+NOTES*.md
+PATCH_NOTES.md
+PROJECT.md
+ROBOTS.md
+TEST_INFRA.md
+TEST_READY.md
+todo.md
+verification_notes.md
+Notes Backup/
+PANDUAN_LENGKAP_GRAFIK_DAN_INTERAKTIF/
+pnpm-lock.yaml
+AUDIT.md
+SOURCE_EXPORT.md

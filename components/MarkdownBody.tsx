@@ -757,6 +757,323 @@ function CausalityVisualChart() {
   );
 }
 
+const PIPELINE_STEPS = [
+  {
+    step: "01",
+    phase: "RAW CENSUS",
+    title: "BTS Domestic Ingestion",
+    artifact: "flight_data_2024.csv",
+    spec: "1.31 GB • 7,079,081 Rows",
+    details: "109 raw attributes, 12 monthly releases",
+    tag: "RAW BOTTLENECK",
+    isProblem: true,
+  },
+  {
+    step: "02",
+    phase: "STREAMING ETL",
+    title: "Chunked Python Pipeline",
+    artifact: "Python 3.13 + Pandas",
+    spec: "chunksize = 250,000",
+    details: "6 projected fields at ~1.15M rows/sec",
+    tag: "STREAM PROCESSOR",
+    isProblem: false,
+  },
+  {
+    step: "03",
+    phase: "MULTI-CUBE AGGREGATION",
+    title: "Dimensional Reduction",
+    artifact: "Multi-Index Slices",
+    spec: "15 Carriers × 12 Mos × 15 Hubs",
+    details: "Cross-tabulated volume & delay shares",
+    tag: "DIMENSIONAL REDUCTION",
+    isProblem: false,
+  },
+  {
+    step: "04",
+    phase: "STATIC CUBE PAYLOAD",
+    title: "Immutable Cube Artifact",
+    artifact: "flight_delay_2024_cube.json",
+    spec: "65.1 KB Static JSON",
+    details: "Zero-dependency static build asset",
+    tag: "99.995% COMPRESSION",
+    isProblem: false,
+  },
+  {
+    step: "05",
+    phase: "CLIENT STATE SLICER",
+    title: "Real-Time Slicing",
+    artifact: "React 19 useMemo",
+    spec: "< 0.5 ms Query Latency",
+    details: "Autonomous 60 FPS in-memory filter engine",
+    tag: "ZERO-LATENCY UX",
+    isProblem: false,
+  },
+];
+
+const PIPELINE_PARAMS = [
+  {
+    stage: "Raw Data Census",
+    artifact: "flight_data_2024.csv",
+    metric: "1.31 GB | 7,079,081 Rows",
+    role: "Complete 2024 U.S. domestic commercial flight records streamed from Bureau of Transportation Statistics",
+  },
+  {
+    stage: "Processing Engine",
+    artifact: "Python 3.13 + Pandas",
+    metric: "Chunked Streaming (~1.15M rows/sec)",
+    role: "Zero-RAM-spike streaming iterator reading 250k-row chunks and projecting only operational delay variables",
+  },
+  {
+    stage: "Transformation Matrix",
+    artifact: "Multi-Index Slices",
+    metric: "15 Carriers × 12 Months × Top 15 Hubs",
+    role: "Pre-aggregates total flights, OTP, taxi-out queues, and 5 cause breakdown shares across 24 diurnal hours",
+  },
+  {
+    stage: "Production Payload",
+    artifact: "flight_delay_2024_cube.json",
+    metric: "65.1 KB Static Bundle (99.995% Reduction)",
+    role: "High-density JSON payload with zero network query overhead bundled directly into the static site export",
+  },
+  {
+    stage: "Client State Architecture",
+    artifact: "React 19 useMemo",
+    metric: "In-Memory Dynamic Slicer (<0.5ms)",
+    role: "Autonomous client-side cross-filtering with zero API latency, zero backend dependencies, and 60 FPS responsiveness",
+  },
+];
+
+function ArchitecturePipelineVisualChart() {
+  return (
+    <div
+      style={{
+        margin: "28px 0",
+        padding: "22px 24px",
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
+        borderRadius: 6,
+        display: "flex",
+        flexDirection: "column",
+        gap: 20,
+      }}
+    >
+      {/* Top Header */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          flexWrap: "wrap",
+          gap: 12,
+          borderBottom: "1px solid var(--line)",
+          paddingBottom: 16,
+        }}
+      >
+        <div>
+          <div
+            className="mono"
+            style={{
+              fontSize: 10.5,
+              fontWeight: 700,
+              color: "var(--dim)",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              marginBottom: 4,
+            }}
+          >
+            DATA AGGREGATION &amp; INGESTION PIPELINE
+          </div>
+          <h4
+            style={{
+              fontSize: 16,
+              fontWeight: 700,
+              color: "var(--ink-heading)",
+              margin: 0,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            From 1.31 GB Raw BTS Census to 65.1 KB Zero-Latency In-Memory Cube
+          </h4>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            className="mono"
+            style={{
+              fontSize: 11,
+              padding: "4px 8px",
+              background: "var(--surface)",
+              border: "1px solid var(--line)",
+              borderRadius: 4,
+              color: "var(--dim)",
+            }}
+          >
+            RATIO: <strong style={{ color: "var(--ink-heading)" }}>20,122× (-99.995%)</strong>
+          </span>
+          <span
+            className="mono"
+            style={{
+              fontSize: 11,
+              padding: "4px 8px",
+              background: "var(--surface)",
+              border: "1px solid var(--line)",
+              borderRadius: 4,
+              color: "var(--dim)",
+            }}
+          >
+            QUERY: <strong style={{ color: "var(--ink-heading)" }}>&lt; 0.5 ms (60 FPS)</strong>
+          </span>
+        </div>
+      </div>
+
+      {/* 5-Stage Visual Stepper Flow */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gap: 10,
+        }}
+      >
+        {PIPELINE_STEPS.map((st) => (
+          <div
+            key={st.step}
+            style={{
+              background: "var(--surface)",
+              border: `1px solid ${st.isProblem ? "rgba(255, 77, 28, 0.35)" : "var(--line)"}`,
+              borderRadius: 4,
+              padding: "14px 14px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: 8,
+              position: "relative",
+            }}
+          >
+            <div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    color: st.isProblem ? "var(--accent)" : "var(--dim)",
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  STAGE {st.step}
+                </span>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 8.5,
+                    fontWeight: 700,
+                    padding: "1px 5px",
+                    borderRadius: 2,
+                    background: st.isProblem ? "rgba(255, 77, 28, 0.12)" : "var(--panel)",
+                    color: st.isProblem ? "var(--accent)" : "var(--dim)",
+                    border: `1px solid ${st.isProblem ? "rgba(255, 77, 28, 0.3)" : "var(--line)"}`,
+                  }}
+                >
+                  {st.tag}
+                </span>
+              </div>
+              <strong style={{ fontSize: 13, color: "var(--ink-heading)", display: "block", lineHeight: 1.3 }}>
+                {st.title}
+              </strong>
+              <span className="mono" style={{ fontSize: 11, color: "var(--dim)", display: "block", marginTop: 2 }}>
+                {st.artifact}
+              </span>
+            </div>
+            <div style={{ borderTop: "1px solid var(--line)", paddingTop: 8 }}>
+              <span className="mono" style={{ fontSize: 11, fontWeight: 700, color: st.isProblem ? "var(--accent)" : "var(--ink-heading)", display: "block" }}>
+                {st.spec}
+              </span>
+              <p style={{ fontSize: 11.5, color: "var(--muted)", margin: "4px 0 0", lineHeight: 1.4 }}>
+                {st.details}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Structured Technical Parameter Table */}
+      <div
+        className="table-scroll"
+        style={{
+          border: "1px solid var(--line)",
+          borderRadius: 4,
+          backgroundColor: "var(--surface)",
+          overflowX: "auto",
+        }}
+      >
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12.5 }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--panel)" }}>
+              <th className="mono" style={{ padding: "10px 14px", textAlign: "left", color: "var(--ink-heading)", fontSize: 10.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                Pipeline Stage
+              </th>
+              <th className="mono" style={{ padding: "10px 14px", textAlign: "left", color: "var(--ink-heading)", fontSize: 10.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                Technical Artifact &amp; Specification
+              </th>
+              <th className="mono" style={{ padding: "10px 14px", textAlign: "left", color: "var(--ink-heading)", fontSize: 10.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                Operational Role &amp; Architecture Impact
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {PIPELINE_PARAMS.map((p, pIdx) => (
+              <tr
+                key={p.stage}
+                style={{
+                  borderBottom: pIdx === PIPELINE_PARAMS.length - 1 ? "none" : "1px solid var(--line)",
+                  backgroundColor: pIdx % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
+                }}
+              >
+                <td style={{ padding: "10px 14px", fontWeight: 600, color: "var(--ink-heading)", whiteSpace: "nowrap" }}>
+                  {p.stage}
+                </td>
+                <td className="mono" style={{ padding: "10px 14px", color: p.stage === "Raw Data Census" ? "var(--accent)" : "var(--ink)", whiteSpace: "nowrap", fontSize: 12 }}>
+                  <strong>{p.artifact}</strong> <span style={{ color: "var(--dim)" }}>({p.metric})</span>
+                </td>
+                <td style={{ padding: "10px 14px", color: "var(--muted)", lineHeight: 1.45 }}>
+                  {p.role}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Diagnostic Insight Callout */}
+      <div
+        style={{
+          padding: "12px 16px",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--line)",
+          borderLeft: "3px solid var(--accent)",
+          borderRadius: 4,
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 10,
+        }}
+      >
+        <span className="mono" style={{ fontSize: 11, color: "var(--accent)", fontWeight: 700, whiteSpace: "nowrap" }}>
+          ARCHITECTURAL ADVANTAGE:
+        </span>
+        <span style={{ fontSize: 12.5, color: "var(--ink)", lineHeight: 1.5 }}>
+          Streaming 1.31 GB of raw CSV to the browser would trigger memory crashes and 45–90s network stalls. By pre-aggregating <strong>7,079,081 flight records</strong> offline into a <strong>65.1 KB immutable multi-index JSON cube</strong>, the client achieves <strong>sub-millisecond slicing (&lt;0.5ms)</strong> at 60 FPS without server compute costs or backend roundtrips.
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function MarkdownBody({ source }: { source: string }) {
   if (!source || !source.trim()) return null;
 
@@ -796,6 +1113,40 @@ export function MarkdownBody({ source }: { source: string }) {
 
       if (isDiurnalChart) {
         nodes.push(<DiurnalVisualChart key={`diurnal-chart-${i}`} />);
+        continue;
+      }
+
+      const isCausalityChart = !isCodeLang && (
+        codeType === "causality-chart" ||
+        codeType === "causality" ||
+        codeType === "root-cause" ||
+        codeLines.some(l =>
+          l.includes("National Delay Causality") ||
+          l.includes("Late Aircraft (40.44%)") ||
+          l.toLowerCase().includes("root cause decomposition")
+        )
+      );
+
+      if (isCausalityChart) {
+        nodes.push(<CausalityVisualChart key={`causality-chart-${i}`} />);
+        continue;
+      }
+
+      const isArchitectureChart = !isCodeLang && (
+        codeType === "pipeline-architecture" ||
+        codeType === "architecture" ||
+        codeType === "cube-architecture" ||
+        codeLines.some(l =>
+          l.includes("Data Aggregation & Ingestion Architecture") ||
+          l.includes("DATA AGGREGATION & INGESTION PIPELINE") ||
+          l.includes("7.08M Flights to 65 KB") ||
+          (l.includes("Raw Data Census") && l.includes("In-Memory Slicer")) ||
+          (l.includes("flight_data_2024.csv") && l.includes("flight_delay_2024_cube.json"))
+        )
+      );
+
+      if (isArchitectureChart) {
+        nodes.push(<ArchitecturePipelineVisualChart key={`arch-chart-${i}`} />);
         continue;
       }
 

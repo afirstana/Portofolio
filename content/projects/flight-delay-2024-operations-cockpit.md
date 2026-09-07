@@ -52,7 +52,7 @@ evidence: []
 
 ---
 
-## 01. Macro Telemetry & Federal Aviation Administration Standards
+## 01. Macro Telemetry & Federal Aviation Administration Standards {#macro-telemetry}
 
 Under FAA and U.S. Department of Transportation (DOT) standards, a commercial flight is classified as **On-Time** if its gate arrival occurs within 14 minutes and 59 seconds of its scheduled arrival time ($D_{\text{arr}} < 15\text{ min}$). Delays of **15 minutes or greater** trigger mandatory formal causality attribution under federal reporting rules:
 
@@ -75,7 +75,7 @@ $$\beta_{\text{buffer}} = T_{\text{elapsed}}^{\text{CRS}} - \mathbb{E}[T_{\text{
 
 ---
 
-## 02. The Afternoon Wave & Diurnal Compounding Dynamics
+## 02. The Afternoon Wave & Diurnal Compounding Dynamics {#afternoon-wave}
 
 Commercial aircraft rotations are tightly coupled; an individual airframe typically operates 4 to 6 flight legs per operating day. Consequently, minor initial delays in early legs compound non-linearly across successive turns. The 24-hour diurnal delay progression across national operating windows exhibits severe afternoon degradation:
 
@@ -99,7 +99,7 @@ Diurnal Delay Progression Curve across 24 Operating Hours | 3.3× Escalation Wav
 
 ---
 
-## 03. Carrier League Scorecard & Ripple Vulnerability
+## 03. Carrier League Scorecard & Ripple Vulnerability {#carrier-league}
 
 The 15 reporting carriers exhibit stark divergence in operational resilience, directly reflecting fleet utilization strategies and hub geography:
 
@@ -128,7 +128,7 @@ The 15 reporting carriers exhibit stark divergence in operational resilience, di
 
 ---
 
-## 04. Runway Queuing Bottlenecks & Airport Ground Congestion
+## 04. Runway Queuing Bottlenecks & Airport Ground Congestion {#runway-bottlenecks}
 
 Air traffic ground delay programs and surface congestion heavily influence national throughput. Evaluating the top 15 origin airports reveals that taxi-out duration acts as a primary ground friction amplifier:
 
@@ -147,9 +147,13 @@ Air traffic ground delay programs and surface congestion heavily influence natio
 
 ---
 
-## 05. Root Cause Decomposition & Seasonal Meteorological Shifts
+## 05. Root Cause Decomposition & Seasonal Meteorological Shifts {#cause-decomposition}
 
 Decomposing the **103,795,067 total delay minutes** recorded in 2024 demonstrates that network-propagated delays outweigh all other primary causes:
+
+```causality-chart
+National Delay Causality Allocation (2024) | 103,795,067 Delay Minutes Breakdown
+```
 
 | Attribution Category | Minutes Share (%) | Gross Delay Minutes | Recorded Events | Mean Delay / Event | Operational Vulnerability Profile |
 |:---|---:|---:|---:|---:|:---|
@@ -161,13 +165,12 @@ Decomposing the **103,795,067 total delay minutes** recorded in 2024 demonstrate
 
 ---
 
-## 06. Technical Architecture & In-Memory Pre-Aggregated Cubes
+## 06. Technical Architecture & In-Memory Pre-Aggregated Cubes {#methodology}
 
 To deliver an instantaneous client-side experience without requiring visitors to download 1.31 GB of raw CSV files or wait for remote OLAP servers, the data architecture employs an **In-Memory Pre-Aggregated OLAP Cube**:
 
-```diagram
+```pipeline-architecture
 Data Aggregation & Ingestion Architecture | 7.08M Flights to 65 KB In-Memory Cube
-[01. Raw Data Census | 7,079,081 rows streamed from BTS TranStats CSV] ➔ [02. Python ETL Streaming | Chunked pandas pipeline at 1M rows/sec] ➔ [03. Multi-Cube Aggregation | 15 carriers × 12 months × 15 hubs multi-index] ➔ [04. Production Payload | flight_delay_2024_cube.json (65 KB zero-latency)] ➔ [05. In-Memory Slicer | React 19 useMemo interactive flight cockpit]
 ```
 
 ### Analytical Pipeline Implementation

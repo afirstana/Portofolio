@@ -435,7 +435,7 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
     it("verifies Brent Oil projects ranking (#2 3D Manifold and #8 2D Dynamics) and Banking 3D Studios (#3 & #5)", async () => {
       const { getProjects } = await import("./content");
       const projects = getProjects();
-      expect(projects).toHaveLength(13);
+      expect(projects).toHaveLength(14);
       expect(projects[0].slug).toBe("banking-transaction-anti-fraud");
       expect(projects[0].order).toBe(1);
       expect(projects[1].slug).toBe("brent-oil-3d-volatility-manifold");

@@ -41,7 +41,8 @@ export function generateStaticParams() {
         p.slug !== "brent-oil-3d-volatility-manifold" &&
         p.slug !== "banking-fraud-3d-network-intelligence" &&
         p.slug !== "banking-fraud-3d-anomaly-manifold" &&
-        p.slug !== "flight-delay-2024-operations-cockpit"
+        p.slug !== "flight-delay-2024-operations-cockpit" &&
+        p.slug !== "flight-delay-2024-3d-airspace-network"
     )
     .map((project) => ({ slug: project.slug }));
 }

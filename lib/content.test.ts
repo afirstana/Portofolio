@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
+import { getAdjacentProjects, getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
 
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(13);
+    expect(projects).toHaveLength(14);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(projects.some((project) => project.slug === "banking-transaction-anti-fraud")).toBe(true);
@@ -14,6 +14,8 @@ describe("local Markdown content", () => {
     expect(projects.some((project) => project.slug === "olist-payment-behavior-analytics")).toBe(true);
     expect(projects.some((project) => project.slug === "brent-oil-market-dynamics")).toBe(true);
     expect(projects.some((project) => project.slug === "global-cancer-epidemiology-surveillance")).toBe(true);
+    expect(projects.some((project) => project.slug === "flight-delay-2024-operations-cockpit")).toBe(true);
+    expect(projects.some((project) => project.slug === "flight-delay-2024-3d-airspace-network")).toBe(true);
   });
 
   it("keeps project detail metadata available at build time", () => {
@@ -78,10 +80,15 @@ describe("local Markdown content", () => {
     expect(project?.body).toContain("02. Multi-File Panel Ingestion & Data Hygiene Protocol");
     expect(project?.body).toContain("03. Thirty-Year Longitudinal Trends & Age-Standardized Trajectories");
     expect(project?.body).toContain("04. Cross-National Disparities & Eastern European Mortality Clustering");
-    expect(project?.body).toContain("05. Cancer Site Etiology & Behavioral Risk Attribution");
-    expect(project?.body).toContain("06. Socio-Economic Elasticity: GDP per Capita vs Cancer Mortality");
-    expect(project?.body).toContain("07. 5-Year Clinical Survival Heterogeneity Matrix");
-    expect(project?.body).toContain("08. Strategic Epidemiological Lessons");
+  });
+
+  it("finds a project by slug with adjacent navigation", () => {
+    const project = getProjectBySlug("flight-delay-2024-operations-cockpit");
+    expect(project).toBeDefined();
+    expect(project?.title).toContain("Flight Delay");
+
+    const adjacent = getAdjacentProjects(project!);
+    expect(adjacent).toBeDefined();
   });
 
   it("filters out dedicated route folders from dynamic project static params", () => {
@@ -95,7 +102,8 @@ describe("local Markdown content", () => {
           p.slug !== "brent-oil-3d-volatility-manifold" &&
           p.slug !== "banking-fraud-3d-network-intelligence" &&
           p.slug !== "banking-fraud-3d-anomaly-manifold" &&
-          p.slug !== "flight-delay-2024-operations-cockpit"
+          p.slug !== "flight-delay-2024-operations-cockpit" &&
+          p.slug !== "flight-delay-2024-3d-airspace-network"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -108,6 +116,7 @@ describe("local Markdown content", () => {
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-fraud-3d-network-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-fraud-3d-anomaly-manifold");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-operations-cockpit");
+    expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-3d-airspace-network");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
   });
 });

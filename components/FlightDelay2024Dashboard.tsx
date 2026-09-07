@@ -204,7 +204,7 @@ export function FlightDelay2024Dashboard() {
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
           <div>
-            <span className="mono" style={{ color: "var(--accent)", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", display: "block" }}>
+            <span className="mono" style={{ color: "var(--dim)", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", display: "block" }}>
               BTS TRANSTATS 2024 • 7,079,081 FLIGHTS
             </span>
             <strong style={{ fontSize: 16, color: "var(--ink-heading)", display: "block", marginTop: 2 }}>

@@ -6,38 +6,38 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SystemDiagram } from "@/components/SystemDiagram";
 import { VisualEvidence } from "@/components/VisualEvidence";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { FlightDelay2024Toc } from "@/components/FlightDelay2024Toc";
-import { FlightDelay2024Dashboard } from "@/components/FlightDelay2024Dashboard";
+import { FlightDelay3DToc } from "@/components/FlightDelay3DToc";
+import { FlightDelay3DNetworkManifold } from "@/components/FlightDelay3DNetworkManifold";
 import { FlightOperationalLessons } from "@/components/FlightOperationalLessons";
 import { getAdjacentProjects, getProjectBySlug, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
-const slug = "flight-delay-2024-operations-cockpit";
+const slug = "flight-delay-2024-3d-airspace-network";
 
 export const dynamicParams = false;
 
 export const metadata: Metadata = {
-  title: "Flight Delay 2024 — National Airline Operations Control & Bottleneck Dashboard — Abimael.Data",
+  title: "Flight Delay 2024 — 3D National Airspace Delay Topology & Rotational Ripple Manifold — Abimael.Data",
   description:
-    "An interactive operational control cockpit analyzing 7,079,081 U.S. domestic commercial flights across 15 operating carriers, 348 origin hubs, and 103.8 million minutes of delay attribution.",
+    "An interactive 3D spherical airspace topology mapping 7.08 million commercial flights across the top 30 mega hubs and 72 flight corridors with dynamic taxi elevation pillars and real-time turnaround ripple flow.",
   alternates: { canonical: `/projects/${slug}/` },
   openGraph: {
-    title: "Flight Delay 2024 — National Airline Operations Control & Bottleneck Dashboard — Abimael.Data",
+    title: "Flight Delay 2024 — 3D National Airspace Delay Topology & Rotational Ripple Manifold — Abimael.Data",
     description:
-      "Interactive 2D operations cockpit uncovering late-aircraft cascading delay ripple effects, taxi-out surface bottlenecks, and diurnal compounding curves across 7.08M commercial flights.",
+      "Interactive 3D airspace manifold visualizes ground taxi elevation pillars and great-circle late-aircraft ripple propagation across 7.08M commercial flights.",
     url: `/projects/${slug}/`,
     siteName: siteConfig.name,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flight Delay 2024 — National Airline Operations Control & Bottleneck Dashboard — Abimael.Data",
+    title: "Flight Delay 2024 — 3D National Airspace Delay Topology & Rotational Ripple Manifold — Abimael.Data",
     description:
-      "Interactive 2D operations cockpit uncovering late-aircraft cascading delay ripple effects, taxi-out surface bottlenecks, and diurnal compounding curves across 7.08M commercial flights.",
+      "Interactive 3D airspace manifold visualizes ground taxi elevation pillars and great-circle late-aircraft ripple propagation across 7.08M commercial flights.",
   },
 };
 
-export default function FlightDelay2024OperationsPage() {
+export default function FlightDelay3DAirspacePage() {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
@@ -77,70 +77,70 @@ export default function FlightDelay2024OperationsPage() {
         >
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 11, color: "var(--muted)", display: "block", letterSpacing: "0.06em" }}>
-              ANALYZED FLIGHTS
+              MONITORED HUBS
             </span>
             <strong className="mono" style={{ fontSize: 24, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
-              7,079,081
+              30 Mega Hubs
             </strong>
-            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>BTS TranStats 2024</span>
+            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>68.4% of U.S. Traffic</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 11, color: "var(--muted)", display: "block", letterSpacing: "0.06em" }}>
-              FAA ON-TIME RATE
+              FLIGHT CORRIDORS
             </span>
             <strong className="mono" style={{ fontSize: 24, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
-              79.23%
+              72 Trunk Arcs
             </strong>
-            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>Arrival &lt;15m scheduled</span>
+            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>Great-Circle Trajectories</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px" }}>
             <span className="mono" style={{ fontSize: 11, color: "var(--muted)", display: "block", letterSpacing: "0.06em" }}>
-              EARLY ARRIVALS
+              CANVAS ENGINE
             </span>
             <strong className="mono" style={{ fontSize: 24, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
-              61.85%
+              60 FPS
             </strong>
-            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>+5.5m Scheduled Buffer</span>
+            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>0ms Hydration Latency</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px", borderTop: "3px solid var(--accent)" }}>
             <span className="mono" style={{ fontSize: 11, color: "var(--accent)", display: "block", letterSpacing: "0.06em", fontWeight: 700 }}>
-              PROBLEM: LATE TURN RIPPLE
+              PROBLEM: PEAK TAXI QUEUE
             </span>
             <strong className="mono" style={{ fontSize: 24, color: "var(--accent)", display: "block", marginTop: 4 }}>
-              40.44%
+              24.10 min
             </strong>
-            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>#1 Root Cause (41.97M min)</span>
+            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>New York JFK &amp; ORD (23.8m)</span>
           </div>
 
           <div style={{ backgroundColor: "var(--panel)", padding: "16px 20px", borderTop: "3px solid var(--accent)" }}>
             <span className="mono" style={{ fontSize: 11, color: "var(--accent)", display: "block", letterSpacing: "0.06em", fontWeight: 700 }}>
-              PROBLEM: TAXI BOTTLENECK
+              PROBLEM: TURN RIPPLE PEAK
             </span>
             <strong className="mono" style={{ fontSize: 24, color: "var(--accent)", display: "block", marginTop: 4 }}>
-              23.79 min
+              53.4% Ripple
             </strong>
-            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>Chicago O&#39;Hare (ORD)</span>
+            <span style={{ fontSize: 12.5, color: "var(--muted)" }}>Dallas Love (DAL) – Chicago (MDW)</span>
           </div>
         </div>
 
-        {/* 2D Interactive Operations Cockpit Showcase */}
-        <section id="operations-cockpit" style={{ margin: "40px 0 60px" }} aria-label="Flight Delay Operations Cockpit">
+        {/* 3D Interactive Airspace Studio Showcase */}
+        <section id="airspace-manifold" style={{ margin: "40px 0 60px" }} aria-label="3D Airspace Topology Studio">
           <div style={{ marginBottom: 20 }}>
             <p className="mono case-label" style={{ marginBottom: 6 }}>
-              Interactive Console • 7.08M Flights
+              Interactive 3D Studio • 30 Hubs • 72 Corridors
             </p>
             <h2 style={{ margin: 0, fontSize: "clamp(24px, 3.5vw, 36px)", letterSpacing: "-0.03em", color: "var(--ink-heading)", fontWeight: 700 }}>
-              National Operations Control &amp; Bottleneck Diagnostics
+              3D National Airspace Topology &amp; Rotational Ripple Manifold
             </h2>
             <p style={{ color: "var(--muted)", fontSize: 14.5, lineHeight: 1.6, maxWidth: 840, margin: "8px 0 0" }}>
-              Live telemetry grid profiling 7,079,081 commercial flights across the continental United States. Use the interactive filter bar to drill through 15 major operating airlines, 12 operating months, and top origin hubs to examine cascading delay ripples, runway queuing friction, and diurnal compounding curves in real time.
+              Explore the three-dimensional geometry of the continental U.S. commercial aviation network. Drag to orbit the camera, scroll to zoom, and toggle between preset camera modes to evaluate how runway ground taxi queuing at Chicago (ORD) and New York (LGA) compounds into high-elevation flight corridor ripples.
             </p>
           </div>
 
-          <FlightDelay2024Dashboard />
+          <FlightDelay3DNetworkManifold />
         </section>
 
         {/* System Diagram */}
@@ -150,7 +150,7 @@ export default function FlightDelay2024OperationsPage() {
 
         {/* Case Narrative with TOC */}
         <div className="case-layout">
-          <FlightDelay2024Toc />
+          <FlightDelay3DToc />
           <div className="case-story">
             {project.body && <MarkdownBody source={project.body} />}
 
@@ -161,83 +161,33 @@ export default function FlightDelay2024OperationsPage() {
             )}
 
             <FlightOperationalLessons
-              sectionNumber="07"
-              eyebrow="OPERATIONAL LESSONS & GOVERNANCE"
-              title="Engineering Takeaways & Operational Lessons"
-              subtitle="Core operational paradigms, network dynamics, and infrastructure lessons synthesized from analyzing 7,079,081 commercial flights."
+              sectionNumber="06"
+              eyebrow="ENGINEERING LESSONS & 3D DYNAMICS"
+              title="Engineering Lessons & Airspace Topology Takeaways"
+              subtitle="Spatial modeling paradigms, surface queue extrusion benchmarks, and cognitive ergonomics synthesized from 30 mega hubs."
               impact={project.impact}
-              projectType="cockpit"
+              projectType="3d-airspace"
             />
           </div>
         </div>
 
-        {/* Related Projects */}
-        {related && related.length > 0 && (
-          <section style={{ margin: "60px 0 40px", borderTop: "1px solid var(--line)", paddingTop: 40 }}>
-            <h3 className="mono" style={{ fontSize: 13, color: "var(--dim)", textTransform: "uppercase", marginBottom: 20 }}>
-              Related Case Studies
-            </h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
-              {related.map((r) => (
-                <Link
-                  key={r.slug}
-                  href={`/projects/${r.slug}/`}
-                  style={{
-                    display: "block",
-                    padding: 16,
-                    border: "1px solid var(--line)",
-                    borderRadius: 4,
-                    textDecoration: "none",
-                    backgroundColor: "var(--panel)",
-                  }}
-                >
-                  <p className="mono" style={{ fontSize: 10, color: "var(--dim)", margin: "0 0 6px" }}>
-                    {r.category}
-                  </p>
-                  <h4 style={{ fontSize: 14, color: "var(--ink-heading)", margin: "0 0 8px" }}>{r.title}</h4>
-                  <p style={{ fontSize: 12, color: "var(--muted)", margin: 0 }}>{r.one_liner}</p>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Adjacent Navigation */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "24px 0",
-            borderTop: "1px solid var(--line)",
-            marginTop: 40,
-            flexWrap: "wrap",
-            gap: 16,
-          }}
-        >
-          {adjacent.previous ? (
-            <Link
-              href={`/projects/${adjacent.previous.slug}/`}
-              className="mono"
-              style={{ fontSize: 12, color: "var(--ink)", textDecoration: "none" }}
-            >
-              ← {adjacent.previous.title}
-            </Link>
-          ) : (
-            <span />
-          )}
-          {adjacent.next ? (
-            <Link
-              href={`/projects/${adjacent.next.slug}/`}
-              className="mono"
-              style={{ fontSize: 12, color: "var(--ink)", textDecoration: "none" }}
-            >
-              {adjacent.next.title} →
-            </Link>
-          ) : (
-            <span />
-          )}
-        </div>
+        {/* Bottom Navigation Pager */}
+        <footer className="project-detail-footer">
+          <div className="adjacent-projects">
+            {adjacent.previous && (
+              <Link className="adjacent-card previous" href={`/projects/${adjacent.previous.slug}/`}>
+                <span className="mono">← Previous Project</span>
+                <strong>{adjacent.previous.title}</strong>
+              </Link>
+            )}
+            {adjacent.next && (
+              <Link className="adjacent-card next" href={`/projects/${adjacent.next.slug}/`}>
+                <span className="mono">Next Project →</span>
+                <strong>{adjacent.next.title}</strong>
+              </Link>
+            )}
+          </div>
+        </footer>
       </article>
       <SiteFooter />
     </main>

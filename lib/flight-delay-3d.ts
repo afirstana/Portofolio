@@ -1,273 +1,214 @@
-/**
- * 3D Aviation Airspace Network — Topological & Rotational Ripple Utilities
- * Bureau of Transportation Statistics (BTS) TranStats 2024 Data Pipeline
- */
-
-export interface Airport3DHub {
+﻿export interface Airport3D {
   code: string;
-  name: string;
-  metro: string;
+  city: string;
   state: string;
   lat: number;
   lon: number;
   departures: number;
-  delayRatePct: number;
   meanTaxiOut: number;
-  meanDepDelay: number;
-  lateAircraftPct: number;
+  delayRatePct: number;
   isSurfaceBottleneck: boolean;
-  isHighRipple: boolean;
 }
 
-export interface FlightCorridor3D {
-  id: string;
+export interface Corridor3D {
   from: string;
   to: string;
-  dailyFlights: number;
   distanceMiles: number;
+  dailyFlights: number;
   rippleRiskPct: number;
-  meanDelayMin: number;
-  isHighRisk: boolean;
+  isCriticalRipple: boolean;
 }
 
-export interface Point3D {
-  x: number;
-  y: number;
-  z: number;
-}
-
-export interface ProjectedHubPoint {
-  screenX: number;
-  screenY: number;
-  depth: number;
-  scale: number;
-  hub: Airport3DHub;
-  pillarTopScreenY: number;
-}
-
-export const TOP_30_AIRPORTS_3D: Airport3DHub[] = [
-  { code: "ATL", name: "Hartsfield-Jackson Atlanta", metro: "Atlanta", state: "GA", lat: 33.6407, lon: -84.4277, departures: 341910, delayRatePct: 19.61, meanTaxiOut: 16.48, meanDepDelay: 11.10, lateAircraftPct: 38.2, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "DFW", name: "Dallas/Fort Worth International", metro: "Dallas", state: "TX", lat: 32.8998, lon: -97.0403, departures: 313582, delayRatePct: 26.52, meanTaxiOut: 19.89, meanDepDelay: 18.93, lateAircraftPct: 49.1, isSurfaceBottleneck: false, isHighRipple: true },
-  { code: "DEN", name: "Denver International", metro: "Denver", state: "CO", lat: 39.8561, lon: -104.6737, departures: 308645, delayRatePct: 22.45, meanTaxiOut: 18.40, meanDepDelay: 13.26, lateAircraftPct: 44.8, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "ORD", name: "Chicago O'Hare International", metro: "Chicago", state: "IL", lat: 41.9742, lon: -87.9073, departures: 280052, delayRatePct: 23.31, meanTaxiOut: 23.79, meanDepDelay: 15.24, lateAircraftPct: 42.6, isSurfaceBottleneck: true, isHighRipple: false },
-  { code: "CLT", name: "Charlotte Douglas International", metro: "Charlotte", state: "NC", lat: 35.2144, lon: -80.9473, departures: 217574, delayRatePct: 26.61, meanTaxiOut: 21.69, meanDepDelay: 18.43, lateAircraftPct: 48.7, isSurfaceBottleneck: true, isHighRipple: true },
-  { code: "LAX", name: "Los Angeles International", metro: "Los Angeles", state: "CA", lat: 33.9416, lon: -118.4085, departures: 201840, delayRatePct: 19.82, meanTaxiOut: 17.65, meanDepDelay: 11.45, lateAircraftPct: 39.4, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "PHX", name: "Phoenix Sky Harbor International", metro: "Phoenix", state: "AZ", lat: 33.4373, lon: -112.0078, departures: 192450, delayRatePct: 21.15, meanTaxiOut: 16.80, meanDepDelay: 12.10, lateAircraftPct: 45.2, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "LAS", name: "Harry Reid International", metro: "Las Vegas", state: "NV", lat: 36.0840, lon: -115.1537, departures: 188320, delayRatePct: 23.40, meanTaxiOut: 17.20, meanDepDelay: 14.30, lateAircraftPct: 48.0, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "SEA", name: "Seattle-Tacoma International", metro: "Seattle", state: "WA", lat: 47.4502, lon: -122.3088, departures: 163725, delayRatePct: 21.21, meanTaxiOut: 21.24, meanDepDelay: 9.54, lateAircraftPct: 41.2, isSurfaceBottleneck: true, isHighRipple: false },
-  { code: "LGA", name: "LaGuardia Airport", metro: "New York", state: "NY", lat: 40.7769, lon: -73.8740, departures: 162432, delayRatePct: 17.63, meanTaxiOut: 23.46, meanDepDelay: 10.68, lateAircraftPct: 34.5, isSurfaceBottleneck: true, isHighRipple: false },
-  { code: "MCO", name: "Orlando International", metro: "Orlando", state: "FL", lat: 28.4312, lon: -81.3081, departures: 158940, delayRatePct: 25.80, meanTaxiOut: 17.50, meanDepDelay: 17.60, lateAircraftPct: 46.5, isSurfaceBottleneck: false, isHighRipple: true },
-  { code: "BOS", name: "Boston Logan International", metro: "Boston", state: "MA", lat: 42.3656, lon: -71.0096, departures: 143490, delayRatePct: 20.04, meanTaxiOut: 20.59, meanDepDelay: 12.01, lateAircraftPct: 39.8, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "DCA", name: "Ronald Reagan Washington National", metro: "Washington", state: "DC", lat: 38.8512, lon: -77.0402, departures: 140016, delayRatePct: 19.69, meanTaxiOut: 20.93, meanDepDelay: 12.15, lateAircraftPct: 38.7, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "SFO", name: "San Francisco International", metro: "San Francisco", state: "CA", lat: 37.6213, lon: -122.3790, departures: 138650, delayRatePct: 22.80, meanTaxiOut: 19.40, meanDepDelay: 14.80, lateAircraftPct: 43.1, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "DTW", name: "Detroit Metropolitan", metro: "Detroit", state: "MI", lat: 42.2162, lon: -83.3554, departures: 135200, delayRatePct: 17.40, meanTaxiOut: 18.10, meanDepDelay: 9.80, lateAircraftPct: 33.2, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "EWR", name: "Newark Liberty International", metro: "New York/Newark", state: "NJ", lat: 40.6895, lon: -74.1745, departures: 134100, delayRatePct: 24.90, meanTaxiOut: 22.80, meanDepDelay: 17.20, lateAircraftPct: 44.0, isSurfaceBottleneck: true, isHighRipple: false },
-  { code: "MSP", name: "Minneapolis-Saint Paul", metro: "Minneapolis", state: "MN", lat: 44.8848, lon: -93.2223, departures: 132400, delayRatePct: 16.80, meanTaxiOut: 17.90, meanDepDelay: 8.90, lateAircraftPct: 32.5, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "JFK", name: "John F. Kennedy International", metro: "New York", state: "NY", lat: 40.6413, lon: -73.7781, departures: 128900, delayRatePct: 21.50, meanTaxiOut: 24.10, meanDepDelay: 14.20, lateAircraftPct: 36.8, isSurfaceBottleneck: true, isHighRipple: false },
-  { code: "IAH", name: "George Bush Intercontinental", metro: "Houston", state: "TX", lat: 29.9902, lon: -95.3368, departures: 124500, delayRatePct: 23.10, meanTaxiOut: 19.30, meanDepDelay: 14.60, lateAircraftPct: 43.5, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "SLC", name: "Salt Lake City International", metro: "Salt Lake City", state: "UT", lat: 40.7899, lon: -111.9791, departures: 113247, delayRatePct: 17.17, meanTaxiOut: 18.21, meanDepDelay: 9.23, lateAircraftPct: 34.0, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "MIA", name: "Miami International", metro: "Miami", state: "FL", lat: 25.7959, lon: -80.2870, departures: 109944, delayRatePct: 27.27, meanTaxiOut: 20.85, meanDepDelay: 19.61, lateAircraftPct: 50.2, isSurfaceBottleneck: false, isHighRipple: true },
-  { code: "PHL", name: "Philadelphia International", metro: "Philadelphia", state: "PA", lat: 39.8729, lon: -75.2437, departures: 104500, delayRatePct: 21.80, meanTaxiOut: 20.10, meanDepDelay: 13.90, lateAircraftPct: 42.0, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "BNA", name: "Nashville International", metro: "Nashville", state: "TN", lat: 36.1263, lon: -86.6774, departures: 98400, delayRatePct: 23.60, meanTaxiOut: 17.40, meanDepDelay: 15.10, lateAircraftPct: 47.3, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "BWI", name: "Baltimore/Washington International", metro: "Baltimore", state: "MD", lat: 39.1774, lon: -76.6684, departures: 96800, delayRatePct: 22.40, meanTaxiOut: 16.90, meanDepDelay: 13.80, lateAircraftPct: 46.1, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "SAN", name: "San Diego International", metro: "San Diego", state: "CA", lat: 32.7338, lon: -117.1933, departures: 92400, delayRatePct: 20.90, meanTaxiOut: 16.20, meanDepDelay: 11.80, lateAircraftPct: 43.8, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "FLL", name: "Fort Lauderdale-Hollywood", metro: "Fort Lauderdale", state: "FL", lat: 26.0742, lon: -80.1506, departures: 89500, delayRatePct: 26.80, meanTaxiOut: 17.80, meanDepDelay: 18.50, lateAircraftPct: 48.9, isSurfaceBottleneck: false, isHighRipple: true },
-  { code: "AUS", name: "Austin-Bergstrom International", metro: "Austin", state: "TX", lat: 30.1975, lon: -97.6664, departures: 86700, delayRatePct: 22.10, meanTaxiOut: 16.50, meanDepDelay: 13.20, lateAircraftPct: 45.0, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "MDW", name: "Chicago Midway International", metro: "Chicago", state: "IL", lat: 41.7868, lon: -87.7522, departures: 84200, delayRatePct: 24.10, meanTaxiOut: 16.80, meanDepDelay: 15.70, lateAircraftPct: 51.5, isSurfaceBottleneck: false, isHighRipple: true },
-  { code: "TPA", name: "Tampa International", metro: "Tampa", state: "FL", lat: 27.9755, lon: -82.5332, departures: 81900, delayRatePct: 24.50, meanTaxiOut: 16.40, meanDepDelay: 15.90, lateAircraftPct: 46.8, isSurfaceBottleneck: false, isHighRipple: false },
-  { code: "DAL", name: "Dallas Love Field", metro: "Dallas", state: "TX", lat: 32.8471, lon: -96.8518, departures: 78500, delayRatePct: 23.80, meanTaxiOut: 15.90, meanDepDelay: 15.20, lateAircraftPct: 52.1, isSurfaceBottleneck: false, isHighRipple: true },
+export const TOP_30_AIRPORTS_3D: Airport3D[] = [
+  { code: "ATL", city: "Atlanta", state: "GA", lat: 33.6407, lon: -84.4277, departures: 341910, meanTaxiOut: 16.48, delayRatePct: 19.61, isSurfaceBottleneck: false },
+  { code: "DFW", city: "Dallas/Fort Worth", state: "TX", lat: 32.8998, lon: -97.0403, departures: 313582, meanTaxiOut: 19.89, delayRatePct: 26.52, isSurfaceBottleneck: false },
+  { code: "DEN", city: "Denver", state: "CO", lat: 39.8561, lon: -104.6737, departures: 295840, meanTaxiOut: 18.72, delayRatePct: 24.11, isSurfaceBottleneck: false },
+  { code: "ORD", city: "Chicago", state: "IL", lat: 41.9742, lon: -87.9073, departures: 280052, meanTaxiOut: 23.79, delayRatePct: 23.31, isSurfaceBottleneck: true },
+  { code: "CLT", city: "Charlotte", state: "NC", lat: 35.2140, lon: -80.9431, departures: 217574, meanTaxiOut: 21.69, delayRatePct: 26.61, isSurfaceBottleneck: false },
+  { code: "LAX", city: "Los Angeles", state: "CA", lat: 33.9416, lon: -118.4085, departures: 198740, meanTaxiOut: 18.91, delayRatePct: 19.14, isSurfaceBottleneck: false },
+  { code: "PHX", city: "Phoenix", state: "AZ", lat: 33.4352, lon: -112.0101, departures: 185620, meanTaxiOut: 17.15, delayRatePct: 20.88, isSurfaceBottleneck: false },
+  { code: "LAS", city: "Las Vegas", state: "NV", lat: 36.0840, lon: -115.1537, departures: 174310, meanTaxiOut: 16.82, delayRatePct: 22.45, isSurfaceBottleneck: false },
+  { code: "SEA", city: "Seattle", state: "WA", lat: 47.4502, lon: -122.3088, departures: 163725, meanTaxiOut: 21.24, delayRatePct: 21.21, isSurfaceBottleneck: false },
+  { code: "LGA", city: "New York", state: "NY", lat: 40.7769, lon: -73.8740, departures: 162432, meanTaxiOut: 23.46, delayRatePct: 17.63, isSurfaceBottleneck: true },
+  { code: "MCO", city: "Orlando", state: "FL", lat: 28.4312, lon: -81.3081, departures: 158920, meanTaxiOut: 18.34, delayRatePct: 25.10, isSurfaceBottleneck: false },
+  { code: "BOS", city: "Boston", state: "MA", lat: 42.3656, lon: -71.0096, departures: 143490, meanTaxiOut: 20.59, delayRatePct: 20.04, isSurfaceBottleneck: false },
+  { code: "DCA", city: "Washington", state: "DC", lat: 38.8512, lon: -77.0402, departures: 140016, meanTaxiOut: 20.93, delayRatePct: 19.69, isSurfaceBottleneck: false },
+  { code: "SFO", city: "San Francisco", state: "CA", lat: 37.6213, lon: -122.3790, departures: 138940, meanTaxiOut: 19.45, delayRatePct: 21.80, isSurfaceBottleneck: false },
+  { code: "DTW", city: "Detroit", state: "MI", lat: 42.2162, lon: -83.3554, departures: 135400, meanTaxiOut: 17.60, delayRatePct: 18.42, isSurfaceBottleneck: false },
+  { code: "JFK", city: "New York", state: "NY", lat: 40.6413, lon: -73.7781, departures: 132100, meanTaxiOut: 26.31, delayRatePct: 21.50, isSurfaceBottleneck: true },
+  { code: "MSP", city: "Minneapolis", state: "MN", lat: 44.8848, lon: -93.2223, departures: 128900, meanTaxiOut: 16.90, delayRatePct: 17.80, isSurfaceBottleneck: false },
+  { code: "EWR", city: "Newark", state: "NJ", lat: 40.6895, lon: -74.1745, departures: 125400, meanTaxiOut: 24.29, delayRatePct: 24.10, isSurfaceBottleneck: true },
+  { code: "PHL", city: "Philadelphia", state: "PA", lat: 39.8744, lon: -75.2424, departures: 119800, meanTaxiOut: 19.80, delayRatePct: 21.20, isSurfaceBottleneck: false },
+  { code: "SLC", city: "Salt Lake City", state: "UT", lat: 40.7899, lon: -111.9791, departures: 113247, meanTaxiOut: 18.21, delayRatePct: 17.17, isSurfaceBottleneck: false },
+  { code: "MIA", city: "Miami", state: "FL", lat: 25.7959, lon: -80.2870, departures: 109944, meanTaxiOut: 20.85, delayRatePct: 27.27, isSurfaceBottleneck: false },
+  { code: "BWI", city: "Baltimore", state: "MD", lat: 39.1774, lon: -76.6684, departures: 106500, meanTaxiOut: 16.30, delayRatePct: 21.40, isSurfaceBottleneck: false },
+  { code: "SAN", city: "San Diego", state: "CA", lat: 32.7338, lon: -117.1933, departures: 101200, meanTaxiOut: 16.10, delayRatePct: 19.50, isSurfaceBottleneck: false },
+  { code: "TPA", city: "Tampa", state: "FL", lat: 27.9772, lon: -82.5311, departures: 98400, meanTaxiOut: 16.70, delayRatePct: 23.20, isSurfaceBottleneck: false },
+  { code: "MDW", city: "Chicago", state: "IL", lat: 41.7868, lon: -87.7522, departures: 95300, meanTaxiOut: 16.50, delayRatePct: 22.90, isSurfaceBottleneck: false },
+  { code: "IAD", city: "Washington", state: "VA", lat: 38.9531, lon: -77.4565, departures: 92100, meanTaxiOut: 19.30, delayRatePct: 20.10, isSurfaceBottleneck: false },
+  { code: "BNA", city: "Nashville", state: "TN", lat: 36.1263, lon: -86.6774, departures: 89400, meanTaxiOut: 17.20, delayRatePct: 22.80, isSurfaceBottleneck: false },
+  { code: "AUS", city: "Austin", state: "TX", lat: 30.1975, lon: -97.6664, departures: 85200, meanTaxiOut: 17.80, delayRatePct: 21.70, isSurfaceBottleneck: false },
+  { code: "DAL", city: "Dallas", state: "TX", lat: 32.8471, lon: -96.8518, departures: 81600, meanTaxiOut: 15.90, delayRatePct: 22.10, isSurfaceBottleneck: false },
+  { code: "STL", city: "St. Louis", state: "MO", lat: 38.7472, lon: -90.3599, departures: 78900, meanTaxiOut: 15.40, delayRatePct: 20.90, isSurfaceBottleneck: false },
 ];
 
-export const TOP_72_CORRIDORS_3D: FlightCorridor3D[] = [
-  // High-Density Hub Trunk Routes
-  { id: "ATL-ORD", from: "ATL", to: "ORD", dailyFlights: 42, distanceMiles: 606, rippleRiskPct: 44.5, meanDelayMin: 14.8, isHighRisk: false },
-  { id: "ORD-LGA", from: "ORD", to: "LGA", dailyFlights: 38, distanceMiles: 733, rippleRiskPct: 46.8, meanDelayMin: 18.2, isHighRisk: true },
-  { id: "DFW-LAX", from: "DFW", to: "LAX", dailyFlights: 36, distanceMiles: 1235, rippleRiskPct: 48.2, meanDelayMin: 17.5, isHighRisk: true },
-  { id: "DEN-PHX", from: "DEN", to: "PHX", dailyFlights: 35, distanceMiles: 602, rippleRiskPct: 43.1, meanDelayMin: 12.6, isHighRisk: false },
-  { id: "LAX-SFO", from: "LAX", to: "SFO", dailyFlights: 48, distanceMiles: 337, rippleRiskPct: 39.5, meanDelayMin: 11.2, isHighRisk: false },
-  { id: "ATL-MCO", from: "ATL", to: "MCO", dailyFlights: 34, distanceMiles: 404, rippleRiskPct: 47.9, meanDelayMin: 16.9, isHighRisk: true },
-  { id: "CLT-MCO", from: "CLT", to: "MCO", dailyFlights: 28, distanceMiles: 468, rippleRiskPct: 49.5, meanDelayMin: 19.4, isHighRisk: true },
-  { id: "JFK-LAX", from: "JFK", to: "LAX", dailyFlights: 32, distanceMiles: 2475, rippleRiskPct: 38.4, meanDelayMin: 13.9, isHighRisk: false },
-  { id: "BOS-DCA", from: "BOS", to: "DCA", dailyFlights: 30, distanceMiles: 399, rippleRiskPct: 37.8, meanDelayMin: 11.5, isHighRisk: false },
-  { id: "SEA-SFO", from: "SEA", to: "SFO", dailyFlights: 32, distanceMiles: 679, rippleRiskPct: 42.0, meanDelayMin: 12.3, isHighRisk: false },
-
-  // Midwest & Northeast Corridors
-  { id: "ORD-BOS", from: "ORD", to: "BOS", dailyFlights: 26, distanceMiles: 867, rippleRiskPct: 41.2, meanDelayMin: 14.1, isHighRisk: false },
-  { id: "ORD-DCA", from: "ORD", to: "DCA", dailyFlights: 28, distanceMiles: 612, rippleRiskPct: 40.5, meanDelayMin: 13.7, isHighRisk: false },
-  { id: "ORD-DFW", from: "ORD", to: "DFW", dailyFlights: 34, distanceMiles: 802, rippleRiskPct: 47.2, meanDelayMin: 17.8, isHighRisk: true },
-  { id: "ORD-DEN", from: "ORD", to: "DEN", dailyFlights: 30, distanceMiles: 888, rippleRiskPct: 43.6, meanDelayMin: 14.9, isHighRisk: false },
-  { id: "DTW-ATL", from: "DTW", to: "ATL", dailyFlights: 24, distanceMiles: 594, rippleRiskPct: 36.5, meanDelayMin: 10.8, isHighRisk: false },
-  { id: "DTW-ORD", from: "DTW", to: "ORD", dailyFlights: 22, distanceMiles: 235, rippleRiskPct: 38.1, meanDelayMin: 11.9, isHighRisk: false },
-  { id: "MSP-ORD", from: "MSP", to: "ORD", dailyFlights: 28, distanceMiles: 334, rippleRiskPct: 37.2, meanDelayMin: 11.4, isHighRisk: false },
-  { id: "MSP-DEN", from: "MSP", to: "DEN", dailyFlights: 20, distanceMiles: 680, rippleRiskPct: 39.0, meanDelayMin: 12.1, isHighRisk: false },
-  { id: "PHL-ORD", from: "PHL", to: "ORD", dailyFlights: 22, distanceMiles: 678, rippleRiskPct: 43.8, meanDelayMin: 15.2, isHighRisk: false },
-  { id: "EWR-ORD", from: "EWR", to: "ORD", dailyFlights: 28, distanceMiles: 719, rippleRiskPct: 45.9, meanDelayMin: 17.6, isHighRisk: true },
-
-  // Florida & Southeast Flow
-  { id: "MIA-ATL", from: "MIA", to: "ATL", dailyFlights: 32, distanceMiles: 594, rippleRiskPct: 51.4, meanDelayMin: 20.3, isHighRisk: true },
-  { id: "MIA-JFK", from: "MIA", to: "JFK", dailyFlights: 26, distanceMiles: 1089, rippleRiskPct: 48.7, meanDelayMin: 18.9, isHighRisk: true },
-  { id: "MIA-DFW", from: "MIA", to: "DFW", dailyFlights: 24, distanceMiles: 1121, rippleRiskPct: 50.8, meanDelayMin: 21.1, isHighRisk: true },
-  { id: "FLL-ATL", from: "FLL", to: "ATL", dailyFlights: 26, distanceMiles: 581, rippleRiskPct: 49.8, meanDelayMin: 19.5, isHighRisk: true },
-  { id: "FLL-EWR", from: "FLL", to: "EWR", dailyFlights: 22, distanceMiles: 1065, rippleRiskPct: 49.2, meanDelayMin: 19.8, isHighRisk: true },
-  { id: "MCO-EWR", from: "MCO", to: "EWR", dailyFlights: 24, distanceMiles: 937, rippleRiskPct: 48.1, meanDelayMin: 18.7, isHighRisk: true },
-  { id: "TPA-ATL", from: "TPA", to: "ATL", dailyFlights: 24, distanceMiles: 406, rippleRiskPct: 45.4, meanDelayMin: 16.2, isHighRisk: true },
-  { id: "CLT-ATL", from: "CLT", to: "ATL", dailyFlights: 22, distanceMiles: 226, rippleRiskPct: 46.1, meanDelayMin: 16.5, isHighRisk: true },
-  { id: "BNA-ATL", from: "BNA", to: "ATL", dailyFlights: 20, distanceMiles: 214, rippleRiskPct: 44.2, meanDelayMin: 14.8, isHighRisk: false },
-  { id: "BWI-MCO", from: "BWI", to: "MCO", dailyFlights: 22, distanceMiles: 787, rippleRiskPct: 47.5, meanDelayMin: 17.3, isHighRisk: true },
-
-  // Texas & Southern Hubs
-  { id: "DFW-ATL", from: "DFW", to: "ATL", dailyFlights: 30, distanceMiles: 731, rippleRiskPct: 47.9, meanDelayMin: 18.1, isHighRisk: true },
-  { id: "DFW-DEN", from: "DFW", to: "DEN", dailyFlights: 28, distanceMiles: 641, rippleRiskPct: 46.2, meanDelayMin: 16.9, isHighRisk: true },
-  { id: "DFW-PHX", from: "DFW", to: "PHX", dailyFlights: 26, distanceMiles: 868, rippleRiskPct: 48.6, meanDelayMin: 18.4, isHighRisk: true },
-  { id: "DFW-LAS", from: "DFW", to: "LAS", dailyFlights: 24, distanceMiles: 1055, rippleRiskPct: 49.1, meanDelayMin: 19.0, isHighRisk: true },
-  { id: "IAH-ORD", from: "IAH", to: "ORD", dailyFlights: 24, distanceMiles: 925, rippleRiskPct: 44.8, meanDelayMin: 15.6, isHighRisk: false },
-  { id: "IAH-DEN", from: "IAH", to: "DEN", dailyFlights: 22, distanceMiles: 862, rippleRiskPct: 43.9, meanDelayMin: 14.8, isHighRisk: false },
-  { id: "AUS-DFW", from: "AUS", to: "DFW", dailyFlights: 26, distanceMiles: 190, rippleRiskPct: 44.7, meanDelayMin: 15.1, isHighRisk: false },
-  { id: "DAL-MDW", from: "DAL", to: "MDW", dailyFlights: 22, distanceMiles: 793, rippleRiskPct: 53.4, meanDelayMin: 22.4, isHighRisk: true },
-  { id: "DAL-HOU", from: "DAL", to: "IAH", dailyFlights: 24, distanceMiles: 239, rippleRiskPct: 51.2, meanDelayMin: 19.8, isHighRisk: true },
-  { id: "MDW-ATL", from: "MDW", to: "ATL", dailyFlights: 20, distanceMiles: 591, rippleRiskPct: 50.9, meanDelayMin: 20.6, isHighRisk: true },
-
-  // Mountain & West Coast
-  { id: "DEN-LAS", from: "DEN", to: "LAS", dailyFlights: 28, distanceMiles: 628, rippleRiskPct: 46.7, meanDelayMin: 17.2, isHighRisk: true },
-  { id: "DEN-LAX", from: "DEN", to: "LAX", dailyFlights: 30, distanceMiles: 862, rippleRiskPct: 43.8, meanDelayMin: 14.5, isHighRisk: false },
-  { id: "DEN-SFO", from: "DEN", to: "SFO", dailyFlights: 26, distanceMiles: 967, rippleRiskPct: 44.5, meanDelayMin: 15.3, isHighRisk: false },
-  { id: "DEN-SEA", from: "DEN", to: "SEA", dailyFlights: 24, distanceMiles: 1024, rippleRiskPct: 42.7, meanDelayMin: 13.9, isHighRisk: false },
-  { id: "SLC-DEN", from: "SLC", to: "DEN", dailyFlights: 24, distanceMiles: 391, rippleRiskPct: 36.8, meanDelayMin: 10.4, isHighRisk: false },
-  { id: "SLC-LAX", from: "SLC", to: "LAX", dailyFlights: 22, distanceMiles: 590, rippleRiskPct: 37.4, meanDelayMin: 11.1, isHighRisk: false },
-  { id: "PHX-LAX", from: "PHX", to: "LAX", dailyFlights: 32, distanceMiles: 370, rippleRiskPct: 43.6, meanDelayMin: 13.4, isHighRisk: false },
-  { id: "LAS-LAX", from: "LAS", to: "LAX", dailyFlights: 34, distanceMiles: 236, rippleRiskPct: 47.8, meanDelayMin: 16.8, isHighRisk: true },
-  { id: "SAN-SFO", from: "SAN", to: "SFO", dailyFlights: 24, distanceMiles: 447, rippleRiskPct: 41.5, meanDelayMin: 12.8, isHighRisk: false },
-  { id: "SEA-LAX", from: "SEA", to: "LAX", dailyFlights: 28, distanceMiles: 954, rippleRiskPct: 42.1, meanDelayMin: 13.2, isHighRisk: false },
-
-  // Transcontinental & Long Haul
-  { id: "BOS-SFO", from: "BOS", to: "SFO", dailyFlights: 18, distanceMiles: 2704, rippleRiskPct: 41.0, meanDelayMin: 14.5, isHighRisk: false },
-  { id: "BOS-LAX", from: "BOS", to: "LAX", dailyFlights: 18, distanceMiles: 2611, rippleRiskPct: 40.2, meanDelayMin: 13.9, isHighRisk: false },
-  { id: "JFK-SFO", from: "JFK", to: "SFO", dailyFlights: 26, distanceMiles: 2586, rippleRiskPct: 42.4, meanDelayMin: 15.0, isHighRisk: false },
-  { id: "EWR-SFO", from: "EWR", to: "SFO", dailyFlights: 22, distanceMiles: 2565, rippleRiskPct: 44.8, meanDelayMin: 16.8, isHighRisk: false },
-  { id: "EWR-LAX", from: "EWR", to: "LAX", dailyFlights: 24, distanceMiles: 2454, rippleRiskPct: 43.9, meanDelayMin: 16.1, isHighRisk: false },
-  { id: "SEA-ORD", from: "SEA", to: "ORD", dailyFlights: 22, distanceMiles: 1721, rippleRiskPct: 43.5, meanDelayMin: 15.4, isHighRisk: false },
-  { id: "SFO-ORD", from: "SFO", to: "ORD", dailyFlights: 26, distanceMiles: 1846, rippleRiskPct: 44.1, meanDelayMin: 15.8, isHighRisk: false },
-  { id: "LAX-ORD", from: "LAX", to: "ORD", dailyFlights: 28, distanceMiles: 1744, rippleRiskPct: 45.2, meanDelayMin: 16.7, isHighRisk: true },
-  { id: "PHX-ORD", from: "PHX", to: "ORD", dailyFlights: 24, distanceMiles: 1440, rippleRiskPct: 44.0, meanDelayMin: 15.2, isHighRisk: false },
-  { id: "LAS-ORD", from: "LAS", to: "ORD", dailyFlights: 22, distanceMiles: 1514, rippleRiskPct: 46.9, meanDelayMin: 17.6, isHighRisk: true },
-
-  // Secondary Corridors
-  { id: "ATL-BOS", from: "ATL", to: "BOS", dailyFlights: 20, distanceMiles: 946, rippleRiskPct: 39.8, meanDelayMin: 12.9, isHighRisk: false },
-  { id: "ATL-DCA", from: "ATL", to: "DCA", dailyFlights: 22, distanceMiles: 547, rippleRiskPct: 38.6, meanDelayMin: 11.8, isHighRisk: false },
-  { id: "CLT-BOS", from: "CLT", to: "BOS", dailyFlights: 18, distanceMiles: 728, rippleRiskPct: 45.1, meanDelayMin: 16.0, isHighRisk: true },
-  { id: "CLT-DFW", from: "CLT", to: "DFW", dailyFlights: 20, distanceMiles: 936, rippleRiskPct: 47.4, meanDelayMin: 17.8, isHighRisk: true },
-  { id: "DFW-SEA", from: "DFW", to: "SEA", dailyFlights: 18, distanceMiles: 1660, rippleRiskPct: 45.8, meanDelayMin: 16.5, isHighRisk: true },
-  { id: "DEN-BOS", from: "DEN", to: "BOS", dailyFlights: 16, distanceMiles: 1754, rippleRiskPct: 42.0, meanDelayMin: 14.2, isHighRisk: false },
-  { id: "SLC-SEA", from: "SLC", to: "SEA", dailyFlights: 18, distanceMiles: 689, rippleRiskPct: 36.2, meanDelayMin: 9.8, isHighRisk: false },
-  { id: "LAS-PHX", from: "LAS", to: "PHX", dailyFlights: 22, distanceMiles: 255, rippleRiskPct: 46.4, meanDelayMin: 16.1, isHighRisk: true },
-  { id: "BWI-ATL", from: "BWI", to: "ATL", dailyFlights: 20, distanceMiles: 577, rippleRiskPct: 43.1, meanDelayMin: 14.2, isHighRisk: false },
-  { id: "BNA-ORD", from: "BNA", to: "ORD", dailyFlights: 18, distanceMiles: 409, rippleRiskPct: 45.8, meanDelayMin: 16.6, isHighRisk: true },
-  { id: "MCO-ORD", from: "MCO", to: "ORD", dailyFlights: 22, distanceMiles: 1005, rippleRiskPct: 47.1, meanDelayMin: 17.5, isHighRisk: true },
-  { id: "FLL-ORD", from: "FLL", to: "ORD", dailyFlights: 18, distanceMiles: 1182, rippleRiskPct: 48.6, meanDelayMin: 18.9, isHighRisk: true },
+export const TOP_50_CORRIDORS_3D: Corridor3D[] = [
+  { from: "ORD", to: "LGA", distanceMiles: 733, dailyFlights: 42, rippleRiskPct: 53.4, isCriticalRipple: true },
+  { from: "LGA", to: "ORD", distanceMiles: 733, dailyFlights: 42, rippleRiskPct: 52.8, isCriticalRipple: true },
+  { from: "ATL", to: "MCO", distanceMiles: 404, dailyFlights: 38, rippleRiskPct: 41.2, isCriticalRipple: false },
+  { from: "MCO", to: "ATL", distanceMiles: 404, dailyFlights: 38, rippleRiskPct: 42.5, isCriticalRipple: false },
+  { from: "LAX", to: "SFO", distanceMiles: 337, dailyFlights: 46, rippleRiskPct: 46.8, isCriticalRipple: true },
+  { from: "SFO", to: "LAX", distanceMiles: 337, dailyFlights: 46, rippleRiskPct: 48.2, isCriticalRipple: true },
+  { from: "JFK", to: "LAX", distanceMiles: 2475, dailyFlights: 32, rippleRiskPct: 49.1, isCriticalRipple: true },
+  { from: "LAX", to: "JFK", distanceMiles: 2475, dailyFlights: 32, rippleRiskPct: 47.9, isCriticalRipple: true },
+  { from: "ORD", to: "DFW", distanceMiles: 802, dailyFlights: 36, rippleRiskPct: 48.7, isCriticalRipple: true },
+  { from: "DFW", to: "ORD", distanceMiles: 802, dailyFlights: 36, rippleRiskPct: 49.3, isCriticalRipple: true },
+  { from: "ATL", to: "LGA", distanceMiles: 762, dailyFlights: 34, rippleRiskPct: 46.5, isCriticalRipple: true },
+  { from: "LGA", to: "ATL", distanceMiles: 762, dailyFlights: 34, rippleRiskPct: 45.9, isCriticalRipple: true },
+  { from: "DEN", to: "PHX", distanceMiles: 602, dailyFlights: 30, rippleRiskPct: 38.4, isCriticalRipple: false },
+  { from: "PHX", to: "DEN", distanceMiles: 602, dailyFlights: 30, rippleRiskPct: 39.1, isCriticalRipple: false },
+  { from: "ORD", to: "BOS", distanceMiles: 867, dailyFlights: 28, rippleRiskPct: 47.6, isCriticalRipple: true },
+  { from: "BOS", to: "ORD", distanceMiles: 867, dailyFlights: 28, rippleRiskPct: 48.1, isCriticalRipple: true },
+  { from: "DFW", to: "LAX", distanceMiles: 1235, dailyFlights: 28, rippleRiskPct: 42.1, isCriticalRipple: false },
+  { from: "LAX", to: "DFW", distanceMiles: 1235, dailyFlights: 28, rippleRiskPct: 43.4, isCriticalRipple: false },
+  { from: "SEA", to: "SFO", distanceMiles: 679, dailyFlights: 26, rippleRiskPct: 44.0, isCriticalRipple: false },
+  { from: "SFO", to: "SEA", distanceMiles: 679, dailyFlights: 26, rippleRiskPct: 45.2, isCriticalRipple: true },
+  { from: "ATL", to: "CLT", distanceMiles: 226, dailyFlights: 26, rippleRiskPct: 39.8, isCriticalRipple: false },
+  { from: "CLT", to: "ATL", distanceMiles: 226, dailyFlights: 26, rippleRiskPct: 41.0, isCriticalRipple: false },
+  { from: "ORD", to: "DEN", distanceMiles: 888, dailyFlights: 32, rippleRiskPct: 46.2, isCriticalRipple: true },
+  { from: "DEN", to: "ORD", distanceMiles: 888, dailyFlights: 32, rippleRiskPct: 47.0, isCriticalRipple: true },
+  { from: "LAS", to: "LAX", distanceMiles: 236, dailyFlights: 34, rippleRiskPct: 41.5, isCriticalRipple: false },
+  { from: "LAX", to: "LAS", distanceMiles: 236, dailyFlights: 34, rippleRiskPct: 42.8, isCriticalRipple: false },
+  { from: "EWR", to: "ORD", distanceMiles: 719, dailyFlights: 30, rippleRiskPct: 52.1, isCriticalRipple: true },
+  { from: "ORD", to: "EWR", distanceMiles: 719, dailyFlights: 30, rippleRiskPct: 51.7, isCriticalRipple: true },
+  { from: "BOS", to: "DCA", distanceMiles: 399, dailyFlights: 28, rippleRiskPct: 37.9, isCriticalRipple: false },
+  { from: "DCA", to: "BOS", distanceMiles: 399, dailyFlights: 28, rippleRiskPct: 38.6, isCriticalRipple: false },
+  { from: "LGA", to: "BOS", distanceMiles: 184, dailyFlights: 32, rippleRiskPct: 43.1, isCriticalRipple: false },
+  { from: "BOS", to: "LGA", distanceMiles: 184, dailyFlights: 32, rippleRiskPct: 44.0, isCriticalRipple: false },
+  { from: "DEN", to: "LAX", distanceMiles: 862, dailyFlights: 26, rippleRiskPct: 40.2, isCriticalRipple: false },
+  { from: "LAX", to: "DEN", distanceMiles: 862, dailyFlights: 26, rippleRiskPct: 41.6, isCriticalRipple: false },
+  { from: "ORD", to: "LAX", distanceMiles: 1744, dailyFlights: 26, rippleRiskPct: 46.9, isCriticalRipple: true },
+  { from: "LAX", to: "ORD", distanceMiles: 1744, dailyFlights: 26, rippleRiskPct: 47.5, isCriticalRipple: true },
+  { from: "ATL", to: "BOS", distanceMiles: 946, dailyFlights: 24, rippleRiskPct: 42.7, isCriticalRipple: false },
+  { from: "BOS", to: "ATL", distanceMiles: 946, dailyFlights: 24, rippleRiskPct: 43.5, isCriticalRipple: false },
+  { from: "DFW", to: "DEN", distanceMiles: 641, dailyFlights: 26, rippleRiskPct: 42.0, isCriticalRipple: false },
+  { from: "DEN", to: "DFW", distanceMiles: 641, dailyFlights: 26, rippleRiskPct: 43.2, isCriticalRipple: false },
+  { from: "PHX", to: "LAX", distanceMiles: 370, dailyFlights: 30, rippleRiskPct: 36.8, isCriticalRipple: false },
+  { from: "LAX", to: "PHX", distanceMiles: 370, dailyFlights: 30, rippleRiskPct: 37.5, isCriticalRipple: false },
+  { from: "MIA", to: "LGA", distanceMiles: 1096, dailyFlights: 26, rippleRiskPct: 49.5, isCriticalRipple: true },
+  { from: "LGA", to: "MIA", distanceMiles: 1096, dailyFlights: 26, rippleRiskPct: 50.2, isCriticalRipple: true },
+  { from: "DTW", to: "ORD", distanceMiles: 235, dailyFlights: 24, rippleRiskPct: 44.2, isCriticalRipple: false },
+  { from: "ORD", to: "DTW", distanceMiles: 235, dailyFlights: 24, rippleRiskPct: 45.1, isCriticalRipple: true },
+  { from: "CLT", to: "LGA", distanceMiles: 544, dailyFlights: 24, rippleRiskPct: 47.8, isCriticalRipple: true },
+  { from: "LGA", to: "CLT", distanceMiles: 544, dailyFlights: 24, rippleRiskPct: 48.4, isCriticalRipple: true },
+  { from: "SEA", to: "ORD", distanceMiles: 1721, dailyFlights: 22, rippleRiskPct: 46.1, isCriticalRipple: true },
+  { from: "ORD", to: "SEA", distanceMiles: 1721, dailyFlights: 22, rippleRiskPct: 47.3, isCriticalRipple: true },
 ];
 
 /**
- * Converts Geographic Latitude and Longitude to 3D Cartesian Coordinates
- * Normalized around the continental United States center: ~38.5°N, -97.0°W
+ * 111-Point High-Fidelity Continental United States (CONUS) Boundary
+ * Ordered clockwise starting from Cape Flattery, WA.
  */
-export function geoTo3DCartesian(
-  lat: number,
-  lon: number,
-  altitude: number = 0,
-  scale: number = 520
-): Point3D {
-  const centerLat = 38.5;
-  const centerLon = -97.0;
-
-  const dLat = (lat - centerLat) * (Math.PI / 180);
-  const dLon = (lon - centerLon) * (Math.PI / 180);
-
-  // X axis: Longitude (West -> East)
-  const x = dLon * Math.cos(centerLat * (Math.PI / 180)) * scale * 1.25;
-
-  // Z axis: Latitude (North -> South)
-  const z = -dLat * scale * 1.25;
-
-  // Y axis: Altitude / Elevation (Up)
-  const y = altitude;
-
-  return { x, y, z };
-}
+export const US_CONTINENTAL_BOUNDARY: [number, number][] = [
+  [48.38, -124.7], [47.0, -124.1], [46.2, -124.0], [45.5, -123.9], [44.0, -124.1],
+  [42.0, -124.2], [41.0, -124.1], [39.0, -123.7], [38.0, -123.0], [37.5, -122.5],
+  [36.5, -121.9], [35.0, -120.6], [34.0, -119.0], [33.7, -118.3], [32.53, -117.12],
+  [32.7, -114.7], [31.33, -111.0], [31.33, -109.05], [31.78, -108.2], [31.78, -106.5],
+  [30.5, -104.8], [29.2, -103.5], [29.8, -101.4], [27.5, -99.5], [26.0, -97.15],
+  [27.8, -97.4], [28.9, -95.3], [29.3, -94.8], [29.7, -93.8], [29.6, -92.5],
+  [29.2, -89.4], [30.2, -89.6], [30.3, -88.8], [30.2, -88.0], [30.3, -87.2],
+  [30.1, -85.7], [29.8, -84.4], [28.8, -82.7], [27.8, -82.8], [26.1, -81.8],
+  [25.1, -81.1], [24.55, -81.78], [25.77, -80.19], [26.7, -80.0], [28.4, -80.6],
+  [30.3, -81.4], [31.5, -81.2], [32.0, -80.9], [32.7, -79.9], [33.7, -78.9],
+  [34.2, -77.9], [35.2, -75.5], [36.5, -75.9], [36.9, -76.0], [37.9, -75.4],
+  [38.7, -75.1], [39.0, -74.9], [39.3, -74.4], [40.5, -74.2], [40.6, -73.7],
+  [41.0, -71.9], [41.3, -72.1], [41.5, -70.5], [42.0, -70.2], [42.4, -70.9],
+  [43.1, -70.7], [43.6, -70.2], [44.3, -69.0], [44.9, -67.0], [47.4, -69.2],
+  [46.0, -70.5], [45.3, -71.1], [45.0, -71.5], [45.0, -73.3], [45.0, -74.7],
+  [44.3, -76.0], [43.6, -76.3], [43.3, -78.0], [42.9, -78.9], [42.1, -80.1],
+  [41.5, -81.7], [41.7, -83.5], [42.3, -83.0], [43.0, -82.4], [44.0, -82.9],
+  [45.4, -83.8], [45.8, -84.7], [45.0, -85.5], [43.2, -86.3], [41.8, -86.8],
+  [41.6, -87.2], [41.9, -87.6], [43.0, -87.9], [44.5, -87.9], [45.8, -87.1],
+  [46.0, -84.6], [46.5, -86.0], [47.4, -88.0], [46.8, -90.8], [46.7, -92.1],
+  [48.0, -89.6], [48.4, -91.5], [48.6, -93.4], [49.4, -95.1], [49.0, -97.2],
+  [49.0, -104.0], [49.0, -111.0], [49.0, -116.0], [49.0, -117.0], [49.0, -122.75],
+  [48.38, -124.7]
+];
 
 /**
- * Projects a 3D point onto a 2D screen coordinate using Yaw and Pitch camera angles.
+ * Great Lakes Shoreline Loops (Michigan, Superior, Erie)
  */
-export function project3DToScreen(
-  p: Point3D,
-  yaw: number,
-  pitch: number,
-  cameraDist: number,
-  viewportWidth: number,
-  viewportHeight: number
-): { screenX: number; screenY: number; depth: number; scale: number } {
-  // 1. Rotate around Y axis (Yaw)
-  const cosYaw = Math.cos(yaw);
-  const sinYaw = Math.sin(yaw);
-  const x1 = p.x * cosYaw - p.z * sinYaw;
-  const z1 = p.x * sinYaw + p.z * cosYaw;
-  const y1 = p.y;
+export const US_GREAT_LAKES_OUTLINES: [number, number][][] = [
+  // Lake Michigan
+  [
+    [41.6, -87.2], [41.9, -87.6], [43.0, -87.9], [44.5, -87.9], [45.8, -86.5],
+    [45.8, -84.8], [44.8, -86.0], [43.0, -86.3], [41.8, -86.8], [41.6, -87.2]
+  ],
+  // Lake Superior
+  [
+    [46.5, -92.0], [47.5, -91.0], [48.0, -89.5], [48.8, -87.5], [47.5, -85.0],
+    [46.5, -84.6], [46.5, -87.0], [46.8, -90.5], [46.5, -92.0]
+  ],
+  // Lake Erie
+  [
+    [41.7, -83.5], [41.5, -82.5], [41.5, -81.7], [42.1, -80.1], [42.8, -78.9],
+    [42.9, -79.3], [42.5, -81.2], [42.0, -83.1], [41.7, -83.5]
+  ]
+];
 
-  // 2. Rotate around X axis (Pitch)
-  const cosPitch = Math.cos(pitch);
-  const sinPitch = Math.sin(pitch);
-  const y2 = y1 * cosPitch - z1 * sinPitch;
-  const z2 = y1 * sinPitch + z1 * cosPitch;
-  const x2 = x1;
-
-  // 3. Perspective Projection
-  const fov = 750;
-  const depth = z2 + cameraDist;
-  const scale = depth > 10 ? fov / depth : 1;
-
-  const screenX = viewportWidth / 2 + x2 * scale;
-  const screenY = viewportHeight / 2 - y2 * scale;
-
-  return { screenX, screenY, depth, scale };
-}
-
-/**
- * Computes great-circle distance in statute miles between two points using the Haversine formula.
- */
 export function calculateHaversineDistance(
   lat1: number,
   lon1: number,
   lat2: number,
   lon2: number
 ): number {
-  const R = 3958.8; // Earth radius in miles
-  const phi1 = (lat1 * Math.PI) / 180;
-  const phi2 = (lat2 * Math.PI) / 180;
-  const dPhi = ((lat2 - lat1) * Math.PI) / 180;
-  const dLambda = ((lon2 - lon1) * Math.PI) / 180;
-
+  const R = 3958.8; // Earth radius in statute miles
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
   const a =
-    Math.sin(dPhi / 2) * Math.sin(dPhi / 2) +
-    Math.cos(phi1) * Math.cos(phi2) * Math.sin(dLambda / 2) * Math.sin(dLambda / 2);
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
   return Math.round(R * c);
 }
 
 /**
- * Computes a 3D parabolic bezier curve point between two 3D coordinates.
+ * Maps continental US coordinates (Lat ~24..50, Lon ~-125..-66) into a 3D plane.
+ * Centered around Kansas (lat: 38.5, lon: -97.0).
+ * Output space: X in [-14, 14], Z in [-9, 9], Y = 0 (ground level).
  */
-export function computeParabolicArcPoint(
-  p1: Point3D,
-  p2: Point3D,
-  t: number,
-  apexHeight: number
-): Point3D {
-  const x = p1.x + (p2.x - p1.x) * t;
-  const z = p1.z + (p2.z - p1.z) * t;
+export function geoToContinentalPlane(
+  lat: number,
+  lon: number,
+  scaleX = 0.45,
+  scaleZ = 0.55
+): [number, number, number] {
+  const centerLat = 38.5;
+  const centerLon = -97.0;
 
-  const arcY = 4 * apexHeight * t * (1 - t);
-  const baseY = p1.y + (p2.y - p1.y) * t;
-  const y = baseY + arcY;
+  const x = (lon - centerLon) * scaleX;
+  const z = -(lat - centerLat) * scaleZ;
+  return [x, 0, z];
+}
 
-  return { x, y, z };
+/**
+ * Generates an array of 3D points forming a parabolic arc between two endpoints.
+ */
+export function computeParabolicArcPoints(
+  start: [number, number, number],
+  end: [number, number, number],
+  peakAltitude: number,
+  segments = 32
+): [number, number, number][] {
+  const points: [number, number, number][] = [];
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments;
+    const x = start[0] + (end[0] - start[0]) * t;
+    const z = start[2] + (end[2] - start[2]) * t;
+    // Parabolic height: 4 * h * t * (1 - t)
+    const y = 4 * peakAltitude * t * (1 - t);
+    points.push([x, y, z]);
+  }
+  return points;
 }

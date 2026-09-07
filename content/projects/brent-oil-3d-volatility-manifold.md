@@ -19,7 +19,7 @@ skills:
   - "Time-Series Diagnostics"
   - "Mathematical Modeling"
   - "Interactive Engineering"
-order: 2
+order: 3
 system:
   - label: "01. Tensor Coordinate Matrix"
     value: "Discretizes 35.5 years into 36 time epochs × 19 return shock intervals (-14% to +14%)"

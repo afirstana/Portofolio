@@ -1,19 +1,20 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "airspace-manifold", label: "3D Airspace Studio" },
-  { id: "orthodromic-geometry", label: "01. Airspace Geometry" },
-  { id: "surface-elevation", label: "02. Taxi-Out Topography" },
-  { id: "ripple-propagation", label: "03. Turnaround Ripple" },
-  { id: "hub-scorecard", label: "04. Top 30 Scorecard" },
-  { id: "mathematical-projection", label: "05. Spherical Math" },
-  { id: "canvas-architecture", label: "06. 60 FPS Engine" },
+  { id: "3d-airspace", label: "3D Airspace Studio" },
+  { id: "geodesic-math", label: "01. Geodesic Math & Spherical 3D" },
+  { id: "surface-elevation", label: "02. Surface Taxi Elevation" },
+  { id: "ripple-propagation", label: "03. 50 Corridors Ripple Flow" },
+  { id: "hub-scorecard", label: "04. Top 30 Hubs Scorecard" },
+  { id: "webgl-engine", label: "05. WebGL Shader & Particle Physics" },
+  { id: "methodology", label: "06. Architecture & 3D Payload" },
+  { id: "takeaways", label: "07. Operational Takeaways" },
 ];
 
 export function FlightDelay3DToc() {
-  const [activeSection, setActiveSection] = useState<string>("airspace-manifold");
+  const [activeSection, setActiveSection] = useState<string>("3d-airspace");
 
   useEffect(() => {
     const handleScroll = () => {

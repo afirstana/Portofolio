@@ -765,8 +765,8 @@ const PIPELINE_STEPS = [
     artifact: "flight_data_2024.csv",
     spec: "1.31 GB • 7,079,081 Rows",
     details: "109 raw attributes, 12 monthly releases",
-    tag: "RAW BOTTLENECK",
-    isProblem: true,
+    tag: "RAW CENSUS GRAIN",
+    isProblem: false,
   },
   {
     step: "02",
@@ -814,31 +814,31 @@ const PIPELINE_PARAMS = [
   {
     stage: "Raw Data Census",
     artifact: "flight_data_2024.csv",
-    metric: "1.31 GB | 7,079,081 Rows",
+    metric: "1.31 GB | 7,079,081 rows",
     role: "Complete 2024 U.S. domestic commercial flight records streamed from Bureau of Transportation Statistics",
   },
   {
     stage: "Processing Engine",
     artifact: "Python 3.13 + Pandas",
-    metric: "Chunked Streaming (~1.15M rows/sec)",
+    metric: "Chunked streaming (~1.15M rows/sec)",
     role: "Zero-RAM-spike streaming iterator reading 250k-row chunks and projecting only operational delay variables",
   },
   {
     stage: "Transformation Matrix",
     artifact: "Multi-Index Slices",
-    metric: "15 Carriers × 12 Months × Top 15 Hubs",
+    metric: "15 carriers × 12 months × 15 hubs",
     role: "Pre-aggregates total flights, OTP, taxi-out queues, and 5 cause breakdown shares across 24 diurnal hours",
   },
   {
     stage: "Production Payload",
     artifact: "flight_delay_2024_cube.json",
-    metric: "65.1 KB Static Bundle (99.995% Reduction)",
+    metric: "65.1 KB static bundle (99.995% reduction)",
     role: "High-density JSON payload with zero network query overhead bundled directly into the static site export",
   },
   {
     stage: "Client State Architecture",
     artifact: "React 19 useMemo",
-    metric: "In-Memory Dynamic Slicer (<0.5ms)",
+    metric: "In-memory dynamic slicer (<0.5ms)",
     role: "Autonomous client-side cross-filtering with zero API latency, zero backend dependencies, and 60 FPS responsiveness",
   },
 ];
@@ -1012,16 +1012,52 @@ function ArchitecturePipelineVisualChart() {
           overflowX: "auto",
         }}
       >
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12.5 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13, tableLayout: "fixed" }}>
           <thead>
             <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--panel)" }}>
-              <th className="mono" style={{ padding: "10px 14px", textAlign: "left", color: "var(--ink-heading)", fontSize: 10.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <th
+                style={{
+                  width: "22%",
+                  padding: "12px 16px",
+                  textAlign: "left",
+                  color: "var(--ink-heading)",
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: 10.5,
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Pipeline Stage
               </th>
-              <th className="mono" style={{ padding: "10px 14px", textAlign: "left", color: "var(--ink-heading)", fontSize: 10.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <th
+                style={{
+                  width: "42%",
+                  padding: "12px 16px",
+                  textAlign: "left",
+                  color: "var(--ink-heading)",
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: 10.5,
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Technical Artifact &amp; Specification
               </th>
-              <th className="mono" style={{ padding: "10px 14px", textAlign: "left", color: "var(--ink-heading)", fontSize: 10.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <th
+                style={{
+                  width: "36%",
+                  padding: "12px 16px",
+                  textAlign: "left",
+                  color: "var(--ink-heading)",
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: 10.5,
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Operational Role &amp; Architecture Impact
               </th>
             </tr>
@@ -1035,13 +1071,21 @@ function ArchitecturePipelineVisualChart() {
                   backgroundColor: pIdx % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
                 }}
               >
-                <td style={{ padding: "10px 14px", fontWeight: 600, color: "var(--ink-heading)", whiteSpace: "nowrap" }}>
+                <td style={{ padding: "12px 16px", fontWeight: 600, color: "var(--ink-heading)", fontSize: 12.5 }}>
                   {p.stage}
                 </td>
-                <td className="mono" style={{ padding: "10px 14px", color: p.stage === "Raw Data Census" ? "var(--accent)" : "var(--ink)", whiteSpace: "nowrap", fontSize: 12 }}>
-                  <strong>{p.artifact}</strong> <span style={{ color: "var(--dim)" }}>({p.metric})</span>
+                <td
+                  style={{
+                    padding: "12px 16px",
+                    fontFamily: "var(--font-mono), monospace",
+                    fontSize: 12,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  <strong style={{ color: "var(--ink-heading)" }}>{p.artifact}</strong>{" "}
+                  <span style={{ color: "var(--dim)" }}>({p.metric})</span>
                 </td>
-                <td style={{ padding: "10px 14px", color: "var(--muted)", lineHeight: 1.45 }}>
+                <td style={{ padding: "12px 16px", color: "var(--muted)", lineHeight: 1.5, fontSize: 12.5 }}>
                   {p.role}
                 </td>
               </tr>
@@ -1276,22 +1320,55 @@ export function MarkdownBody({ source }: { source: string }) {
         }
       }
 
+      const langLabel = codeType ? codeType.toUpperCase() : "CODE";
       nodes.push(
-        <pre
-          key={`code-${i}`}
+        <div
+          key={`code-frame-${i}`}
           style={{
-            backgroundColor: "var(--surface-secondary)",
-            border: "1px solid var(--line)",
-            padding: "16px 20px",
-            borderRadius: 4,
-            overflowX: "auto",
             margin: "24px 0",
-            font: "11px/1.6 'Courier New', monospace",
-            color: "var(--ink)",
+            border: "1px solid var(--line)",
+            borderRadius: 4,
+            backgroundColor: "var(--surface-secondary)",
+            overflow: "hidden",
           }}
         >
-          <code>{codeLines.join("\n")}</code>
-        </pre>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "8px 14px",
+              backgroundColor: "var(--panel)",
+              borderBottom: "1px solid var(--line)",
+              fontFamily: "var(--font-mono), monospace",
+              fontSize: 11,
+              letterSpacing: "0.06em",
+              color: "var(--dim)",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "rgba(255, 255, 255, 0.2)", display: "inline-block" }} />
+              <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "rgba(255, 255, 255, 0.2)", display: "inline-block" }} />
+              <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "rgba(255, 255, 255, 0.2)", display: "inline-block" }} />
+              <span style={{ marginLeft: 8, color: "var(--ink-heading)", fontWeight: 700 }}>{langLabel}</span>
+            </div>
+            <span style={{ fontSize: 10, color: "var(--muted)" }}>{codeLines.length} LINES</span>
+          </div>
+          <pre
+            style={{
+              padding: "16px 20px",
+              margin: 0,
+              overflowX: "auto",
+              fontFamily: "var(--font-mono), 'JetBrains Mono', Consolas, monospace",
+              fontSize: 12.5,
+              lineHeight: 1.65,
+              color: "var(--ink)",
+              backgroundColor: "transparent",
+            }}
+          >
+            <code>{codeLines.join("\n")}</code>
+          </pre>
+        </div>
       );
       continue;
     }

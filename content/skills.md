@@ -6,8 +6,14 @@ groups:
     skills:
       - name: "Python"
         evidence:
+          - "flight-delay-2024-predictive-dispatch"
           - "banking-transaction-anti-fraud"
+          - "flight-delay-2024-3d-airspace-network"
+          - "brent-oil-3d-volatility-manifold"
+          - "flight-delay-2024-operations-cockpit"
+          - "banking-fraud-3d-network-intelligence"
           - "global-cancer-epidemiology-surveillance"
+          - "banking-fraud-3d-anomaly-manifold"
           - "olist-e-commerce-logistics-analysis"
           - "olist-payment-behavior-analytics"
           - "brent-oil-market-dynamics"
@@ -23,28 +29,39 @@ groups:
     skills:
       - name: "Power BI"
         evidence:
+          - "flight-delay-2024-operations-cockpit"
           - "banking-transaction-anti-fraud"
           - "olist-e-commerce-logistics-analysis"
           - "olist-payment-behavior-analytics"
           - "brent-oil-market-dynamics"
       - name: "SQL"
         evidence:
+          - "flight-delay-2024-operations-cockpit"
+          - "banking-fraud-3d-network-intelligence"
           - "banking-transaction-anti-fraud"
           - "olist-e-commerce-logistics-analysis"
           - "olist-payment-behavior-analytics"
           - "ml-product-mapping-system"
       - name: "Predictive analytics"
         evidence:
+          - "flight-delay-2024-predictive-dispatch"
           - "banking-transaction-anti-fraud"
+          - "flight-delay-2024-3d-airspace-network"
+          - "brent-oil-3d-volatility-manifold"
+          - "flight-delay-2024-operations-cockpit"
+          - "banking-fraud-3d-network-intelligence"
           - "global-cancer-epidemiology-surveillance"
+          - "banking-fraud-3d-anomaly-manifold"
+          - "olist-payment-behavior-analytics"
           - "brent-oil-market-dynamics"
           - "amazon-product-intelligence"
-          - "olist-payment-behavior-analytics"
   - name: "Machine learning"
     skills:
       - name: "Scikit-learn"
         evidence:
+          - "flight-delay-2024-predictive-dispatch"
           - "banking-transaction-anti-fraud"
+          - "banking-fraud-3d-anomaly-manifold"
           - "amazon-product-intelligence"
           - "ml-product-mapping-system"
       - name: "NLP / TF-IDF"
@@ -55,8 +72,14 @@ groups:
     skills:
       - name: "Data quality"
         evidence:
+          - "flight-delay-2024-predictive-dispatch"
           - "banking-transaction-anti-fraud"
+          - "flight-delay-2024-3d-airspace-network"
+          - "brent-oil-3d-volatility-manifold"
+          - "flight-delay-2024-operations-cockpit"
+          - "banking-fraud-3d-network-intelligence"
           - "global-cancer-epidemiology-surveillance"
+          - "banking-fraud-3d-anomaly-manifold"
           - "olist-e-commerce-logistics-analysis"
           - "olist-payment-behavior-analytics"
           - "brent-oil-market-dynamics"
@@ -65,9 +88,11 @@ groups:
           - "revenue-reconciliation-automation"
       - name: "Automation design"
         evidence:
+          - "flight-delay-2024-predictive-dispatch"
+          - "flight-delay-2024-3d-airspace-network"
+          - "banking-transaction-anti-fraud"
           - "revenue-reconciliation-automation"
           - "certificate-generator-desktop-app"
-          - "banking-transaction-anti-fraud"
 ---
 
 Tools are selected for the workflow they make possible, then linked back to the systems where they are used.

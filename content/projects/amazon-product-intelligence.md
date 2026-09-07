@@ -16,7 +16,7 @@ skills:
   - "Python"
   - "Data quality"
   - "Automation"
-order: 11
+order: 12
 system:
   - label: "Source"
     value: "Amazon CSV snapshot"

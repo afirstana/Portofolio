@@ -1,0 +1,324 @@
+{
+  "version": "1.0.0",
+  "dataset_census_year": 2024,
+  "overall_delay_rate": 0.2442,
+  "top_carriers": [
+    "UA",
+    "AA",
+    "DL",
+    "WN",
+    "B6",
+    "NK",
+    "AS",
+    "OO"
+  ],
+  "top_hubs": [
+    "ORD",
+    "ATL",
+    "DFW",
+    "DEN",
+    "CLT",
+    "LAX",
+    "JFK",
+    "LGA",
+    "EWR",
+    "SFO",
+    "SEA",
+    "MCO",
+    "LAS",
+    "BOS",
+    "PHX"
+  ],
+  "carrier_rates": {
+    "UA": 0.2263,
+    "AA": 0.302,
+    "DL": 0.1953,
+    "WN": 0.2517,
+    "B6": 0.2946,
+    "NK": 0.2726,
+    "AS": 0.2441,
+    "OO": 0.2013
+  },
+  "origin_rates": {
+    "ORD": 0.2736,
+    "ATL": 0.2199,
+    "DFW": 0.337,
+    "DEN": 0.258,
+    "CLT": 0.3305,
+    "LAX": 0.2059,
+    "JFK": 0.2718,
+    "LGA": 0.2251,
+    "EWR": 0.2517,
+    "SFO": 0.234,
+    "SEA": 0.2306,
+    "MCO": 0.2879,
+    "LAS": 0.2489,
+    "BOS": 0.2426,
+    "PHX": 0.2129
+  },
+  "dest_rates": {
+    "ORD": 0.236,
+    "ATL": 0.1832,
+    "DFW": 0.2826,
+    "DEN": 0.2013,
+    "CLT": 0.2679,
+    "LAX": 0.2087,
+    "JFK": 0.2824,
+    "LGA": 0.2439,
+    "EWR": 0.2369,
+    "SFO": 0.3429,
+    "SEA": 0.2236,
+    "MCO": 0.2812,
+    "LAS": 0.2543,
+    "BOS": 0.2707,
+    "PHX": 0.219
+  },
+  "hourly_rates": {
+    "0": 0.2035,
+    "1": 0.2124,
+    "2": 0.2188,
+    "3": 0.1818,
+    "4": 0.1111,
+    "5": 0.0875,
+    "6": 0.1025,
+    "7": 0.1445,
+    "8": 0.1648,
+    "9": 0.1836,
+    "10": 0.199,
+    "11": 0.21,
+    "12": 0.2176,
+    "13": 0.2486,
+    "14": 0.2883,
+    "15": 0.3041,
+    "16": 0.3166,
+    "17": 0.3316,
+    "18": 0.3404,
+    "19": 0.353,
+    "20": 0.3747,
+    "21": 0.3237,
+    "22": 0.2917,
+    "23": 0.2436
+  },
+  "models_eval": {
+    "Logistic Regression": {
+      "roc_auc": 0.610129491967663,
+      "pr_auc": 0.23041307938521274,
+      "brier": 0.1458276439041905,
+      "f1": 0.02966791080486171,
+      "precision": 0.2631578947368421,
+      "recall": 0.015720081135902637
+    },
+    "Random Forest": {
+      "roc_auc": 0.6164772126975587,
+      "pr_auc": 0.23498974601909017,
+      "brier": 0.14452446457946042,
+      "f1": 0.009397180845746277,
+      "precision": 0.32867132867132864,
+      "recall": 0.004766734279918864
+    },
+    "HistGradientBoosting": {
+      "roc_auc": 0.6174449677009752,
+      "pr_auc": 0.23503371382491822,
+      "brier": 0.1456743920207083,
+      "f1": 0.03492786636294609,
+      "precision": 0.27218934911242604,
+      "recall": 0.018661257606490872
+    }
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.1,
+      "precision": 0.1768,
+      "recall": 0.9675,
+      "f1": 0.299,
+      "tp": 9540,
+      "fp": 44415,
+      "tn": 3678,
+      "fn": 320
+    },
+    {
+      "threshold": 0.15,
+      "precision": 0.1911,
+      "recall": 0.8747,
+      "f1": 0.3137,
+      "tp": 8625,
+      "fp": 36509,
+      "tn": 11584,
+      "fn": 1235
+    },
+    {
+      "threshold": 0.2,
+      "precision": 0.2093,
+      "recall": 0.7282,
+      "f1": 0.3252,
+      "tp": 7180,
+      "fp": 27123,
+      "tn": 20970,
+      "fn": 2680
+    },
+    {
+      "threshold": 0.25,
+      "precision": 0.2278,
+      "recall": 0.5708,
+      "f1": 0.3256,
+      "tp": 5628,
+      "fp": 19082,
+      "tn": 29011,
+      "fn": 4232
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.2441,
+      "recall": 0.4123,
+      "f1": 0.3067,
+      "tp": 4065,
+      "fp": 12586,
+      "tn": 35507,
+      "fn": 5795
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.2603,
+      "recall": 0.2761,
+      "f1": 0.268,
+      "tp": 2722,
+      "fp": 7734,
+      "tn": 40359,
+      "fn": 7138
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.2768,
+      "recall": 0.1615,
+      "f1": 0.204,
+      "tp": 1592,
+      "fp": 4159,
+      "tn": 43934,
+      "fn": 8268
+    },
+    {
+      "threshold": 0.45,
+      "precision": 0.2923,
+      "recall": 0.0657,
+      "f1": 0.1073,
+      "tp": 648,
+      "fp": 1569,
+      "tn": 46524,
+      "fn": 9212
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.2722,
+      "recall": 0.0187,
+      "f1": 0.0349,
+      "tp": 184,
+      "fp": 492,
+      "tn": 47601,
+      "fn": 9676
+    },
+    {
+      "threshold": 0.55,
+      "precision": 0.3107,
+      "recall": 0.0065,
+      "f1": 0.0127,
+      "tp": 64,
+      "fp": 142,
+      "tn": 47951,
+      "fn": 9796
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.3469,
+      "recall": 0.0017,
+      "f1": 0.0034,
+      "tp": 17,
+      "fp": 32,
+      "tn": 48061,
+      "fn": 9843
+    },
+    {
+      "threshold": 0.65,
+      "precision": 0.2917,
+      "recall": 0.0007,
+      "f1": 0.0014,
+      "tp": 7,
+      "fp": 17,
+      "tn": 48076,
+      "fn": 9853
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.3333,
+      "recall": 0.0002,
+      "f1": 0.0004,
+      "tp": 2,
+      "fp": 4,
+      "tn": 48089,
+      "fn": 9858
+    },
+    {
+      "threshold": 0.75,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 48093,
+      "fn": 9860
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 48093,
+      "fn": 9860
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 48093,
+      "fn": 9860
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 48093,
+      "fn": 9860
+    }
+  ],
+  "severity_breakdown": {
+    "minor": 0.3606,
+    "moderate": 0.2927,
+    "severe": 0.3468
+  },
+  "lr_coefficients": {
+    "carrier_delay_rate": 3.0309,
+    "origin_delay_rate": 3.5266,
+    "dest_delay_rate": 3.9377,
+    "hourly_delay_rate": 5.4603,
+    "is_evening_peak": 0.0202,
+    "is_weekend": 0.0378,
+    "is_hub_to_hub": 0.0986,
+    "norm_distance": 0.0097
+  },
+  "lr_intercept": -5.1552,
+  "feature_importance": {
+    "Hourly Departure Wave (Diurnal)": 0.312,
+    "Origin Hub Congestion Index": 0.245,
+    "Operating Carrier Profile": 0.184,
+    "Destination Inflow Bottleneck": 0.118,
+    "Flight Distance & Buffer": 0.082,
+    "Day of Week & Hub Interaction": 0.059
+  }
+}

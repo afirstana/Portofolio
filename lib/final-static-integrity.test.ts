@@ -21,6 +21,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(slugPageSource).toContain('p.slug !== "banking-fraud-3d-anomaly-manifold"');
     expect(slugPageSource).toContain('p.slug !== "flight-delay-2024-operations-cockpit"');
     expect(slugPageSource).toContain('p.slug !== "flight-delay-2024-3d-airspace-network"');
+    expect(slugPageSource).toContain('p.slug !== "flight-delay-2024-predictive-dispatch"');
 
     const dynamicSlugs = getProjects()
       .filter(
@@ -33,7 +34,8 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
           p.slug !== "banking-fraud-3d-network-intelligence" &&
           p.slug !== "banking-fraud-3d-anomaly-manifold" &&
           p.slug !== "flight-delay-2024-operations-cockpit" &&
-          p.slug !== "flight-delay-2024-3d-airspace-network"
+          p.slug !== "flight-delay-2024-3d-airspace-network" &&
+          p.slug !== "flight-delay-2024-predictive-dispatch"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -58,6 +60,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     const fraud3DAnomalyPagePath = path.join(rootDir, "app/projects/banking-fraud-3d-anomaly-manifold/page.tsx");
     const flightCockpitPagePath = path.join(rootDir, "app/projects/flight-delay-2024-operations-cockpit/page.tsx");
     const flight3DPagePath = path.join(rootDir, "app/projects/flight-delay-2024-3d-airspace-network/page.tsx");
+    const flightMLPagePath = path.join(rootDir, "app/projects/flight-delay-2024-predictive-dispatch/page.tsx");
 
     expect(fs.existsSync(amazonPagePath)).toBe(true);
     expect(fs.existsSync(paymentPagePath)).toBe(true);
@@ -68,6 +71,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(fs.existsSync(fraud3DAnomalyPagePath)).toBe(true);
     expect(fs.existsSync(flightCockpitPagePath)).toBe(true);
     expect(fs.existsSync(flight3DPagePath)).toBe(true);
+    expect(fs.existsSync(flightMLPagePath)).toBe(true);
 
     const brentPageSource = fs.readFileSync(brentPagePath, "utf8");
     expect(brentPageSource).not.toContain("export function generateStaticParams");
@@ -113,7 +117,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
 
   it("verifies all project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(14);
+    expect(projects).toHaveLength(15);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

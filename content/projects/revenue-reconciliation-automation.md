@@ -19,7 +19,7 @@ skills:
   - "Financial data quality"
   - "Data reconciliation"
   - "Excel"
-order: 13
+order: 14
 system:
   - label: "01. Ingestion & Normalization"
     value: "Standardizes raw tax invoices (Faktur Asli) and internal DBO system transaction records"
@@ -110,8 +110,8 @@ The engine parses and categorizes every transaction into one of four definitive 
 
 | Tier Classification | Detection Logic & Mathematical Criteria | Operational Action & Audit Routing |
 | :--- | :--- | :--- |
-| **Tier 1: 100% Exact Match** | $\text{Invoice ID}_A = \text{Invoice ID}_B \land |\text{Nominal}_A - \text{Nominal}_B| = 0$ | Automatically cleared and marked ready for final general ledger journalization. |
-| **Tier 2: Value Discrepancy / Tax Diff** | $\text{Invoice ID}_A = \text{Invoice ID}_B \land |\text{Nominal}_A - \text{Nominal}_B| > \epsilon$ | Flagged with exact delta variance (e.g. tax rounding, partial discount) for targeted finance review. |
+| **Tier 1: 100% Exact Match** | $\text{Invoice ID}_A = \text{Invoice ID}_B \land \vert \text{Nominal}_A - \text{Nominal}_B \vert = 0$ | Automatically cleared and marked ready for final general ledger journalization. |
+| **Tier 2: Value Discrepancy / Tax Diff** | $\text{Invoice ID}_A = \text{Invoice ID}_B \land \vert \text{Nominal}_A - \text{Nominal}_B \vert > \epsilon$ | Flagged with exact delta variance (e.g. tax rounding, partial discount) for targeted finance review. |
 | **Tier 3: Missing in System** | $\text{Record}_A \in \text{Source A} \land \text{Record}_A \notin \text{Source B}$ | Highlighted as unrecorded physical invoice requiring immediate ERP entry before tax filing deadlines. |
 | **Tier 4: Duplicate Processed / Double-Entry** | $\text{Count}(\text{Invoice ID}_A \in \text{Source B}) > 1$ | Critical high-priority alert identifying duplicate billing or dual-posted transactions. |
 

@@ -18,8 +18,22 @@ function parseMathToCleanUnicode(raw: string): string {
     .replace(/\\mathcal\{T\}/g, "𝒯")
     .replace(/\\mathcal\{R\}/g, "ℛ")
     .replace(/\\mathcal\{([^\}]+)\}/g, "$1")
+    .replace(/\\mathbb\{R\}\^\{?\+?d\}?/g, "ℝᵈ")
+    .replace(/\\mathbb\{R\}\^\{?d\}?/g, "ℝᵈ")
     .replace(/\\mathbb\{R\}\^?\+?/g, "ℝ⁺")
+    .replace(/\\mathbb\{R\}/g, "ℝ")
+    .replace(/\\mathbb\{E\}/g, "𝔼")
     .replace(/\\mathbb\{([^\}]+)\}/g, "$1")
+    .replace(/\\tau\^\*/g, "τ*")
+    .replace(/\\tau\*/g, "τ*")
+    .replace(/\\tau_0/g, "τ₀")
+    .replace(/\\tau\b/g, "τ")
+    .replace(/\\hat\{P\}|\\hat\s*P/g, "P̂")
+    .replace(/\\hat\{Y\}|\\hat\s*Y/g, "Ŷ")
+    .replace(/\\hat\{y\}|\\hat\s*y/g, "ŷ")
+    .replace(/\\hat\{([a-zA-Z])\}/g, "$1̂")
+    .replace(/\\mid\b/g, " | ")
+    .replace(/arr\\_delay/g, "arr_delay")
     .replace(/\\longmapsto/g, " ⟶ ")
     .replace(/\\longrightarrow/g, " ⟶ ")
     .replace(/\\rightarrow/g, " → ")
@@ -1569,7 +1583,7 @@ export function MarkdownBody({ source }: { source: string }) {
                               whiteSpace: "nowrap",
                             }}
                           >
-                            {th}
+                            {formatInline(th)}
                           </th>
                         );
                       })}
@@ -1662,7 +1676,7 @@ export function MarkdownBody({ source }: { source: string }) {
                             whiteSpace: "nowrap",
                           }}
                         >
-                          {th}
+                          {formatInline(th)}
                         </th>
                       );
                     })}

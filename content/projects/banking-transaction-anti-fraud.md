@@ -20,7 +20,7 @@ skills:
   - "SQL feature engineering"
   - "Power BI multi-page dashboard architecture"
   - "Behavioral anomaly detection"
-order: 1
+order: 2
 system:
   - label: "01. Transaction Ingestion"
     value: "2,512 transactional records across 495 accounts, 100 merchants, 43 cities, and 681 devices"

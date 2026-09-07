@@ -29,7 +29,8 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
           p.slug !== "brent-oil-market-dynamics" &&
           p.slug !== "brent-oil-3d-volatility-manifold" &&
           p.slug !== "banking-fraud-3d-network-intelligence" &&
-          p.slug !== "banking-fraud-3d-anomaly-manifold"
+          p.slug !== "banking-fraud-3d-anomaly-manifold" &&
+          p.slug !== "flight-delay-2024-operations-cockpit"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -93,9 +94,9 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
     expect(fraud3DAnomalyPageSource).toContain("export const dynamicParams = false;");
   });
 
-  it("verifies all 12 project static HTML and index.txt files exist in out/projects/", () => {
+  it("verifies all project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(12);
+    expect(projects).toHaveLength(13);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

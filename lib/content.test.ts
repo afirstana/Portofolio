@@ -4,7 +4,7 @@ import { getMethod, getProjectBySlug, getProjects, getSkills } from "./content";
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(12);
+    expect(projects).toHaveLength(13);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(projects.some((project) => project.slug === "banking-transaction-anti-fraud")).toBe(true);
@@ -94,7 +94,8 @@ describe("local Markdown content", () => {
           p.slug !== "brent-oil-market-dynamics" &&
           p.slug !== "brent-oil-3d-volatility-manifold" &&
           p.slug !== "banking-fraud-3d-network-intelligence" &&
-          p.slug !== "banking-fraud-3d-anomaly-manifold"
+          p.slug !== "banking-fraud-3d-anomaly-manifold" &&
+          p.slug !== "flight-delay-2024-operations-cockpit"
       )
       .map((project) => ({ slug: project.slug }));
 
@@ -106,6 +107,7 @@ describe("local Markdown content", () => {
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("brent-oil-3d-volatility-manifold");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-fraud-3d-network-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-fraud-3d-anomaly-manifold");
+    expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-operations-cockpit");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
   });
 });

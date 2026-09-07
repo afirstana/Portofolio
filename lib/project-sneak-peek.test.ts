@@ -10,7 +10,7 @@ const root = process.cwd();
 describe("Project Explorer sneak peek", () => {
   it("keeps content-backed preview metadata for every authored project", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(12);
+    expect(projects).toHaveLength(13);
     expect(projects.every((project) => project.preview.eyebrow && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(getProjects().find((project) => project.slug === "banking-transaction-anti-fraud")?.preview.metrics).toContainEqual({ label: "Analyzed Scope", value: "2,512 Txns" });
     expect(getProjects().find((project) => project.slug === "banking-fraud-3d-network-intelligence")?.preview.metrics).toContainEqual({ label: "Monitored Accounts", value: "495 Nodes" });

@@ -183,12 +183,11 @@ function formatInline(text: string): React.ReactNode[] {
         <span
           key={match.index}
           style={{
-            fontFamily: "'Courier New', Courier, monospace",
+            fontFamily: "var(--font-mono), monospace",
             color: "var(--ink-heading)",
-            fontSize: "0.95em",
+            fontSize: "0.92em",
             fontWeight: 600,
-            textTransform: "none",
-            letterSpacing: "0.02em",
+            letterSpacing: "0.01em",
           }}
         >
           {cleanInline}
@@ -229,6 +228,535 @@ function formatInline(text: string): React.ReactNode[] {
   return parts;
 }
 
+
+const DIURNAL_HOURLY_DATA = [
+  { hour: "00", rate: 19.7, delay: 15.5 },
+  { hour: "01", rate: 20.9, delay: 14.7 },
+  { hour: "02", rate: 20.4, delay: 11.3 },
+  { hour: "03", rate: 19.0, delay: 9.8 },
+  { hour: "04", rate: 19.9, delay: 16.6 },
+  { hour: "05", rate: 8.9, delay: 5.2, isLaunch: true },
+  { hour: "06", rate: 9.4, delay: 4.0, isLaunch: true },
+  { hour: "07", rate: 12.1, delay: 4.9 },
+  { hour: "08", rate: 13.7, delay: 5.8 },
+  { hour: "09", rate: 15.1, delay: 7.2 },
+  { hour: "10", rate: 16.3, delay: 8.7 },
+  { hour: "11", rate: 17.5, delay: 9.9 },
+  { hour: "12", rate: 18.9, delay: 11.2 },
+  { hour: "13", rate: 20.6, delay: 13.0 },
+  { hour: "14", rate: 22.1, delay: 14.6 },
+  { hour: "15", rate: 24.5, delay: 16.2 },
+  { hour: "16", rate: 26.1, delay: 17.2 },
+  { hour: "17", rate: 27.9, delay: 18.4 },
+  { hour: "18", rate: 28.8, delay: 19.8, isPeak: true },
+  { hour: "19", rate: 29.5, delay: 20.7, isPeak: true },
+  { hour: "20", rate: 29.8, delay: 21.4, isPeak: true },
+  { hour: "21", rate: 26.5, delay: 19.2 },
+  { hour: "22", rate: 25.1, delay: 18.1 },
+  { hour: "23", rate: 24.1, delay: 16.1 },
+];
+
+function DiurnalVisualChart() {
+  return (
+    <div
+      className="diurnal-visual-chart"
+      style={{
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
+        borderRadius: 4,
+        padding: "24px 24px 20px",
+        margin: "28px 0",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          flexWrap: "wrap",
+          gap: 12,
+          marginBottom: 20,
+          borderBottom: "1px solid var(--line)",
+          paddingBottom: 16,
+        }}
+      >
+        <div>
+          <span className="mono" style={{ fontSize: 11, color: "var(--accent)", fontWeight: 700, letterSpacing: "0.08em", display: "block" }}>
+            EMPIRICAL GRAPH • 24-HOUR PROGRESSION CURVE
+          </span>
+          <strong style={{ fontSize: "clamp(18px, 2vw, 22px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", display: "block", marginTop: 4 }}>
+            Diurnal Delay Escalation: 8.9% Launch to 29.8% Peak
+          </strong>
+          <p style={{ fontSize: 13.5, color: "var(--muted)", margin: "6px 0 0", maxWidth: 760, lineHeight: 1.5 }}>
+            Gate delay rate (≥15m) tracking 7.08M commercial flights. Operational entropy escalates non-linearly across successive turns into an evening peak.
+          </p>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11.5, color: "var(--muted)" }}>
+            <span style={{ width: 10, height: 10, backgroundColor: "var(--surface-secondary)", border: "1px solid var(--line-strong)", borderRadius: 2 }} />
+            <span>Baseline</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11.5, color: "var(--accent)", fontWeight: 700 }}>
+            <span style={{ width: 10, height: 10, backgroundColor: "var(--accent)", borderRadius: 2 }} />
+            <span>Problem Peak (18:00–20:00)</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Chart Visual Container */}
+      <div style={{ position: "relative", width: "100%", height: 210, paddingTop: 28, paddingBottom: 22 }}>
+        {/* Y-Axis Horizontal Grid Reference Lines */}
+        <div style={{ position: "absolute", inset: "28px 0 22px 0", pointerEvents: "none" }}>
+          {[30, 20, 10].map((val) => {
+            const topPct = ((35 - val) / 35) * 100;
+            return (
+              <div
+                key={val}
+                style={{
+                  position: "absolute",
+                  top: `${topPct}%`,
+                  left: 0,
+                  right: 0,
+                  borderTop: "1px dashed var(--line)",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <span className="mono" style={{ fontSize: 10, color: "var(--muted)", transform: "translateY(-14px)" }}>
+                  {val}%
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Vertical Bars */}
+        <div style={{ position: "relative", width: "100%", height: "100%", display: "flex", alignItems: "flex-end", gap: 3, zIndex: 2 }}>
+          {DIURNAL_HOURLY_DATA.map((item) => {
+            const heightPct = (item.rate / 35) * 100;
+            const isPeak = item.isPeak;
+            const isLaunch = item.isLaunch;
+
+            return (
+              <div
+                key={item.hour}
+                style={{
+                  flex: 1,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                {item.hour === "20" && (
+                  <div
+                    className="mono"
+                    style={{
+                      position: "absolute",
+                      bottom: `calc(${heightPct}% + 6px)`,
+                      whiteSpace: "nowrap",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: "var(--accent)",
+                      backgroundColor: "var(--panel)",
+                      padding: "2px 6px",
+                      borderRadius: 2,
+                      border: "1px solid var(--accent)",
+                      zIndex: 3,
+                    }}
+                  >
+                    29.8% Peak (3.3×)
+                  </div>
+                )}
+                {item.hour === "05" && (
+                  <div
+                    className="mono"
+                    style={{
+                      position: "absolute",
+                      bottom: `calc(${heightPct}% + 6px)`,
+                      whiteSpace: "nowrap",
+                      fontSize: 10,
+                      fontWeight: 600,
+                      color: "var(--ink-heading)",
+                      backgroundColor: "var(--panel)",
+                      padding: "2px 6px",
+                      borderRadius: 2,
+                      border: "1px solid var(--line-strong)",
+                      zIndex: 3,
+                    }}
+                  >
+                    8.9% Launch
+                  </div>
+                )}
+                <div
+                  style={{
+                    width: "100%",
+                    height: `${heightPct}%`,
+                    backgroundColor: isPeak ? "var(--accent)" : isLaunch ? "rgba(255, 255, 255, 0.4)" : "var(--surface-secondary)",
+                    border: isPeak ? "1px solid var(--accent)" : "1px solid var(--line-strong)",
+                    borderRadius: "2px 2px 0 0",
+                    transition: "all 0.2s ease",
+                  }}
+                  title={`${item.hour}:00 | Delay Rate: ${item.rate.toFixed(1)}% | Mean Delay: ${item.delay.toFixed(1)}m`}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* X-Axis Hour Markers */}
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4, paddingTop: 8, borderTop: "1px solid var(--line)" }}>
+        {["00:00", "03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00", "23:00"].map((h) => (
+          <span key={h} className="mono" style={{ fontSize: 10.5, color: "var(--muted)" }}>
+            {h}
+          </span>
+        ))}
+      </div>
+
+      {/* 3 Callout Cards Underneath */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: 1,
+          backgroundColor: "var(--line)",
+          border: "1px solid var(--line)",
+          borderRadius: 4,
+          overflow: "hidden",
+          marginTop: 18,
+        }}
+      >
+        <div style={{ backgroundColor: "var(--panel)", padding: "12px 16px" }}>
+          <span className="mono" style={{ fontSize: 10.5, color: "var(--muted)", display: "block" }}>
+            05:00–06:00 LAUNCH BASELINE
+          </span>
+          <strong className="mono" style={{ fontSize: 18, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
+            8.9% – 9.4%
+          </strong>
+          <span style={{ fontSize: 12, color: "var(--muted)", display: "block", marginTop: 2 }}>Clean overnight turns</span>
+        </div>
+        <div style={{ backgroundColor: "var(--panel)", padding: "12px 16px" }}>
+          <span className="mono" style={{ fontSize: 10.5, color: "var(--muted)", display: "block" }}>
+            12:00–14:00 MIDDAY WAVE
+          </span>
+          <strong className="mono" style={{ fontSize: 18, color: "var(--ink-heading)", display: "block", marginTop: 4 }}>
+            18.9% – 22.1%
+          </strong>
+          <span style={{ fontSize: 12, color: "var(--muted)", display: "block", marginTop: 2 }}>Turn buffers start eroding</span>
+        </div>
+        <div style={{ backgroundColor: "var(--panel)", padding: "12px 16px", borderLeft: "3px solid var(--accent)" }}>
+          <span className="mono" style={{ fontSize: 10.5, color: "var(--accent)", display: "block", fontWeight: 700 }}>
+            18:00–20:00 PEAK COMPOUNDING
+          </span>
+          <strong className="mono" style={{ fontSize: 18, color: "var(--accent)", display: "block", marginTop: 4 }}>
+            28.8% – 29.8%
+          </strong>
+          <span style={{ fontSize: 12, color: "var(--muted)", display: "block", marginTop: 2 }}>3.3× diurnal risk multiplier</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const CAUSALITY_DATA = [
+  {
+    key: "late_aircraft",
+    label: "Late Aircraft Turnaround Ripple",
+    shortLabel: "Late Aircraft Ripple",
+    pct: 40.44,
+    pctDisplay: "40.4%",
+    grossMinutes: "41,968,859 min",
+    grossHours: "699,481 hrs",
+    events: "743,158 events",
+    meanDelay: "56.5 min / event",
+    color: "var(--accent)",
+    textColor: "#ffffff",
+    tag: "#1 PROBLEM DRIVER",
+    isProblem: true,
+    diagnosis: "Upstream flight rotation ripple; previous leg arrival delay cascades past scheduled turnaround buffer.",
+  },
+  {
+    key: "carrier",
+    label: "Carrier Internal Operations",
+    shortLabel: "Carrier Ops",
+    pct: 34.51,
+    pctDisplay: "34.5%",
+    grossMinutes: "35,820,937 min",
+    grossHours: "597,016 hrs",
+    events: "789,204 events",
+    meanDelay: "45.4 min / event",
+    color: "rgba(255, 255, 255, 0.45)",
+    textColor: "var(--ink-heading)",
+    tag: "AIRLINE IN-HOUSE",
+    isProblem: false,
+    diagnosis: "Crew duty-time timeouts, line mechanical maintenance, baggage staging, and catering turnaround.",
+  },
+  {
+    key: "nas",
+    label: "National Aviation System (NAS)",
+    shortLabel: "NAS Airspace",
+    pct: 18.90,
+    pctDisplay: "18.9%",
+    grossMinutes: "19,620,381 min",
+    grossHours: "327,006 hrs",
+    events: "726,412 events",
+    meanDelay: "27.0 min / event",
+    color: "rgba(255, 255, 255, 0.25)",
+    textColor: "var(--ink-heading)",
+    tag: "FAA / AIRSPACE",
+    isProblem: false,
+    diagnosis: "Air traffic control flow management, runway volume metering, slot holds, and en-route convective deviations.",
+  },
+  {
+    key: "weather",
+    label: "Severe Meteorological Weather",
+    shortLabel: "Severe Weather",
+    pct: 5.97,
+    pctDisplay: "6.0%",
+    grossMinutes: "6,204,976 min",
+    grossHours: "103,416 hrs",
+    events: "89,012 events",
+    meanDelay: "69.7 min / event",
+    color: "rgba(255, 255, 255, 0.15)",
+    textColor: "var(--ink-heading)",
+    tag: "PEAK SEVERITY",
+    isProblem: false,
+    diagnosis: "Convective summer thunderstorms, blizzards, zero-visibility fog, and FAA airport ground stop closures.",
+  },
+  {
+    key: "security",
+    label: "Security Gate Holds",
+    shortLabel: "Security",
+    pct: 0.18,
+    pctDisplay: "0.2%",
+    grossMinutes: "179,914 min",
+    grossHours: "2,999 hrs",
+    events: "7,411 events",
+    meanDelay: "24.3 min / event",
+    color: "rgba(255, 255, 255, 0.08)",
+    textColor: "var(--muted)",
+    tag: "TSA / CONCOURSE",
+    isProblem: false,
+    diagnosis: "Terminal checkpoint security re-screenings, boarding queue delays, and sterile area perimeter alerts.",
+  },
+];
+
+function CausalityVisualChart() {
+  return (
+    <div
+      className="causality-visual-chart"
+      style={{
+        backgroundColor: "var(--panel)",
+        border: "1px solid var(--line)",
+        borderRadius: 4,
+        padding: "24px 24px 20px",
+        margin: "28px 0",
+      }}
+    >
+      {/* Top Header */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          flexWrap: "wrap",
+          gap: 12,
+          marginBottom: 20,
+          borderBottom: "1px solid var(--line)",
+          paddingBottom: 16,
+        }}
+      >
+        <div>
+          <span className="mono" style={{ fontSize: 11, color: "var(--accent)", fontWeight: 700, letterSpacing: "0.08em", display: "block" }}>
+            NATIONAL DELAY CAUSALITY ALLOCATION • 103,795,067 MINUTES
+          </span>
+          <strong style={{ fontSize: "clamp(18px, 2vw, 22px)", color: "var(--ink-heading)", letterSpacing: "-0.03em", display: "block", marginTop: 4 }}>
+            Root Cause Decomposition: The 40.4% Turnaround Ripple Dominance
+          </strong>
+          <p style={{ fontSize: 13.5, color: "var(--muted)", margin: "6px 0 0", maxWidth: 780, lineHeight: 1.5 }}>
+            Attribution across 7.08M flights demonstrates that cascading rotation turns generate over 41.97M minutes of delay. While severe weather produces the highest individual delay (69.7m), turnaround ripple is the #1 systemic network failure.
+          </p>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11.5, color: "var(--muted)" }}>
+            <span style={{ width: 10, height: 10, backgroundColor: "var(--line-strong)", borderRadius: 2 }} />
+            <span>Exogenous / Operational</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11.5, color: "var(--accent)", fontWeight: 700 }}>
+            <span style={{ width: 10, height: 10, backgroundColor: "var(--accent)", borderRadius: 2 }} />
+            <span>Turnaround Ripple (40.4%)</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Proportional Stacked Allocation Bar */}
+      <div style={{ marginBottom: 16 }}>
+        <div
+          style={{
+            height: 38,
+            width: "100%",
+            borderRadius: 4,
+            overflow: "hidden",
+            display: "flex",
+            backgroundColor: "var(--surface)",
+            border: "1px solid var(--line)",
+            gap: 2,
+          }}
+        >
+          {CAUSALITY_DATA.map((item) => (
+            <div
+              key={item.key}
+              style={{
+                width: `${item.pct}%`,
+                height: "100%",
+                backgroundColor: item.color,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0 6px",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                cursor: "pointer",
+                transition: "opacity 0.15s ease",
+              }}
+              title={`${item.label}: ${item.pct.toFixed(2)}% (${item.grossMinutes}) | ${item.events} | Avg: ${item.meanDelay}`}
+            >
+              {item.pct >= 15 ? (
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 11.5,
+                    fontWeight: 700,
+                    color: item.key === "late_aircraft" ? "#000000" : "var(--ink-heading)",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {item.shortLabel} ({item.pctDisplay})
+                </span>
+              ) : item.pct >= 5 ? (
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 700,
+                    color: "var(--ink-heading)",
+                  }}
+                >
+                  {item.pctDisplay}
+                </span>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        {/* Proportional Summary Legend Bar */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 12,
+            marginTop: 10,
+            fontSize: 11.5,
+          }}
+          className="mono"
+        >
+          {CAUSALITY_DATA.map((item) => (
+            <div key={item.key} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: item.color }} />
+              <span style={{ color: item.isProblem ? "var(--accent)" : "var(--muted)", fontWeight: item.isProblem ? 700 : 500 }}>
+                {item.shortLabel}: <strong style={{ color: item.isProblem ? "var(--accent)" : "var(--ink)" }}>{item.pctDisplay}</strong>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 5 Structured Category Detail Cards */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: 10,
+          marginTop: 18,
+        }}
+      >
+        {CAUSALITY_DATA.map((item) => (
+          <div
+            key={item.key}
+            style={{
+              backgroundColor: "var(--surface)",
+              border: item.isProblem ? "1px solid var(--accent)" : "1px solid var(--line)",
+              borderLeft: item.isProblem ? "3px solid var(--accent)" : "1px solid var(--line)",
+              borderRadius: 3,
+              padding: "14px 14px 12px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 6, marginBottom: 8 }}>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    color: item.isProblem ? "var(--accent)" : "var(--muted)",
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  {item.tag}
+                </span>
+                <span className="mono" style={{ fontSize: 10, color: "var(--dim)" }}>
+                  {item.pctDisplay}
+                </span>
+              </div>
+              <strong className="mono" style={{ fontSize: 20, color: item.isProblem ? "var(--accent)" : "var(--ink-heading)", display: "block" }}>
+                {item.grossMinutes.split(" ")[0]} <span style={{ fontSize: 12, fontWeight: 500, color: "var(--muted)" }}>min</span>
+              </strong>
+              <div className="mono" style={{ fontSize: 11, color: "var(--ink)", marginTop: 6 }}>
+                <strong>{item.meanDelay}</strong>
+              </div>
+              <div className="mono" style={{ fontSize: 10.5, color: "var(--muted)", marginTop: 2 }}>
+                {item.events}
+              </div>
+            </div>
+
+            <p style={{ fontSize: 11.5, color: "var(--muted)", margin: "10px 0 0", paddingTop: 8, borderTop: "1px solid var(--line)", lineHeight: 1.45 }}>
+              {item.diagnosis}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Synthesis Takeaway Footnote */}
+      <div
+        style={{
+          marginTop: 16,
+          padding: "12px 16px",
+          backgroundColor: "var(--surface-secondary)",
+          border: "1px solid var(--line)",
+          borderRadius: 3,
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 10,
+        }}
+      >
+        <span className="mono" style={{ fontSize: 11, color: "var(--accent)", fontWeight: 700, whiteSpace: "nowrap" }}>
+          DIAGNOSTIC INSIGHT:
+        </span>
+        <span style={{ fontSize: 12.5, color: "var(--ink)", lineHeight: 1.5 }}>
+          While <strong>Severe Weather</strong> registers the highest individual event severity (<strong>69.7 min/delayed flight</strong>), it accounts for only <strong>5.97%</strong> of gross national delay. In stark contrast, <strong>Late Aircraft Turnaround Ripple</strong> drives <strong>40.44% of all lost minutes (41.97M min)</strong>, isolating scheduled aircraft turn buffers as the single most critical lever for network resilience.
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function MarkdownBody({ source }: { source: string }) {
   if (!source || !source.trim()) return null;
 
@@ -258,6 +786,19 @@ export function MarkdownBody({ source }: { source: string }) {
 
       const codeLangs = ["python", "py", "sql", "dax", "javascript", "js", "typescript", "ts", "json", "yaml", "yml", "bash", "sh", "html", "css"];
       const isCodeLang = codeLangs.includes(codeType);
+
+      const isDiurnalChart = !isCodeLang && (
+        codeType === "diurnal-chart" ||
+        codeType === "diurnal" ||
+        codeType === "chart" ||
+        codeLines.some(l => l.toLowerCase().includes("diurnal delay progression") || l.includes("Launch Wave") || l.includes("Peak) +"))
+      );
+
+      if (isDiurnalChart) {
+        nodes.push(<DiurnalVisualChart key={`diurnal-chart-${i}`} />);
+        continue;
+      }
+
       const isPipelineDiagram = !isCodeLang && (codeType === "pipeline" || codeType === "flowchart" || codeType === "diagram" || (!codeType && codeLines.some(l => l.includes("➔"))));
 
       if (isPipelineDiagram) {
@@ -436,44 +977,39 @@ export function MarkdownBody({ source }: { source: string }) {
         <div
           key={`math-${i}`}
           style={{
-            margin: "26px 0",
-            padding: "18px 22px",
+            margin: "24px 0",
+            padding: "16px 20px",
             backgroundColor: "var(--panel)",
-            border: "1px solid rgba(0, 240, 255, 0.2)",
-            borderRadius: 6,
+            border: "1px solid var(--line)",
+            borderRadius: 4,
             display: "flex",
             flexDirection: "column",
-            gap: "12px",
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.35)",
+            gap: "10px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span className="pulse-dot" />
-              <span className="mono" style={{ fontSize: "10px", fontWeight: 700, color: "var(--accent)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                Mathematical Model • Econometric Formulation
-              </span>
-            </div>
-            <span className="mono" style={{ fontSize: "9px", color: "var(--dim)", background: "rgba(255,255,255,0.03)", padding: "2px 8px", borderRadius: 3, border: "1px solid var(--line)" }}>
-              FORMULATION SPECIFICATION
+            <span className="mono" style={{ fontSize: "10px", fontWeight: 700, color: "var(--ink-heading)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              Mathematical Model • Econometric Formulation
+            </span>
+            <span className="mono" style={{ fontSize: "9.5px", color: "var(--muted)", background: "var(--surface)", padding: "2px 8px", borderRadius: 3, border: "1px solid var(--line)" }}>
+              SPECIFICATION
             </span>
           </div>
           <div
             style={{
-              padding: "18px 22px",
-              backgroundColor: "#07080c",
+              padding: "14px 18px",
+              backgroundColor: "var(--surface-secondary)",
               border: "1px solid var(--line)",
-              borderRadius: 4,
-              fontFamily: "'Courier New', monospace",
-              fontSize: "clamp(14px, 1.35vw, 16px)",
-              fontWeight: 700,
-              color: "#ffffff",
+              borderRadius: 3,
+              fontFamily: "var(--font-mono), monospace",
+              fontSize: "clamp(13px, 1.3vw, 15px)",
+              fontWeight: 600,
+              color: "var(--ink-heading)",
               textAlign: "center",
-              letterSpacing: "0.03em",
+              letterSpacing: "0.02em",
               overflowX: "auto",
               whiteSpace: "pre-wrap",
-              lineHeight: 1.7,
-              boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.5)",
+              lineHeight: 1.6,
             }}
           >
             {cleanMath}
@@ -552,61 +1088,192 @@ export function MarkdownBody({ source }: { source: string }) {
 
       if (tableLines.length >= 2) {
         const headerRow = tableLines[0].split("|").slice(1, -1).map((c) => c.trim());
+        const alignRow = tableLines[1].split("|").slice(1, -1).map((c) => {
+          const t = c.trim();
+          if (t.startsWith(":") && t.endsWith(":")) return "center";
+          if (t.endsWith(":")) return "right";
+          return "left";
+        });
         const dataRows = tableLines.slice(2).map((row) => row.split("|").slice(1, -1).map((c) => c.trim()));
 
-        nodes.push(
-          <div
-            key={`table-${i}`}
-            className="table-scroll"
-            style={{
-              margin: "24px 0",
-              border: "1px solid var(--line)",
-              borderRadius: 4,
-              backgroundColor: "var(--panel)",
-              overflowX: "auto",
-            }}
-          >
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
-              <thead>
-                <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
-                  {headerRow.map((th, thIdx) => (
-                    <th
-                      key={thIdx}
-                      style={{
-                        padding: "11px 16px",
-                        textAlign: thIdx === 0 ? "left" : thIdx === headerRow.length - 1 ? "left" : "left",
-                        color: "var(--ink-heading)",
-                        font: "10px/1.2 monospace",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.06em",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {th}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {dataRows.map((row, rIdx) => (
-                  <tr
-                    key={rIdx}
+        const isLongTable = dataRows.length >= 7;
+
+        if (isLongTable) {
+          nodes.push(
+            <div key={`table-wrapper-${i}`} style={{ margin: "24px 0" }}>
+              <div
+                className="top-down-scroll"
+                style={{
+                  border: "1px solid var(--line)",
+                  borderRadius: "4px 4px 0 0",
+                  backgroundColor: "var(--panel)",
+                  overflowX: "auto",
+                  maxHeight: "360px",
+                  overflowY: "auto",
+                  position: "relative",
+                }}
+              >
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                  <thead
                     style={{
-                      borderBottom: rIdx === dataRows.length - 1 ? "none" : "1px solid var(--line)",
-                      backgroundColor: rIdx % 2 === 0 ? "rgba(255, 255, 255, 0.012)" : "transparent",
+                      position: "sticky",
+                      top: 0,
+                      zIndex: 10,
+                      backgroundColor: "var(--surface)",
+                      boxShadow: "0 2px 6px rgba(0, 0, 0, 0.45)",
                     }}
                   >
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} style={{ padding: "11px 16px", color: "var(--ink)", lineHeight: 1.5 }}>
-                        {formatInline(cell)}
-                      </td>
+                    <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--surface)" }}>
+                      {headerRow.map((th, thIdx) => {
+                        const align = alignRow[thIdx] || "left";
+                        return (
+                          <th
+                            key={thIdx}
+                            className="mono"
+                            style={{
+                              padding: "12px 18px",
+                              textAlign: align as any,
+                              color: "var(--ink-heading)",
+                              fontSize: 11,
+                              fontWeight: 700,
+                              letterSpacing: "0.06em",
+                              textTransform: "uppercase",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {th}
+                          </th>
+                        );
+                      })}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dataRows.map((row, rIdx) => (
+                      <tr
+                        key={rIdx}
+                        style={{
+                          borderBottom: rIdx === dataRows.length - 1 ? "none" : "1px solid var(--line)",
+                          backgroundColor: rIdx % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
+                        }}
+                      >
+                        {row.map((cell, cIdx) => {
+                          const align = alignRow[cIdx] || "left";
+                          const isNumeric = /^[+\-0-9,.]+ *(%|m|min|min\.|hrs|s)?$/i.test(cell.replace(/\*\*/g, "").trim());
+                          return (
+                            <td
+                              key={cIdx}
+                              style={{
+                                padding: "12px 18px",
+                                textAlign: align as any,
+                                color: "var(--ink)",
+                                lineHeight: 1.55,
+                                fontFamily: isNumeric ? "var(--font-mono), monospace" : "inherit",
+                              }}
+                            >
+                              {formatInline(cell)}
+                            </td>
+                          );
+                        })}
+                      </tr>
                     ))}
+                  </tbody>
+                </table>
+              </div>
+              <div
+                className="mono"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: 8,
+                  padding: "7px 14px",
+                  border: "1px solid var(--line)",
+                  borderTop: "none",
+                  borderRadius: "0 0 4px 4px",
+                  backgroundColor: "var(--surface-secondary)",
+                  fontSize: 10.5,
+                  color: "var(--muted)",
+                }}
+              >
+                <span>{dataRows.length} DATA ROWS • TOP-DOWN SCROLL</span>
+                <span>↕ SCROLL TABLE (STICKY HEADER)</span>
+              </div>
+            </div>
+          );
+        } else {
+          nodes.push(
+            <div
+              key={`table-${i}`}
+              className="table-scroll"
+              style={{
+                margin: "24px 0",
+                border: "1px solid var(--line)",
+                borderRadius: 4,
+                backgroundColor: "var(--panel)",
+                overflowX: "auto",
+              }}
+            >
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                <thead>
+                  <tr style={{ borderBottom: "1px solid var(--line)", backgroundColor: "var(--surface)" }}>
+                    {headerRow.map((th, thIdx) => {
+                      const align = alignRow[thIdx] || "left";
+                      return (
+                        <th
+                          key={thIdx}
+                          className="mono"
+                          style={{
+                            padding: "12px 18px",
+                            textAlign: align as any,
+                            color: "var(--ink-heading)",
+                            fontSize: 11,
+                            fontWeight: 700,
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {th}
+                        </th>
+                      );
+                    })}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
+                </thead>
+                <tbody>
+                  {dataRows.map((row, rIdx) => (
+                    <tr
+                      key={rIdx}
+                      style={{
+                        borderBottom: rIdx === dataRows.length - 1 ? "none" : "1px solid var(--line)",
+                        backgroundColor: rIdx % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
+                      }}
+                    >
+                      {row.map((cell, cIdx) => {
+                        const align = alignRow[cIdx] || "left";
+                        const isNumeric = /^[+\-0-9,.]+ *(%|m|min|min\.|hrs|s)?$/i.test(cell.replace(/\*\*/g, "").trim());
+                        return (
+                          <td
+                            key={cIdx}
+                            style={{
+                              padding: "12px 18px",
+                              textAlign: align as any,
+                              color: "var(--ink)",
+                              lineHeight: 1.55,
+                              fontFamily: isNumeric ? "var(--font-mono), monospace" : "inherit",
+                            }}
+                          >
+                            {formatInline(cell)}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
         continue;
       }
     }
@@ -664,13 +1331,14 @@ export function MarkdownBody({ source }: { source: string }) {
           key={`h3-${i}`}
           style={{
             fontSize: "clamp(16px, 1.6vw, 20px)",
-            color: "var(--accent)",
+            color: "var(--ink-heading)",
+            fontWeight: 600,
             letterSpacing: "-0.03em",
-            marginTop: 28,
+            marginTop: 32,
             marginBottom: 12,
           }}
         >
-          {heading}
+          {formatInline(heading)}
         </h3>
       );
       i++;

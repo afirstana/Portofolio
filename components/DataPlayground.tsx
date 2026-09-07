@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useRef } from "react";
 import Link from "next/link";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export type PlaygroundRow = {
   year: string;
@@ -189,18 +190,31 @@ export function DataPlayground({ data }: { data: PlaygroundRow[] }) {
               2019 ANNUAL MORTALITY (GLOBAL BURDEN)
             </span>
             <strong style={{ color: "var(--accent)", textShadow: "0 0 24px var(--accent-subtle)" }}>
-              {(latestRecord.volume / 1000000).toFixed(2)}M
+              <AnimatedCounter
+                target={parseFloat((latestRecord.volume / 1000000).toFixed(2))}
+                decimals={2}
+                suffix="M"
+              />
             </strong>
             <p>{latestRecord.volume.toLocaleString()} recorded deaths in 2019 ({category === "All" ? "all types" : category}).</p>
           </div>
           <div>
             <span className="mono">30-YEAR TREND CHANGE</span>
-            <strong>+{percentChange}%</strong>
+            <strong>
+              <AnimatedCounter
+                target={parseFloat(percentChange)}
+                decimals={1}
+                prefix="+"
+                suffix="%"
+              />
+            </strong>
             <p>Net growth from 1990 ({baselineRecord.volume.toLocaleString()} baseline deaths).</p>
           </div>
           <div>
             <span className="mono">DATASET SCOPE</span>
-            <strong>30 Years</strong>
+            <strong>
+              <AnimatedCounter target={30} suffix=" Years" />
+            </strong>
             <p>1990–2019 standardized longitudinal panel (228 entities).</p>
           </div>
         </div>

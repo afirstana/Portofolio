@@ -40,7 +40,8 @@ export function generateStaticParams() {
         p.slug !== "brent-oil-market-dynamics" &&
         p.slug !== "brent-oil-3d-volatility-manifold" &&
         p.slug !== "banking-fraud-3d-network-intelligence" &&
-        p.slug !== "banking-fraud-3d-anomaly-manifold"
+        p.slug !== "banking-fraud-3d-anomaly-manifold" &&
+        p.slug !== "flight-delay-2024-operations-cockpit"
     )
     .map((project) => ({ slug: project.slug }));
 }

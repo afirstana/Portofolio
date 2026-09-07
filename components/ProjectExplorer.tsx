@@ -43,11 +43,12 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
         <p className="explorer-count mono" aria-live="polite">{String(visibleProjects.length).padStart(2, "0")} systems shown</p>
 
         <div className="project-list explorer-list">
-          {visibleProjects.map((project) => {
+          {visibleProjects.map((project, index) => {
             const firstEvidence = project.evidence?.find((e) => e.image) || project.evidence?.[0];
             return (
               <Link
                 className="project-row"
+                style={{ animationDelay: `${Math.min(index, 12) * 45}ms` }}
                 key={project.slug}
                 href={`/projects/${project.slug}/`}
                 onMouseEnter={() => setHoveredProject(project.slug)}

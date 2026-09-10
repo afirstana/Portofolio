@@ -203,41 +203,20 @@ export default function FlightDelay2024OperationsPage() {
         )}
 
         {/* Adjacent Navigation */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "24px 0",
-            borderTop: "1px solid var(--line)",
-            marginTop: 40,
-            flexWrap: "wrap",
-            gap: 16,
-          }}
-        >
-          {adjacent.previous ? (
-            <Link
-              href={`/projects/${adjacent.previous.slug}/`}
-              className="mono"
-              style={{ fontSize: 12, color: "var(--ink)", textDecoration: "none" }}
-            >
-              ← {adjacent.previous.title}
+        <nav className="project-pager" aria-label="Project navigation">
+          {adjacent.previous && (
+            <Link href={`/projects/${adjacent.previous.slug}/`}>
+              <span className="mono">← Previous system (#{adjacent.previous.order})</span>
+              <strong>{adjacent.previous.title}</strong>
             </Link>
-          ) : (
-            <span />
           )}
-          {adjacent.next ? (
-            <Link
-              href={`/projects/${adjacent.next.slug}/`}
-              className="mono"
-              style={{ fontSize: 12, color: "var(--ink)", textDecoration: "none" }}
-            >
-              {adjacent.next.title} →
+          {adjacent.next && (
+            <Link href={`/projects/${adjacent.next.slug}/`}>
+              <span className="mono">Next system (#{adjacent.next.order}) →</span>
+              <strong>{adjacent.next.title}</strong>
             </Link>
-          ) : (
-            <span />
           )}
-        </div>
+        </nav>
       </article>
       <SiteFooter />
     </main>

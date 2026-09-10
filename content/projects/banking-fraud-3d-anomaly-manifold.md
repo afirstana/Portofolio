@@ -68,7 +68,7 @@ evidence:
 
 > [!NOTE]
 > **Executive Summary & Feature Space Architecture**:
-> - **Core Challenge**: Conventional financial fraud engines rely on static scalar rules (e.g. `Amount > $10,000` or `FailedLogins >= 3`). These static filters fail to capture multidimensional interactions where fraudulent actors stay just below volume limits while operating during abnormal hours or rapidly draining compromised accounts.
+> - **Core Challenge**: Conventional financial fraud engines rely on static scalar rules (e.g. `Amount > \$10,000` or `FailedLogins >= 3`). These static filters fail to capture multidimensional interactions where fraudulent actors stay just below volume limits while operating during abnormal hours or rapidly draining compromised accounts.
 > - **Technical Solution**: Engineered an interactive **3D Latent Feature Space & Real-Time Decision Hyperplane Studio** running on a native HTML5 2D Canvas 3D projection engine (<15 kB bundle payload, 60 FPS). The engine embeds all **2,512 transactions** into Euclidean $\mathbb{R}^3$ feature space and renders a glowing dynamic **Decision Hyperplane $\mathcal{H}(\tau)$** slicing through the data cloud.
 > - **Quantified Impact**: Enabled real-time threshold optimization across **2,512 transactions**, isolating **\$38,940 in illicit capital** at an optimal threshold of $\tau = 0.45$, boosting detection **Recall to 88.4%**, and reducing customer false alarm friction by **67.2%** compared to traditional uncalibrated rules.
 
@@ -157,7 +157,7 @@ To achieve **60 FPS fluid interactivity** on all workstations with **zero extern
 
 Traditional banking transaction surveillance architectures rely on disjoint SQL filter clauses. When evaluated against dynamic feature hyperplanes, static rules exhibit significant performance deficits:
 
-| Evaluation Dimension | Static Scalar Rule (`Amount > $1,000`) | Rule Combination (`Amount > $800` & `Hour < 4`) | 3D Decision Hyperplane ($\mathcal{H}(\tau = 0.45)$) | Empirical Advantage |
+| Evaluation Dimension | Static Scalar Rule (`Amount > \$1,000`) | Rule Combination (`Amount > \$800` & `Hour < 4`) | 3D Decision Hyperplane ($\mathcal{H}(\tau = 0.45)$) | Empirical Advantage |
 |---|---|---|---|---|
 | **Fraud Recall Rate** | 46.2% (Misses low-value ATO smurfing) | 64.8% (Misses rapid daytime velocity) | **88.4%** (Full multi-flag capture) | **+23.6% higher fraud capture** |
 | **Precision (Accuracy)** | 52.1% (High false alarm rate) | 71.3% (Rigid boundary artifacts) | **84.2%** (Calibrated score weights) | **+12.9% fewer false blocks** |

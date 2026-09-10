@@ -68,7 +68,7 @@ evidence:
 > **Executive Summary & Mathematical Foundation**:
 > - **Core Challenge**: Conventional 2D financial charts compress structural time-series volatility into flat linear traces, masking how geopolitical crises trigger extreme non-Gaussian tail events across long historical horizons.
 > - **Technical Solution**: Developed an interactive **3D Volatility & Crisis Manifold (Terrain Surface)** using a lightweight, native HTML5 Canvas 3D projection engine (<10 kB bundle payload, 60 FPS) that models a 2D empirical tensor grid ℳ(t, r) ⟶ z.
-> - **Quantified Impact**: Visualized **9,011 consecutive trading days** across **35.5 years (1987–2024)**, exposing severe leptokurtosis (**Kurtosis 45.43**, Skewness -0.04) and mapping 7 structural geopolitical disruptions across an unprecedented **$9.10 to $143.95 (15.8x)** historical price envelope.
+> - **Quantified Impact**: Visualized **9,011 consecutive trading days** across **35.5 years (1987–2024)**, exposing severe leptokurtosis (**Kurtosis 45.43**, Skewness -0.04) and mapping 7 structural geopolitical disruptions across an unprecedented **\$9.10 to \$143.95 (15.8x)** historical price envelope.
 
 ---
 
@@ -115,14 +115,14 @@ The structural topography of the 3D manifold visually contrasts calm historical 
 
 | Historical Era & 3D Beacon | Timeline | Spot Price | Daily Shock | Topographical Manifold Geometry | Governing Macro Driver & Market Mechanism |
 |---|---|---|---|---|---|
-| **1990 Gulf War Shock** | 1990 – 1991 | $22.25 | `+8.5% ▲` | **Jagged Positive Ridge** | Iraqi invasion of Kuwait and Middle Eastern supply panic (+59.7% price surge in 30 days). |
-| **Mid-90s Macro Stability** | 1992 – 1996 | $18.50 | `0.0% ⚖️` | **Razor-Sharp Calm Spine** | Steady Western economic expansion and disciplined OPEC quota enforcement without disruptions. |
-| **1998 Asian Glut & Contagion** | 1997 – 1999 | $9.55 | `-6.8% ▼` | **Downward Canyon Plunge** | Asian Tiger economic collapse decimated demand while delayed OPEC cuts flooded global storage. |
-| **2008 Supercycle ATH** | 2004 – 2008 | $143.95 | `+10.4% ▲` | **Broad High-Altitude Plateau** | Unprecedented industrialization in China & BRICS drove Brent to all-time record high of $143.95. |
-| **2011 Arab Spring Shock** | 2011 – 2013 | $126.65 | `+5.8% ▲` | **Elevated Volatility Crest** | Libyan civil war took 1.5M bpd offline, keeping oil prices sustainably elevated above $100. |
-| **2014 OPEC vs Shale War** | 2014 – 2016 | $28.79 | `-7.5% ▼` | **Sustained Negative Slope** | Horizontal US fracking boom met aggressive OPEC market-share defense, triggering a collapse to $27. |
-| **2020 COVID-19 Demand Crash** | 2020 – 2021 | $9.10 | `-14.2% ▼` | **Extreme Dual Abyss / Chasm** | Global lockdowns halted 30% of transport demand; prompt storage full; physical spot crashed to $9.10. |
-| **2022 Ukraine War & Sanctions** | 2022 – 2024 | $133.18 | `+9.8% ▲` | **Prominent Supply Spike** | Russian pipeline embargo and Western financial sanctions sparked severe prompt supply dislocation. |
+| **1990 Gulf War Shock** | 1990 – 1991 | \$22.25 | `+8.5% ▲` | **Jagged Positive Ridge** | Iraqi invasion of Kuwait and Middle Eastern supply panic (+59.7% price surge in 30 days). |
+| **Mid-90s Macro Stability** | 1992 – 1996 | \$18.50 | `0.0% ⚖️` | **Razor-Sharp Calm Spine** | Steady Western economic expansion and disciplined OPEC quota enforcement without disruptions. |
+| **1998 Asian Glut & Contagion** | 1997 – 1999 | \$9.55 | `-6.8% ▼` | **Downward Canyon Plunge** | Asian Tiger economic collapse decimated demand while delayed OPEC cuts flooded global storage. |
+| **2008 Supercycle ATH** | 2004 – 2008 | \$143.95 | `+10.4% ▲` | **Broad High-Altitude Plateau** | Unprecedented industrialization in China & BRICS drove Brent to all-time record high of \$143.95. |
+| **2011 Arab Spring Shock** | 2011 – 2013 | \$126.65 | `+5.8% ▲` | **Elevated Volatility Crest** | Libyan civil war took 1.5M bpd offline, keeping oil prices sustainably elevated above \$100. |
+| **2014 OPEC vs Shale War** | 2014 – 2016 | \$28.79 | `-7.5% ▼` | **Sustained Negative Slope** | Horizontal US fracking boom met aggressive OPEC market-share defense, triggering a collapse to \$27. |
+| **2020 COVID-19 Demand Crash** | 2020 – 2021 | \$9.10 | `-14.2% ▼` | **Extreme Dual Abyss / Chasm** | Global lockdowns halted 30% of transport demand; prompt storage full; physical spot crashed to \$9.10. |
+| **2022 Ukraine War & Sanctions** | 2022 – 2024 | \$133.18 | `+9.8% ▲` | **Prominent Supply Spike** | Russian pipeline embargo and Western financial sanctions sparked severe prompt supply dislocation. |
 
 ### 💡 Visual Takeaways for Analysts
 1. **The Peacetime Calm Spine (1992–1996)**: During periods of macroeconomic equilibrium, trading returns cluster almost exclusively within [-1.5%, +1.5%], producing a narrow, razor-sharp mountain ridge right along the centerline.

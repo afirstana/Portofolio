@@ -44,7 +44,25 @@ preview:
     - label: "Early Arrivals"
       value: "61.85%"
   takeaway: "Interactive operations cockpit isolates late-aircraft ripple propagation and surface runway bottlenecks across 7.08M commercial flights."
-evidence: []
+evidence:
+  - slot: "01"
+    kind: "dashboard"
+    title: "National Airline Operations Cockpit"
+    description: "Interactive executive BI console tracking OTP, cancel rates, and late-aircraft ripple dynamics across 7.08M flights."
+    alt: "Operations cockpit interactive dashboard overview."
+    image: ""
+  - slot: "02"
+    kind: "diagram"
+    title: "Diurnal Afternoon Wave & Buffer Depletion Dynamics"
+    description: "Hourly delay probability heatmaps and block-time schedule padding progression across 24 operating hours."
+    alt: "Diurnal wave progression heatmap and chart."
+    image: ""
+  - slot: "03"
+    kind: "dashboard"
+    title: "Carrier League Scorecard & Root Cause Decomposition"
+    description: "Comparative carrier operational rankings and FAA five-factor delay attribution breakdown."
+    alt: "Carrier scorecard and delay attribution visualization."
+    image: ""
 ---
 
 > [!NOTE]

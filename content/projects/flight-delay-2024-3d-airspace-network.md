@@ -44,7 +44,25 @@ preview:
     - label: "Rendering Engine"
       value: "60 FPS Three.js"
   takeaway: "3D WebGL airspace network visualizes ground taxi elevation pillars and great-circle late-aircraft ripple propagation across 7.08M commercial flights."
-evidence: []
+evidence:
+  - slot: "01"
+    kind: "dashboard"
+    title: "Interactive 3D WebGL National Airspace Studio"
+    description: "Real-time 60 FPS 3D globe with great-circle flight arcs, animated particle flows, and airport status inspection."
+    alt: "3D WebGL Airspace visualization of the national flight network."
+    image: ""
+  - slot: "02"
+    kind: "diagram"
+    title: "Runway Surface Topography & Taxi Elevation Pillars"
+    description: "Vertical elevation pillars modeling surface friction and taxi-out duration across top 30 U.S. mega hubs."
+    alt: "3D vertical pillars representing airport ground delay friction."
+    image: ""
+  - slot: "03"
+    kind: "dashboard"
+    title: "High-Density Corridor Ripple Propagation Network"
+    description: "Cascading rotational delay transmission across transcontinental and regional feeder flight arcs."
+    alt: "National flight network arc topology and bottleneck scorecards."
+    image: ""
 ---
 
 > [!NOTE]

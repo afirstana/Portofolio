@@ -44,7 +44,25 @@ preview:
     - label: "Delay Recall"
       value: "72.8%"
   takeaway: "Dual-stage ML delay risk engine with zero-leakage pipeline and dynamic threshold economics models $8.5M net operational savings across 58k validation flights ($25.5M/yr annualized)."
-evidence: []
+evidence:
+  - slot: "01"
+    kind: "dashboard"
+    title: "Interactive Threshold Economics Simulator"
+    description: "Dynamic asymmetric cost optimizer balancing False Negatives ($4,200) vs False Positives ($800) at tau* = 0.20."
+    alt: "Interactive threshold economics simulator chart."
+    image: ""
+  - slot: "02"
+    kind: "diagram"
+    title: "Zero-Leakage Feature Pipeline & Tournament Evaluation"
+    description: "Multi-stage data engineering pipeline evaluating Logistic Regression, Random Forest, and Calibrated HistGradientBoosting."
+    alt: "Algorithm benchmark tournament comparison table."
+    image: ""
+  - slot: "03"
+    kind: "dashboard"
+    title: "Local SHAP Factor Attribution & Dispatch Directives"
+    description: "Explainable additive feature contributions and plain-language operational mitigation recommendations."
+    alt: "SHAP waterfall attribution chart."
+    image: ""
 ---
 
 > [!NOTE]
@@ -60,7 +78,7 @@ evidence: []
 In commercial aviation operations, delays follow a non-linear compounding mechanism. As demonstrated in [Part 1 (Operations Cockpit)](/projects/flight-delay-2024-operations-cockpit/), late-arriving aircraft account for **40.4% of all delay minutes** ($41.9\text{M}$ minutes annually), with network delay intensity escalating by **3.3×** between morning departures (06:00, $8.8\%$ delay rate) and late afternoon arrival banks (19:00, $35.3\%$ delay rate). Spatial propagation dynamics across major corridors are mapped interactively in [Part 2 (3D Airspace Network)](/projects/flight-delay-2024-3d-airspace-network/).
 
 ```diagram
-Reactive Dispatch Paradigm | Post-Pushback Scramble ($4,200/flight exposure)
+Reactive Dispatch Paradigm | Post-Pushback Scramble (\$4,200/flight exposure)
 [01. Pushback Event | T-00:00 gate departure] ➔ [02. Delay Realized | +45m unmitigated ground ripple] ➔ [03. Taxiway Metering | Trapped in tarmac queue] ➔ [04. Hub Connection Break | Downstream crew and passenger misconnects]
 
 Proactive ML Dispatch Engine | Pre-Flight Risk Interception (Zero Leakage)

@@ -40,13 +40,30 @@ preview:
   metrics:
     - label: "Analyzed Scope"
       value: "2,512 Txns"
-    - label: "Unique Accounts"
-      value: "495 Accounts"
     - label: "Risk Engine"
       value: "8 SQL Flags"
     - label: "Audit Resolution"
       value: "100% Traceable"
   takeaway: "Demonstrates how SQL window functions and multi-page Power BI dashboards bridge the gap between raw unstructured transaction logs and audit-ready anti-fraud operations."
+evidence:
+  - slot: "01"
+    kind: "dashboard"
+    title: "Executive Surveillance & Channel Dynamics"
+    description: "Multi-page interactive Power BI suite monitoring transaction risk across 43 metropolitan locations."
+    alt: "Power BI Executive surveillance dashboard layout."
+    image: ""
+  - slot: "02"
+    kind: "diagram"
+    title: "8-Point SQL Anomaly Bitmask Architecture"
+    description: "PostgreSQL CTE and window function pipeline computing spend surges, failed logins, and velocity spikes."
+    alt: "Architecture diagram of the 8-point SQL rule engine."
+    image: ""
+  - slot: "03"
+    kind: "dashboard"
+    title: "Forensic Audit Trail & Case Review Console"
+    description: "Deterministic SAR-ready forensic inspection view with real-time account context and risk scoring."
+    alt: "Forensic audit table and risk assessment UI."
+    image: ""
 ---
 
 > [!NOTE]

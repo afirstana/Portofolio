@@ -70,7 +70,7 @@ def verify():
             print(f" - {e}")
         return False
     else:
-        print("ALL 8 PROJECTS PASSED COMPLETE AUDIT WITH ZERO ERRORS!")
+        print("ALL 15 PROJECTS PASSED COMPLETE AUDIT WITH ZERO ERRORS!")
         return True
 
 if __name__ == "__main__":

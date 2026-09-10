@@ -1595,7 +1595,7 @@ export function MarkdownBody({ source }: { source: string }) {
                         key={rIdx}
                         style={{
                           borderBottom: rIdx === dataRows.length - 1 ? "none" : "1px solid var(--line)",
-                          backgroundColor: rIdx % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
+                          backgroundColor: rIdx % 2 === 0 ? "var(--surface-hover)" : "transparent",
                         }}
                       >
                         {row.map((cell, cIdx) => {
@@ -1688,7 +1688,7 @@ export function MarkdownBody({ source }: { source: string }) {
                       key={rIdx}
                       style={{
                         borderBottom: rIdx === dataRows.length - 1 ? "none" : "1px solid var(--line)",
-                        backgroundColor: rIdx % 2 === 0 ? "rgba(255, 255, 255, 0.015)" : "transparent",
+                        backgroundColor: rIdx % 2 === 0 ? "var(--surface-hover)" : "transparent",
                       }}
                     >
                       {row.map((cell, cIdx) => {

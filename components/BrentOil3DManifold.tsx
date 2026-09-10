@@ -568,10 +568,10 @@ export function BrentOil3DManifold() {
               boxShadow: "0 0 10px #00f0ff",
             }}
           />
-          <strong className="mono" style={{ fontSize: 11.5, letterSpacing: "0.08em", color: "var(--ink-heading)" }}>
+          <strong className="mono" style={{ fontSize: 11.5, letterSpacing: "0.08em", color: "#ffffff" }}>
             3D VOLATILITY & CRISIS MANIFOLD (TERRAIN SURFACE)
           </strong>
-          <span className="mono" style={{ fontSize: 10, color: "var(--dim)" }}>
+          <span className="mono" style={{ fontSize: 10, color: "#94a3b8" }}>
             [1987 — 2024 • 9,011 TRADING DAYS]
           </span>
         </div>
@@ -585,8 +585,8 @@ export function BrentOil3DManifold() {
               padding: "4px 10px",
               fontSize: 10,
               backgroundColor: "rgba(255, 255, 255, 0.05)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -601,8 +601,8 @@ export function BrentOil3DManifold() {
               padding: "4px 10px",
               fontSize: 10,
               backgroundColor: "rgba(255, 255, 255, 0.05)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -617,8 +617,8 @@ export function BrentOil3DManifold() {
               padding: "4px 10px",
               fontSize: 10,
               backgroundColor: "rgba(255, 255, 255, 0.05)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -633,8 +633,8 @@ export function BrentOil3DManifold() {
               padding: "4px 10px",
               fontSize: 10,
               backgroundColor: isAutoRotate ? "rgba(0, 240, 255, 0.15)" : "rgba(255, 255, 255, 0.05)",
-              color: isAutoRotate ? "#00f0ff" : "var(--dim)",
-              border: isAutoRotate ? "1px solid #00f0ff" : "1px solid var(--line)",
+              color: isAutoRotate ? "#00f0ff" : "#94a3b8",
+              border: isAutoRotate ? "1px solid #00f0ff" : "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 2,
               cursor: "pointer",
             }}
@@ -649,8 +649,8 @@ export function BrentOil3DManifold() {
               padding: "4px 10px",
               fontSize: 10,
               backgroundColor: "rgba(255, 255, 255, 0.05)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 2,
               cursor: "pointer",
               textTransform: "uppercase",
@@ -665,7 +665,7 @@ export function BrentOil3DManifold() {
               display: "inline-flex",
               alignItems: "center",
               backgroundColor: "rgba(255, 255, 255, 0.05)",
-              border: "1px solid var(--line)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 2,
               overflow: "hidden",
             }}
@@ -682,7 +682,7 @@ export function BrentOil3DManifold() {
                 backgroundColor: "transparent",
                 color: "#00f0ff",
                 border: "none",
-                borderRight: "1px solid var(--line)",
+                borderRight: "1px solid rgba(255, 255, 255, 0.15)",
                 cursor: "pointer",
                 display: "inline-flex",
                 alignItems: "center",
@@ -697,7 +697,7 @@ export function BrentOil3DManifold() {
               style={{
                 fontSize: 9.5,
                 fontWeight: 700,
-                color: "var(--dim)",
+                color: "#94a3b8",
                 padding: "0 6px",
                 userSelect: "none",
               }}
@@ -716,7 +716,7 @@ export function BrentOil3DManifold() {
                 backgroundColor: "transparent",
                 color: "#00f0ff",
                 border: "none",
-                borderLeft: "1px solid var(--line)",
+                borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
                 cursor: "pointer",
                 display: "inline-flex",
                 alignItems: "center",
@@ -874,7 +874,7 @@ export function BrentOil3DManifold() {
           scrollbarWidth: "none",
         }}
       >
-        <span className="mono" style={{ fontSize: 10, color: "var(--dim)", marginRight: 6 }}>
+        <span className="mono" style={{ fontSize: 10, color: "#94a3b8", marginRight: 6 }}>
           SELECT CRISIS PIN:
         </span>
         {HISTORICAL_CRISIS_PINS.map((pin) => {
@@ -889,8 +889,8 @@ export function BrentOil3DManifold() {
                 padding: "6px 12px",
                 fontSize: 10,
                 backgroundColor: isSelected ? "rgba(244, 63, 94, 0.18)" : "rgba(255, 255, 255, 0.04)",
-                color: isSelected ? "#f43f5e" : "var(--ink)",
-                border: isSelected ? "1px solid #f43f5e" : "1px solid var(--line)",
+                color: isSelected ? "#f43f5e" : "#f1f5f9",
+                border: isSelected ? "1px solid #f43f5e" : "1px solid rgba(255, 255, 255, 0.15)",
                 borderRadius: 2,
                 cursor: "pointer",
                 transition: "all 0.2s ease",
@@ -929,14 +929,14 @@ export function BrentOil3DManifold() {
               >
                 {selectedCrisis.tag}
               </span>
-              <span className="mono" style={{ fontSize: 11, color: "var(--dim)" }}>
+              <span className="mono" style={{ fontSize: 11, color: "#94a3b8" }}>
                 {selectedCrisis.date}
               </span>
             </div>
-            <h3 style={{ margin: "4px 0 6px", fontSize: 18, color: "var(--ink-heading)", letterSpacing: "-0.03em" }}>
+            <h3 style={{ margin: "4px 0 6px", fontSize: 18, color: "#ffffff", letterSpacing: "-0.03em" }}>
               {selectedCrisis.name}
             </h3>
-            <p style={{ margin: 0, fontSize: 13, color: "var(--muted)", lineHeight: 1.6 }}>
+            <p style={{ margin: 0, fontSize: 13, color: "#cbd5e1", lineHeight: 1.6 }}>
               {selectedCrisis.description}
             </p>
           </div>
@@ -953,15 +953,15 @@ export function BrentOil3DManifold() {
             }}
           >
             <div>
-              <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
+              <span className="mono" style={{ fontSize: 9.5, color: "#94a3b8", display: "block" }}>
                 SPOT PRICE
               </span>
-              <strong className="mono" style={{ fontSize: 18, color: "var(--ink-heading)" }}>
+              <strong className="mono" style={{ fontSize: 18, color: "#ffffff" }}>
                 ${selectedCrisis.price.toFixed(2)}
               </strong>
             </div>
             <div>
-              <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
+              <span className="mono" style={{ fontSize: 9.5, color: "#94a3b8", display: "block" }}>
                 30D SHOCK %
               </span>
               <strong
@@ -976,7 +976,7 @@ export function BrentOil3DManifold() {
               </strong>
             </div>
             <div>
-              <span className="mono" style={{ fontSize: 9.5, color: "var(--dim)", display: "block" }}>
+              <span className="mono" style={{ fontSize: 9.5, color: "#94a3b8", display: "block" }}>
                 FAT-TAIL SPIKE
               </span>
               <strong className="mono" style={{ fontSize: 18, color: "#f59e0b" }}>

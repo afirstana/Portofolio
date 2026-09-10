@@ -558,7 +558,7 @@ export function FlightDelay3DNetworkStudio({
         position: "relative",
         width: "100%",
         height: 600,
-        backgroundColor: "var(--panel)",
+        backgroundColor: "#0a0a0a",
         border: "1px solid var(--line)",
         borderRadius: 4,
         overflow: "hidden",
@@ -595,16 +595,16 @@ export function FlightDelay3DNetworkStudio({
           style={{
             backgroundColor: "rgba(10, 10, 10, 0.85)",
             backdropFilter: "blur(6px)",
-            border: "1px solid var(--line)",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
             borderRadius: 3,
             padding: "6px 12px",
             fontSize: 11,
-            color: "var(--dim)",
+            color: "#94a3b8",
             letterSpacing: "0.06em",
           }}
         >
           <span>3D WEBGL AIRSPACE</span> •{" "}
-          <span style={{ color: "var(--ink-heading)" }}>US CONTINENTAL MAP</span> •{" "}
+          <span style={{ color: "#ffffff" }}>US CONTINENTAL MAP</span> •{" "}
           <span>TOP 30 HUBS</span> •{" "}
           <span>50 CORRIDORS</span>
         </div>
@@ -624,8 +624,8 @@ export function FlightDelay3DNetworkStudio({
             className="mono"
             style={{
               backgroundColor: showLabels ? "rgba(32, 32, 32, 0.9)" : "rgba(10, 10, 10, 0.85)",
-              color: showLabels ? "var(--ink-heading)" : "var(--dim)",
-              border: `1px solid ${showLabels ? "var(--ink-heading)" : "var(--line)"}`,
+              color: showLabels ? "#ffffff" : "#94a3b8",
+              border: `1px solid ${showLabels ? "#ffffff" : "rgba(255, 255, 255, 0.2)"}`,
               borderRadius: 3,
               padding: "6px 12px",
               fontSize: 11,
@@ -644,8 +644,8 @@ export function FlightDelay3DNetworkStudio({
             className="mono"
             style={{
               backgroundColor: bottleneckOnly ? "var(--accent)" : "rgba(10, 10, 10, 0.85)",
-              color: bottleneckOnly ? "#ffffff" : "var(--ink)",
-              border: `1px solid ${bottleneckOnly ? "var(--accent)" : "var(--line)"}`,
+              color: bottleneckOnly ? "#ffffff" : "#f1f5f9",
+              border: `1px solid ${bottleneckOnly ? "var(--accent)" : "rgba(255, 255, 255, 0.2)"}`,
               borderRadius: 3,
               padding: "6px 12px",
               fontSize: 11,
@@ -664,8 +664,8 @@ export function FlightDelay3DNetworkStudio({
             className="mono"
             style={{
               backgroundColor: "rgba(10, 10, 10, 0.85)",
-              color: "var(--muted)",
-              border: "1px solid var(--line)",
+              color: "#cbd5e1",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 3,
               padding: "6px 12px",
               fontSize: 11,
@@ -692,11 +692,11 @@ export function FlightDelay3DNetworkStudio({
           gap: 12,
           backgroundColor: "rgba(10, 10, 10, 0.85)",
           backdropFilter: "blur(6px)",
-          border: "1px solid var(--line)",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
           borderRadius: 3,
           padding: "6px 12px",
           fontSize: 10.5,
-          color: "var(--muted)",
+          color: "#cbd5e1",
           pointerEvents: "none",
         }}
       >
@@ -725,7 +725,7 @@ export function FlightDelay3DNetworkStudio({
             />
             <span>STANDARD HUB / CORRIDOR</span>
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "var(--dim)" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#94a3b8" }}>
             <span>RADAR PINPOINTS &amp; CONTINENTAL BOUNDARY ACTIVE</span>
           </span>
         </div>
@@ -741,7 +741,7 @@ export function FlightDelay3DNetworkStudio({
             top: Math.max(15, tooltipPos.y - 120),
             backgroundColor: "rgba(20, 20, 20, 0.95)",
             backdropFilter: "blur(8px)",
-            border: `1px solid ${hoveredHub.isSurfaceBottleneck ? "var(--accent)" : "var(--line)"}`,
+            border: `1px solid ${hoveredHub.isSurfaceBottleneck ? "var(--accent)" : "rgba(255, 255, 255, 0.2)"}`,
             borderRadius: 4,
             padding: "12px 14px",
             minWidth: 210,
@@ -756,30 +756,30 @@ export function FlightDelay3DNetworkStudio({
               style={{
                 fontSize: 14,
                 fontWeight: 700,
-                color: hoveredHub.isSurfaceBottleneck ? "var(--accent)" : "var(--ink-heading)",
+                color: hoveredHub.isSurfaceBottleneck ? "var(--accent)" : "#ffffff",
               }}
             >
               {hoveredHub.code}
             </span>
-            <span className="mono" style={{ fontSize: 10, color: "var(--dim)" }}>
+            <span className="mono" style={{ fontSize: 10, color: "#94a3b8" }}>
               {hoveredHub.city}, {hoveredHub.state}
             </span>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 11.5 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ color: "var(--muted)" }}>Departures:</span>
-              <strong className="mono" style={{ color: "var(--ink)" }}>
+              <span style={{ color: "#cbd5e1" }}>Departures:</span>
+              <strong className="mono" style={{ color: "#ffffff" }}>
                 {hoveredHub.departures.toLocaleString()}
               </strong>
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ color: "var(--muted)" }}>Delay Rate (≥15m):</span>
+              <span style={{ color: "#cbd5e1" }}>Delay Rate (≥15m):</span>
               <strong
                 className="mono"
                 style={{
-                  color: hoveredHub.delayRatePct > 22 ? "var(--accent)" : "var(--ink)",
+                  color: hoveredHub.delayRatePct > 22 ? "var(--accent)" : "#ffffff",
                 }}
               >
                 {hoveredHub.delayRatePct.toFixed(1)}%
@@ -791,15 +791,15 @@ export function FlightDelay3DNetworkStudio({
                 display: "flex",
                 justifyContent: "space-between",
                 paddingTop: 4,
-                borderTop: "1px solid var(--line)",
+                borderTop: "1px solid rgba(255, 255, 255, 0.15)",
                 marginTop: 2,
               }}
             >
-              <span style={{ color: "var(--muted)" }}>Mean Taxi-Out:</span>
+              <span style={{ color: "#cbd5e1" }}>Mean Taxi-Out:</span>
               <strong
                 className="mono"
                 style={{
-                  color: hoveredHub.isSurfaceBottleneck ? "var(--accent)" : "var(--ink)",
+                  color: hoveredHub.isSurfaceBottleneck ? "var(--accent)" : "#ffffff",
                 }}
               >
                 {hoveredHub.meanTaxiOut.toFixed(1)} min

@@ -586,7 +586,7 @@ export function BankingFraud3DGraph() {
           <span className="mono" style={{ fontSize: 11, color: "#ffffff", fontWeight: 700 }}>
             {graphData.metrics.accountNodes} Accounts • {graphData.metrics.totalEdges} Edges • {graphData.metrics.syndicateRingsCount} Syndicates
           </span>
-          <span style={{ fontSize: 9.5, color: "var(--dim)" }}>
+          <span style={{ fontSize: 9.5, color: "#94a3b8" }}>
             Drag to Orbit 360° • Scroll to Zoom • Click Node to Isolate
           </span>
         </div>
@@ -693,8 +693,8 @@ export function BankingFraud3DGraph() {
               fontWeight: 700,
               padding: "6px 10px",
               backgroundColor: "rgba(10, 12, 18, 0.85)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 3,
               cursor: "pointer"
             }}
@@ -709,8 +709,8 @@ export function BankingFraud3DGraph() {
               fontWeight: 700,
               padding: "6px 10px",
               backgroundColor: "rgba(10, 12, 18, 0.85)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 3,
               cursor: "pointer"
             }}
@@ -825,7 +825,7 @@ export function BankingFraud3DGraph() {
               <span className="mono" style={{ fontSize: 9, fontWeight: 700, color: selectedSyndicate.color, letterSpacing: "0.06em" }}>
                 {selectedSyndicate.tag.toUpperCase()}
               </span>
-              <span className="mono" style={{ fontSize: 9, color: "var(--dim)" }}>
+              <span className="mono" style={{ fontSize: 9, color: "#94a3b8" }}>
                 EXPOSURE: {formatCurrency(selectedSyndicate.estimatedStolenVolume)}
               </span>
             </div>
@@ -836,7 +836,7 @@ export function BankingFraud3DGraph() {
               {selectedSyndicate.description}
             </p>
             <div style={{ display: "flex", gap: 6, marginTop: 4 }}>
-              <span className="mono" style={{ fontSize: 9, padding: "2px 6px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: 2, color: "var(--dim)" }}>
+              <span className="mono" style={{ fontSize: 9, padding: "2px 6px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: 2, color: "#94a3b8" }}>
                 Typology: {selectedSyndicate.typology}
               </span>
             </div>
@@ -883,24 +883,24 @@ export function BankingFraud3DGraph() {
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
               <div style={{ backgroundColor: "rgba(255,255,255,0.02)", padding: "6px 8px", borderRadius: 3 }}>
-                <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>TOTAL OUTFLOW</span>
+                <span className="mono" style={{ fontSize: 8, color: "#94a3b8", display: "block" }}>TOTAL OUTFLOW</span>
                 <strong className="mono" style={{ fontSize: 12, color: "#f43f5e" }}>{formatCurrency(selectedNode.totalOutflow)}</strong>
               </div>
               <div style={{ backgroundColor: "rgba(255,255,255,0.02)", padding: "6px 8px", borderRadius: 3 }}>
-                <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>TOTAL INFLOW</span>
+                <span className="mono" style={{ fontSize: 8, color: "#94a3b8", display: "block" }}>TOTAL INFLOW</span>
                 <strong className="mono" style={{ fontSize: 12, color: "#10b981" }}>{formatCurrency(selectedNode.totalInflow)}</strong>
               </div>
             </div>
 
             {selectedNode.occupation && (
-              <div style={{ fontSize: 10.5, color: "var(--muted)" }}>
-                Profile: <strong style={{ color: "var(--ink)" }}>{selectedNode.occupation}</strong> ({selectedNode.age} yo) • {selectedNode.location}
+              <div style={{ fontSize: 10.5, color: "#cbd5e1" }}>
+                Profile: <strong style={{ color: "#ffffff" }}>{selectedNode.occupation}</strong> ({selectedNode.age} yo) • {selectedNode.location}
               </div>
             )}
 
             {selectedNode.flags.length > 0 && (
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)" }}>TRIGGERED ANOMALY FLAGS:</span>
+                <span className="mono" style={{ fontSize: 8.5, color: "#94a3b8" }}>TRIGGERED ANOMALY FLAGS:</span>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                   {selectedNode.flags.map((flag, fIdx) => (
                     <span

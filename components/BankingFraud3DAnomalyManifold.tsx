@@ -651,7 +651,7 @@ export function BankingFraud3DAnomalyManifold() {
             onChange={(e) => setThreshold(parseFloat(e.target.value))}
             style={{ width: "100%", accentColor: "#f43f5e", cursor: "ew-resize" }}
           />
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: "var(--dim)" }} className="mono">
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: "#94a3b8" }} className="mono">
             <span>Aggressive (High Recall)</span>
             <span>Balanced (τ = 0.38)</span>
             <span>Conservative (High Precision)</span>
@@ -666,25 +666,25 @@ export function BankingFraud3DAnomalyManifold() {
             gap: 8,
           }}
         >
-          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid var(--line)" }}>
-            <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>PRECISION</span>
+          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid rgba(255, 255, 255, 0.12)" }}>
+            <span className="mono" style={{ fontSize: 8.5, color: "#94a3b8", display: "block" }}>PRECISION</span>
             <strong className="mono" style={{ fontSize: 16, color: "#10b981", display: "block", marginTop: 2 }}>{telemetry.precision}%</strong>
-            <span style={{ fontSize: 8.5, color: "var(--muted)" }}>TP / (TP + FP)</span>
+            <span style={{ fontSize: 8.5, color: "#cbd5e1" }}>TP / (TP + FP)</span>
           </div>
-          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid var(--line)" }}>
-            <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>RECALL</span>
+          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid rgba(255, 255, 255, 0.12)" }}>
+            <span className="mono" style={{ fontSize: 8.5, color: "#94a3b8", display: "block" }}>RECALL</span>
             <strong className="mono" style={{ fontSize: 16, color: "#00f0ff", display: "block", marginTop: 2 }}>{telemetry.recall}%</strong>
-            <span style={{ fontSize: 8.5, color: "var(--muted)" }}>Captured Fraud</span>
+            <span style={{ fontSize: 8.5, color: "#cbd5e1" }}>Captured Fraud</span>
           </div>
-          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid var(--line)" }}>
-            <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>F1-SCORE</span>
+          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid rgba(255, 255, 255, 0.12)" }}>
+            <span className="mono" style={{ fontSize: 8.5, color: "#94a3b8", display: "block" }}>F1-SCORE</span>
             <strong className="mono" style={{ fontSize: 16, color: "#f59e0b", display: "block", marginTop: 2 }}>{telemetry.f1}%</strong>
-            <span style={{ fontSize: 8.5, color: "var(--muted)" }}>Harmonic Mean</span>
+            <span style={{ fontSize: 8.5, color: "#cbd5e1" }}>Harmonic Mean</span>
           </div>
-          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid var(--line)" }}>
-            <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)", display: "block" }}>BLOCKED CAPITAL</span>
+          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.02)", padding: "8px 10px", borderRadius: 4, border: "1px solid rgba(255, 255, 255, 0.12)" }}>
+            <span className="mono" style={{ fontSize: 8.5, color: "#94a3b8", display: "block" }}>BLOCKED CAPITAL</span>
             <strong className="mono" style={{ fontSize: 16, color: "#f43f5e", display: "block", marginTop: 2 }}>{formatCurrency(telemetry.totalValueBlocked)}</strong>
-            <span style={{ fontSize: 8.5, color: "var(--muted)" }}>{telemetry.blockedCount} Txns Intercepted</span>
+            <span style={{ fontSize: 8.5, color: "#cbd5e1" }}>{telemetry.blockedCount} Txns Intercepted</span>
           </div>
         </div>
       </div>
@@ -738,7 +738,7 @@ export function BankingFraud3DAnomalyManifold() {
           <span className="mono" style={{ fontSize: 11, color: "#ffffff", fontWeight: 700 }}>
             {points3D.length} Transactions Projected in 3D Feature Space
           </span>
-          <span style={{ fontSize: 9.5, color: "var(--dim)" }}>
+          <span style={{ fontSize: 9.5, color: "#94a3b8" }}>
             Orbit 360° • Zoom • Hover/Click Points to Inspect Anomaly Vectors
           </span>
         </div>
@@ -836,8 +836,8 @@ export function BankingFraud3DAnomalyManifold() {
               fontWeight: 700,
               padding: "6px 10px",
               backgroundColor: "rgba(10, 12, 18, 0.85)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 3,
               cursor: "pointer",
             }}
@@ -853,8 +853,8 @@ export function BankingFraud3DAnomalyManifold() {
               fontWeight: 700,
               padding: "6px 10px",
               backgroundColor: "rgba(10, 12, 18, 0.85)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 3,
               cursor: "pointer",
             }}
@@ -870,8 +870,8 @@ export function BankingFraud3DAnomalyManifold() {
               fontWeight: 700,
               padding: "6px 10px",
               backgroundColor: "rgba(10, 12, 18, 0.85)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
+              color: "#f1f5f9",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: 3,
               cursor: "pointer",
             }}
@@ -1025,25 +1025,25 @@ export function BankingFraud3DAnomalyManifold() {
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
                     <div style={{ backgroundColor: "rgba(255,255,255,0.02)", padding: "6px 8px", borderRadius: 3 }}>
-                      <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>AMOUNT</span>
+                      <span className="mono" style={{ fontSize: 8, color: "#94a3b8", display: "block" }}>AMOUNT</span>
                       <strong className="mono" style={{ fontSize: 13, color: isBlocked ? "#f43f5e" : "#00f0ff" }}>
                         {formatCurrency(pt.tx.transactionAmount)}
                       </strong>
                     </div>
                     <div style={{ backgroundColor: "rgba(255,255,255,0.02)", padding: "6px 8px", borderRadius: 3 }}>
-                      <span className="mono" style={{ fontSize: 8, color: "var(--dim)", display: "block" }}>DECISION SCORE</span>
+                      <span className="mono" style={{ fontSize: 8, color: "#94a3b8", display: "block" }}>DECISION SCORE</span>
                       <strong className="mono" style={{ fontSize: 13, color: isBlocked ? "#f43f5e" : "#10b981" }}>
                         {pt.decisionScore.toFixed(3)}
                       </strong>
                     </div>
                   </div>
 
-                  <div style={{ fontSize: 10.5, color: "var(--muted)" }}>
-                    Time: <strong style={{ color: "var(--ink)" }}>{new Date(pt.tx.transactionDate).toUTCString().slice(17, 22)} UTC</strong> • Channel: <strong style={{ color: "var(--ink)" }}>{pt.tx.channel}</strong> • City: <strong style={{ color: "var(--ink)" }}>{pt.tx.location}</strong>
+                  <div style={{ fontSize: 10.5, color: "#cbd5e1" }}>
+                    Time: <strong style={{ color: "#ffffff" }}>{new Date(pt.tx.transactionDate).toUTCString().slice(17, 22)} UTC</strong> • Channel: <strong style={{ color: "#ffffff" }}>{pt.tx.channel}</strong> • City: <strong style={{ color: "#ffffff" }}>{pt.tx.location}</strong>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                    <span className="mono" style={{ fontSize: 8.5, color: "var(--dim)" }}>
+                    <span className="mono" style={{ fontSize: 8.5, color: "#94a3b8" }}>
                       TRIGGERED ANOMALY FLAGS ({pt.tx.riskScore}/6):
                     </span>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
@@ -1065,7 +1065,7 @@ export function BankingFraud3DAnomalyManifold() {
                           </span>
                         ))
                       ) : (
-                        <span className="mono" style={{ fontSize: 8, color: "var(--dim)" }}>
+                        <span className="mono" style={{ fontSize: 8, color: "#94a3b8" }}>
                           None (Clean Transaction)
                         </span>
                       )}

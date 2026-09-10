@@ -5,6 +5,13 @@ out/
 .DS_Store
 .project-config.json
 
+# Environment Variables & Secrets
+.env
+.env.*
+.env.local
+*.env
+*.env.local
+
 # AI Assistant & IDE Configuration
 .agents/
 .gemini/

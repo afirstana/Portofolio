@@ -8,6 +8,7 @@ const commands = [
   ["Open skills", "#skills"],
   ["Explore career path", "#path"],
   ["Inspect playground", "#playground"],
+  ["Certifications & learning tracks", "/learning/"],
   ["Read opinions & essays", "/opinion/"],
   ["Contact Abimael", "#contact"],
 ] as const;

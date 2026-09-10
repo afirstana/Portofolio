@@ -108,7 +108,7 @@ collections:
         label: "03. How I Work (Metodologi Kerja)"
         file: "content/method.md"
         fields:
-          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "05 / How I work" }
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "03 / How I work" }
           - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
           - label: "Langkah-Langkah Kerja (Steps)"
             name: "steps"
@@ -122,7 +122,7 @@ collections:
         label: "04. Skills & Tools Matrix"
         file: "content/skills.md"
         fields:
-          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "03 / Skills & tools" }
+          - { label: "Nomor & Label", name: "eyebrow", widget: "string", default: "04 / Skills & tools" }
           - { label: "Judul Besar (Heading)", name: "heading", widget: "string" }
           - label: "Kelompok Keahlian (Groups)"
             name: "groups"

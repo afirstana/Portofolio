@@ -1,5 +1,5 @@
 ---
-eyebrow: "05 / How I work"
+eyebrow: "03 / How I work"
 heading: "From signal to a system people can use."
 steps:
   - title: "Frame the decision"

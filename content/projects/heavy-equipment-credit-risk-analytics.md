@@ -50,37 +50,37 @@ evidence:
     title: "Credit Scoring ROC Curve & Tournament Performance"
     description: "Benchmark evaluation of Logistic Regression (AUC 0.8615, KS 56.1%) and HistGradientBoosting (AUC 0.8688, KS 58.5%)."
     alt: "ROC curves showing model discriminatory power on GiveMeSomeCredit test dataset."
-    image: "/evidence/credit-risk/roc_curve.png"
+    image: ""
   - slot: "02"
     kind: "diagram"
     title: "Feature Importance & Standardized Logistic Coefficients"
     description: "Standardized risk factor weights highlighting revolving utilization, delinquency penalty, and DSCR impact."
     alt: "Feature importance horizontal bar chart."
-    image: "/evidence/credit-risk/feature_importance.png"
+    image: ""
   - slot: "03"
     kind: "table"
     title: "Scorecard Distribution & Default Separation"
     description: "Probability density separation between performing contracts and 90+ DPD defaults across the 300-850 scorecard scale."
     alt: "Scorecard density plot comparing performing vs default borrowers."
-    image: "/evidence/credit-risk/scorecard_distribution.png"
+    image: ""
   - slot: "04"
     kind: "chart"
     title: "ESDM HBA Coal Benchmark vs Mining Equipment NPL"
     description: "Historical relationship between Indonesian coal prices (2021-2024) and mining sector credit risk."
     alt: "Dual-axis time series chart comparing HBA coal prices to mining leasing NPL rates."
-    image: "/evidence/credit-risk/hba_trend.png"
+    image: ""
   - slot: "05"
     kind: "chart"
     title: "Macroeconomic Stress Testing by Industry Sector"
     description: "Comparison of baseline PD vs stressed PD under a severe 25% commodity price contraction across sectors."
     alt: "Bar chart illustrating sector default rate escalation under macro stress."
-    image: "/evidence/credit-risk/pd_per_sektor.png"
+    image: ""
   - slot: "06"
     kind: "chart"
     title: "Credit Bureau 96/98 Anomaly Default Multiplier"
     description: "Empirical verification of the 8.3x default risk escalation for bureau records with 96/98 error codes."
     alt: "Bar chart comparing default rates for standard records vs bureau error codes."
-    image: "/evidence/credit-risk/bureau_96_98_anomaly_comparison.png"
+    image: ""
 ---
 
 > [!NOTE]
@@ -135,6 +135,8 @@ A subset of **269 borrowers** exhibited extreme delinquency counts of $96$ or $9
 | **Entire Population** | 150,000 | 6.68% | 1.01x | Baseline Benchmark |
 
 Because the default rate for this anomaly group is **54.65%** (more than 8 times the population baseline), dropping these rows would erase critical credit risk signal. The pipeline creates a dedicated binary feature `is_delinquency_error_code = 1` while capping the numeric counters at the 99th percentile ($5$).
+
+![Credit Bureau 96/98 Anomaly Default Multiplier](/evidence/credit-risk/bureau_96_98_anomaly_comparison.png)
 
 ```
 Revolving Utilization Distribution:
@@ -193,6 +195,12 @@ Two distinct model families were trained on an **80:20 stratified split** ($120,
 | **HistGradientBoosting Classifier** | **0.8688** | **58.53%** | **0.7377** | Moderate (Tree Ensembles) |
 | **Baseline Random Chance** | 0.5000 | 0.00% | 0.0000 | Zero Discriminatory Value |
 
+![ROC Curves of Credit Scoring Models](/evidence/credit-risk/roc_curve.png)
+
+![Feature Importance Weights](/evidence/credit-risk/feature_importance.png)
+
+![Scorecard Probability Distribution](/evidence/credit-risk/scorecard_distribution.png)
+
 ```
 Standardized Logistic Regression Feature Coefficients:
 utilization_winsorized          [ +0.7112 ] ■■■■■■■■■■■■■■■■ (Risk Escalator)
@@ -238,6 +246,10 @@ Historical ESDM HBA Coal Price vs Heavy Equipment NPL Correlation:
 2023-Q2 (HBA $190.2/MT) ──► Mining Equipment NPL: 2.4% (Normalizing)
 2024-Q4 (HBA $115.0/MT) ──► Mining Equipment NPL: 5.4% (Stress Incurred)
 ```
+
+![ESDM HBA Coal Benchmark vs Heavy Equipment NPL](/evidence/credit-risk/hba_trend.png)
+
+![Macroeconomic Stress Testing by Sector](/evidence/credit-risk/pd_per_sektor.png)
 
 Because mining contractors bear high fixed operating expenses (diesel fuel, equipment maintenance, haul road maintenance), a **-20% drop in coal prices** triggers an average **-13% contraction in net operating cash flows**, reducing debt service coverage and escalating default risk by $1.75\times$.
 

@@ -96,14 +96,14 @@ export default async function ProjectPage({ params }: RouteProps) {
   return (
     <main className="site-shell">
       <SiteHeader />
-      <article className="project-detail page-width">
+      <article className="project-detail page-width-wide">
         <Link className="back-link mono" href="/#work">
           ← All work
         </Link>
         <p className="section-label mono">Case study / {project.category}</p>
-        <h1>{project.title}</h1>
-        <p className="detail-lede">{project.one_liner}</p>
-        <div className="tags detail-tags">
+        <h1 className="payment-hero-title">{project.title}</h1>
+        <p className="detail-lede payment-lede">{project.one_liner}</p>
+        <div className="tags detail-tags" style={{ marginBottom: 32 }}>
           {project.tools.map((tool) => (
             <span key={tool}>{tool}</span>
           ))}

@@ -174,7 +174,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
             <figcaption>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
                 <span className="mono">{item.kind}</span>
-                <span className="mono" style={{ fontSize: "10px", color: "var(--text-muted)" }}>SLOT {item.slot}</span>
+                <span className="mono" style={{ fontSize: "10px", color: "var(--muted)" }}>SLOT {item.slot}</span>
               </div>
               <strong>{item.title}</strong>
               <p>{item.description}</p>
@@ -203,6 +203,8 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
             flexDirection: "column",
             overflow: "hidden",
             animation: "fadeIn 0.2s ease-out",
+            fontFamily: "var(--font-sans), Arial, Helvetica, sans-serif",
+            color: "var(--ink)",
           }}
         >
           {/* Modal Header Bar */}
@@ -227,11 +229,12 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   backgroundColor: "rgba(59, 130, 246, 0.15)",
                   color: "#60a5fa",
                   borderRadius: "2px",
+                  fontWeight: 600,
                 }}
               >
                 SLOT {selectedItem.slot} / {realEvidence.length}
               </span>
-              <strong style={{ fontSize: "14px", color: "var(--text)" }}>{selectedItem.title}</strong>
+              <strong style={{ fontSize: "14px", fontFamily: "inherit", color: "var(--ink-heading)" }}>{selectedItem.title}</strong>
             </div>
 
             {/* Modal Controls */}
@@ -243,11 +246,12 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   onClick={() => setViewMode("interactive")}
                   style={{
                     padding: "5px 12px",
-                    fontFamily: "var(--font-mono), monospace",
+                    fontFamily: "inherit",
                     fontSize: "11px",
+                    fontWeight: 600,
                     border: "none",
                     backgroundColor: viewMode === "interactive" ? "var(--accent, #2563eb)" : "transparent",
-                    color: viewMode === "interactive" ? "#fff" : "var(--text-muted)",
+                    color: viewMode === "interactive" ? "#fff" : "var(--muted)",
                     cursor: "pointer",
                   }}
                 >
@@ -258,11 +262,12 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   onClick={() => setViewMode("image")}
                   style={{
                     padding: "5px 12px",
-                    fontFamily: "var(--font-mono), monospace",
+                    fontFamily: "inherit",
                     fontSize: "11px",
+                    fontWeight: 600,
                     border: "none",
                     backgroundColor: viewMode === "image" ? "var(--accent, #2563eb)" : "transparent",
-                    color: viewMode === "image" ? "#fff" : "var(--text-muted)",
+                    color: viewMode === "image" ? "#fff" : "var(--muted)",
                     cursor: "pointer",
                   }}
                 >
@@ -276,24 +281,24 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   <button
                     type="button"
                     onClick={() => setZoomLevel((z) => Math.max(0.6, z - 0.2))}
-                    style={{ padding: "4px 9px", fontFamily: "var(--font-mono), monospace", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--text)", borderRadius: "2px", cursor: "pointer" }}
+                    style={{ padding: "4px 9px", fontFamily: "inherit", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--ink)", borderRadius: "2px", cursor: "pointer" }}
                   >
                     -
                   </button>
-                  <span style={{ padding: "4px 8px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
+                  <span style={{ padding: "4px 8px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)" }}>
                     {Math.round(zoomLevel * 100)}%
                   </span>
                   <button
                     type="button"
                     onClick={() => setZoomLevel((z) => Math.min(2.5, z + 0.2))}
-                    style={{ padding: "4px 9px", fontFamily: "var(--font-mono), monospace", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--text)", borderRadius: "2px", cursor: "pointer" }}
+                    style={{ padding: "4px 9px", fontFamily: "inherit", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--ink)", borderRadius: "2px", cursor: "pointer" }}
                   >
                     +
                   </button>
                   <button
                     type="button"
                     onClick={() => setZoomLevel(1)}
-                    style={{ padding: "4px 8px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--text)", borderRadius: "2px", cursor: "pointer" }}
+                    style={{ padding: "4px 8px", fontFamily: "inherit", fontSize: "11px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--ink)", borderRadius: "2px", cursor: "pointer" }}
                   >
                     Reset
                   </button>
@@ -305,7 +310,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                 type="button"
                 onClick={handlePrev}
                 aria-label="Previous artifact"
-                style={{ padding: "5px 10px", fontFamily: "var(--font-mono), monospace", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--text)", borderRadius: "2px", cursor: "pointer" }}
+                style={{ padding: "5px 10px", fontFamily: "inherit", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--ink)", borderRadius: "2px", cursor: "pointer" }}
               >
                 ← Prev
               </button>
@@ -313,7 +318,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                 type="button"
                 onClick={handleNext}
                 aria-label="Next artifact"
-                style={{ padding: "5px 10px", fontFamily: "var(--font-mono), monospace", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--text)", borderRadius: "2px", cursor: "pointer" }}
+                style={{ padding: "5px 10px", fontFamily: "inherit", fontSize: "12px", border: "1px solid var(--line)", backgroundColor: "var(--surface)", color: "var(--ink)", borderRadius: "2px", cursor: "pointer" }}
               >
                 Next →
               </button>
@@ -325,7 +330,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                 aria-label="Close modal"
                 style={{
                   padding: "5px 12px",
-                  fontFamily: "var(--font-mono), monospace",
+                  fontFamily: "inherit",
                   fontSize: "14px",
                   fontWeight: 700,
                   border: "1px solid var(--line)",
@@ -468,10 +473,10 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   {selectedItem.slot === "02" && (
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px" }}>
+                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px", color: "var(--ink-heading)" }}>
                           STANDARDIZED RISK FACTOR WEIGHTS
                         </strong>
-                        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
+                        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)" }}>
                           Red: Risk Escalator | Blue: Risk Buffer
                         </span>
                       </div>
@@ -496,7 +501,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                               cursor: "pointer",
                             }}
                           >
-                            <span style={{ fontWeight: 600, color: hoveredDataPoint === feat.name ? "#60a5fa" : "var(--text)" }}>
+                            <span style={{ fontWeight: 600, color: hoveredDataPoint === feat.name ? "#60a5fa" : "var(--ink)" }}>
                               {feat.name}
                             </span>
                             <div style={{ display: "flex", alignItems: "center", height: "12px", backgroundColor: "#1e293b", borderRadius: "2px", overflow: "hidden" }}>
@@ -506,11 +511,12 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                                   height: "100%",
                                   backgroundColor: feat.coef > 0 ? "#ef4444" : "#3b82f6",
                                   marginLeft: feat.coef < 0 ? "auto" : 0,
+                                  borderRadius: "2px",
                                 }}
                               />
                             </div>
                             <span style={{ textAlign: "right", fontWeight: 700, color: feat.coef > 0 ? "#f87171" : "#60a5fa" }}>
-                              {feat.coef > 0 ? `+${feat.coef}` : feat.coef}
+                              {feat.coef > 0 ? `+${feat.coef.toFixed(4)}` : feat.coef.toFixed(4)}
                             </span>
                           </div>
                         ))}
@@ -522,69 +528,74 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   {selectedItem.slot === "03" && (
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px" }}>
-                          BASEL II SCORECARD SEPARATION & APPROVAL SIMULATOR
+                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px", color: "var(--ink-heading)" }}>
+                          BASEL II SCORECARD DENSITY &amp; RISK SEPARATION
                         </strong>
                         <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "#10b981" }}>
-                          Green: Non-Default | Red: Default (90+ DPD)
+                          Performing (Green) vs Default (Red)
                         </span>
                       </div>
 
-                      <svg viewBox="0 0 500 240" style={{ width: "100%", height: "220px", backgroundColor: "#0b0c10", borderRadius: "3px" }}>
-                        {/* Red Curve: Default Borrowers centered around ~500 */}
-                        <path
-                          d="M 50 220 Q 150 180 200 80 T 320 200 T 470 220"
-                          fill="rgba(239, 68, 68, 0.25)"
-                          stroke="#ef4444"
-                          strokeWidth="2"
-                        />
-                        {/* Green Curve: Performing Borrowers centered around ~720 */}
-                        <path
-                          d="M 50 220 Q 250 210 350 40 T 420 120 T 470 220"
-                          fill="rgba(16, 185, 129, 0.25)"
-                          stroke="#10b981"
-                          strokeWidth="2.5"
-                        />
+                      {/* SVG Scorecard Bell Curves */}
+                      <div style={{ width: "100%", height: "260px", backgroundColor: "var(--surface)", borderRadius: "4px", border: "1px solid var(--line)", padding: "10px", position: "relative" }}>
+                        <svg viewBox="0 0 500 250" style={{ width: "100%", height: "100%", overflow: "visible" }}>
+                          {/* Grid Lines */}
+                          <line x1="50" y1="210" x2="480" y2="210" stroke="var(--line)" strokeWidth="1" />
+                          <line x1="50" y1="30" x2="50" y2="210" stroke="var(--line)" strokeWidth="1" />
 
-                        {/* Cutoff Bar */}
-                        {(() => {
-                          const x = 50 + ((scoreCutoff - 300) / (850 - 300)) * 420;
-                          return (
-                            <g>
-                              <line x1={x} y1="10" x2={x} y2="220" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3,3" />
-                              <text x={x + 5} y="30" fill="#f59e0b" fontSize="10" fontFamily="monospace" fontWeight="bold">
-                                Cutoff: {scoreCutoff}
-                              </text>
-                            </g>
-                          );
-                        })()}
+                          {/* Cutoff Vertical Marker */}
+                          {(() => {
+                            const x = 50 + ((scoreCutoff - 300) / (850 - 300)) * 430;
+                            return (
+                              <g>
+                                <line x1={x} y1="30" x2={x} y2="210" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 3" />
+                                <text x={x + 5} y="45" fill="#f59e0b" fontSize="10" fontFamily="var(--font-mono), monospace" fontWeight="bold">
+                                  CUTOFF: {scoreCutoff}
+                                </text>
+                              </g>
+                            );
+                          })()}
 
-                        {/* Axis */}
-                        <line x1="50" y1="220" x2="470" y2="220" stroke="#444" />
-                        <text x="50" y="235" fill="#888" fontSize="10" fontFamily="monospace">300 (Reject)</text>
-                        <text x="260" y="235" fill="#888" fontSize="10" fontFamily="monospace">600 (Moderat)</text>
-                        <text x="440" y="235" fill="#888" fontSize="10" fontFamily="monospace">850 (Prime)</text>
-                      </svg>
+                          {/* Defaults Curve (Red, centered at ~540) */}
+                          <path
+                            d="M 50,210 Q 150,205 210,140 T 250,50 T 290,140 T 370,205 T 480,210"
+                            fill="rgba(239, 68, 68, 0.15)"
+                            stroke="#ef4444"
+                            strokeWidth="2.5"
+                          />
 
-                      <div style={{ marginTop: "14px", padding: "12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                          <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px" }}>
-                            APPROVAL SCORE THRESHOLD: <strong>{scoreCutoff} Points</strong>
-                          </span>
-                          <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: scoreCutoff >= 620 ? "#10b981" : "#ef4444" }}>
-                            Approval Rate: {Math.max(10, Math.min(95, Math.round(100 - ((scoreCutoff - 300) / 550) * 85)))}% | Portfolio NPL: {(Math.max(0.8, Math.pow((850 - scoreCutoff) / 550, 2) * 8.5)).toFixed(2)}%
-                          </span>
-                        </div>
-                        <input
-                          type="range"
-                          min={450}
-                          max={750}
-                          step={10}
-                          value={scoreCutoff}
-                          onChange={(e) => setScoreCutoff(Number(e.target.value))}
-                          style={{ width: "100%" }}
-                        />
+                          {/* Performing Curve (Green, centered at ~690) */}
+                          <path
+                            d="M 50,210 Q 250,208 310,150 T 355,40 T 400,150 T 460,208 T 480,210"
+                            fill="rgba(16, 185, 129, 0.15)"
+                            stroke="#10b981"
+                            strokeWidth="2.5"
+                          />
+
+                          {/* X-Axis Labels */}
+                          <text x="50" y="235" fill="var(--muted)" fontSize="10" fontFamily="var(--font-mono), monospace">300 (Reject)</text>
+                          <text x="260" y="235" fill="var(--muted)" fontSize="10" fontFamily="var(--font-mono), monospace">600 (Moderat)</text>
+                          <text x="440" y="235" fill="var(--muted)" fontSize="10" fontFamily="var(--font-mono), monospace">850 (Prime)</text>
+                        </svg>
                       </div>
+
+                      <div style={{ marginTop: "12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)" }}>
+                          Interactive Committee Cutoff: <strong>{scoreCutoff} Points</strong>
+                        </span>
+                        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: scoreCutoff >= 620 ? "#10b981" : "#ef4444" }}>
+                          Est. Default Rejection Rate: {scoreCutoff >= 680 ? "88.4%" : scoreCutoff >= 600 ? "74.2%" : "48.6%"}
+                        </span>
+                      </div>
+                      <input
+                        type="range"
+                        min={450}
+                        max={750}
+                        step={10}
+                        value={scoreCutoff}
+                        onChange={(e) => setScoreCutoff(Number(e.target.value))}
+                        style={{ width: "100%", marginTop: "6px" }}
+                      />
                     </div>
                   )}
 
@@ -592,33 +603,33 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   {selectedItem.slot === "04" && (
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px" }}>
+                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px", color: "var(--ink-heading)" }}>
                           HISTORICAL ESDM HBA COAL PRICE ($/MT) VS LEASING NPL (%)
                         </strong>
-                        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
+                        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)" }}>
                           2021-Q1 to 2024-Q4 Time-Series
                         </span>
                       </div>
 
                       <div style={{ overflowX: "auto", maxHeight: "280px" }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--font-mono), monospace", fontSize: "11px" }}>
+                        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px" }}>
                           <thead>
                             <tr style={{ backgroundColor: "var(--surface)", borderBottom: "1px solid var(--line)" }}>
-                              <th style={{ textAlign: "left", padding: "6px 8px" }}>QUARTER</th>
-                              <th style={{ textAlign: "right", padding: "6px 8px" }}>ESDM HBA ($/MT)</th>
-                              <th style={{ textAlign: "right", padding: "6px 8px" }}>LEASING NPL (%)</th>
-                              <th style={{ textAlign: "left", padding: "6px 8px" }}>COMMODITY CYCLE REGIME</th>
+                              <th style={{ textAlign: "left", padding: "6px 8px", fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>QUARTER</th>
+                              <th style={{ textAlign: "right", padding: "6px 8px", fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>ESDM HBA ($/MT)</th>
+                              <th style={{ textAlign: "right", padding: "6px 8px", fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>LEASING NPL (%)</th>
+                              <th style={{ textAlign: "left", padding: "6px 8px", fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>COMMODITY CYCLE REGIME</th>
                             </tr>
                           </thead>
                           <tbody>
                             {HBA_DATA.map((row) => (
                               <tr key={row.q} style={{ borderBottom: "1px solid var(--line)" }}>
-                                <td style={{ padding: "6px 8px", fontWeight: 600 }}>{row.q}</td>
-                                <td style={{ textAlign: "right", padding: "6px 8px", color: "#60a5fa" }}>${row.hba.toFixed(1)}</td>
-                                <td style={{ textAlign: "right", padding: "6px 8px", color: row.npl >= 3.5 ? "#f87171" : "#10b981", fontWeight: 700 }}>
+                                <td style={{ padding: "6px 8px", fontWeight: 600, fontFamily: "var(--font-mono), monospace", color: "var(--ink)" }}>{row.q}</td>
+                                <td style={{ textAlign: "right", padding: "6px 8px", fontFamily: "var(--font-mono), monospace", color: "#60a5fa" }}>${row.hba.toFixed(1)}</td>
+                                <td style={{ textAlign: "right", padding: "6px 8px", fontFamily: "var(--font-mono), monospace", color: row.npl >= 3.5 ? "#f87171" : "#10b981", fontWeight: 700 }}>
                                   {row.npl.toFixed(1)}%
                                 </td>
-                                <td style={{ padding: "6px 8px", color: "var(--text-muted)" }}>{row.phase}</td>
+                                <td style={{ padding: "6px 8px", fontFamily: "inherit", color: "var(--muted)" }}>{row.phase}</td>
                               </tr>
                             ))}
                           </tbody>
@@ -631,7 +642,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   {selectedItem.slot === "05" && (
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px" }}>
+                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px", color: "var(--ink-heading)" }}>
                           MACROECONOMIC STRESS SIMULATOR BY INDUSTRY SECTOR
                         </strong>
                         <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "#f87171" }}>
@@ -641,34 +652,34 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
 
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", marginBottom: "16px" }}>
                         <div style={{ padding: "12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px", textAlign: "center" }}>
-                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>MINING CONTRACTORS</span>
+                          <span style={{ fontSize: "10px", fontFamily: "inherit", fontWeight: 600, textTransform: "uppercase", color: "var(--muted)" }}>MINING CONTRACTORS</span>
                           <div style={{ fontSize: "22px", fontFamily: "var(--font-mono), monospace", fontWeight: 800, color: "#ef4444", marginTop: "4px" }}>
                             {(1.82 * (1 + Math.abs(macroShockSlider) / 100 * 1.8)).toFixed(2)}%
                           </div>
-                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>Elasticity 1.75x</span>
+                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--muted)" }}>Elasticity 1.75x</span>
                         </div>
 
                         <div style={{ padding: "12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px", textAlign: "center" }}>
-                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>PALM OIL (AGRO)</span>
+                          <span style={{ fontSize: "10px", fontFamily: "inherit", fontWeight: 600, textTransform: "uppercase", color: "var(--muted)" }}>PALM OIL (AGRO)</span>
                           <div style={{ fontSize: "22px", fontFamily: "var(--font-mono), monospace", fontWeight: 800, color: "#f59e0b", marginTop: "4px" }}>
                             {(2.10 * (1 + Math.abs(macroShockSlider) / 100 * 1.4)).toFixed(2)}%
                           </div>
-                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>Elasticity 1.40x</span>
+                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--muted)" }}>Elasticity 1.40x</span>
                         </div>
 
                         <div style={{ padding: "12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px", textAlign: "center" }}>
-                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>CIVIL INFRASTRUCTURE</span>
+                          <span style={{ fontSize: "10px", fontFamily: "inherit", fontWeight: 600, textTransform: "uppercase", color: "var(--muted)" }}>CIVIL INFRASTRUCTURE</span>
                           <div style={{ fontSize: "22px", fontFamily: "var(--font-mono), monospace", fontWeight: 800, color: "#3b82f6", marginTop: "4px" }}>
                             {(2.45 * (1 + Math.abs(macroShockSlider) / 100 * 1.1)).toFixed(2)}%
                           </div>
-                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>Elasticity 1.10x</span>
+                          <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--muted)" }}>Elasticity 1.10x</span>
                         </div>
                       </div>
 
                       <div style={{ padding: "12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                          <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px" }}>
-                            COMMODITY PRICE SHOCK: <strong>{macroShockSlider}%</strong>
+                          <span style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 600, color: "var(--ink)" }}>
+                            COMMODITY PRICE SHOCK: <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{macroShockSlider}%</strong>
                           </span>
                         </div>
                         <input
@@ -688,7 +699,7 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                   {selectedItem.slot === "06" && (
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px" }}>
+                        <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px", color: "var(--ink-heading)" }}>
                           CREDIT BUREAU 96/98 EXCEPTION CODE MULTIPLIER
                         </strong>
                         <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "#f87171" }}>
@@ -698,21 +709,21 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
 
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "16px" }}>
                         <div style={{ padding: "14px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
-                          <span style={{ fontSize: "11px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>STANDARD COHORT (&lt; 96)</span>
+                          <span style={{ fontSize: "11px", fontFamily: "inherit", fontWeight: 600, color: "var(--muted)" }}>STANDARD COHORT (&lt; 96)</span>
                           <div style={{ fontSize: "28px", fontFamily: "var(--font-mono), monospace", fontWeight: 800, color: "#10b981", margin: "6px 0" }}>
                             6.60%
                           </div>
-                          <p style={{ fontSize: "11px", color: "var(--text-muted)", margin: 0 }}>
-                            149,731 borrow records. Clean credit bureau telemetry conforming to standard delinquency cycles.
+                          <p style={{ fontSize: "11.5px", fontFamily: "inherit", color: "var(--muted)", margin: 0, lineHeight: 1.5 }}>
+                            149,731 debtor records. Clean credit bureau telemetry conforming to standard delinquency cycles.
                           </p>
                         </div>
 
                         <div style={{ padding: "14px", backgroundColor: "rgba(239, 68, 68, 0.1)", border: "1px solid #ef4444", borderRadius: "3px" }}>
-                          <span style={{ fontSize: "11px", fontFamily: "var(--font-mono), monospace", color: "#f87171" }}>ANOMALY COHORT (96 / 98)</span>
+                          <span style={{ fontSize: "11px", fontFamily: "inherit", fontWeight: 600, color: "#f87171" }}>ANOMALY COHORT (96 / 98)</span>
                           <div style={{ fontSize: "28px", fontFamily: "var(--font-mono), monospace", fontWeight: 800, color: "#ef4444", margin: "6px 0" }}>
                             54.65%
                           </div>
-                          <p style={{ fontSize: "11px", color: "var(--text-muted)", margin: 0 }}>
+                          <p style={{ fontSize: "11.5px", fontFamily: "inherit", color: "var(--muted)", margin: 0, lineHeight: 1.5 }}>
                             269 bureau exception records. Dropping these creates blind-spot underpricing; isolated as dedicated risk factor.
                           </p>
                         </div>
@@ -736,25 +747,25 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
               }}
             >
               <div>
-                <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)", marginBottom: "4px" }}>
+                <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)", marginBottom: "4px" }}>
                   SYSTEM ARTIFACT METADATA
                 </div>
-                <h3 style={{ fontSize: "16px", fontWeight: 700, margin: "0 0 10px 0", color: "var(--text)" }}>
+                <h3 style={{ fontSize: "16px", fontFamily: "inherit", fontWeight: 700, margin: "0 0 10px 0", color: "var(--ink-heading)" }}>
                   {selectedItem.title}
                 </h3>
-                <p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "16px" }}>
+                <p style={{ fontSize: "12px", fontFamily: "inherit", color: "var(--muted)", lineHeight: 1.6, marginBottom: "16px" }}>
                   {selectedItem.description}
                 </p>
 
                 <div style={{ borderTop: "1px solid var(--line)", paddingTop: "12px", marginBottom: "16px" }}>
-                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", color: "var(--text-muted)", marginBottom: "6px" }}>
+                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", color: "var(--muted)", marginBottom: "6px" }}>
                     ENGINE DETAILS
                   </div>
-                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                    <div>• Category: <strong>{selectedItem.kind.toUpperCase()}</strong></div>
+                  <div style={{ fontFamily: "inherit", fontSize: "12px", display: "flex", flexDirection: "column", gap: "4px", color: "var(--ink)" }}>
+                    <div>• Category: <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{selectedItem.kind.toUpperCase()}</strong></div>
                     <div>• Resolution: <strong>High DPI Lossless PNG</strong></div>
                     <div>• Source: <strong>GiveMeSomeCredit (150k Cohort)</strong></div>
-                    <div>• Status: <strong>Production Verified</strong></div>
+                    <div>• Status: <strong style={{ color: "#10b981" }}>Production Verified</strong></div>
                   </div>
                 </div>
               </div>
@@ -768,12 +779,12 @@ export function VisualEvidence({ projectSlug, evidence }: VisualEvidenceProps) {
                     display: "block",
                     textAlign: "center",
                     padding: "8px 14px",
-                    fontFamily: "var(--font-mono), monospace",
-                    fontSize: "11px",
-                    fontWeight: 700,
+                    fontFamily: "inherit",
+                    fontSize: "12px",
+                    fontWeight: 600,
                     border: "1px solid var(--line)",
                     backgroundColor: "var(--panel)",
-                    color: "var(--text)",
+                    color: "var(--ink)",
                     borderRadius: "3px",
                     textDecoration: "none",
                   }}

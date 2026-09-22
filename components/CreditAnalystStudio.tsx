@@ -194,6 +194,8 @@ export function CreditAnalystStudio() {
         borderRadius: "4px",
         backgroundColor: "var(--panel)",
         overflow: "hidden",
+        fontFamily: "var(--font-sans), Arial, Helvetica, sans-serif",
+        color: "var(--ink)",
       }}
     >
       {/* Telemetry Header */}
@@ -214,14 +216,14 @@ export function CreditAnalystStudio() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#10b981" }} />
-          <strong>CREDIT RISK ANALYST STUDIO</strong>
-          <span style={{ color: "var(--text-muted)" }}>// BASEL II 5C ENGINE</span>
+          <strong style={{ color: "var(--ink-heading)" }}>CREDIT RISK ANALYST STUDIO</strong>
+          <span style={{ color: "var(--muted)" }}>// BASEL II 5C ENGINE</span>
         </div>
-        <div style={{ display: "flex", gap: "16px", color: "var(--text-muted)" }}>
-          <span>AUC: <strong style={{ color: "var(--text)" }}>0.8688</strong></span>
-          <span>KS: <strong style={{ color: "var(--text)" }}>56.13%</strong></span>
-          <span>GINI: <strong style={{ color: "var(--text)" }}>0.7229</strong></span>
-          <span>PDO: <strong style={{ color: "var(--text)" }}>20</strong></span>
+        <div style={{ display: "flex", gap: "16px", color: "var(--muted)" }}>
+          <span>AUC: <strong style={{ color: "var(--ink)" }}>0.8688</strong></span>
+          <span>KS: <strong style={{ color: "var(--ink)" }}>56.13%</strong></span>
+          <span>GINI: <strong style={{ color: "var(--ink)" }}>0.7229</strong></span>
+          <span>PDO: <strong style={{ color: "var(--ink)" }}>20</strong></span>
         </div>
       </div>
 
@@ -237,7 +239,7 @@ export function CreditAnalystStudio() {
           gap: "8px",
         }}
       >
-        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)", marginRight: "4px" }}>
+        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)", marginRight: "4px" }}>
           PRESET APPLICANTS:
         </span>
         {PRESET_APPLICANTS.map((preset, idx) => (
@@ -246,14 +248,16 @@ export function CreditAnalystStudio() {
             type="button"
             onClick={() => handleSelectPreset(idx)}
             style={{
-              padding: "5px 10px",
-              fontFamily: "var(--font-mono), monospace",
+              padding: "5px 11px",
+              fontFamily: "inherit",
               fontSize: "11px",
+              fontWeight: 500,
               border: selectedPresetIdx === idx ? "1px solid var(--accent, #3b82f6)" : "1px solid var(--line)",
-              backgroundColor: selectedPresetIdx === idx ? "rgba(59, 130, 246, 0.15)" : "transparent",
-              color: selectedPresetIdx === idx ? "#60a5fa" : "var(--text-muted)",
+              backgroundColor: selectedPresetIdx === idx ? "var(--accent-subtle, rgba(59, 130, 246, 0.15))" : "var(--surface-secondary)",
+              color: selectedPresetIdx === idx ? "var(--ink-heading)" : "var(--muted)",
               borderRadius: "3px",
               cursor: "pointer",
+              transition: "all 0.15s ease",
             }}
           >
             {preset.name.replace("PT ", "").replace("CV ", "")}
@@ -282,16 +286,17 @@ export function CreditAnalystStudio() {
             style={{
               flex: 1,
               padding: "11px 14px",
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "11px",
+              fontFamily: "inherit",
+              fontSize: "11.5px",
               fontWeight: 600,
-              letterSpacing: "0.03em",
+              letterSpacing: "0.01em",
               border: "none",
               borderBottom: activeTab === tab.id ? "2px solid var(--accent, #3b82f6)" : "2px solid transparent",
               backgroundColor: activeTab === tab.id ? "var(--panel)" : "transparent",
-              color: activeTab === tab.id ? "var(--text)" : "var(--text-muted)",
+              color: activeTab === tab.id ? "var(--ink-heading)" : "var(--muted)",
               cursor: "pointer",
               textAlign: "center",
+              transition: "all 0.15s ease",
             }}
           >
             {tab.label}
@@ -305,52 +310,52 @@ export function CreditAnalystStudio() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
             {/* Left Column: Interactive Parameters */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "12px", fontWeight: 700, borderBottom: "1px solid var(--line)", paddingBottom: "6px" }}>
-                // APPLICATION & 5C PARAMETERS
+              <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.04em", color: "var(--ink-heading)", borderBottom: "1px solid var(--line)", paddingBottom: "6px" }}>
+                // APPLICATION &amp; 5C PARAMETERS
               </div>
 
               {/* Sector & Equipment */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)", marginBottom: "4px" }}>
-                    SEKTOR INDUSTRI
+                  <label style={{ display: "block", fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "4px" }}>
+                    Sektor Industri
                   </label>
                   <select
                     value={appState.sector}
                     onChange={(e) => setAppState((p) => ({ ...p, sector: e.target.value as CreditApplicationInput["sector"] }))}
                     style={{
                       width: "100%",
-                      padding: "8px",
+                      padding: "8px 10px",
                       backgroundColor: "var(--surface)",
-                      color: "var(--text)",
+                      color: "var(--ink)",
                       border: "1px solid var(--line)",
                       borderRadius: "3px",
                       fontSize: "12px",
-                      fontFamily: "var(--font-mono), monospace",
+                      fontFamily: "inherit",
                     }}
                   >
                     <option value="mining">Pertambangan Batu Bara</option>
                     <option value="plantation">Perkebunan Kelapa Sawit</option>
-                    <option value="construction">Konstruksi & Sipil</option>
+                    <option value="construction">Konstruksi &amp; Sipil</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)", marginBottom: "4px" }}>
-                    JENIS ALAT BERAT
+                  <label style={{ display: "block", fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "4px" }}>
+                    Jenis Alat Berat
                   </label>
                   <select
                     value={appState.equipmentType}
                     onChange={(e) => handleEquipmentChange(e.target.value as CreditApplicationInput["equipmentType"])}
                     style={{
                       width: "100%",
-                      padding: "8px",
+                      padding: "8px 10px",
                       backgroundColor: "var(--surface)",
-                      color: "var(--text)",
+                      color: "var(--ink)",
                       border: "1px solid var(--line)",
                       borderRadius: "3px",
                       fontSize: "12px",
-                      fontFamily: "var(--font-mono), monospace",
+                      fontFamily: "inherit",
                     }}
                   >
                     {EQUIPMENT_CATALOG.map((eq) => (
@@ -366,10 +371,10 @@ export function CreditAnalystStudio() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                    <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
-                      JUMLAH UNIT
+                    <label style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--muted)" }}>
+                      Jumlah Unit
                     </label>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700 }}>
+                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, color: "var(--ink-heading)" }}>
                       {appState.unitCount} Unit
                     </span>
                   </div>
@@ -385,10 +390,10 @@ export function CreditAnalystStudio() {
 
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                    <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
-                      UANG MUKA (DP)
+                    <label style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--muted)" }}>
+                      Uang Muka (DP)
                     </label>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700 }}>
+                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, color: "var(--ink-heading)" }}>
                       {appState.downPaymentPct}%
                     </span>
                   </div>
@@ -408,10 +413,10 @@ export function CreditAnalystStudio() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                    <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
-                      TENOR PEMBIAYAAN
+                    <label style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--muted)" }}>
+                      Tenor Pembiayaan
                     </label>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700 }}>
+                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, color: "var(--ink-heading)" }}>
                       {appState.tenorMonths} Bulan
                     </span>
                   </div>
@@ -428,10 +433,10 @@ export function CreditAnalystStudio() {
 
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                    <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)" }}>
-                      SUKU BUNGA P.A.
+                    <label style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--muted)" }}>
+                      Suku Bunga P.A.
                     </label>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700 }}>
+                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, color: "var(--ink-heading)" }}>
                       {appState.interestRateAnnualPct.toFixed(2)}%
                     </span>
                   </div>
@@ -448,12 +453,12 @@ export function CreditAnalystStudio() {
               </div>
 
               {/* Character: Delinquency History */}
-              <div style={{ padding: "10px 14px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
-                <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, marginBottom: "8px" }}>
-                  CHARACTER (BIRO KREDIT / SLIK OJK)
+              <div style={{ padding: "12px 14px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
+                <div style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 700, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--ink-heading)", marginBottom: "8px" }}>
+                  Character (Biro Kredit / SLIK OJK)
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                  <span style={{ fontSize: "11px", color: "var(--text-muted)", fontFamily: "var(--font-mono), monospace" }}>
+                  <span style={{ fontSize: "11.5px", color: "var(--muted)", fontFamily: "inherit" }}>
                     Tunggakan 30-59 Hari (DPD):
                   </span>
                   <div style={{ display: "flex", gap: "6px" }}>
@@ -463,12 +468,13 @@ export function CreditAnalystStudio() {
                         type="button"
                         onClick={() => setAppState((p) => ({ ...p, pastDelinquencyCodesCount: cnt }))}
                         style={{
-                          padding: "3px 8px",
+                          padding: "3px 9px",
                           fontFamily: "var(--font-mono), monospace",
                           fontSize: "11px",
-                          border: appState.pastDelinquencyCodesCount === cnt ? "1px solid #3b82f6" : "1px solid var(--line)",
-                          backgroundColor: appState.pastDelinquencyCodesCount === cnt ? "#2563eb" : "transparent",
-                          color: appState.pastDelinquencyCodesCount === cnt ? "#fff" : "var(--text-muted)",
+                          fontWeight: 600,
+                          border: appState.pastDelinquencyCodesCount === cnt ? "1px solid var(--accent, #3b82f6)" : "1px solid var(--line)",
+                          backgroundColor: appState.pastDelinquencyCodesCount === cnt ? "var(--accent, #2563eb)" : "var(--surface-secondary)",
+                          color: appState.pastDelinquencyCodesCount === cnt ? "#fff" : "var(--muted)",
                           borderRadius: "2px",
                           cursor: "pointer",
                         }}
@@ -479,7 +485,7 @@ export function CreditAnalystStudio() {
                   </div>
                 </div>
 
-                <label style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", fontFamily: "var(--font-mono), monospace", cursor: "pointer" }}>
+                <label style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11.5px", fontFamily: "inherit", color: "var(--ink)", cursor: "pointer" }}>
                   <input
                     type="checkbox"
                     checked={appState.hasSevereDelinquency}
@@ -490,10 +496,10 @@ export function CreditAnalystStudio() {
               </div>
 
               {/* Condition: Macro Shock Slider */}
-              <div style={{ padding: "10px 14px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
+              <div style={{ padding: "12px 14px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                  <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700 }}>
-                    CONDITION: ESDM HBA COMMODITY SHOCK
+                  <span style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 700, letterSpacing: "0.02em", textTransform: "uppercase", color: "var(--ink-heading)" }}>
+                    Condition: ESDM HBA Commodity Shock
                   </span>
                   <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: appState.hbaCommodityShockPct < 0 ? "#ef4444" : "#10b981", fontWeight: 700 }}>
                     {appState.hbaCommodityShockPct}% Drop
@@ -513,7 +519,7 @@ export function CreditAnalystStudio() {
 
             {/* Right Column: Scorecard Gauge & Underwriting Verdict */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "12px", fontWeight: 700, borderBottom: "1px solid var(--line)", paddingBottom: "6px" }}>
+              <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.04em", color: "var(--ink-heading)", borderBottom: "1px solid var(--line)", paddingBottom: "6px" }}>
                 // UNDERWRITING SCORECARD VERDICT
               </div>
 
@@ -531,13 +537,13 @@ export function CreditAnalystStudio() {
                   position: "relative",
                 }}
               >
-                <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--text-muted)", marginBottom: "4px" }}>
+                <div style={{ fontFamily: "inherit", fontSize: "11px", fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "4px" }}>
                   BASEL II CREDIT SCORE (SCALE 300 - 850)
                 </div>
                 <div
                   style={{
                     fontFamily: "var(--font-mono), monospace",
-                    fontSize: "48px",
+                    fontSize: "52px",
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color:
@@ -561,9 +567,11 @@ export function CreditAnalystStudio() {
                       padding: "3px 10px",
                       borderRadius: "2px",
                       fontFamily: "var(--font-mono), monospace",
-                      fontSize: "12px",
+                      fontSize: "11px",
                       fontWeight: 700,
-                      backgroundColor: "rgba(255, 255, 255, 0.08)",
+                      backgroundColor: "var(--surface-secondary)",
+                      color: "var(--ink)",
+                      border: "1px solid var(--line)",
                     }}
                   >
                     TIER: {evalResult.ratingTier}
@@ -573,7 +581,7 @@ export function CreditAnalystStudio() {
                       padding: "3px 10px",
                       borderRadius: "2px",
                       fontFamily: "var(--font-mono), monospace",
-                      fontSize: "12px",
+                      fontSize: "11px",
                       fontWeight: 700,
                       backgroundColor:
                         evalResult.ratingTier === "AAA" || evalResult.ratingTier === "AA"
@@ -593,9 +601,9 @@ export function CreditAnalystStudio() {
                   </span>
                 </div>
 
-                <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "12px", marginBottom: 0, maxWidth: "340px" }}>
-                  Calibrated via Logistic & HistGradientBoosting with PDO=20, Base=600 at 50:1.
-                  Stressed PD: <strong>{evalResult.stressedPdPct}%</strong> | LGD: <strong>{evalResult.lgdPct}%</strong>
+                <p style={{ fontSize: "11.5px", fontFamily: "inherit", color: "var(--muted)", marginTop: "12px", marginBottom: 0, maxWidth: "340px", lineHeight: 1.5 }}>
+                  Calibrated via Logistic &amp; HistGradientBoosting with PDO=20, Base=600 at 50:1.
+                  Stressed PD: <strong style={{ color: "var(--ink-heading)", fontFamily: "var(--font-mono), monospace" }}>{evalResult.stressedPdPct}%</strong> | LGD: <strong style={{ color: "var(--ink-heading)", fontFamily: "var(--font-mono), monospace" }}>{evalResult.lgdPct}%</strong>
                 </p>
               </div>
 
@@ -604,7 +612,7 @@ export function CreditAnalystStudio() {
                 {/* DSCR */}
                 <div style={{ padding: "10px 12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", color: "var(--text-muted)" }}>
+                    <span style={{ fontFamily: "inherit", fontSize: "10.5px", fontWeight: 600, letterSpacing: "0.02em", color: "var(--muted)" }}>
                       CAPACITY (DSCR)
                     </span>
                     <span
@@ -618,7 +626,7 @@ export function CreditAnalystStudio() {
                       {evalResult.isDscrCompliant ? "PASS (>=1.15x)" : "FAIL (<1.15x)"}
                     </span>
                   </div>
-                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "20px", fontWeight: 700, marginTop: "4px" }}>
+                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "20px", fontWeight: 700, marginTop: "4px", color: "var(--ink-heading)" }}>
                     {evalResult.dscr}x
                   </div>
                 </div>
@@ -626,7 +634,7 @@ export function CreditAnalystStudio() {
                 {/* DER */}
                 <div style={{ padding: "10px 12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", color: "var(--text-muted)" }}>
+                    <span style={{ fontFamily: "inherit", fontSize: "10.5px", fontWeight: 600, letterSpacing: "0.02em", color: "var(--muted)" }}>
                       CAPITAL (DER)
                     </span>
                     <span
@@ -640,7 +648,7 @@ export function CreditAnalystStudio() {
                       {evalResult.isDerCompliant ? "PASS (<=2.0x)" : "FAIL (>2.0x)"}
                     </span>
                   </div>
-                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "20px", fontWeight: 700, marginTop: "4px" }}>
+                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "20px", fontWeight: 700, marginTop: "4px", color: "var(--ink-heading)" }}>
                     {evalResult.der}x
                   </div>
                 </div>
@@ -648,7 +656,7 @@ export function CreditAnalystStudio() {
                 {/* CCR Day 0 */}
                 <div style={{ padding: "10px 12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", color: "var(--text-muted)" }}>
+                    <span style={{ fontFamily: "inherit", fontSize: "10.5px", fontWeight: 600, letterSpacing: "0.02em", color: "var(--muted)" }}>
                       COLLATERAL (DAY 0 CCR)
                     </span>
                     <span
@@ -662,7 +670,7 @@ export function CreditAnalystStudio() {
                       {evalResult.isCcrCompliant ? "PASS (>=120%)" : "FAIL (<120%)"}
                     </span>
                   </div>
-                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "20px", fontWeight: 700, marginTop: "4px" }}>
+                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "20px", fontWeight: 700, marginTop: "4px", color: "var(--ink-heading)" }}>
                     {evalResult.ccrDay0Pct}%
                   </div>
                 </div>
@@ -670,14 +678,14 @@ export function CreditAnalystStudio() {
                 {/* Expected Loss */}
                 <div style={{ padding: "10px 12px", backgroundColor: "var(--surface)", border: "1px solid var(--line)", borderRadius: "3px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", color: "var(--text-muted)" }}>
+                    <span style={{ fontFamily: "inherit", fontSize: "10.5px", fontWeight: 600, letterSpacing: "0.02em", color: "var(--muted)" }}>
                       EXPECTED LOSS (EL)
                     </span>
-                    <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--text-muted)" }}>
+                    <span style={{ fontSize: "10px", fontFamily: "var(--font-mono), monospace", color: "var(--muted)" }}>
                       {evalResult.elRatioPct}% EAD
                     </span>
                   </div>
-                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "16px", fontWeight: 700, marginTop: "4px" }}>
+                  <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "16px", fontWeight: 700, marginTop: "4px", color: "var(--ink-heading)" }}>
                     {formatIdr(evalResult.expectedLossIdr)}
                   </div>
                 </div>
@@ -687,18 +695,19 @@ export function CreditAnalystStudio() {
               <div
                 style={{
                   padding: "10px 14px",
-                  backgroundColor: "rgba(255, 255, 255, 0.02)",
+                  backgroundColor: "var(--surface-secondary)",
                   border: "1px solid var(--line)",
                   borderRadius: "3px",
                   fontFamily: "var(--font-mono), monospace",
                   fontSize: "11px",
+                  color: "var(--muted)",
                   display: "flex",
                   justifyContent: "space-between",
                 }}
               >
-                <span>TOTAL OTR: <strong>{formatIdr(totalInvoice)}</strong></span>
-                <span>DP: <strong>{formatIdr(downPaymentIdr)} ({appState.downPaymentPct}%)</strong></span>
-                <span>EAD: <strong>{formatIdr(loanPrincipal)}</strong></span>
+                <span>TOTAL OTR: <strong style={{ color: "var(--ink-heading)" }}>{formatIdr(totalInvoice)}</strong></span>
+                <span>DP: <strong style={{ color: "var(--ink-heading)" }}>{formatIdr(downPaymentIdr)} ({appState.downPaymentPct}%)</strong></span>
+                <span>EAD: <strong style={{ color: "var(--ink-heading)" }}>{formatIdr(loanPrincipal)}</strong></span>
               </div>
             </div>
           </div>
@@ -707,35 +716,35 @@ export function CreditAnalystStudio() {
         {activeTab === "collateral" && (
           <div>
             <div style={{ marginBottom: "16px" }}>
-              <h3 style={{ fontSize: "14px", fontFamily: "var(--font-mono), monospace", fontWeight: 700, margin: "0 0 6px 0" }}>
+              <h3 style={{ fontSize: "14px", fontFamily: "inherit", fontWeight: 700, letterSpacing: "-0.02em", color: "var(--ink-heading)", margin: "0 0 6px 0" }}>
                 COLLATERAL DEPRECIATION VS PRINCIPAL AMORTIZATION (36-MONTH TRACK)
               </h3>
-              <p style={{ fontSize: "12px", color: "var(--text-muted)", margin: 0 }}>
+              <p style={{ fontSize: "12px", fontFamily: "inherit", color: "var(--muted)", margin: 0, lineHeight: 1.5 }}>
                 Heavy equipment undergoes a ~15% annual declining balance market depreciation. Because loan principal amortizes at a faster linear rate,
                 the Collateral Coverage Ratio (CCR) strengthens over time, mitigating secondary market liquidation risk.
               </p>
             </div>
 
             <div style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--font-mono), monospace", fontSize: "12px" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px" }}>
                 <thead>
                   <tr style={{ backgroundColor: "var(--surface)", borderBottom: "1px solid var(--line)" }}>
-                    <th style={{ textAlign: "left", padding: "8px 12px" }}>TIMELINE</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>APPRAISED MARKET VALUE</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>REMAINING PRINCIPAL</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>COLLATERAL COVERAGE (CCR)</th>
-                    <th style={{ textAlign: "center", padding: "8px 12px" }}>RISK BUFFER STATUS</th>
+                    <th style={{ textAlign: "left", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>TIMELINE</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>APPRAISED MARKET VALUE</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>REMAINING PRINCIPAL</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>COLLATERAL COVERAGE (CCR)</th>
+                    <th style={{ textAlign: "center", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>RISK BUFFER STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
                   {collateralSchedule.map((row) => (
                     <tr key={row.month} style={{ borderBottom: "1px solid var(--line)" }}>
-                      <td style={{ padding: "8px 12px" }}>
+                      <td style={{ padding: "8px 12px", fontFamily: "inherit", color: "var(--ink)" }}>
                         {row.month === 0 ? "Month 0 (Origination)" : `Month ${row.month} (${row.month / 12} Yrs)`}
                       </td>
-                      <td style={{ textAlign: "right", padding: "8px 12px" }}>{formatIdr(row.marketValue)}</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px" }}>{formatIdr(row.remainingPrincipal)}</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", fontWeight: 700, color: row.ccrPct >= 120 ? "#10b981" : "#ef4444" }}>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", color: "var(--ink)" }}>{formatIdr(row.marketValue)}</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", color: "var(--ink)" }}>{formatIdr(row.remainingPrincipal)}</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontWeight: 700, color: row.ccrPct >= 120 ? "#10b981" : "#ef4444" }}>
                         {row.ccrPct}%
                       </td>
                       <td style={{ textAlign: "center", padding: "8px 12px" }}>
@@ -744,6 +753,8 @@ export function CreditAnalystStudio() {
                             padding: "2px 8px",
                             borderRadius: "2px",
                             fontSize: "10px",
+                            fontFamily: "var(--font-mono), monospace",
+                            fontWeight: 700,
                             backgroundColor: row.ccrPct >= 140 ? "rgba(16, 185, 129, 0.15)" : "rgba(59, 130, 246, 0.15)",
                             color: row.ccrPct >= 140 ? "#10b981" : "#60a5fa",
                           }}
@@ -762,40 +773,40 @@ export function CreditAnalystStudio() {
         {activeTab === "macro" && (
           <div>
             <div style={{ marginBottom: "16px" }}>
-              <h3 style={{ fontSize: "14px", fontFamily: "var(--font-mono), monospace", fontWeight: 700, margin: "0 0 6px 0" }}>
-                ESDM HBA & COMMODITY CYCLE SENSITIVITY STRESS TEST
+              <h3 style={{ fontSize: "14px", fontFamily: "inherit", fontWeight: 700, letterSpacing: "-0.02em", color: "var(--ink-heading)", margin: "0 0 6px 0" }}>
+                ESDM HBA &amp; COMMODITY CYCLE SENSITIVITY STRESS TEST
               </h3>
-              <p style={{ fontSize: "12px", color: "var(--text-muted)", margin: 0 }}>
+              <p style={{ fontSize: "12px", fontFamily: "inherit", color: "var(--muted)", margin: 0, lineHeight: 1.5 }}>
                 Simulates default probability (PD) escalation and credit score degradation across sectors under severe commodity downturns.
                 Mining contractors exhibit the highest sensitivity (elasticity ~1.75x) to coal price contractions.
               </p>
             </div>
 
             <div style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--font-mono), monospace", fontSize: "12px" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px" }}>
                 <thead>
                   <tr style={{ backgroundColor: "var(--surface)", borderBottom: "1px solid var(--line)" }}>
-                    <th style={{ textAlign: "left", padding: "8px 12px" }}>COMMODITY SHOCK SCENARIO</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>MINING PD (%)</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>MINING SCORE</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>AGRO PD (%)</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>AGRO SCORE</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>CONSTRUCTION PD (%)</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px" }}>CONSTRUCTION SCORE</th>
+                    <th style={{ textAlign: "left", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>COMMODITY SHOCK SCENARIO</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>MINING PD (%)</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>MINING SCORE</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>AGRO PD (%)</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>AGRO SCORE</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>CONSTRUCTION PD (%)</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: "var(--ink-heading)" }}>CONSTRUCTION SCORE</th>
                   </tr>
                 </thead>
                 <tbody>
                   {macroScenarios.map((scen) => (
                     <tr key={scen.shock} style={{ borderBottom: "1px solid var(--line)" }}>
-                      <td style={{ padding: "8px 12px", fontWeight: 600 }}>
+                      <td style={{ padding: "8px 12px", fontFamily: "inherit", fontWeight: 600, color: "var(--ink)" }}>
                         {scen.shock === 0 ? "Baseline (Current HBA)" : `Stressed (${scen.shock}% Drop)`}
                       </td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", color: "#f87171" }}>{scen.miningPd}%</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", fontWeight: 700 }}>{scen.miningScore}</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", color: "#fbbf24" }}>{scen.agroPd}%</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", fontWeight: 700 }}>{scen.agroScore}</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", color: "#60a5fa" }}>{scen.civilPd}%</td>
-                      <td style={{ textAlign: "right", padding: "8px 12px", fontWeight: 700 }}>{scen.civilScore}</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", color: "#f87171" }}>{scen.miningPd}%</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontWeight: 700, color: "var(--ink-heading)" }}>{scen.miningScore}</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", color: "#fbbf24" }}>{scen.agroPd}%</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontWeight: 700, color: "var(--ink-heading)" }}>{scen.agroScore}</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", color: "#60a5fa" }}>{scen.civilPd}%</td>
+                      <td style={{ textAlign: "right", padding: "8px 12px", fontFamily: "var(--font-mono), monospace", fontWeight: 700, color: "var(--ink-heading)" }}>{scen.civilScore}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -805,42 +816,50 @@ export function CreditAnalystStudio() {
         )}
 
         {activeTab === "memo" && (
-          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", lineHeight: 1.6 }}>
-            <div style={{ border: "1px solid var(--line)", padding: "16px", backgroundColor: "var(--surface)", borderRadius: "3px" }}>
-              <div style={{ borderBottom: "1px solid var(--line)", paddingBottom: "10px", marginBottom: "12px", display: "flex", justifyContent: "space-between" }}>
-                <strong>NOTA ANALISIS KREDIT (NAK) — CREDIT COMMITTEE MEMO</strong>
-                <span style={{ color: "var(--text-muted)" }}>REF: CR-ALAT-BERAT/2026/MEMO-AUTO</span>
+          <div style={{ fontFamily: "inherit", fontSize: "12px", lineHeight: 1.6 }}>
+            <div style={{ border: "1px solid var(--line)", padding: "18px", backgroundColor: "var(--surface)", borderRadius: "3px" }}>
+              <div style={{ borderBottom: "1px solid var(--line)", paddingBottom: "10px", marginBottom: "14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "12px", color: "var(--ink-heading)" }}>
+                  NOTA ANALISIS KREDIT (NAK) — CREDIT COMMITTEE MEMO
+                </strong>
+                <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "11px", color: "var(--muted)" }}>
+                  REF: CR-ALAT-BERAT/2026/MEMO-AUTO
+                </span>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "16px" }}>
-                <div>
-                  <div>DEBITUR: <strong>{appState.companyName}</strong></div>
-                  <div>SEKTOR: <strong>{appState.sector.toUpperCase()}</strong></div>
-                  <div>UNIT: <strong>{appState.unitCount}x {appState.equipmentType.toUpperCase()}</strong></div>
-                  <div>OTR VALUE: <strong>{formatIdr(totalInvoice)}</strong></div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <div>DEBITUR: <strong style={{ color: "var(--ink-heading)" }}>{appState.companyName}</strong></div>
+                  <div>SEKTOR: <strong style={{ color: "var(--ink-heading)" }}>{appState.sector.toUpperCase()}</strong></div>
+                  <div>UNIT: <strong style={{ color: "var(--ink-heading)" }}>{appState.unitCount}x {appState.equipmentType.toUpperCase()}</strong></div>
+                  <div>OTR VALUE: <strong style={{ fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>{formatIdr(totalInvoice)}</strong></div>
                 </div>
-                <div>
-                  <div>DP ({appState.downPaymentPct}%): <strong>{formatIdr(downPaymentIdr)}</strong></div>
-                  <div>PLAFON (EAD): <strong>{formatIdr(loanPrincipal)}</strong></div>
-                  <div>TENOR: <strong>{appState.tenorMonths} BULAN ({appState.interestRateAnnualPct}% P.A.)</strong></div>
-                  <div>COLLATERAL DAY 0 CCR: <strong>{evalResult.ccrDay0Pct}%</strong></div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <div>DP ({appState.downPaymentPct}%): <strong style={{ fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>{formatIdr(downPaymentIdr)}</strong></div>
+                  <div>PLAFON (EAD): <strong style={{ fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>{formatIdr(loanPrincipal)}</strong></div>
+                  <div>TENOR: <strong style={{ color: "var(--ink-heading)" }}>{appState.tenorMonths} BULAN ({appState.interestRateAnnualPct}% P.A.)</strong></div>
+                  <div>COLLATERAL DAY 0 CCR: <strong style={{ fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>{evalResult.ccrDay0Pct}%</strong></div>
                 </div>
               </div>
 
-              <div style={{ borderTop: "1px solid var(--line)", paddingTop: "12px", marginBottom: "16px" }}>
-                <strong>5C UNDERWRITING EVALUATION:</strong>
-                <div>• Character: {appState.hasSevereDelinquency ? "REJECT (Riwayat 90+ DPD / Kode 96-98 terdeteksi)" : `${appState.pastDelinquencyCodesCount}x tunggakan minor; SLIK OJK patuh.`}</div>
-                <div>• Capacity: DSCR = <strong>{evalResult.dscr}x</strong> ({evalResult.isDscrCompliant ? "Memenuhi syarat min. 1.15x" : "Pelanggaran kovenan kas"})</div>
-                <div>• Capital: DER = <strong>{evalResult.der}x</strong> ({evalResult.isDerCompliant ? "Memenuhi syarat maks. 2.00x" : "Over-leveraged balance sheet"})</div>
-                <div>• Collateral: CCR Day 0 = <strong>{evalResult.ccrDay0Pct}%</strong>; LGD = <strong>{evalResult.lgdPct}%</strong></div>
-                <div>• Condition: Macro shock overlay = <strong>{appState.hbaCommodityShockPct}%</strong></div>
+              <div style={{ borderTop: "1px solid var(--line)", paddingTop: "14px", marginBottom: "16px" }}>
+                <strong style={{ display: "block", marginBottom: "6px", color: "var(--ink-heading)", fontFamily: "inherit" }}>
+                  5C UNDERWRITING EVALUATION:
+                </strong>
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px", color: "var(--ink)" }}>
+                  <div>• <strong>Character</strong>: {appState.hasSevereDelinquency ? "REJECT (Riwayat 90+ DPD / Kode 96-98 terdeteksi)" : `${appState.pastDelinquencyCodesCount}x tunggakan minor; SLIK OJK patuh.`}</div>
+                  <div>• <strong>Capacity</strong>: DSCR = <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{evalResult.dscr}x</strong> ({evalResult.isDscrCompliant ? "Memenuhi syarat min. 1.15x" : "Pelanggaran kovenan kas"})</div>
+                  <div>• <strong>Capital</strong>: DER = <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{evalResult.der}x</strong> ({evalResult.isDerCompliant ? "Memenuhi syarat maks. 2.00x" : "Over-leveraged balance sheet"})</div>
+                  <div>• <strong>Collateral</strong>: CCR Day 0 = <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{evalResult.ccrDay0Pct}%</strong>; LGD = <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{evalResult.lgdPct}%</strong></div>
+                  <div>• <strong>Condition</strong>: Macro shock overlay = <strong style={{ fontFamily: "var(--font-mono), monospace" }}>{appState.hbaCommodityShockPct}%</strong></div>
+                </div>
               </div>
 
-              <div style={{ borderTop: "1px solid var(--line)", paddingTop: "12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                  SCORE: <strong style={{ fontSize: "14px" }}>{evalResult.score}</strong> | TIER: <strong>{evalResult.ratingTier}</strong> | EXPECTED LOSS: <strong>{formatIdr(evalResult.expectedLossIdr)}</strong>
+              <div style={{ borderTop: "1px solid var(--line)", paddingTop: "14px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px" }}>
+                <div style={{ fontFamily: "inherit" }}>
+                  SCORE: <strong style={{ fontFamily: "var(--font-mono), monospace", fontSize: "14px", color: "var(--ink-heading)" }}>{evalResult.score}</strong> | TIER: <strong style={{ fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>{evalResult.ratingTier}</strong> | EXPECTED LOSS: <strong style={{ fontFamily: "var(--font-mono), monospace", color: "var(--ink-heading)" }}>{formatIdr(evalResult.expectedLossIdr)}</strong>
                 </div>
-                <div style={{ fontWeight: 700, padding: "4px 12px", backgroundColor: evalResult.ratingTier === "AAA" || evalResult.ratingTier === "AA" ? "#10b981" : "#ef4444", color: "#fff", borderRadius: "2px" }}>
+                <div style={{ fontFamily: "var(--font-mono), monospace", fontWeight: 700, fontSize: "11px", letterSpacing: "0.04em", padding: "5px 14px", backgroundColor: evalResult.ratingTier === "AAA" || evalResult.ratingTier === "AA" ? "#10b981" : "#ef4444", color: "#fff", borderRadius: "2px" }}>
                   VERDICT: {evalResult.recommendation.toUpperCase()}
                 </div>
               </div>

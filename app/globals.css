@@ -22,6 +22,10 @@
   --portrait-beam1: linear-gradient(90deg, transparent, var(--accent), #d93416, transparent);
   --portrait-beam2: #b53c21;
   --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --text: var(--ink);
+  --text-muted: var(--muted);
 }
 
 html[data-theme="light"],
@@ -47,6 +51,10 @@ body[data-theme="light"],
   --portrait-bg: repeating-linear-gradient(140deg, #e2e8f0 0 8px, #f8fafc 8px 16px);
   --portrait-beam1: linear-gradient(90deg, transparent, var(--accent), #0369a1, transparent);
   --portrait-beam2: #0284c7;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --text: var(--ink);
+  --text-muted: var(--muted);
 }
 
 * { box-sizing: border-box; }

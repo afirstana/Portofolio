@@ -432,7 +432,7 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
       expect(nadir!.price).toBe(9.1);
     });
 
-    it("verifies project ranking with Part 3 at #1, Banking at #2, Part 2 at #3, Brent Oil (#4 & #11), Part 1 at #5, and Banking 3D (#6 & #8)", async () => {
+    it("verifies project ranking with Part 3 at #1, Banking at #2, Heavy Equipment at #3, Part 2 at #4, Brent Oil (#5 & #12), Part 1 at #6, and Banking 3D (#7 & #9)", async () => {
       const { getProjects } = await import("./content");
       const projects = getProjects();
       expect(projects).toHaveLength(16);
@@ -440,20 +440,22 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
       expect(projects[0].order).toBe(1);
       expect(projects[1].slug).toBe("banking-transaction-anti-fraud");
       expect(projects[1].order).toBe(2);
-      expect(projects[2].slug).toBe("flight-delay-2024-3d-airspace-network");
+      expect(projects[2].slug).toBe("heavy-equipment-credit-risk-analytics");
       expect(projects[2].order).toBe(3);
-      expect(projects[3].slug).toBe("brent-oil-3d-volatility-manifold");
+      expect(projects[3].slug).toBe("flight-delay-2024-3d-airspace-network");
       expect(projects[3].order).toBe(4);
-      expect(projects[4].slug).toBe("flight-delay-2024-operations-cockpit");
+      expect(projects[4].slug).toBe("brent-oil-3d-volatility-manifold");
       expect(projects[4].order).toBe(5);
-      expect(projects[5].slug).toBe("banking-fraud-3d-network-intelligence");
+      expect(projects[5].slug).toBe("flight-delay-2024-operations-cockpit");
       expect(projects[5].order).toBe(6);
-      expect(projects[6].slug).toBe("global-cancer-epidemiology-surveillance");
+      expect(projects[6].slug).toBe("banking-fraud-3d-network-intelligence");
       expect(projects[6].order).toBe(7);
-      expect(projects[7].slug).toBe("banking-fraud-3d-anomaly-manifold");
+      expect(projects[7].slug).toBe("global-cancer-epidemiology-surveillance");
       expect(projects[7].order).toBe(8);
-      expect(projects[10].slug).toBe("brent-oil-market-dynamics");
-      expect(projects[10].order).toBe(11);
+      expect(projects[8].slug).toBe("banking-fraud-3d-anomaly-manifold");
+      expect(projects[8].order).toBe(9);
+      expect(projects[11].slug).toBe("brent-oil-market-dynamics");
+      expect(projects[11].order).toBe(12);
     });
   });
 });

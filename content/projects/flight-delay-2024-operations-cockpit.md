@@ -19,7 +19,7 @@ skills:
   - "Runway queuing bottleneck diagnostics"
   - "Diurnal compounding analysis"
   - "Large-scale aviation data aggregation"
-order: 5
+order: 6
 system:
   - label: "01. Streaming Ingestion & Aggregation"
     value: "7,079,081 raw flight records streamed through chunked Python pipelines into a 65 KB multi-dimensional JSON cube"

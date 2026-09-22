@@ -19,7 +19,7 @@ skills:
   - "Parabolic flight corridor modeling"
   - "Runway surface elevation mapping"
   - "GPU particle animation"
-order: 3
+order: 4
 system:
   - label: "01. Geodesic Projection & Mesh Synthesis"
     value: "Translates WGS84 geographic coordinates of 30 mega hubs into 3D continental Cartesian space"

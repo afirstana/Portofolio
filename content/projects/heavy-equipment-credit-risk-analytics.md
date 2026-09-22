@@ -19,7 +19,7 @@ skills:
   - "IFRS 9 Stage 1-3 expected loss modeling"
   - "Secondary asset liquidation economics"
   - "Macroeconomic commodity stress testing"
-order: 16
+order: 3
 system:
   - label: "01. Credit Bureau Ingestion & Anomaly Guard"
     value: "Isolates 96/98 error codes (54.65% default rate) and decomposes missing income records into stated debt vs normalized DTI."

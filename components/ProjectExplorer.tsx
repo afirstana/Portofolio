@@ -6,12 +6,26 @@ import type { Project } from "@/lib/content";
 
 export function ProjectExplorer({ projects }: { projects: Project[] }) {
   const [query, setQuery] = useState("");
+  const [showAll, setShowAll] = useState(false);
   const [, setHoveredProject] = useState<string | null>(null);
 
   const visibleProjects = useMemo(() => projects.filter((project) => {
     const haystack = `${project.title} ${project.one_liner} ${project.category} ${project.tools.join(" ")}`.toLowerCase();
     return haystack.includes(query.trim().toLowerCase());
   }), [projects, query]);
+
+  const displayedProjects = useMemo(() => {
+    if (query.trim().length > 0 || showAll) {
+      return visibleProjects;
+    }
+    return visibleProjects.slice(0, 2);
+  }, [visibleProjects, query, showAll]);
+
+  const countLabel = query.trim().length > 0
+    ? `${String(visibleProjects.length).padStart(2, "0")} systems found`
+    : showAll
+    ? `${String(visibleProjects.length).padStart(2, "0")} systems shown`
+    : `${String(Math.min(2, visibleProjects.length)).padStart(2, "0")} systems shown`;
 
   return (
     <section id="work" className="section project-section" aria-labelledby="work-title">
@@ -29,11 +43,11 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
             <span className="mono">Search</span>
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search systems or tools" type="search" />
           </label>
-          <p className="explorer-count mono" aria-live="polite">{String(visibleProjects.length).padStart(2, "0")} systems shown</p>
+          <p className="explorer-count mono" aria-live="polite">{countLabel}</p>
         </div>
 
         <div className="project-list explorer-list">
-          {visibleProjects.map((project, index) => {
+          {displayedProjects.map((project, index) => {
             return (
               <Link
                 className="project-row"
@@ -95,6 +109,18 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
             );
           })}
         </div>
+
+        {!query.trim() && visibleProjects.length > 2 && (
+          <div className="explorer-footer">
+            <button
+              type="button"
+              className="view-all-toggle mono"
+              onClick={() => setShowAll((prev) => !prev)}
+            >
+              {showAll ? "Show featured 02 systems ↑" : `View all ${visibleProjects.length} systems ↗`}
+            </button>
+          </div>
+        )}
 
         {visibleProjects.length === 0 && (
           <div className="empty-state">

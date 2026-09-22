@@ -73,25 +73,21 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
                 <div className="project-sneak" aria-label={`Sneak peek for ${project.title}`}>
                   {/* Visual Blueprint / Thumbnail Card */}
                   <div className="project-sneak-thumb">
-                    {firstEvidence?.image ? (
-                      <img src={firstEvidence.image} alt={firstEvidence.alt || project.title} />
-                    ) : (
-                      <div className="project-sneak-blueprint">
-                        <div className="project-sneak-blueprint-header">
-                          <span className="mono">0{project.order} / SNEAK PEEK</span>
-                          <span className="project-sneak-blueprint-dot" />
-                        </div>
-                        <div className="project-sneak-blueprint-body">
-                          <span className="mono project-sneak-blueprint-category">{project.category}</span>
-                          <strong className="project-sneak-blueprint-title">{project.title}</strong>
-                        </div>
-                        <div className="project-sneak-blueprint-tags">
-                          {project.tools.slice(0, 2).map((t) => (
-                            <span key={t}>{t}</span>
-                          ))}
-                        </div>
+                    <div className="project-sneak-blueprint">
+                      <div className="project-sneak-blueprint-header">
+                        <span className="mono">0{project.order} / SNEAK PEEK</span>
+                        <span className="project-sneak-blueprint-dot" />
                       </div>
-                    )}
+                      <div className="project-sneak-blueprint-body">
+                        <span className="mono project-sneak-blueprint-category">{project.category}</span>
+                        <strong className="project-sneak-blueprint-title">{project.title}</strong>
+                      </div>
+                      <div className="project-sneak-blueprint-tags">
+                        {project.tools.slice(0, 2).map((t) => (
+                          <span key={t}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   {/* Metrics Snapshot */}

@@ -399,7 +399,7 @@ html[data-theme="light"] select option {
 .project-intro { display: grid; grid-template-columns: 1fr minmax(240px, 400px); gap: 40px; align-items: end; margin: 34px 0 110px; }
 .project-intro .body-copy { margin: 0; }
 .project-list { border-top: 1px solid var(--line); }
-.project-row { display: grid; grid-template-columns: 76px 1fr auto; gap: 24px; padding: 48px 0; position: relative; border-bottom: 1px solid var(--line); transition: background 220ms var(--ease-slow), transform 220ms var(--ease-slow), padding 220ms var(--ease-slow); }
+.project-row { display: grid; grid-template-columns: 76px 1fr auto; gap: 24px; padding: 34px 0; position: relative; border-bottom: 1px solid var(--line); transition: background 220ms var(--ease-slow), transform 220ms var(--ease-slow), padding 220ms var(--ease-slow); }
 @keyframes project-row-glide {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }

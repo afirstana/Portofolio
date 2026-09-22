@@ -6,14 +6,12 @@ import type { Project } from "@/lib/content";
 
 export function ProjectExplorer({ projects }: { projects: Project[] }) {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All");
   const [, setHoveredProject] = useState<string | null>(null);
 
-  const categories = ["All", ...Array.from(new Set(projects.map((project) => project.category)))];
   const visibleProjects = useMemo(() => projects.filter((project) => {
     const haystack = `${project.title} ${project.one_liner} ${project.category} ${project.tools.join(" ")}`.toLowerCase();
-    return (category === "All" || project.category === category) && haystack.includes(query.trim().toLowerCase());
-  }), [category, projects, query]);
+    return haystack.includes(query.trim().toLowerCase());
+  }), [projects, query]);
 
   return (
     <section id="work" className="section project-section" aria-labelledby="work-title">
@@ -31,20 +29,11 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
             <span className="mono">Search</span>
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search systems or tools" type="search" />
           </label>
-          <div className="filter-list" aria-label="Filter projects by category">
-            {categories.map((item) => (
-              <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)}>
-                {item}
-              </button>
-            ))}
-          </div>
+          <p className="explorer-count mono" aria-live="polite">{String(visibleProjects.length).padStart(2, "0")} systems shown</p>
         </div>
-
-        <p className="explorer-count mono" aria-live="polite">{String(visibleProjects.length).padStart(2, "0")} systems shown</p>
 
         <div className="project-list explorer-list">
           {visibleProjects.map((project, index) => {
-            const firstEvidence = project.evidence?.find((e) => e.image) || project.evidence?.[0];
             return (
               <Link
                 className="project-row"
@@ -57,14 +46,7 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
                 <span className="mono project-number">{String(project.order).padStart(2, "0")}</span>
                 
                 <div className="project-row-content">
-                  <p className="project-category mono">{project.category}</p>
                   <h3>{project.title}</h3>
-                  <p>{project.one_liner}</p>
-                  <div className="tags">
-                    {project.tools.slice(0, 4).map((tool) => (
-                      <span key={tool}>{tool}</span>
-                    ))}
-                  </div>
                 </div>
 
                 <span aria-hidden="true" className="project-arrow">↗</span>
@@ -117,7 +99,7 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
         {visibleProjects.length === 0 && (
           <div className="empty-state">
             <p className="mono">No matching system</p>
-            <button type="button" onClick={() => { setQuery(""); setCategory("All"); }}>Reset explorer</button>
+            <button type="button" onClick={() => setQuery("")}>Reset search</button>
           </div>
         )}
       </div>

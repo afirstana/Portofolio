@@ -21,13 +21,13 @@ describe("Flight Delay 2024 (Part 3) — End-to-End Enterprise System Verificati
   describe("01. Portfolio Catalog and Topological Ordering Invariants", () => {
     const projects = getProjects();
 
-    it("verifies exact portfolio inventory size of 15 projects", () => {
-      expect(projects).toHaveLength(15);
+    it("verifies exact portfolio inventory size of 16 projects", () => {
+      expect(projects).toHaveLength(16);
     });
 
-    it("verifies contiguous 1-indexed ordering from 1 to 15 without collisions or gaps", () => {
+    it("verifies contiguous 1-indexed ordering from 1 to 16 without collisions or gaps", () => {
       const orders = projects.map((p) => p.order);
-      expect(orders).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+      expect(orders).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     });
 
     it("verifies Part 3 is strictly registered as Project #01", () => {

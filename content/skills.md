@@ -21,6 +21,7 @@ groups:
           - "ml-product-mapping-system"
           - "revenue-reconciliation-automation"
           - "certificate-generator-desktop-app"
+          - "heavy-equipment-credit-risk-analytics"
       - name: "Excel"
         evidence:
           - "revenue-reconciliation-automation"
@@ -42,6 +43,7 @@ groups:
           - "olist-e-commerce-logistics-analysis"
           - "olist-payment-behavior-analytics"
           - "ml-product-mapping-system"
+          - "heavy-equipment-credit-risk-analytics"
       - name: "Predictive analytics"
         evidence:
           - "flight-delay-2024-predictive-dispatch"
@@ -55,6 +57,7 @@ groups:
           - "olist-payment-behavior-analytics"
           - "brent-oil-market-dynamics"
           - "amazon-product-intelligence"
+          - "heavy-equipment-credit-risk-analytics"
   - name: "Machine learning"
     skills:
       - name: "Scikit-learn"
@@ -64,6 +67,7 @@ groups:
           - "banking-fraud-3d-anomaly-manifold"
           - "amazon-product-intelligence"
           - "ml-product-mapping-system"
+          - "heavy-equipment-credit-risk-analytics"
       - name: "NLP / TF-IDF"
         evidence:
           - "amazon-product-intelligence"
@@ -86,6 +90,7 @@ groups:
           - "amazon-product-intelligence"
           - "ml-product-mapping-system"
           - "revenue-reconciliation-automation"
+          - "heavy-equipment-credit-risk-analytics"
       - name: "Automation design"
         evidence:
           - "flight-delay-2024-predictive-dispatch"
@@ -93,6 +98,7 @@ groups:
           - "banking-transaction-anti-fraud"
           - "revenue-reconciliation-automation"
           - "certificate-generator-desktop-app"
+          - "heavy-equipment-credit-risk-analytics"
 ---
 
 Tools are selected for the workflow they make possible, then linked back to the systems where they are used.

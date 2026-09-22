@@ -39,14 +39,15 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
       )
       .map((project) => ({ slug: project.slug }));
 
-    // Exactly 5 dynamic routes
-    expect(dynamicSlugs).toHaveLength(5);
+    // Exactly 6 dynamic routes
+    expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).toEqual([
       "global-cancer-epidemiology-surveillance",
       "olist-e-commerce-logistics-analysis",
       "ml-product-mapping-system",
       "revenue-reconciliation-automation",
       "certificate-generator-desktop-app",
+      "heavy-equipment-credit-risk-analytics",
     ]);
   });
 
@@ -117,7 +118,7 @@ describe("Static Export & Route Integrity Challenger Suite", () => {
 
   it("verifies all project static HTML and index.txt files exist in out/projects/", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(15);
+    expect(projects).toHaveLength(16);
 
     for (const project of projects) {
       const projectHtmlPath = path.join(outDir, "projects", project.slug, "index.html");

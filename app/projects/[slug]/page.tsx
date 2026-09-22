@@ -22,6 +22,7 @@ import { CancerGdpScatterShowcase } from "@/components/CancerGdpScatterShowcase"
 import { CancerTobaccoRiskShowcase } from "@/components/CancerTobaccoRiskShowcase";
 import { CancerTobaccoTableShowcase } from "@/components/CancerTobaccoTableShowcase";
 import { RevenueReconciliationShowcase } from "@/components/RevenueReconciliationShowcase";
+import { CreditAnalystStudio } from "@/components/CreditAnalystStudio";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -90,6 +91,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   const isBrentOil = project.slug === "brent-oil-market-dynamics";
   const isCancer = project.slug === "global-cancer-epidemiology-surveillance";
   const isRevenue = project.slug === "revenue-reconciliation-automation";
+  const isCreditRisk = project.slug === "heavy-equipment-credit-risk-analytics";
 
   return (
     <main className="site-shell">
@@ -169,6 +171,9 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone Revenue Reconciliation 4-Tier Interactive Showcase */}
             {isRevenue && <RevenueReconciliationShowcase />}
+
+            {/* Standalone Heavy Equipment Credit Risk & Basel II Scorecard Studio */}
+            {isCreditRisk && <CreditAnalystStudio />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

@@ -4,7 +4,7 @@ import { getAdjacentProjects, getMethod, getProjectBySlug, getProjects, getSkill
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(15);
+    expect(projects).toHaveLength(16);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(projects.some((project) => project.slug === "banking-transaction-anti-fraud")).toBe(true);
@@ -16,6 +16,7 @@ describe("local Markdown content", () => {
     expect(projects.some((project) => project.slug === "global-cancer-epidemiology-surveillance")).toBe(true);
     expect(projects.some((project) => project.slug === "flight-delay-2024-operations-cockpit")).toBe(true);
     expect(projects.some((project) => project.slug === "flight-delay-2024-3d-airspace-network")).toBe(true);
+    expect(projects.some((project) => project.slug === "heavy-equipment-credit-risk-analytics")).toBe(true);
   });
 
   it("keeps project detail metadata available at build time", () => {
@@ -108,7 +109,7 @@ describe("local Markdown content", () => {
       )
       .map((project) => ({ slug: project.slug }));
 
-    expect(dynamicSlugs).toHaveLength(5);
+    expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("amazon-product-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("olist-payment-behavior-analytics");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-transaction-anti-fraud");
@@ -120,5 +121,6 @@ describe("local Markdown content", () => {
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-3d-airspace-network");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-predictive-dispatch");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
+    expect(dynamicSlugs.map((s) => s.slug)).toContain("heavy-equipment-credit-risk-analytics");
   });
 });

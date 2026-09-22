@@ -435,7 +435,7 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
     it("verifies project ranking with Part 3 at #1, Banking at #2, Part 2 at #3, Brent Oil (#4 & #11), Part 1 at #5, and Banking 3D (#6 & #8)", async () => {
       const { getProjects } = await import("./content");
       const projects = getProjects();
-      expect(projects).toHaveLength(15);
+      expect(projects).toHaveLength(16);
       expect(projects[0].slug).toBe("flight-delay-2024-predictive-dispatch");
       expect(projects[0].order).toBe(1);
       expect(projects[1].slug).toBe("banking-transaction-anti-fraud");

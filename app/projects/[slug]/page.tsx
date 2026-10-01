@@ -23,7 +23,6 @@ import { CancerTobaccoRiskShowcase } from "@/components/CancerTobaccoRiskShowcas
 import { CancerTobaccoTableShowcase } from "@/components/CancerTobaccoTableShowcase";
 import { RevenueReconciliationShowcase } from "@/components/RevenueReconciliationShowcase";
 import { CreditAnalystStudio } from "@/components/CreditAnalystStudio";
-import { DataMeshArchitectureStudio } from "@/components/DataMeshArchitectureStudio";
 import { getAdjacentProjects, getProjectBySlug, getProjects, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -94,7 +93,6 @@ export default async function ProjectPage({ params }: RouteProps) {
   const isCancer = project.slug === "global-cancer-epidemiology-surveillance";
   const isRevenue = project.slug === "revenue-reconciliation-automation";
   const isCreditRisk = project.slug === "heavy-equipment-credit-risk-analytics";
-  const isDataMesh = project.slug === "enterprise-data-mesh-governance-engine";
 
   return (
     <main className="site-shell">
@@ -177,9 +175,6 @@ export default async function ProjectPage({ params }: RouteProps) {
 
             {/* Standalone Heavy Equipment Credit Risk & Basel II Scorecard Studio */}
             {isCreditRisk && <CreditAnalystStudio />}
-
-            {/* Standalone Enterprise Data Mesh Architecture & Governance Studio */}
-            {isDataMesh && <DataMeshArchitectureStudio />}
 
             {/* Deep Technical Markdown Narrative & Tables */}
             {project.body && <MarkdownBody source={project.body} />}

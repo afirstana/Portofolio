@@ -91,10 +91,10 @@ describe("local Markdown content", () => {
     expect(project?.tools).toContain("Open Data Contract Standard (ODCS)");
     expect(project?.preview.metrics).toHaveLength(3);
     expect(project?.body.length).toBeGreaterThan(1000);
-    expect(project?.body).toContain("01. The Architectural Inflection Point: Monolith vs Mesh");
-    expect(project?.body).toContain("02. The 4 Foundational Pillars of Data Mesh (Zhamak Dehghani)");
-    expect(project?.body).toContain("06. Federated Computational Governance & Data Contracts");
-    expect(project?.body).toContain("12. Enterprise Data Architect Masterclass & Interview FAQ (FQA)");
+    expect(project?.body).toContain("01. Titik Temu Arsitektur: Monolith vs Data Mesh (Analogi & Fondasi)");
+    expect(project?.body).toContain("02. 4 Pilar Utama Data Mesh (Zhamak Dehghani)");
+    expect(project?.body).toContain("06. Data Contracts (ODCS) & Shift-Left CI/CD Governance");
+    expect(project?.body).toContain("12. Panduan Wawancara Data Architect: 10 Soal & Jawaban Tingkat Prinsipal");
   });
 
   it("finds a project by slug with adjacent navigation", () => {
@@ -119,11 +119,12 @@ describe("local Markdown content", () => {
           p.slug !== "banking-fraud-3d-anomaly-manifold" &&
           p.slug !== "flight-delay-2024-operations-cockpit" &&
           p.slug !== "flight-delay-2024-3d-airspace-network" &&
-          p.slug !== "flight-delay-2024-predictive-dispatch"
+          p.slug !== "flight-delay-2024-predictive-dispatch" &&
+          p.slug !== "enterprise-data-mesh-governance-engine"
       )
       .map((project) => ({ slug: project.slug }));
 
-    expect(dynamicSlugs).toHaveLength(7);
+    expect(dynamicSlugs).toHaveLength(6);
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("amazon-product-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("olist-payment-behavior-analytics");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-transaction-anti-fraud");
@@ -134,8 +135,8 @@ describe("local Markdown content", () => {
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-operations-cockpit");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-3d-airspace-network");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-predictive-dispatch");
+    expect(dynamicSlugs.map((s) => s.slug)).not.toContain("enterprise-data-mesh-governance-engine");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("heavy-equipment-credit-risk-analytics");
-    expect(dynamicSlugs.map((s) => s.slug)).toContain("enterprise-data-mesh-governance-engine");
   });
 });

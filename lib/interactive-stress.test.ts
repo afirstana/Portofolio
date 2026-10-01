@@ -435,7 +435,7 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
     it("verifies project ranking with Part 3 at #1, Banking at #2, Heavy Equipment at #3, Part 2 at #4, Brent Oil (#5 & #12), Part 1 at #6, and Banking 3D (#7 & #9)", async () => {
       const { getProjects } = await import("./content");
       const projects = getProjects();
-      expect(projects).toHaveLength(16);
+      expect(projects).toHaveLength(17);
       expect(projects[0].slug).toBe("flight-delay-2024-predictive-dispatch");
       expect(projects[0].order).toBe(1);
       expect(projects[1].slug).toBe("banking-transaction-anti-fraud");
@@ -454,8 +454,10 @@ describe("Interactive Showcase & UI Component Empirical Stress Suite", () => {
       expect(projects[7].order).toBe(8);
       expect(projects[8].slug).toBe("banking-fraud-3d-anomaly-manifold");
       expect(projects[8].order).toBe(9);
-      expect(projects[11].slug).toBe("brent-oil-market-dynamics");
-      expect(projects[11].order).toBe(12);
+      expect(projects[10].slug).toBe("enterprise-data-mesh-governance-engine");
+      expect(projects[10].order).toBe(11);
+      expect(projects[12].slug).toBe("brent-oil-market-dynamics");
+      expect(projects[12].order).toBe(13);
     });
   });
 });

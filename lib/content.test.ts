@@ -4,7 +4,7 @@ import { getAdjacentProjects, getMethod, getProjectBySlug, getProjects, getSkill
 describe("local Markdown content", () => {
   it("reads the authored portfolio projects with unique slugs", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(16);
+    expect(projects).toHaveLength(17);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.category && project.system.length > 0 && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(projects.some((project) => project.slug === "banking-transaction-anti-fraud")).toBe(true);
@@ -17,6 +17,7 @@ describe("local Markdown content", () => {
     expect(projects.some((project) => project.slug === "flight-delay-2024-operations-cockpit")).toBe(true);
     expect(projects.some((project) => project.slug === "flight-delay-2024-3d-airspace-network")).toBe(true);
     expect(projects.some((project) => project.slug === "heavy-equipment-credit-risk-analytics")).toBe(true);
+    expect(projects.some((project) => project.slug === "enterprise-data-mesh-governance-engine")).toBe(true);
   });
 
   it("keeps project detail metadata available at build time", () => {
@@ -83,6 +84,19 @@ describe("local Markdown content", () => {
     expect(project?.body).toContain("04. Cross-National Disparities & Eastern European Mortality Clustering");
   });
 
+  it("loads comprehensive markdown narrative for enterprise data mesh governance engine", () => {
+    const project = getProjectBySlug("enterprise-data-mesh-governance-engine");
+    expect(project).toBeDefined();
+    expect(project?.category).toBe("Architecture");
+    expect(project?.tools).toContain("Open Data Contract Standard (ODCS)");
+    expect(project?.preview.metrics).toHaveLength(3);
+    expect(project?.body.length).toBeGreaterThan(1000);
+    expect(project?.body).toContain("01. The Architectural Inflection Point: Monolith vs Mesh");
+    expect(project?.body).toContain("02. The 4 Foundational Pillars of Data Mesh (Zhamak Dehghani)");
+    expect(project?.body).toContain("06. Federated Computational Governance & Data Contracts");
+    expect(project?.body).toContain("12. Enterprise Data Architect Masterclass & Interview FAQ (FQA)");
+  });
+
   it("finds a project by slug with adjacent navigation", () => {
     const project = getProjectBySlug("flight-delay-2024-operations-cockpit");
     expect(project).toBeDefined();
@@ -109,7 +123,7 @@ describe("local Markdown content", () => {
       )
       .map((project) => ({ slug: project.slug }));
 
-    expect(dynamicSlugs).toHaveLength(6);
+    expect(dynamicSlugs).toHaveLength(7);
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("amazon-product-intelligence");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("olist-payment-behavior-analytics");
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("banking-transaction-anti-fraud");
@@ -122,5 +136,6 @@ describe("local Markdown content", () => {
     expect(dynamicSlugs.map((s) => s.slug)).not.toContain("flight-delay-2024-predictive-dispatch");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("global-cancer-epidemiology-surveillance");
     expect(dynamicSlugs.map((s) => s.slug)).toContain("heavy-equipment-credit-risk-analytics");
+    expect(dynamicSlugs.map((s) => s.slug)).toContain("enterprise-data-mesh-governance-engine");
   });
 });

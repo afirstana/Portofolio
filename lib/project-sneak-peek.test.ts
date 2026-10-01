@@ -10,7 +10,7 @@ const root = process.cwd();
 describe("Project Explorer sneak peek", () => {
   it("keeps content-backed preview metadata for every authored project", () => {
     const projects = getProjects();
-    expect(projects).toHaveLength(16);
+    expect(projects).toHaveLength(17);
     expect(projects.every((project) => project.preview.eyebrow && project.preview.metrics.length >= 3 && project.preview.takeaway)).toBe(true);
     expect(getProjects().find((project) => project.slug === "banking-transaction-anti-fraud")?.preview.metrics).toContainEqual({ label: "Analyzed Scope", value: "2,512 Txns" });
     expect(getProjects().find((project) => project.slug === "banking-fraud-3d-network-intelligence")?.preview.metrics).toContainEqual({ label: "Monitored Accounts", value: "495 Nodes" });
@@ -21,6 +21,7 @@ describe("Project Explorer sneak peek", () => {
     expect(getProjects().find((project) => project.slug === "global-cancer-epidemiology-surveillance")?.preview.metrics).toContainEqual({ label: "Panel Scope", value: "281.4k Rows (26 CSVs)" });
     expect(getProjects().find((project) => project.slug === "flight-delay-2024-3d-airspace-network")?.preview.metrics).toContainEqual({ label: "Monitored Hubs", value: "30 Mega Hubs" });
     expect(getProjects().find((project) => project.slug === "heavy-equipment-credit-risk-analytics")?.preview.metrics).toContainEqual({ label: "Tournament ROC-AUC", value: "0.8688" });
+    expect(getProjects().find((project) => project.slug === "enterprise-data-mesh-governance-engine")?.preview.metrics).toContainEqual({ label: "Lead Time", value: "3-6 Wks -> < 15 Min" });
   });
 
   it("provides equivalent hover, keyboard-focus, and mobile touch selectors", () => {

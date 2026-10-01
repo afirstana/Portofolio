@@ -4,8 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { DataArchitectSimulator } from "@/components/DataArchitectSimulator";
-import { DataMeshVisualMasterclass } from "@/components/DataMeshVisualMasterclass";
+import { DataArchitectMasterclass } from "@/components/DataArchitectMasterclass";
 import { getAdjacentProjects, getProjectBySlug, getRelatedProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
@@ -95,17 +94,10 @@ export default function EnterpriseDataMeshMasterclassPage() {
         </div>
 
         {/* ================================================================= */}
-        {/* FITUR UTAMA: SIMULATOR DATA ARCHITECT (BLUEPRINT & INCIDENT GAUNTLET) */}
+        {/* UNIFIED INTERACTIVE MASTERCLASS & DATA ARCHITECT SIMULATOR        */}
         {/* ================================================================= */}
-        <section aria-label="Data Architect Interactive Simulator" style={{ marginBottom: "40px" }}>
-          <DataArchitectSimulator />
-        </section>
-
-        {/* ================================================================= */}
-        {/* MODUL 2: DATA MESH VISUAL MASTERCLASS (GAMBAR & GRAFIK INTERAKTIF) */}
-        {/* ================================================================= */}
-        <section aria-label="Visual Masterclass & Charts Suite" style={{ marginBottom: "40px" }}>
-          <DataMeshVisualMasterclass />
+        <section aria-label="Data Architect Interactive Learning Masterclass" style={{ marginBottom: "40px" }}>
+          <DataArchitectMasterclass />
         </section>
 
         {/* ================================================================= */}

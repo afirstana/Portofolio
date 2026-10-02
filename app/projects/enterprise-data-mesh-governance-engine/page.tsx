@@ -59,12 +59,12 @@ export default function EnterpriseDataMeshMasterclassPage() {
                 letterSpacing: "0.08em",
                 padding: "3px 8px",
                 borderRadius: "3px",
-                backgroundColor: "rgba(96, 165, 250, 0.15)",
+                backgroundColor: "rgba(96, 165, 250, 0.12)",
                 color: "var(--accent, #60a5fa)",
                 textTransform: "uppercase",
               }}
             >
-              SIMULASI DATA ARCHITECT // VISUAL MASTERCLASS HANDBOOK
+              STUDY GUIDE &amp; SIMULATOR
             </span>
             <span
               className="mono"
@@ -73,7 +73,7 @@ export default function EnterpriseDataMeshMasterclassPage() {
                 color: "var(--muted)",
               }}
             >
-              PROJECT #11 • INTERACTIVE ARCHITECTURE SUITE
+              PROJECT #11 • DATA ARCHITECTURE
             </span>
           </div>
 
